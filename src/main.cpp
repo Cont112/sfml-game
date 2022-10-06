@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include "stdafx.h"
+#include "../stdafx.h"
 
 const int LARGURA = 1600, ALTURA = 960;
 

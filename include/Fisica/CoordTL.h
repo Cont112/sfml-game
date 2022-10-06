@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace Coordenadas {
+namespace Fisica {
 
     template <typename TL>
     class Coord {
