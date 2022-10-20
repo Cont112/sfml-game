@@ -685,7 +685,7 @@
 					"_parent": {
 						"$ref": "XqTvRQqsnkuWZZwgQBMH+AAA"
 					},
-					"name": "Gerenciador_Colisões",
+					"name": "Colisões",
 					"stereotype": "Mediador - STL",
 					"attributes": [
 						{
@@ -4986,7 +4986,7 @@
 											"top": 192,
 											"width": 136,
 											"height": 11,
-											"text": "Gerenciador_Grafico"
+											"text": "Grafico"
 										},
 										{
 											"_type": "LabelView",
@@ -11524,7 +11524,7 @@
 											"top": 124,
 											"width": 155,
 											"height": 11,
-											"text": "Gerenciador_Colisões"
+											"text": "Colisões"
 										},
 										{
 											"_type": "LabelView",
@@ -13036,8 +13036,8 @@
 											"lineColor": "#800000",
 											"fillColor": "#c0c0c0",
 											"font": "Arial;13;0",
-											"left": 2384,
-											"top": -1216,
+											"left": 2560,
+											"top": -1328,
 											"height": 13
 										},
 										{
@@ -13049,8 +13049,8 @@
 											"lineColor": "#800000",
 											"fillColor": "#c0c0c0",
 											"font": "Arial;13;1",
-											"left": 1269,
-											"top": 254,
+											"left": 1357,
+											"top": 198,
 											"width": 223,
 											"height": 13,
 											"text": "Fisica"
@@ -13065,8 +13065,8 @@
 											"lineColor": "#800000",
 											"fillColor": "#c0c0c0",
 											"font": "Arial;13;0",
-											"left": 2384,
-											"top": -1216,
+											"left": 2560,
+											"top": -1328,
 											"width": 117.75537109375,
 											"height": 13,
 											"text": "(from Design Model)"
@@ -13081,8 +13081,8 @@
 											"lineColor": "#800000",
 											"fillColor": "#c0c0c0",
 											"font": "Arial;13;0",
-											"left": 2384,
-											"top": -1216,
+											"left": 2560,
+											"top": -1328,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
@@ -13090,8 +13090,8 @@
 									"lineColor": "#800000",
 									"fillColor": "#c0c0c0",
 									"font": "Arial;13;0",
-									"left": 1264,
-									"top": 247,
+									"left": 1352,
+									"top": 191,
 									"width": 233,
 									"height": 25,
 									"stereotypeLabel": {
@@ -13117,8 +13117,8 @@
 							"fillColor": "#c0c0c0",
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 1264,
-							"top": 232,
+							"left": 1352,
+							"top": 176,
 							"width": 233,
 							"height": 329,
 							"nameCompartment": {
@@ -13155,8 +13155,8 @@
 											"lineColor": "#800000",
 											"fillColor": "#ffffb9",
 											"font": "Arial;13;0",
-											"left": 136,
-											"top": -56,
+											"left": 312,
+											"top": -168,
 											"height": 13
 										},
 										{
@@ -13168,8 +13168,8 @@
 											"lineColor": "#800000",
 											"fillColor": "#ffffb9",
 											"font": "Arial;13;1",
-											"left": 1325,
-											"top": 303,
+											"left": 1413,
+											"top": 247,
 											"width": 87,
 											"height": 13,
 											"text": "Coord"
@@ -13184,8 +13184,8 @@
 											"lineColor": "#800000",
 											"fillColor": "#ffffb9",
 											"font": "Arial;13;0",
-											"left": 136,
-											"top": -56,
+											"left": 312,
+											"top": -168,
 											"width": 117.75537109375,
 											"height": 13,
 											"text": "(from Fisica)"
@@ -13200,8 +13200,8 @@
 											"lineColor": "#800000",
 											"fillColor": "#ffffb9",
 											"font": "Arial;13;0",
-											"left": 136,
-											"top": -56,
+											"left": 312,
+											"top": -168,
 											"height": 13,
 											"horizontalAlignment": 1
 										}
@@ -13209,8 +13209,8 @@
 									"lineColor": "#800000",
 									"fillColor": "#ffffb9",
 									"font": "Arial;13;0",
-									"left": 1320,
-									"top": 296,
+									"left": 1408,
+									"top": 240,
 									"width": 97,
 									"height": 25,
 									"stereotypeLabel": {
@@ -13248,8 +13248,8 @@
 											"lineColor": "#800000",
 											"fillColor": "#ffffb9",
 											"font": "Arial;13;0",
-											"left": 1325,
-											"top": 326,
+											"left": 1413,
+											"top": 270,
 											"width": 87,
 											"height": 13,
 											"text": "+TL x",
@@ -13267,8 +13267,8 @@
 											"lineColor": "#800000",
 											"fillColor": "#ffffb9",
 											"font": "Arial;13;0",
-											"left": 1325,
-											"top": 341,
+											"left": 1413,
+											"top": 285,
 											"width": 87,
 											"height": 13,
 											"text": "+TL y",
@@ -13278,8 +13278,8 @@
 									"lineColor": "#800000",
 									"fillColor": "#ffffb9",
 									"font": "Arial;13;0",
-									"left": 1320,
-									"top": 321,
+									"left": 1408,
+									"top": 265,
 									"width": 97,
 									"height": 38
 								},
@@ -13306,8 +13306,8 @@
 											"lineColor": "#800000",
 											"fillColor": "#ffffb9",
 											"font": "Arial;13;0",
-											"left": 1325,
-											"top": 336,
+											"left": 1501,
+											"top": 224,
 											"width": 87,
 											"height": 13,
 											"text": "+TL x()",
@@ -13317,8 +13317,8 @@
 									"lineColor": "#800000",
 									"fillColor": "#ffffb9",
 									"font": "Arial;13;0",
-									"left": 1320,
-									"top": 359,
+									"left": 1408,
+									"top": 303,
 									"width": 97,
 									"height": 10
 								},
@@ -13335,8 +13335,8 @@
 									"lineColor": "#800000",
 									"fillColor": "#ffffb9",
 									"font": "Arial;13;0",
-									"left": 104,
-									"top": -32,
+									"left": 192,
+									"top": -88,
 									"width": 10,
 									"height": 10
 								},
@@ -13353,8 +13353,8 @@
 									"lineColor": "#800000",
 									"fillColor": "#ffffb9",
 									"font": "Arial;13;0",
-									"left": 104,
-									"top": -32,
+									"left": 192,
+									"top": -88,
 									"width": 10,
 									"height": 10
 								}
@@ -13366,8 +13366,8 @@
 							"fillColor": "#ffffb9",
 							"font": "Arial;13;0",
 							"containerChangeable": true,
-							"left": 1320,
-							"top": 296,
+							"left": 1408,
+							"top": 240,
 							"width": 97,
 							"height": 105,
 							"nameCompartment": {
@@ -13885,7 +13885,7 @@
 					"_parent": {
 						"$ref": "IoH8RzmxEE6xOc9zvj2jawAA"
 					},
-					"name": "Gerenciador_Grafico",
+					"name": "Grafico",
 					"stereotype": "Infraestrutura - SFML"
 				},
 				{
@@ -14424,7 +14424,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGDo25Lfyb8WYA="
 									},
-									"name": "TL x"
+									"name": "TL x",
+									"type": ""
 								},
 								{
 									"_type": "UMLAttribute",
@@ -14432,7 +14433,8 @@
 									"_parent": {
 										"$ref": "AAAAAAGDo25Lfyb8WYA="
 									},
-									"name": "TL y"
+									"name": "TL y",
+									"type": ""
 								}
 							],
 							"operations": [

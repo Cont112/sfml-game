@@ -1,13 +1,11 @@
 #pragma once
-#include "../Fisica/CoordTL.h"
-
+#include "../Ente.h"
 
 namespace Entidades {
 
-    class Entidade {
+    class Entidade : public Ente {
         protected:
-            Fisica::CoordF pos;
-            Fisica::CoordF size;
+            int x,y;
 
         public:
             Entidade();
