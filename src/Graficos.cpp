@@ -130,7 +130,7 @@ void Graficos::createTexture(const char* path)
         textureMap.insert(std::pair<const char*, sf::Texture*>(path,texture));
     }     
         
-    std::cout << "Textura ja existe!" << std:endl;
+    std::cout << "Textura ja existe!" << std::endl;
 }
 
 }
