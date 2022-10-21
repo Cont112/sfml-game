@@ -2,25 +2,25 @@
 
 using namespace Gerenciadores;
 
-Jogo::Jogo() : pGerenciadorGrafico(Graficos::getInstance())
+Jogo::Jogo() : pGrafico(Graficos::getInstance())
 {
     executar();
 }
 
 Jogo::~Jogo()
-{ 
+{
 }
 
 void Jogo::executar()
 {
-    while(pGerenciadorGrafico->isWindowOpen())
-    {
-        //pGerenciadorGrafico->updateDeltaTime();
-        pGerenciadorGrafico->clear();
-        //
-        //
-        pGerenciadorGrafico->display();
-    }
 
+    while(pGrafico->isWindowOpen())
+    {
+        pGrafico->updateDeltaTime();
+        pGrafico->clear();
+        //
+        //
+        pGrafico->display();
+    }
 }
 

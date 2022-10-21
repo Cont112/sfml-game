@@ -40,29 +40,46 @@ void Graficos::render(sf::RectangleShape* shape)
     window->draw(*shape);
 }
 
-void Graficos::render(sf::Text* text)
-{
-    window->draw(*text);
-}
-
 void Graficos::display()
 {
-    window->display();
+    if(window != nullptr)
+        window->display();
+    else 
+    {
+        std::cout << "Erro ao criar janela (display)" << std::endl;
+        exit(1);
+    } 
 }
 
 void Graficos::clear()
 {
-    window->clear();
+    if(window != NULL)
+        window->clear();
+    else
+        {
+            std::cout << "Erro ao criar janela (clear)" << std::endl;
+            exit(1);
+        }
 }
 
 bool Graficos::isWindowOpen() const
 {
-    return window->isOpen();
+    if(window != NULL)
+        return window->isOpen();
+    std::cout << "Erro ao verificar a janela" << std::endl;
+    exit(1);
 }
 
 void Graficos::closeWindow()
 {
-    window->close();
+    if(window != NULL)
+        window->close();
+
+    else
+    {
+        std::cout << "Nao eh possivel fechar a janela." << std::endl;
+        exit(1);
+    }
 }
 
 void Graficos::updateDeltaTime()
@@ -71,4 +88,5 @@ void Graficos::updateDeltaTime()
     std::cout << dt << std::endl;
     clock.restart();
 }
+
 }

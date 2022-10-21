@@ -21,7 +21,6 @@ namespace Gerenciadores {
         static Graficos* getInstance();
 
         void render(sf::RectangleShape* shape);
-        void render(sf::Text* text);
 
         void display();
 

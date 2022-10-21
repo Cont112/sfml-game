@@ -7,8 +7,7 @@
 class Jogo {
 private:
 
-    Gerenciadores::Graficos* pGerenciadorGrafico;
-    Entidades::Personagens::Jogador j1;
+    Gerenciadores::Graficos* pGrafico;
 
 public:
     Jogo();
