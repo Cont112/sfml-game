@@ -1,10 +1,11 @@
 #pragma once
+#include"../Entidade.h"
 
 
 namespace Entidades {
     namespace Personagens {
 
-        class Inimigo 
+        class Inimigo: public Entidade
         {
 
 

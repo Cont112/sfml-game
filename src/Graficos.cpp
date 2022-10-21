@@ -3,7 +3,7 @@
 #include<cstring>
 #include<iostream>
 
-#define FONT_PATH "./assets/Fonts/Mayan.ttf"
+#define FONT_PATH "../assets/Fonts/Mayan.ttf"
 #define W_NAME "Tab"
 #define WIDTH 1200
 #define HEIGHT 720
@@ -14,7 +14,7 @@ namespace Gerenciadores {
 Graficos* Graficos::instance = NULL;
 
 Graficos* Graficos::getInstance()
-{
+{   
     if(instance == NULL)
     {
         instance = new Graficos();
@@ -27,11 +27,16 @@ float Graficos::dt = 0;
 
 Graficos::Graficos(): window(new sf::RenderWindow(sf::VideoMode(WIDTH,HEIGHT), W_NAME)),
                       view(sf::Vector2f(WIDTH/2, HEIGHT/2), sf::Vector2f(WIDTH,HEIGHT)),
-                      clock() {}
+                      clock(),
+                      textureMap() {}
 
 Graficos::~Graficos()
 {
-    
+    std::map<const char*, sf::Texture*>::iterator it;
+    for(it = textureMap.begin(); it != textureMap.end();it++)
+    {
+        delete it->second;
+    }
     delete(window);
 }
 
@@ -42,7 +47,7 @@ void Graficos::render(sf::RectangleShape* shape)
 
 void Graficos::display()
 {
-    if(window != nullptr)
+    if(window != NULL)
         window->display();
     else 
     {
@@ -77,9 +82,27 @@ void Graficos::closeWindow()
 
     else
     {
-        std::cout << "Nao eh possivel fechar a janela." << std::endl;
+        std::cout << "Nao foi possivel fechar a janela." << std::endl;
         exit(1);
     }
+}
+
+sf::RenderWindow* Graficos::getWindow() const 
+{
+    if(window != NULL)
+        return window;
+    std::cout << "A janela nao existe!" << std::endl;
+    exit(1);
+}
+
+void Graficos::handleEvent()
+{
+        while (window->pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                closeWindow();
+        }
+        
 }
 
 void Graficos::updateDeltaTime()
@@ -87,6 +110,27 @@ void Graficos::updateDeltaTime()
     dt = clock.getElapsedTime().asSeconds();
     std::cout << dt << std::endl;
     clock.restart();
+}
+
+void Graficos::loadTextures()
+{
+    std::map<const char*, sf::Texture*>::iterator it;
+    for (it = textureMap.begin(); it != textureMap.end(); it++)
+    {
+        it->second->loadFromFile(it->first);
+    }
+}
+
+void Graficos::createTexture(const char* path)
+{
+   
+    if(textureMap.at(path) != NULL)
+    {
+        sf::Texture* texture = new sf::Texture;
+        textureMap.insert(std::pair<const char*, sf::Texture*>(path,texture));
+    }     
+        
+    std::cout << "Textura ja existe!" << std:endl;
 }
 
 }
