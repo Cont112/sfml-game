@@ -123,14 +123,8 @@ void Graficos::loadTextures()
 
 void Graficos::createTexture(const char* path)
 {
-   
-    if(textureMap.at(path) != NULL)
-    {
-        sf::Texture* texture = new sf::Texture;
-        textureMap.insert(std::pair<const char*, sf::Texture*>(path,texture));
-    }     
-        
-    std::cout << "Textura ja existe!" << std::endl;
+    sf::Texture* texture = new sf::Texture;
+    textureMap.insert(std::pair<const char*, sf::Texture*>(path,texture));     
 }
 
 }
