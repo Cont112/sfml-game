@@ -35,14 +35,21 @@ Graficos::~Graficos()
     std::map<const char*, sf::Texture*>::iterator it;
     for(it = textureMap.begin(); it != textureMap.end();it++)
     {
+        std::cout << it->first << std::endl; 
         delete it->second;
     }
+    textureMap.clear();
     delete(window);
 }
 
 void Graficos::render(sf::RectangleShape* shape)
 {
     window->draw(*shape);
+}
+
+void Graficos::render(sf::Sprite* sprite)
+{
+    window->draw(*sprite);
 }
 
 void Graficos::display()
@@ -108,7 +115,6 @@ void Graficos::handleEvent()
 void Graficos::updateDeltaTime()
 {
     dt = clock.getElapsedTime().asSeconds();
-    std::cout << dt << std::endl;
     clock.restart();
 }
 
@@ -123,14 +129,22 @@ void Graficos::loadTextures()
 
 void Graficos::createTexture(const char* path)
 {
-   
-    if(textureMap.at(path) != NULL)
+    std::map<const char*, sf::Texture*>::iterator it;
+
+    for(it = textureMap.begin(); it != textureMap.end(); it++)
     {
-        sf::Texture* texture = new sf::Texture;
-        textureMap.insert(std::pair<const char*, sf::Texture*>(path,texture));
-    }     
+        if(it->first == path)
+        {
+            std::cout << "Textura ja existe!" << std::endl;
+            exit(1);
+        }
         
-    std::cout << "Textura ja existe!" << std::endl;
+    }
+
+    sf::Texture* texture = new sf::Texture;
+    textureMap.insert(std::pair<const char*, sf::Texture*>(path,texture));
+        
+    
 }
 
 }

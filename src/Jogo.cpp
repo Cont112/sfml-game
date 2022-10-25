@@ -13,24 +13,44 @@ Jogo::~Jogo()
 
 void Jogo::executar()
 {
-    sf::RectangleShape* box = new sf::RectangleShape(sf::Vector2f(100.f,100.f));
-        sf::Vector2f velocity(sf::Vector2f(.1f,.1f));
-    const char* path = "../assets/images.jpeg";
-    pGrafico->createTexture(path);
+    Entidades::Entidade* box = new Entidades::Entidade(sf::Vector2f(100.f,100.f));
+    Entidades::Entidade* sqr = new Entidades::Entidade(sf::Vector2f(100.f,100.f));
+
+    std::vector<const char*> paths;
+    paths.push_back("../assets/images.jpeg");
+    paths.push_back("../assets/index.jpeg");
+
+
+    for(const char* path : paths)
+    {
+        pGrafico->createTexture(path);
+    }
+
+    
     pGrafico->loadTextures();
-    box->setTexture(pGrafico->textureMap.at(path));
+
+    box->setTexture(pGrafico->textureMap.at(paths[0]));
+    sqr->setTexture(pGrafico->textureMap.at(paths[1]));
+
+    
+
+    
 
     while(pGrafico->isWindowOpen())
     {
 
         pGrafico->handleEvent();
+
         //
         pGrafico->updateDeltaTime();
         pGrafico->clear();
 
         pGrafico->render(box);
+        pGrafico->render(sqr);
 
-        box->setPosition(box->getPosition() + velocity);
+
+        sqr->move(sf::Vector2f(0.f,.1f));
+        box->move(sf::Vector2f(.1f,0.f));
         //
         //
         pGrafico->display();

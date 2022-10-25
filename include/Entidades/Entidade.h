@@ -1,20 +1,22 @@
 #pragma once
 #include "../Ente.h"
 #include "SFML/Graphics.hpp"
-#include "../Fisica/CoordTL.h"
 
 namespace Entidades {
 
-    class Entidade : public Ente {
+    class Entidade : public sf::RectangleShape , public Ente {
+
         protected:
-        Fisica::CoordF pos;
-        sf::Texture* texture;
-        sf::RectangleShape* hitbox;
-        //TEXTURA
+        sf::FloatRect hitbox;
 
         public:
+            Entidade(const sf::Vector2f size);
             Entidade();
             ~Entidade();
+
+
+            void setHitbox(const sf::FloatRect &h);
+            sf::FloatRect getHitbox() const;
 
     };
 

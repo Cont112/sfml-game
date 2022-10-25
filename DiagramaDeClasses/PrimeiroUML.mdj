@@ -4969,7 +4969,7 @@
 											"font": "Arial;11;0",
 											"left": 899,
 											"top": 179,
-											"width": 136,
+											"width": 273,
 											"height": 11,
 											"text": "«Infraestrutura - SFML»"
 										},
@@ -4984,7 +4984,7 @@
 											"font": "Arial;11;1",
 											"left": 899,
 											"top": 192,
-											"width": 136,
+											"width": 273,
 											"height": 11,
 											"text": "Grafico"
 										},
@@ -5020,7 +5020,7 @@
 									"font": "Arial;11;0",
 									"left": 894,
 									"top": 174,
-									"width": 146,
+									"width": 283,
 									"height": 34,
 									"stereotypeLabel": {
 										"$ref": "sA40G0O3UUGMUxvRxUP+xQAA"
@@ -5044,13 +5044,72 @@
 									"model": {
 										"$ref": "Bpx+ok2YEUa/BXA19tWAowAA"
 									},
+									"subViews": [
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGD8Bks0DkEiCo=",
+											"_parent": {
+												"$ref": "75OpG61s2U2d4toBJX9eowAA"
+											},
+											"model": {
+												"$ref": "AAAAAAGD8Bksmzj11X0="
+											},
+											"lineColor": "#800000",
+											"fillColor": "#FFFFB9",
+											"font": "Arial;11;0",
+											"left": 899,
+											"top": 213,
+											"width": 273,
+											"height": 11,
+											"text": "-window: RenderWindow*",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGD8BnONT33Kws=",
+											"_parent": {
+												"$ref": "75OpG61s2U2d4toBJX9eowAA"
+											},
+											"model": {
+												"$ref": "AAAAAAGD8BnOGD3okhw="
+											},
+											"lineColor": "#800000",
+											"fillColor": "#FFFFB9",
+											"font": "Arial;11;0",
+											"left": 899,
+											"top": 226,
+											"width": 273,
+											"height": 11,
+											"text": "-view: View",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGD8Bq4rVOqkFo=",
+											"_parent": {
+												"$ref": "75OpG61s2U2d4toBJX9eowAA"
+											},
+											"model": {
+												"$ref": "AAAAAAGD8Bq4mlObtCk="
+											},
+											"lineColor": "#800000",
+											"fillColor": "#FFFFB9",
+											"font": "Arial;11;0",
+											"left": 899,
+											"top": 239,
+											"width": 273,
+											"height": 11,
+											"text": "-Attribute1",
+											"horizontalAlignment": 0
+										}
+									],
 									"lineColor": "#800000",
 									"fillColor": "#FFFFB9",
 									"font": "Arial;11;0",
 									"left": 894,
 									"top": 208,
-									"width": 146,
-									"height": 10
+									"width": 283,
+									"height": 47
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -5065,8 +5124,8 @@
 									"fillColor": "#FFFFB9",
 									"font": "Arial;11;0",
 									"left": 894,
-									"top": 218,
-									"width": 146,
+									"top": 255,
+									"width": 283,
 									"height": 10
 								},
 								{
@@ -5091,8 +5150,8 @@
 							"font": "Arial;11;0",
 							"left": 894,
 							"top": 174,
-							"width": 146,
-							"height": 56,
+							"width": 283,
+							"height": 91,
 							"showProperty": false,
 							"nameCompartment": {
 								"$ref": "NAcPt9pWjUyS+6u7WOg4eAAA"
@@ -11785,7 +11844,7 @@
 									"visible": false,
 									"fillColor": "#FFFFFF",
 									"font": "Arial;11;0",
-									"left": 1069,
+									"left": 1206,
 									"top": 199,
 									"height": 11,
 									"alpha": 0,
@@ -11822,7 +11881,7 @@
 									},
 									"fillColor": "#FFFFFF",
 									"font": "Arial;11;0",
-									"left": 1043,
+									"left": 1180,
 									"top": 187,
 									"width": 6.11767578125,
 									"height": 11,
@@ -11861,7 +11920,7 @@
 									"visible": false,
 									"fillColor": "#FFFFFF",
 									"font": "Arial;11;0",
-									"left": 1079,
+									"left": 1216,
 									"top": 199,
 									"height": 11,
 									"alpha": 0,
@@ -11914,7 +11973,7 @@
 							"tail": {
 								"$ref": "ydQ0u2noMUeUz27ryWz7PAAA"
 							},
-							"points": "1039:204;1272:204;1272:28;44:28;44:804;360:804;360:778",
+							"points": "1176:204;1272:204;1272:28;44:28;44:804;360:804;360:778",
 							"showVisibility": true,
 							"showProperty": false,
 							"nameLabel": {
@@ -13886,7 +13945,39 @@
 						"$ref": "IoH8RzmxEE6xOc9zvj2jawAA"
 					},
 					"name": "Grafico",
-					"stereotype": "Infraestrutura - SFML"
+					"stereotype": "Infraestrutura - SFML",
+					"attributes": [
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGD8Bksmzj11X0=",
+							"_parent": {
+								"$ref": "Bpx+ok2YEUa/BXA19tWAowAA"
+							},
+							"name": "window",
+							"visibility": "private",
+							"type": "RenderWindow*"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGD8BnOGD3okhw=",
+							"_parent": {
+								"$ref": "Bpx+ok2YEUa/BXA19tWAowAA"
+							},
+							"name": "view",
+							"visibility": "private",
+							"type": "View"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGD8Bq4mlObtCk=",
+							"_parent": {
+								"$ref": "Bpx+ok2YEUa/BXA19tWAowAA"
+							},
+							"name": "Attribute1",
+							"visibility": "private",
+							"type": ""
+						}
+					]
 				},
 				{
 					"_type": "UMLAssociation",

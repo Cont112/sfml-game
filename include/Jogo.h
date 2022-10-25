@@ -1,7 +1,8 @@
 #pragma once
 
-#include "Entidades/Personagens/Jogador.h"
+#include "Entidades/Entidade.h"
 #include "Gerenciadores/Graficos.h"
+#include <vector>
 
 
 class Jogo {
