@@ -4,12 +4,12 @@ namespace Listas{
     class Elemento{
     private:
         Elemento<TE>* pProx;
-        <TE>* data;
+        //Elemento<TE>* data;
 
     public:
         Elemento();
         ~Elemento();
-        void setData(<TE>* d);
+        //void setData(<TE>* d);
 
     };
 
