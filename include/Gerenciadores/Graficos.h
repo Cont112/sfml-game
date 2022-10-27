@@ -20,12 +20,14 @@ namespace Gerenciadores {
         Graficos();
     public:
         ~Graficos();
-
-        std::map<const char*, sf::Texture*> textureMap;
         
         static Graficos* getInstance();
 
+        std::map<const char*, sf::Texture*> textureMap;
+
         void render(sf::RectangleShape* shape);
+
+        void render(sf::Sprite* sprite);
 
         void display();
 
