@@ -8,7 +8,7 @@ namespace Entidades {
         class Jogador: public Personagem
         {   
             public:
-                Jogador();
+                Jogador(int vi, int d, bool m);
                 ~Jogador();
                 void movimentar()override;
                 void executar()override;            

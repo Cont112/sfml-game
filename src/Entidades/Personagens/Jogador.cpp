@@ -3,7 +3,8 @@
 namespace Entidades{
     namespace Personagens{
         
-        Jogador::Jogador(int vida, int dano, bool morto, sf::Vector2f v): Ṕersonagem(vida,dano,morto,v){ 
+        Jogador::Jogador(int vi=100, int d=10, bool m=false): Personagem(vi,d,m)
+        { 
 
         }
         void Jogador::movimentar(){

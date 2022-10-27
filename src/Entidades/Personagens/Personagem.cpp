@@ -3,9 +3,13 @@
 namespace Entidades {
     namespace Personagens{
 
-        Personagem::Personagem(int vida, int dano, bool morto, sf::Vector2f v ): Entidade(), vida(vida), dano(dano), morto(morto), velocidade(v)
+        Personagem::Personagem(int vi=100, int d=10, bool m=false ): Entidade()
         {
             //terminar de incializar 
+            vida=vi;
+            dano=d;
+            morto =m;
+
         
         }
 
@@ -15,12 +19,12 @@ namespace Entidades {
             morto = true;
         }
     
-        void Personagem::setVelocidade (sf::Vector2f v)
+        void Personagem::setVelocidade (Fisica::CoordF v)
         {
             velocidade.x = v.x;
             velocidade.y= v.y;
         }
-        sf::Vector2f Personagem:: getVelocidade() const
+        Fisica::CoordF Personagem:: getVelocidade() const
         {
             return velocidade;
         }
