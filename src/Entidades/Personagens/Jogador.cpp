@@ -13,6 +13,7 @@ namespace Entidades{
         }
         void Jogador::executar()
         {
+            
 
         }
         void Jogador::movimentar(){

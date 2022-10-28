@@ -10,6 +10,7 @@ namespace Listas{
         Elemento();
         ~Elemento();
         //void setData(<TE>* d);
+        void setProximo(Elemento<TE>* p);
 
     };
 
