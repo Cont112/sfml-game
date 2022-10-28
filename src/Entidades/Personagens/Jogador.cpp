@@ -7,6 +7,14 @@ namespace Entidades{
         { 
 
         }
+        Jogador::~Jogador()
+        {
+
+        }
+        void Jogador::executar()
+        {
+
+        }
         void Jogador::movimentar(){
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
                 move(-this->velocidade.x, 0.f);
