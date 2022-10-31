@@ -5,6 +5,7 @@ namespace Entidades{
         
         Jogador::Jogador(int vi=100, int d=10, bool m=false): Personagem(vi,d,m)
         { 
+            Entidade(sf::Vector2f(100.f, 100.f));
 
         }
         Jogador::~Jogador()

@@ -2,6 +2,7 @@
 #include "../Ente.h"
 #include "SFML/Graphics.hpp"
 
+
 namespace Entidades {
 
     class Entidade : public sf::RectangleShape , public Ente {

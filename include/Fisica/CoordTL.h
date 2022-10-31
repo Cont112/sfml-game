@@ -16,7 +16,6 @@ namespace Fisica {
         ~Coord() { }
 
         void operator=(Coord<TL> other);
-        void operator=(TL other);
         void operator+=(Coord<TL> other);
         void operator-=(Coord<TL> other);
         void operator*=(double scalar);
@@ -51,12 +50,7 @@ namespace Fisica {
         this->x = other.x;
         this->y = other.y;
     }
-    template <typename TL>
-    void Coord<TL>::operator=(TL other){
-        this->x=other;
-        this->y=other;
-    }
-
+    
     template <typename TL>
     void Coord<TL>::operator+=(Coord<TL> other) {
         this->x += other.x;

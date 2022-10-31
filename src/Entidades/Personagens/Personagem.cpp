@@ -21,7 +21,7 @@ namespace Entidades {
         void Personagem::setVelocidade (Fisica::CoordF v)
         {
             velocidade.x = v.x;
-            velocidade.y= v.y;
+            velocidade.y = v.y;
         }
         Fisica::CoordF Personagem:: getVelocidade() const
         {
