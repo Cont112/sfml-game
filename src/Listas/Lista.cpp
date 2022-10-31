@@ -70,25 +70,6 @@ namespace Listas
 
     }
 
-    template <class TL>
-    TL* Lista<TL>::pop_back()
-    {
-        Elemento<TL>* paux = NULL;
-
-        if(!empty())
-        {
-            paux = pUltimo;
-            pUltimo = pUltimo->getAnterior();
-        }
-        else
-        {
-            std::cout << "Erro: Nao foi possivel popar a lista vazia (Lista::<TL>::pop_back" << std::endl;
-            exit(1);
-        }
-
-        return paux->getData();
-    }
-
 
 }
 

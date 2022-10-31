@@ -9,6 +9,7 @@ namespace Entidades {
         {   
             public:
                 Jogador(int vi, int d, bool m);
+                Jogador();
                 ~Jogador();
                 
                 void movimentar()override;

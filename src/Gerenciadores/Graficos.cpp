@@ -42,21 +42,12 @@ Graficos::~Graficos()
     delete(window);
 }
 
-void Graficos::render(sf::RectangleShape* shape)
-{
-    window->draw(*shape);
-}
 
 void Graficos::render(sf::Sprite* sprite)
 {
     window->draw(*sprite);
 }
 
-void Graficos::render(Entidades::Entidade* entidade)
-{
-
-    window->draw(*entidade);
-}
 
 void Graficos::display()
 {

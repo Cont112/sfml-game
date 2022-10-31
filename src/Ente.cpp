@@ -1,9 +1,14 @@
 #include "../include/Ente.h"
 
-Ente::Ente() {}
+using namespace Gerenciadores;
+
+Ente::Ente() : pGrafico(Graficos::getInstance())
+{
+}
 
 Ente::~Ente() {}
 
-void Ente::executar() {}
-
-void Ente::imprimir_se() {}
+void Ente::imprimir_se() 
+{ 
+    
+}

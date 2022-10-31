@@ -2,11 +2,8 @@
 
 namespace Entidades {
 
-    Entidade::Entidade(const sf::Vector2f size): sf::RectangleShape(size), Ente()
-    {
-    }
 
-    Entidade::Entidade(): sf::RectangleShape(), Ente()
+    Entidade::Entidade() : Ente()
     {
     }
 
@@ -14,13 +11,9 @@ namespace Entidades {
     { 
     }
 
-    void Entidade::setHitbox( const sf::FloatRect& h)
+    void Entidades::render()
     {
-        hitbox = h;
-    }
-    sf::FloatRect Entidade::getHitbox() const
-    {
-        return getTransform().transformRect(hitbox);
+        
     }
 }
 

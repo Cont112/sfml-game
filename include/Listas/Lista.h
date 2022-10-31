@@ -9,13 +9,11 @@ namespace Listas{
         class Elemento {
         private:
             Elemento<TE>* pProximo;
-            Elemento<TE>* pAnterior;
             TE* pData;
         public:
             Elemento()
             {
                 pProximo = NULL;
-                pAnterior = NULL;
                 pData = NULL;
             }
             ~Elemento()
@@ -44,7 +42,6 @@ namespace Listas{
         ~Lista();
         
         void push_back(TL* info);
-        TL* pop_back();
 
     private:
         bool empty();

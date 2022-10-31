@@ -25,8 +25,6 @@ namespace Gerenciadores {
 
         std::map<const char*, sf::Texture*> textureMap;
 
-        void render(sf::RectangleShape* shape);
-
         void render(sf::Sprite* sprite);
 
         void render(Entidades::Entidade* entidade);
