@@ -1,5 +1,6 @@
 #pragma once
 #include "../Fisica/CoordTL.h"
+#include "../Entidades/Entidade.h"
 #include <SFML/Graphics.hpp>
 #include <map>
 
@@ -13,7 +14,6 @@ namespace Gerenciadores {
         sf::Clock clock;
         static float dt;
         
-
         //Singleton
         static Gerenciadores::Graficos* instance; 
 
@@ -28,6 +28,8 @@ namespace Gerenciadores {
         void render(sf::RectangleShape* shape);
 
         void render(sf::Sprite* sprite);
+
+        void render(Entidades::Entidade* entidade);
 
         void display();
 

@@ -1,50 +1,94 @@
 #include "../../include/Listas/Lista.h"
-#include <stdio.h>
-using namespace Listas;
 
-template <typename TE>
-Elemento<TE>::Elemento()
+namespace Listas
 {
-    pProx == NULL;
-
-}
-template <typename TE>
-Elemento<TE>::~Elemento()
-{
-
-}
-template <typename TE>
-void Elemento<TE>::setProximo(Elemento<TE>* p)
-{
-    pProx = p;
-}
-template <typename TL>
-Lista<TL>::Lista()
-{   
-    pPrimeiro = NULL;
-    pUltimo = NULL;
-
-}
-template <typename TL>
-Lista<TL>::~Lista()
-{
-
-}
-template <typename TL>
-void Lista<TL>::inserir(Elemento<TL>* p)
-{
-    if (pPrimeiro==NULL)
+    template <class TL>
+    Lista<TL>::Lista() : pPrimeiro(NULL), pUltimo(NULL), tamanho(0) {}
+    
+    template <class TL>
+    Lista<TL>::~Lista()
     {
-        pPrimeiro = p;
-        pUltimo = p;
-        pUltimo->pProx=NULL;
+        Elemento<TL>* paux;
+        paux = pPrimeiro;
+
+        while(pPrimeiro != NULL)
+        {
+            pPrimeiro = pPrimeiro->getProximo();
+            delete paux;
+            paux = pPrimeiro;
+            tamanho--;
+        }
+
+        pPrimeiro = NULL;
+        pUltimo = NULL;
     }
-    else
+    
+    template<class TL>
+    bool Lista<TL>::empty()
     {
-        pUltimo->pProx = p;
-        pUltimo = p;
-        pUltimo->pProx =NULL;
+        return (pPrimeiro == NULL && tamanho == 0);
+    }
+
+    template <class TL>
+    void Lista<TL>::setElemento(Elemento<TL>* pElemento)
+
+    {
+        if(pElemento != NULL)
+        {
+            if(empty())
+            {
+                pPrimeiro = pElemento;
+                pUltimo = pPrimeiro;
+            }
+            else
+            {
+                pUltimo->setProximo(pElemento);
+                pUltimo = pElemento;
+            }
+        }
+
+        else
+        {
+            std::cout << "Erro: Nao foi possivel setar o elemento na lista (Lista<TL>::setElemento)." << std::endl;
+        }
+    }
+
+    template <class TL>
+    void Lista<TL>::push_back(TL* info)
+    {
+
+        if(info != NULL)
+        {
+            Elemento<TL>* elemento = new Elemento<TL>;
+            elemento->setData(info);
+            setElemento(elemento);
+        }
+        else
+        {
+            std::cout << "Erro: Nao foi possivel pushar para a lista. Ponteiro eh nulo! (Lista<TL>::push)" << std::endl;
+        }
 
     }
+
+    template <class TL>
+    TL* Lista<TL>::pop_back()
+    {
+        Elemento<TL>* paux = NULL;
+
+        if(!empty())
+        {
+            paux = pUltimo;
+            pUltimo = pUltimo->getAnterior();
+        }
+        else
+        {
+            std::cout << "Erro: Nao foi possivel popar a lista vazia (Lista::<TL>::pop_back" << std::endl;
+            exit(1);
+        }
+
+        return paux->getData();
+    }
+
+
 }
 

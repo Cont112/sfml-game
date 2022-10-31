@@ -3,6 +3,7 @@
 class Ente {
 protected:
     int id;
+    
 
 public:
     Ente();

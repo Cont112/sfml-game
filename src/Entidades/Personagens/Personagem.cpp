@@ -9,8 +9,7 @@ namespace Entidades {
             vida=vi;
             dano=d;
             morto =m;
-
-        
+            
         }
 
         Personagem::~Personagem()
