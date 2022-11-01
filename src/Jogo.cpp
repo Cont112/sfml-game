@@ -3,6 +3,7 @@
 
 Jogo::Jogo(): pGrafico(Gerenciadores::Graficos::getInstance())
 {
+    isRunning = false;
     executar();
 }
 
@@ -14,8 +15,6 @@ void Jogo::executar()
 {
 
     pGrafico->executar();
-
-    //j1->setTexture (pGrafico->textureMap.at(paths[2]));
     
     while(pGrafico->isWindowOpen())
     {

@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Menu.h"
+#include "Fases/Fase1.h"
+//#include "Fases/Fase2.h"
 #include "Gerenciadores/Graficos.h"
 #include <vector>
 
