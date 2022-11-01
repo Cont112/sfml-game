@@ -3,29 +3,43 @@
 namespace Entidades {
     namespace Personagens{
 
-        Personagem::Personagem(int vi=100, int d=10, bool m=false ): Entidade()
+        Personagem::Personagem(int vi=100, int d=10, bool m=false, float vx =0, float vy =0 ): Entidade()
         {
-            //terminar de incializar 
+            
             vida=vi;
             dano=d;
             morto =m;
+            velocidade.x = vx;
+            velocidade.y = vy;
+            sprite->setScale(1.f, 1.f);
             
         }
 
         Personagem::~Personagem()
         {
-            vida = 0;
-            morto = true;
+           
+        }
+        sf::Vector2f Personagem:: getVelocidade() const
+        {
+            return velocidade;
         }
     
-        void Personagem::setVelocidade (Fisica::CoordF v)
+        void Personagem::setVelocidade (sf::Vector2f v)
         {
             velocidade.x = v.x;
             velocidade.y = v.y;
         }
-        Fisica::CoordF Personagem:: getVelocidade() const
+        void Personagem::setMorto(bool m)
         {
-            return velocidade;
+            morto = m;
+        }
+        void Personagem::setVida (int v)
+        {
+            vida = v;
+        }
+        void Personagem::setDano(int d)
+        {
+            dano = d;
         }
     }
 }

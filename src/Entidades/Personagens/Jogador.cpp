@@ -3,12 +3,9 @@
 namespace Entidades{
     namespace Personagens{
         
-        Jogador::Jogador(int vi, int d, bool m): Personagem(vi,d,m)
+        Jogador::Jogador(int vi =100, int d=10, bool m=false): Personagem(vi,d,m,0,0)
         {
-        }
 
-        Jogador::Jogador(): Personagem(100,20,false)
-        {
         }
 
         Jogador::~Jogador()
@@ -21,9 +18,9 @@ namespace Entidades{
         }
         void Jogador::movimentar(){
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-                move(-this->velocidade.x, 0.f);
+                sprite->move(-this->velocidade.x, 0.f);
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-                move(this->velocidade.x, 0.f);
+                sprite->move(this->velocidade.x, 0.f);
         }
 
     }

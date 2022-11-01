@@ -4,6 +4,7 @@ using namespace Gerenciadores;
 
 Ente::Ente() : pGrafico(Graficos::getInstance())
 {
+
 }
 
 Ente::~Ente() {}

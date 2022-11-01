@@ -3,17 +3,27 @@
 namespace Entidades {
 
 
-    Entidade::Entidade() : Ente()
+    Entidade::Entidade(int posx, int posy) : Ente()
     {
+        x = posx;
+        y = posy;
+
+
     }
 
     Entidade::~Entidade()
     { 
     }
 
-    void Entidades::render()
+    void Entidade::imprimir_se()
     {
+        pGrafico->render(sprite);
         
+    }
+    void Entidade::setTextura(sf::Texture t)
+    {
+        sprite->setTexture(t);
+
     }
 }
 

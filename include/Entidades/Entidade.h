@@ -7,17 +7,19 @@ namespace Entidades {
     class Entidade : public Ente
     {
         protected:
+            //pode usar vetor ?
             int x;
             int y;
-            //pode usar vetor ?
             sf::Sprite* sprite;
+            
             
 
         public:
-            Entidade();
+            Entidade(int posx = 0 , int posy  = 0);
             ~Entidade();
 
-            void render()override;
+            void imprimir_se();
+            void setTextura(sf::Texture t);
 
     };
 

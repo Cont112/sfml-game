@@ -11,14 +11,17 @@ namespace Entidades {
             int vida;
             int dano;
             bool morto;
-            Fisica::CoordF velocidade;        
+            sf::Vector2f velocidade;        
            
 
         public:
-            Personagem(int vi, int d, bool m);
+            Personagem(int vi, int d, bool m, float vx, float vy);
             ~Personagem();
-            void setVelocidade (Fisica::CoordF v);
-            Fisica::CoordF getVelocidade() const;
+            sf::Vector2f getVelocidade() const;
+            void setVelocidade (sf::Vector2f v);
+            void setMorto(bool m);
+            void setVida (int v);
+            void setDano(int d);
             
 
             virtual void executar() = 0;
