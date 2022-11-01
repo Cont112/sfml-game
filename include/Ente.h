@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Gerenciadores/Graficos.h"
+#include <SFML/Graphics.hpp>
 
 class Ente {
 protected:
@@ -13,6 +14,6 @@ public:
 
     
     virtual void executar() = 0;
-    virtual void imprimir_se();
+    virtual void imprimir_se() = 0;
     
 };

@@ -8,6 +8,12 @@ namespace Listas
     template <class TL>
     Lista<TL>::~Lista()
     {
+        limpar();
+    }
+    
+    template<class TL>
+    void Lista<TL>::limpar()
+    {
         Elemento<TL>* paux;
         paux = pPrimeiro;
 
@@ -22,7 +28,7 @@ namespace Listas
         pPrimeiro = NULL;
         pUltimo = NULL;
     }
-    
+
     template<class TL>
     bool Lista<TL>::empty()
     {

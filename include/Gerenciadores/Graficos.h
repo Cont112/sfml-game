@@ -1,7 +1,7 @@
 #pragma once
 #include "../Fisica/CoordTL.h"
-#include "../Entidades/Entidade.h"
 #include <SFML/Graphics.hpp>
+#include <vector>
 #include <map>
 
 namespace Gerenciadores {
@@ -27,8 +27,6 @@ namespace Gerenciadores {
 
         void render(sf::Sprite* sprite);
 
-        void render(Entidades::Entidade* entidade);
-
         void display();
 
         void clear();
@@ -46,5 +44,7 @@ namespace Gerenciadores {
         void loadTextures();
 
         void createTexture(const char* path);
+
+        void executar();
     };
 }

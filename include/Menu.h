@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Ente.h"
+#include "iostream"
 
 class Menu: public Ente 
 {
@@ -12,4 +13,5 @@ public:
     ~Menu();
 
     void executar()override;
+    void imprimir_se()override;
 };

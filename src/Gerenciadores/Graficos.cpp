@@ -42,12 +42,10 @@ Graficos::~Graficos()
     delete(window);
 }
 
-
 void Graficos::render(sf::Sprite* sprite)
 {
     window->draw(*sprite);
 }
-
 
 void Graficos::display()
 {
@@ -144,4 +142,19 @@ void Graficos::createTexture(const char* path)
     
 }
 
+void Graficos::executar()
+{
+    std::vector<const char*> paths;
+
+    //CARREGAR AS TEXTURAS AQUI
+    paths.push_back("assets/index.jpeg");
+    paths.push_back("assets/images.jpeg");
+    paths.push_back("assets/barreto.jpg");
+    
+    for(const char* path : paths)
+    {
+        createTexture(path);
+    }
+    loadTextures();
+}
 }

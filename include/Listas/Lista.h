@@ -19,15 +19,11 @@ namespace Listas{
             ~Elemento()
             {
                 pProximo = NULL;
-                pAnterior = NULL;
                 pData = NULL;
             }
 
             void setProximo (Elemento<TE>* proximo) {pProximo = proximo;}
             Elemento<TE>* getProximo () {return pProximo;}
-
-            void setAnterior(Elemento<TE>* anterior) {pAnterior = anterior;}
-            Elemento<TE>* getAnterior() {return pAnterior;}
 
             void setData(TE *d) {pData = d;}
             TE* getData() {return pData;}
@@ -42,6 +38,7 @@ namespace Listas{
         ~Lista();
         
         void push_back(TL* info);
+        void limpar();
 
     private:
         bool empty();

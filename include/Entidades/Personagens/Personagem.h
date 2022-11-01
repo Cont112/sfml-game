@@ -18,14 +18,11 @@ namespace Entidades {
             Personagem(int vi, int d, bool m, float vx, float vy);
             ~Personagem();
             sf::Vector2f getVelocidade() const;
+            int getVida() const;
             void setVelocidade (sf::Vector2f v);
             void setMorto(bool m);
             void setVida (int v);
             void setDano(int d);
-            
-
-            virtual void executar() = 0;
-            virtual void movimentar() = 0;
         };
     }
 }

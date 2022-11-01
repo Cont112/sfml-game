@@ -1,7 +1,7 @@
 #include "../include/Jogo.h"
 
 
-Jogo::Jogo()
+Jogo::Jogo(): pGrafico(Gerenciadores::Graficos::getInstance())
 {
     executar();
 }
@@ -13,19 +13,7 @@ Jogo::~Jogo()
 void Jogo::executar()
 {
 
-    std::vector<const char*> paths;
-
-    
-
-    paths.push_back("assets/index.jpeg");
-    paths.push_back("assets/images.jpeg");
-    paths.push_back("assets/barreto.jpg");
-    
-    for(const char* path : paths)
-    {
-        pGrafico->createTexture(path);
-    }
-    pGrafico->loadTextures();
+    pGrafico->executar();
 
     //j1->setTexture (pGrafico->textureMap.at(paths[2]));
     

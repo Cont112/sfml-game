@@ -19,7 +19,7 @@ namespace Entidades {
         {
            
         }
-        sf::Vector2f Personagem:: getVelocidade() const
+        sf::Vector2f Personagem::getVelocidade() const
         {
             return velocidade;
         }
@@ -40,6 +40,11 @@ namespace Entidades {
         void Personagem::setDano(int d)
         {
             dano = d;
+        }
+
+        int Personagem::getVida()const
+        {
+            return vida;
         }
     }
 }
