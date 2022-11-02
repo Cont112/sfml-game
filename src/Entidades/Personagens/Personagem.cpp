@@ -11,7 +11,6 @@ namespace Entidades {
             morto =m;
             velocidade.x = vx;
             velocidade.y = vy;
-            sprite->setScale(1.f, 1.f);
             
         }
 

@@ -3,7 +3,6 @@
 
 Jogo::Jogo(): pGrafico(Gerenciadores::Graficos::getInstance())
 {
-    isRunning = false;
     executar();
 }
 
@@ -14,7 +13,12 @@ Jogo::~Jogo()
 void Jogo::executar()
 {
 
-    pGrafico->executar();
+    const char* path = "assets/images.jpeg";
+    pGrafico->createTexture(path);
+    pGrafico->loadTextures();
+
+
+
     
     while(pGrafico->isWindowOpen())
     {
@@ -22,7 +26,8 @@ void Jogo::executar()
         pGrafico->handleEvent();
         pGrafico->updateDeltaTime();
         pGrafico->clear();
-        
+       
+
         pGrafico->display();        
     }
 

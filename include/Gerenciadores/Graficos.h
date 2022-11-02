@@ -1,5 +1,4 @@
 #pragma once
-#include "../Fisica/CoordTL.h"
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <map>
@@ -25,7 +24,7 @@ namespace Gerenciadores {
 
         std::map<const char*, sf::Texture*> textureMap;
 
-        void render(sf::Sprite* sprite);
+        void render(sf::Sprite sprite);
 
         void display();
 
@@ -45,6 +44,6 @@ namespace Gerenciadores {
 
         void createTexture(const char* path);
 
-        void executar();
+
     };
 }

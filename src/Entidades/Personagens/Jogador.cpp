@@ -14,14 +14,13 @@ namespace Entidades{
         }
         void Jogador::executar()
         {
-            imprimir_se();
-            movimentar();
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+                std::cout << "-1" << std::endl;
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+                std::cout << "1" << std::endl;
+            
         }
 
-        void Jogador::movimentar()
-        {
-            sprite->move(velocidade);
-        }
     }
 
 

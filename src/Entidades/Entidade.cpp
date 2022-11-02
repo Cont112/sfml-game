@@ -7,8 +7,6 @@ namespace Entidades {
     {
         x = posx;
         y = posy;
-
-
     }
 
     Entidade::~Entidade()
@@ -17,13 +15,13 @@ namespace Entidades {
 
     void Entidade::imprimir_se()
     {
-        pGrafico->render(sprite);
-        
+        pGrafico->render(sprite);   
     }
-    void Entidade::setTextura(sf::Texture t)
-    {
-        sprite->setTexture(t);
 
+    sf::Sprite Entidade::getSprite() const
+    {
+        return sprite;
     }
+
 }
 
