@@ -5,7 +5,7 @@
 
 namespace Gerenciadores {
 
-    class Graficos{
+    class Gerenciador_Grafico{
     private:
         sf::RenderWindow* window;
         sf::Event event;
@@ -14,17 +14,17 @@ namespace Gerenciadores {
         static float dt;
         
         //Singleton
-        static Gerenciadores::Graficos* instance; 
+        static Gerenciadores::Gerenciador_Grafico* instance; 
 
-        Graficos();
+        Gerenciador_Grafico();
     public:
-        ~Graficos();
+        ~Gerenciador_Grafico();
         
-        static Graficos* getInstance();
+        static Gerenciador_Grafico* getInstance();
 
         std::map<const char*, sf::Texture*> textureMap;
 
-        void render(sf::Sprite sprite);
+        void render(sf::RectangleShape shape);
 
         void display();
 
@@ -43,7 +43,6 @@ namespace Gerenciadores {
         void loadTextures();
 
         void createTexture(const char* path);
-
 
     };
 }

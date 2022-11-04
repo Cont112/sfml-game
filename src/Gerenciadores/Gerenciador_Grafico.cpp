@@ -1,4 +1,4 @@
-#include "../../include/Gerenciadores/Graficos.h"
+#include "../../include/Gerenciadores/Gerenciador_Grafico.h"
 
 #include<cstring>
 #include<iostream>
@@ -10,26 +10,26 @@
 
 namespace Gerenciadores {
 
-Graficos* Graficos::instance = NULL;
+Gerenciador_Grafico* Gerenciador_Grafico::instance = NULL;
 
-Graficos* Graficos::getInstance()
+Gerenciador_Grafico* Gerenciador_Grafico::getInstance()
 {   
     if(instance == NULL)
     {
-        instance = new Graficos();
+        instance = new Gerenciador_Grafico();
     }
     return instance;
 
 }
 
-float Graficos::dt = 0;
+float Gerenciador_Grafico::dt = 0;
 
-Graficos::Graficos(): window(new sf::RenderWindow(sf::VideoMode(WIDTH,HEIGHT), W_NAME)),
+Gerenciador_Grafico::Gerenciador_Grafico(): window(new sf::RenderWindow(sf::VideoMode(WIDTH,HEIGHT), W_NAME)),
                       view(sf::Vector2f(WIDTH/2, HEIGHT/2), sf::Vector2f(WIDTH,HEIGHT)),
                       clock(),
                       textureMap() {}
 
-Graficos::~Graficos()
+Gerenciador_Grafico::~Gerenciador_Grafico()
 {
     std::map<const char*, sf::Texture*>::iterator it;
     for(it = textureMap.begin(); it != textureMap.end();it++)
@@ -41,12 +41,12 @@ Graficos::~Graficos()
     delete(window);
 }
 
-void Graficos::render(sf::Sprite sprite)
+void Gerenciador_Grafico::render(sf::RectangleShape shape)
 {
-    window->draw(sprite);
+    window->draw(shape);
 }
 
-void Graficos::display()
+void Gerenciador_Grafico::display()
 {
     if(window != NULL)
         window->display();
@@ -57,7 +57,7 @@ void Graficos::display()
     } 
 }
 
-void Graficos::clear()
+void Gerenciador_Grafico::clear()
 {
     if(window != NULL)
         window->clear();
@@ -68,7 +68,7 @@ void Graficos::clear()
         }
 }
 
-bool Graficos::isWindowOpen() const
+bool Gerenciador_Grafico::isWindowOpen() const
 {
     if(window != NULL)
         return window->isOpen();
@@ -76,7 +76,7 @@ bool Graficos::isWindowOpen() const
     exit(1);
 }
 
-void Graficos::closeWindow()
+void Gerenciador_Grafico::closeWindow()
 {
     if(window != NULL)
         window->close();
@@ -88,7 +88,7 @@ void Graficos::closeWindow()
     }
 }
 
-sf::RenderWindow* Graficos::getWindow() const 
+sf::RenderWindow* Gerenciador_Grafico::getWindow() const 
 {
     if(window != NULL)
         return window;
@@ -96,7 +96,7 @@ sf::RenderWindow* Graficos::getWindow() const
     exit(1);
 }
 
-void Graficos::handleEvent()
+void Gerenciador_Grafico::handleEvent()
 {
         while (window->pollEvent(event))
         {
@@ -106,13 +106,13 @@ void Graficos::handleEvent()
         
 }
 
-void Graficos::updateDeltaTime()
+void Gerenciador_Grafico::updateDeltaTime()
 {
     dt = clock.getElapsedTime().asSeconds();
     clock.restart();
 }
 
-void Graficos::loadTextures()
+void Gerenciador_Grafico::loadTextures()
 {
     std::map<const char*, sf::Texture*>::iterator it;
     for (it = textureMap.begin(); it != textureMap.end(); it++)
@@ -121,7 +121,7 @@ void Graficos::loadTextures()
     }
 }
 
-void Graficos::createTexture(const char* path)
+void Gerenciador_Grafico::createTexture(const char* path)
 {
     std::map<const char*, sf::Texture*>::iterator it;
 

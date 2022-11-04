@@ -1,19 +1,16 @@
 #pragma once
 
-#include "Menu.h"
-#include "Fases/Fase1.h"
-//#include "Fases/Fase2.h"
-#include "Entidades/Personagens/Jogador.h"
-#include "Gerenciadores/Graficos.h"
+#include "Jogador.h"
+#include "Gerenciadores/Gerenciador_Grafico.h"
 #include <vector>
 
 
 class Jogo
 {
 private:
-    Menu menu;
-    Gerenciadores::Graficos* pGrafico;
-    Entidades::Personagens::Jogador* j1;
+
+    Jogador j1;
+    Gerenciadores::Gerenciador_Grafico* pGrafico;
 
 
 public:
