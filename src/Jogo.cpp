@@ -13,7 +13,7 @@ Jogo::~Jogo()
 void Jogo::executar()
 {
 
-    const char* path = "assets/images.jpeg";
+    const char* path = "assets/barreto.jpg";
 
     sf::RectangleShape* shape = new sf::RectangleShape(sf::Vector2f(100.0f,100.0f));
 
