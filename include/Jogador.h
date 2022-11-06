@@ -1,8 +1,10 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Gerenciadores/Gerenciador_Grafico.h"
+#include "Ente.h"
 
-class Jogador
+class Jogador:public Ente 
 {
     private:
         sf::RectangleShape shape;
@@ -10,10 +12,11 @@ class Jogador
 
         void init();
     public:
-        Jogador();
+        Jogador(Gerenciadores::Gerenciador_Grafico *p = nullptr );
         ~Jogador();
         sf::RectangleShape getShape() const;
         void setTextura(sf::Texture* texture);
         void movimentar();
+        //void imprimir_se();
 
 };

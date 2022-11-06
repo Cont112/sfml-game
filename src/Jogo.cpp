@@ -1,7 +1,8 @@
 #include "../include/Jogo.h"
 
 
-Jogo::Jogo(): pGrafico(Gerenciadores::Gerenciador_Grafico::getInstance()) , j1()
+Jogo::Jogo(): pGrafico(Gerenciadores::Gerenciador_Grafico::getInstance()), 
+              j1(pGrafico)
 {
     executar();
 }
@@ -23,10 +24,13 @@ void Jogo::executar()
         std::cout << "Nao foi possivel carregar a textura" << std::endl;
     else
         std::cout << "Textura carregada com sucesso!" << std::endl;
+
+    
     
     j1.setTextura(&texture);
 
     
+
     while(pGrafico->isWindowOpen())
     {
 

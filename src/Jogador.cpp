@@ -1,6 +1,6 @@
 #include "../include/Jogador.h"
 
-Jogador::Jogador()
+Jogador::Jogador(Gerenciadores::Gerenciador_Grafico *p ):Ente(p)
 {
     init();
 }
@@ -15,6 +15,7 @@ void Jogador::init()
     shape.setOrigin(0.0f,0.0f);
     shape.setSize(sf::Vector2f(100.0f,100.0f));
 }
+
 sf::RectangleShape Jogador::getShape() const
 {
     return shape;
@@ -50,3 +51,4 @@ void Jogador::movimentar()
         std::cout << 0 << "," << 1 << std::endl;
     }
 }
+
