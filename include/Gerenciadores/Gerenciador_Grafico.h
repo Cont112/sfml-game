@@ -44,5 +44,7 @@ namespace Gerenciadores {
 
         void createTexture(const char* path);
 
+        void deletarPonteiro();
+
     };
 }

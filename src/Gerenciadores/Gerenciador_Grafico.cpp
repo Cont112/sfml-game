@@ -38,6 +38,8 @@ Gerenciador_Grafico::~Gerenciador_Grafico()
     }
     textureMap.clear();
     delete(window);
+    
+    
 
     std::cout << "Gerenciador_Grafico foi destruido!" << std::endl;
 }
@@ -147,4 +149,8 @@ void Gerenciador_Grafico::createTexture(const char* path)
     std::cout << "Textura no caminho " << path << " criada com sucesso!" << std::endl;
 }
 
+void Gerenciador_Grafico::deletarPonteiro()
+{
+    delete instance;
+}
 }

@@ -3,7 +3,7 @@
 namespace Entidades{
     namespace Personagens{
 
-        Personagem::Personagem()
+        Personagem::Personagem():vida(100), dano(10)
         {
         }
 

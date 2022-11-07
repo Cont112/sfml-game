@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Entidades/Personagens/Jogador.h"
+#include "Entidades/Personagens/Inimigo.h"
 #include "Gerenciadores/Gerenciador_Grafico.h"
 #include "Ente.h"
 #include <vector>
