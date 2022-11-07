@@ -16,7 +16,7 @@ Jogo::~Jogo()
 void Jogo::executar()
 {
 
-    const char* path = "assets/barreto.jpg";
+    const char* path = "assets/images.jpeg";
 
     pGrafico->createTexture(path);
     pGrafico->loadTextures();

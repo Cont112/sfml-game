@@ -8,12 +8,10 @@
 class Jogador:public Entidade
 {
     private:
-        sf::Vector2f vel;
         void init();
     public:
         Jogador();
         ~Jogador();
-        
         void movimentar();
         
 
