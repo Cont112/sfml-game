@@ -9,6 +9,8 @@ Jogo::Jogo(): pGrafico(Gerenciadores::Gerenciador_Grafico::getInstance()),
 
 Jogo::~Jogo()
 {
+    pGrafico->~Gerenciador_Grafico();
+    std::cout << "Jogo fechou!" << std::endl;
 }
 
 void Jogo::executar()
@@ -16,20 +18,10 @@ void Jogo::executar()
 
     const char* path = "assets/barreto.jpg";
 
-    sf::RectangleShape* shape = new sf::RectangleShape(sf::Vector2f(100.0f,100.0f));
+    pGrafico->createTexture(path);
+    pGrafico->loadTextures();
 
-    sf::Texture texture;
-
-    if(!texture.loadFromFile(path))
-        std::cout << "Nao foi possivel carregar a textura" << std::endl;
-    else
-        std::cout << "Textura carregada com sucesso!" << std::endl;
-
-    
-    
-    j1.setTextura(&texture);
-
-    
+    j1.setTextura(pGrafico->textureMap.at(path));
 
     while(pGrafico->isWindowOpen())
     {
