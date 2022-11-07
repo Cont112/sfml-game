@@ -3,6 +3,9 @@
 #include <vector>
 #include <map>
 
+//FEITO COM BASE NOS VIDEOS DO MONITOR BURDA 2022/2 - TECPROG UTFPR
+//https://www.youtube.com/watch?v=RFSOXXsm4Ug&list=PLSPev71NbUEBIQlT2QCd-gN6l_mNVw1cJ&index=5
+
 namespace Gerenciadores {
 
     class Gerenciador_Grafico{

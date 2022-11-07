@@ -8,23 +8,22 @@ Jogo::Jogo(): pGrafico(Gerenciadores::Gerenciador_Grafico::getInstance()) , j1()
 
 Jogo::~Jogo()
 {
+    pGrafico->~Gerenciador_Grafico();
+    std::cout << "Jogo fechou." << std::endl;
 }
 
 void Jogo::executar()
 {
 
     const char* path = "assets/images.jpeg";
+    const char* path2 = "assets/index.jpeg";
 
-    sf::RectangleShape* shape = new sf::RectangleShape(sf::Vector2f(100.0f,100.0f));
+    pGrafico->createTexture(path);
+    pGrafico->createTexture(path2);
+    pGrafico->loadTextures();
 
-    sf::Texture texture;
-
-    if(!texture.loadFromFile(path))
-        std::cout << "Nao foi possivel carregar a textura" << std::endl;
-    else
-        std::cout << "Textura carregada com sucesso!" << std::endl;
     
-    j1.setTextura(&texture);
+    j1.setTextura(pGrafico->textureMap.at(path));
 
     
     while(pGrafico->isWindowOpen())
@@ -39,6 +38,7 @@ void Jogo::executar()
        
         pGrafico->display();        
     }
+
 
 }
 
