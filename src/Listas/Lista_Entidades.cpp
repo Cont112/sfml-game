@@ -1,17 +1,17 @@
-#include "../../include/Listas/ListaEntidades.h"
+#include "../../include/Listas/Lista_Entidades.h"
 #include "../../include/Listas/Lista.h"
 
 namespace Listas
 {
-    ListaEntidades::ListaEntidades()
+    Lista_Entidades::Lista_Entidades()
     {}
 
-    ListaEntidades::~ListaEntidades()
+    Lista_Entidades::~Lista_Entidades()
     {
         lista.limpar();
     }
 
-    void ListaEntidades::adicionarEntidade(Entidades::Entidade* pEntidade)
+    void Lista_Entidades::adicionarEntidade(Entidades::Entidade* pEntidade)
     {
         if(pEntidade != NULL)
         {
@@ -24,7 +24,7 @@ namespace Listas
         }
     }
 
-    int ListaEntidades::getTamanho()
+    int Lista_Entidades::getTamanho()
     {
         return lista.getTamanho();
     }

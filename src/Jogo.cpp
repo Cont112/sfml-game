@@ -25,7 +25,6 @@ void Jogo::executar()
 
     while(pGrafico->isWindowOpen())
     {
-
         pGrafico->handleEvent();
         pGrafico->updateDeltaTime();
         pGrafico->clear();

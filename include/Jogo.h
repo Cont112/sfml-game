@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Jogador.h"
+#include "Entidades/Personagens/Jogador.h"
 #include "Gerenciadores/Gerenciador_Grafico.h"
 #include "Ente.h"
 #include <vector>
@@ -10,7 +10,7 @@ class Jogo
 {
 private:
 
-    Jogador j1;
+    Entidades::Personagens::Jogador j1;
     Gerenciadores::Gerenciador_Grafico* pGrafico;
 
 

@@ -1,9 +1,12 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "Gerenciadores/Gerenciador_Grafico.h"
-#include "Ente.h"
-#include "Entidade.h"
+#include "../../Gerenciadores/Gerenciador_Grafico.h"
+#include "../../Ente.h"
+#include "../Entidade.h"
+
+namespace Entidades { 
+namespace Personagens{ 
 
 class Jogador:public Entidade
 {
@@ -16,3 +19,4 @@ class Jogador:public Entidade
         
 
 };
+}}

@@ -5,14 +5,14 @@
 namespace Listas
 {
 
-    class ListaEntidades
+    class Lista_Entidades
     {
     private:
         Lista<Entidades::Entidade> lista;
 
     public:
-        ListaEntidades();
-        ~ListaEntidades();
+        Lista_Entidades();
+        ~Lista_Entidades();
 
         void adicionarEntidade(Entidades::Entidade* pEntidade);
         int getTamanho();

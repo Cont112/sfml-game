@@ -1,4 +1,6 @@
-#include "../include/Entidade.h"
+#include "../../include/Entidades/Entidade.h"
+
+namespace Entidades{ 
 
 Entidade::Entidade():posicao(sf::Vector2f(0.f, 0.f)), ativo(0), vel(sf::Vector2f(0.f, 0.f))
 {
@@ -25,4 +27,6 @@ sf::Vector2f Entidade:: getVelocidade()
 void Entidade::setVelocidade(sf::Vector2f v)
 {
     vel = v;
+}
+
 }

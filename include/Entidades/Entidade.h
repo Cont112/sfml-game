@@ -1,4 +1,6 @@
-#include "Ente.h"
+#include "../Ente.h"
+
+namespace Entidades{ 
 class Entidade:public Ente{
 
     protected:
@@ -17,3 +19,4 @@ class Entidade:public Ente{
 
 
 };
+}

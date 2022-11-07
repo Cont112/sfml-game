@@ -1,5 +1,7 @@
-#include "../include/Jogador.h"
+#include "../../../include/Entidades/Personagens/Jogador.h"
 
+namespace Entidades{ 
+namespace Personagens{ 
 Jogador::Jogador()
 {
     init();
@@ -39,3 +41,5 @@ void Jogador::movimentar()
     }
 }
 
+}
+}
