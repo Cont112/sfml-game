@@ -23,23 +23,19 @@ void Jogador::movimentar()
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
     {
         shape.move(-vel.x, 0.0f);
-        std::cout << -1 << "," << 0 << std::endl;
 
     }
     else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
         shape.move(vel.x, 0.0f);
-        std::cout << 1 << "," << 0 << std::endl;
     }
     else if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
     {
         shape.move(0.0f, -vel.y);
-        std::cout << 0 << "," << -1 << std::endl;
     }
     else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
     {
         shape.move(0.0f, vel.y);
-        std::cout << 0 << "," << 1 << std::endl;
     }
 }
 
