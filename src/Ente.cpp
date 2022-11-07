@@ -1,7 +1,7 @@
 #include "../include/Ente.h"
 
-Ente::Ente(Gerenciadores::Gerenciador_Grafico *p):id(0){
-        pGra = p;
+Ente::Ente(): pGra(Gerenciadores::Gerenciador_Grafico::getInstance()),id(0){
+        
 }
 
 Ente::~Ente(){
