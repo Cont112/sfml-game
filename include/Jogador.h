@@ -12,11 +12,11 @@ class Jogador:public Ente
 
         void init();
     public:
-        Jogador(Gerenciadores::Gerenciador_Grafico *p = nullptr );
+        Jogador();
         ~Jogador();
         sf::RectangleShape getShape() const;
         void setTextura(sf::Texture* texture);
         void movimentar();
-        //void imprimir_se();
+        void imprimir_se();
 
 };

@@ -2,7 +2,7 @@
 
 
 Jogo::Jogo(): pGrafico(Gerenciadores::Gerenciador_Grafico::getInstance()), 
-              j1(pGrafico)
+              j1()
 {
     executar();
 }
@@ -30,7 +30,7 @@ void Jogo::executar()
         pGrafico->updateDeltaTime();
         pGrafico->clear();
 
-        pGrafico->render(j1.getShape());
+        j1.imprimir_se();
         j1.movimentar();
        
         pGrafico->display();        
