@@ -7,16 +7,15 @@
 class Jogador:public Ente 
 {
     private:
-        sf::RectangleShape shape;
+        
         sf::Vector2f vel;
 
         void init();
     public:
         Jogador();
         ~Jogador();
-        sf::RectangleShape getShape() const;
-        void setTextura(sf::Texture* texture);
+        
         void movimentar();
-        void imprimir_se();
+        
 
 };

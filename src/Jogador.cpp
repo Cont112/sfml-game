@@ -1,6 +1,6 @@
 #include "../include/Jogador.h"
 
-Jogador::Jogador():shape()
+Jogador::Jogador()
 {
     init();
 
@@ -13,19 +13,8 @@ Jogador::~Jogador()
 void Jogador::init()
 {
     vel = sf::Vector2f(0.1f,0.1f);
-    shape.setSize(sf::Vector2f(100.f, 100.f));
     shape.setOrigin(0.0f,0.0f);
     shape.setSize(sf::Vector2f(100.0f,100.0f));
-}
-
-sf::RectangleShape Jogador::getShape() const
-{
-    return shape;
-}
-
-void Jogador::setTextura(sf::Texture* texture)
-{
-    shape.setTexture(texture);
 }
 
 void Jogador::movimentar()
@@ -54,7 +43,3 @@ void Jogador::movimentar()
     }
 }
 
-void Jogador::imprimir_se()
-{
-    pGra->render(shape);
-}
