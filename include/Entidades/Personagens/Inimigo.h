@@ -1,14 +1,19 @@
+#pragma once 
 #include "Personagem.h"
 
-class Inimigo : public Entidades::Personagens::Personagem{
+namespace Entidades { 
+    namespace Personagens{ 
+        class Inimigo : public Entidades::Personagens::Personagem{
 
-    protected:
-        bool atira;
-        void init();
+            protected:
+                bool atira;
+                void init();
 
-    public:
-        Inimigo();
-        ~Inimigo();
-        void movimentar();
+            public:
+                Inimigo();
+                ~Inimigo();
+                void movimentar();
 
-};
+        };
+}
+}
