@@ -12,6 +12,7 @@ class Jogo
 private:
 
     Entidades::Personagens::Jogador j1;
+    Entidades::Personagens::Inimigo i1;
     Gerenciadores::Gerenciador_Grafico* pGrafico;
 
 

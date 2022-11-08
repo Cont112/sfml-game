@@ -13,7 +13,7 @@ public:
     ~Ente();
     void setId(int i);
     
-    //virtual void executar()=0;
+    virtual void executar()=0;
     void imprimir_se();
     sf::RectangleShape getShape() const;
     void setTextura(sf::Texture* texture);

@@ -16,6 +16,7 @@ class Jogador:public Entidade
         Jogador();
         ~Jogador();
         void movimentar();
+        void executar();
         
 
 };

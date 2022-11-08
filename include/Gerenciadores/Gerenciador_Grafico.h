@@ -46,5 +46,6 @@ namespace Gerenciadores {
 
         void deletarPonteiro();
 
+        void executar();
     };
 }

@@ -153,4 +153,12 @@ void Gerenciador_Grafico::deletarPonteiro()
 {
     delete instance;
 }
+
+void Gerenciador_Grafico::executar()
+{
+    handleEvent();
+    updateDeltaTime();
+    clear();
+}
+
 }

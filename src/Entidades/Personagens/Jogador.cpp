@@ -41,5 +41,11 @@ void Jogador::movimentar()
     }
 }
 
+void Jogador::executar()
+{
+    imprimir_se();
+    movimentar();
+}
+
 }
 }

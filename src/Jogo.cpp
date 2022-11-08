@@ -15,22 +15,25 @@ Jogo::~Jogo()
 
 void Jogo::executar()
 {
+    //criando texturas
+    const char* jog1 = "assets/images.jpeg";
+    const char* ini1 = "assets/index.jpeg";
 
-    const char* path = "assets/images.jpeg";
-
-    pGrafico->createTexture(path);
+    pGrafico->createTexture(jog1);
+    pGrafico->createTexture(ini1);
     pGrafico->loadTextures();
 
-    j1.setTextura(pGrafico->textureMap.at(path));
-
+    //setando texturas
+    j1.setTextura(pGrafico->textureMap.at(jog1));
+    i1.setTextura(pGrafico->textureMap.at(ini1));
+    
+    //loop principal 
     while(pGrafico->isWindowOpen())
     {
-        pGrafico->handleEvent();
-        pGrafico->updateDeltaTime();
-        pGrafico->clear();
+        pGrafico->executar();
 
-        j1.imprimir_se();
-        j1.movimentar();
+        j1.executar();
+        i1.executar();
        
         pGrafico->display();        
     }
