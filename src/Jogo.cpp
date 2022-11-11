@@ -33,8 +33,7 @@ void Jogo::executar()
         pGrafico->executar();
 
         j1.executar();
-        i1.executar();
-       
+        i1.executar();       
         pGrafico->display();        
     }
 
