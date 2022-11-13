@@ -17,7 +17,8 @@ private:
     Entidades::Personagens::Jogador j1;
     Entidades::Personagens::Inimigo i1;
     Entidades::Obstaculos::Obstaculo chao;
-    
+
+    Listas::Lista_Entidades lista;    
     Gerenciadores::Gerenciador_Grafico* pGrafico;
     
 
@@ -25,6 +26,6 @@ private:
 public:
     Jogo();
     ~Jogo();
-
+    void criarEntidades();
     void executar();
 };

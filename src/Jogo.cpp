@@ -52,6 +52,10 @@ void Jogo::executar()
 
 
 }
+void Jogo:: criarEntidades()
+{
+    
+}
 
 
 

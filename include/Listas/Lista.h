@@ -17,15 +17,16 @@ namespace Listas{
                 pProximo = NULL;
                 pData = NULL;
             }
+          
             ~Elemento()
             {
                 pProximo = NULL;
                 pData = NULL;
             }
 
-            void setProximo (TL* proximo) 
+            void setProximo (Elemento<TL>* proximo) 
             {
-                pProximo->setData(proximo);
+                pProximo = proximo;
             }
             
             Elemento<TE>* getProximo () 
@@ -33,8 +34,15 @@ namespace Listas{
                 return pProximo;
             }
 
-            void setData(TE *d) {pData = d;}
-            TE* getData() {return pData;}
+            void setData(TE *d) 
+            {
+                pData = d;
+            }
+            
+            TE* getData() 
+            {
+                return pData;
+            }
         };
 
         Elemento<TL>* pPrimeiro;
@@ -56,7 +64,7 @@ namespace Listas{
     template <class TL>
     Lista<TL>::Lista() : pPrimeiro(NULL), pUltimo(NULL), tamanho(0) 
     {
-        limpar();
+        
     }
     
     template <class TL>
@@ -91,21 +99,24 @@ namespace Listas{
 
     template <class TL>
     void Lista<TL>::addElemento(TL* pElemento)
-
     {
+        Elemento<TL>* novo = new Elemento<TL>();
+        novo->setData(pElemento);
+        
         if(pElemento != NULL)
         {
             if(empty())
             {
-                pPrimeiro->setData(pElemento);
-                pUltimo->setData (pElemento);
+                pPrimeiro->novo;
+                pUltimo->novo;
             }
             else
             {
-                pUltimo->setProximo(pElemento);
-                pUltimo->setData(pElemento);
+                pUltimo->setProximo(novo);
+                pUltimo->novo;
             }
         }
+        tamanho++;
 
         else
         {
