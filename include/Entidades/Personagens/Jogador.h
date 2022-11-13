@@ -6,18 +6,19 @@
 #include "../Entidade.h"
 
 namespace Entidades { 
-namespace Personagens{ 
+    namespace Personagens{ 
 
-class Jogador:public Entidade
-{
-    private:
-        void init();
-    public:
-        Jogador();
-        ~Jogador();
-        void movimentar();
-        void executar();
-        
+        class Jogador:public Entidade
+        {
+            private:
+                void init();
+            public:
+                Jogador();
+                ~Jogador();
+                void movimentar();
+                void executar();
+                
 
-};
-}}
+        };
+    }
+}

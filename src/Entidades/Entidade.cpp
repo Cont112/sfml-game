@@ -19,6 +19,7 @@ sf::Vector2f Entidade:: getPosicao()
 void Entidade::setPosicao(sf::Vector2f p)
 {
     posicao = p;
+    shape.setPosition(p);
 }
 sf::Vector2f Entidade:: getVelocidade()
 {

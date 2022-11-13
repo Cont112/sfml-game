@@ -2,8 +2,11 @@
 
 #include "Entidades/Personagens/Jogador.h"
 #include "Entidades/Personagens/Inimigo.h"
+#include "Entidades/Obstaculos/Obstaculo.h"
 #include "Gerenciadores/Gerenciador_Grafico.h"
 #include "Ente.h"
+#include "Listas/Lista.h"
+#include "Listas/Lista_Entidades.h"
 #include <vector>
 
 
@@ -13,6 +16,7 @@ private:
 
     Entidades::Personagens::Jogador j1;
     Entidades::Personagens::Inimigo i1;
+    Entidades::Obstaculos::Obstaculo chao;
     Gerenciadores::Gerenciador_Grafico* pGrafico;
 
 
