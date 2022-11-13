@@ -11,11 +11,11 @@ namespace Listas
         lista.limpar();
     }
 
-    void Lista_Entidades::adicionarEntidade(Entidades::Entidade* pEntidade)
+    void Lista_Entidades::addEntidade(Entidades::Entidade* pEntidade)
     {
         if(pEntidade != NULL)
         {
-            lista.push_back(pEntidade);
+            lista.addElemento(pEntidade);
         }
 
         else
@@ -29,4 +29,16 @@ namespace Listas
         return lista.getTamanho();
     }
 
+    Entidades::Entidade* Lista_Entidades::operator[](int posicao)
+    {
+        return (lista.operator[](posicao));
+    }
+
+    void Lista_Entidades::executar()
+    {
+        for (int i = 0; i<lista.getTamanho(); i++)
+        {
+            lista.operator[](i)->executar();
+        }
+    }
 }

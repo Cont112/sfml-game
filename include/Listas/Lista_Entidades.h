@@ -13,9 +13,10 @@ namespace Listas
     public:
         Lista_Entidades();
         ~Lista_Entidades();
-
-        void adicionarEntidade(Entidades::Entidade* pEntidade);
+        void addEntidade(Entidades::Entidade* pEntidade);
         int getTamanho();
+        Entidades::Entidade* operator[](int posicao);
+        void executar();
     };
 
 }

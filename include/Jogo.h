@@ -17,7 +17,9 @@ private:
     Entidades::Personagens::Jogador j1;
     Entidades::Personagens::Inimigo i1;
     Entidades::Obstaculos::Obstaculo chao;
+    
     Gerenciadores::Gerenciador_Grafico* pGrafico;
+    
 
 
 public:

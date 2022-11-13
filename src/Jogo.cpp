@@ -31,12 +31,12 @@ void Jogo::executar()
     j1.setTextura(pGrafico->textureMap.at(jog1));
     i1.setTextura(pGrafico->textureMap.at(ini1));
     chao.setTextura(pGrafico->textureMap.at(ini1));
+    
     //setando posicao do chao 
     chao.setTamanho(sf::Vector2f(WIDTH, 20));//altura do chao = 20
     chao.setPosicao(sf::Vector2f(0, 640));//posicao chao
-    //listando tudo
-
     
+        
 
 
     //loop principal 
@@ -52,4 +52,6 @@ void Jogo::executar()
 
 
 }
+
+
 
