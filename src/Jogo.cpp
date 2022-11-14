@@ -1,5 +1,5 @@
 #include "../include/Jogo.h"
-
+using namespace std;
 #define WIDTH 1280
 #define HEIGHT 720
 
@@ -23,6 +23,7 @@ void Jogo::executar()
         pGrafico->executar();
         lista.executar();
         pGrafico->display(); 
+        
     }
 
 
