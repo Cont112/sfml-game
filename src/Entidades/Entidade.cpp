@@ -1,8 +1,9 @@
 #include "../../include/Entidades/Entidade.h"
 
+
 namespace Entidades{ 
 
-Entidade::Entidade():posicao(sf::Vector2f(0.f, 0.f)), ativo(0), vel(sf::Vector2f(0.f, 0.f))
+Entidade::Entidade():posicao(sf::Vector2f(0.f, 0.f)), ativo(0), vel(sf::Vector2f(0.f, 0.f)), c()
 {
 
 
@@ -28,6 +29,10 @@ sf::Vector2f Entidade:: getVelocidade()
 void Entidade::setVelocidade(sf::Vector2f v)
 {
     vel = v;
+}
+Gerenciadores::GColisao::Colisao Entidade::getColisao()
+{
+    return c;
 }
 
 void Entidade::executar()
