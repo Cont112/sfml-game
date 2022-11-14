@@ -3,10 +3,7 @@
 #define WIDTH 1280
 #define HEIGHT 720
 
-Jogo::Jogo(): pGrafico(Gerenciadores::Gerenciador_Grafico::getInstance()), 
-              j1(),
-              i1(),
-              chao()
+Jogo::Jogo(): pGrafico(Gerenciadores::Gerenciador_Grafico::getInstance())
 {
     executar();
 }
@@ -33,21 +30,23 @@ void Jogo::executar()
 void Jogo:: criarEntidades()
 {
     //criando entidades
-    j1 = new  Entidades::Personagens::Jogador ();
-    i1 = new  Entidades::Personagens::Inimigo ();
-    chao = new Entidades::Obstaculos::Obstaculo();
-
+    Entidades::Personagens::Jogador* j1 = new  Entidades::Personagens::Jogador ();
+    Entidades::Personagens::Inimigo* i1 = new  Entidades::Personagens::Inimigo ();
+    Entidades::Obstaculos::Obstaculo* chao = new Entidades::Obstaculos::Obstaculo();
+    
 
     //criando texturas
-    const char* jog1 = "assets/images.jpeg";
-    const char* ini1 = "assets/index.jpeg";
+    const char* jog1 = "assets/jogador.png";
+    const char* ini1 = "assets/inimigo.png";
+    const char* ch = "assets/images.jpeg";
     pGrafico->createTexture(jog1);
     pGrafico->createTexture(ini1);
+    pGrafico->createTexture(ch);
     pGrafico->loadTextures();
 
     j1->setTextura(pGrafico->textureMap.at(jog1));
     i1->setTextura(pGrafico->textureMap.at(ini1));
-    chao->setTextura(pGrafico->textureMap.at(ini1));
+    chao->setTextura(pGrafico->textureMap.at(ch));
 
     //criando obstaculos 
     chao->setTamanho(sf::Vector2f(WIDTH, 20));//altura do chao = 20
@@ -64,8 +63,9 @@ void Jogo:: criarEntidades()
     lista.addEntidade(e1);
     lista.addEntidade(e2);
     lista.addEntidade(e3);
-    
+    listaMoveis.addEntidade(e1);
+    listaMoveis.addEntidade(e2);
+    listaFixos.addEntidade(e3);
+
 }
-
-
 

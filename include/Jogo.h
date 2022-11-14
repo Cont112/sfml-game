@@ -1,24 +1,14 @@
 #pragma once
-
-#include "Entidades/Personagens/Jogador.h"
-#include "Entidades/Personagens/Inimigo.h"
-#include "Entidades/Obstaculos/Obstaculo.h"
-#include "Gerenciadores/Gerenciador_Grafico.h"
-#include "Ente.h"
-#include "Listas/Lista.h"
-#include "Listas/Lista_Entidades.h"
-#include <vector>
+#include "../stdafx.h"
 
 
 class Jogo
 {
 private:
 
-    Entidades::Personagens::Jogador* j1;
-    Entidades::Personagens::Inimigo* i1;
-    Entidades::Obstaculos::Obstaculo* chao;
-
-    Listas::Lista_Entidades lista;    
+    Listas::Lista_Entidades lista;
+    Listas::Lista_Entidades listaFixos;
+    Listas::Lista_Entidades listaMoveis;    
     Gerenciadores::Gerenciador_Grafico* pGrafico;
     
 

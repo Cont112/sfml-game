@@ -32,8 +32,8 @@ namespace Entidades{
                 shape.move(vel.x, 0.0f);
             }
             else if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-            {
-                shape.move(0.0f, -vel.y);
+            {   
+                shape.move(0.0f, -vel.y);   
             }
             else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
             {
