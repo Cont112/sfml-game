@@ -20,16 +20,12 @@ Jogo::~Jogo()
 void Jogo::executar()
 {
     criarEntidades();      
-
     //loop principal 
     while(pGrafico->isWindowOpen())
     {
         pGrafico->executar();
-
         lista.executar();
-        
         pGrafico->display(); 
-     
     }
 
 
@@ -56,6 +52,9 @@ void Jogo:: criarEntidades()
     //criando obstaculos 
     chao->setTamanho(sf::Vector2f(WIDTH, 20));//altura do chao = 20
     chao->setPosicao(sf::Vector2f(0, 640));//posicao chao*/   
+
+    //setando inimigo
+    i1->setJog1(j1);
     
     //listando entidades
     Entidades::Entidade *e1 = static_cast<Entidades::Entidade*>(j1);

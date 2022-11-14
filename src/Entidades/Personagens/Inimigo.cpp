@@ -19,13 +19,21 @@ namespace Entidades {
         }
         void Inimigo::movimentar()
         {
-            shape.move(vel.x, 0.f);
-
+            if (jogador1->getPosicao().x < posicao.x)
+                shape.move(-vel.x, 0);
+            if (jogador1->getPosicao().x > posicao.x)
+                shape.move(vel.x, 0);
+            
+            posicao = shape.getPosition();
         }
         void Inimigo::executar()
         {
             imprimir_se();
             movimentar();
+        }
+        void Inimigo::setJog1(Entidades::Personagens::Jogador *j)
+        {
+            jogador1 = j;
         }
     }
 }

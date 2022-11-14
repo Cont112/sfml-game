@@ -14,7 +14,7 @@ namespace Entidades{
 
         void Jogador::init()
         {
-            vel = sf::Vector2f(0.1f,0.1f);
+            vel = sf::Vector2f(1.f,1.f);
             shape.setOrigin(0.0f,0.0f);
             shape.setSize(sf::Vector2f(100.0f,100.0f));
         }
@@ -39,6 +39,8 @@ namespace Entidades{
             {
                 shape.move(0.0f, vel.y);
             }
+            
+            posicao = shape.getPosition();
         }
 
         void Jogador::executar()
