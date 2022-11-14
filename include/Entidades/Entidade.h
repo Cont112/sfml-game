@@ -16,6 +16,7 @@ class Entidade:public Ente{
         void setPosicao(sf::Vector2f p);
         sf::Vector2f getVelocidade();
         void setVelocidade(sf::Vector2f v);
+        void executar();
         
 
 

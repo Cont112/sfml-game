@@ -30,4 +30,11 @@ void Entidade::setVelocidade(sf::Vector2f v)
     vel = v;
 }
 
+void Entidade::executar()
+{
+    
+}
+
+
+
 }

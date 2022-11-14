@@ -107,21 +107,19 @@ namespace Listas{
         {
             if(empty())
             {
-                pPrimeiro->novo;
-                pUltimo->novo;
+                pPrimeiro=novo;
+                pUltimo=novo;
             }
             else
             {
                 pUltimo->setProximo(novo);
-                pUltimo->novo;
+                pUltimo=novo;
             }
         }
         tamanho++;
 
-        else
-        {
-            std::cout << "Erro: Nao foi possivel setar o elemento na lista (Lista<TL>::setElemento)." << std::endl;
-        }
+        //else
+            //std::cout << "Erro: Nao foi possivel setar o elemento na lista (Lista<TL>::setElemento)." << std::endl;
     }
 
     template<class TL>
