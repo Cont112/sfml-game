@@ -1,4 +1,5 @@
 #include "../../../include/Entidades/Personagens/Jogador.h"
+#include "../../../include/Gerenciadores/Gerenciador_Colisoes.h"
 
 namespace Entidades{ 
     namespace Personagens{ 

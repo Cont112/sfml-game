@@ -1,6 +1,5 @@
 #include "../../include/Entidades/Colisao.h"
 
-
 namespace Entidades
 {
     namespace Colisao

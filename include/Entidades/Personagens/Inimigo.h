@@ -9,7 +9,7 @@ namespace Entidades {
             protected:
                 bool atira;
                 void init();
-                Entidades::Personagens::Jogador *jogador1;
+                Jogador *jogador1;
 
             public:
                 Inimigo();

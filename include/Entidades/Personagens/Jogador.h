@@ -2,10 +2,11 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "../../Gerenciadores/Gerenciador_Grafico.h"
-#include "../../Gerenciadores/Gerenciador_Colisoes.h"
 #include "../../Entidades/Colisao.h"
 #include "../../Ente.h"
 #include "../Entidade.h"
+
+class Gerenciador_Colisoes;
 
 namespace Entidades { 
     namespace Personagens{ 
