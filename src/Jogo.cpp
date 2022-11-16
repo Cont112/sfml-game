@@ -68,5 +68,8 @@ void Jogo:: criarEntidades()
     listaMoveis.addEntidade(e2);
     listaFixos.addEntidade(e3);
 
+    listaMoveis.addEntidade(e1);
+    listaMoveis.addEntidade(e2);
+    listaFixos.addEntidade(e3);
 }
 

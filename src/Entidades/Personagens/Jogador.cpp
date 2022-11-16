@@ -1,5 +1,7 @@
 #include "../../../include/Entidades/Personagens/Jogador.h"
 #include "../../../include/Gerenciadores/Gerenciador_Colisoes.h"
+#define WIDTH 1280
+#define HEIGHT 720
 
 namespace Entidades{ 
     namespace Personagens{ 
@@ -22,21 +24,20 @@ namespace Entidades{
 
         void Jogador::movimentar()
         {
-
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) && shape.getPosition().x != 0)
             {
                 shape.move(-vel.x, 0.0f);
 
             }
-            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)&& shape.getPosition().x != WIDTH)
             {
                 shape.move(vel.x, 0.0f);
             }
-            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)&& shape.getPosition().y != 0)
             {   
                 shape.move(0.0f, -vel.y);   
             }
-            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)&& shape.getPosition().y != (HEIGHT-shape.getSize().y))
             {
                 shape.move(0.0f, vel.y);
             }

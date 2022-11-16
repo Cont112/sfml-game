@@ -10,6 +10,7 @@ private:
     Listas::Lista_Entidades listaFixos;
     Listas::Lista_Entidades listaMoveis;    
     Gerenciadores::Gerenciador_Grafico* pGrafico;
+    Gerenciadores::Gerenciador_Colisoes* pColisao;
     
 
 
