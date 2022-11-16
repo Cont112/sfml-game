@@ -1,8 +1,10 @@
 #pragma once
-#include "../Entidades/Entidade.h"
-namespace Gerenciadores
+
+class Entidade;
+
+namespace Entidades
 {    
-    namespace GColisao
+    namespace Colisao
     {
 
         class Colisao{

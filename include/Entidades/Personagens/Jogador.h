@@ -3,7 +3,7 @@
 #include <iostream>
 #include "../../Gerenciadores/Gerenciador_Grafico.h"
 #include "../../Gerenciadores/Gerenciador_Colisoes.h"
-#include "../../Gerenciadores/Colisao.h"
+#include "../../Entidades/Colisao.h"
 #include "../../Ente.h"
 #include "../Entidade.h"
 

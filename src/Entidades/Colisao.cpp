@@ -1,9 +1,9 @@
-#include "../../include/Gerenciadores/Colisao.h"
+#include "../../include/Entidades/Colisao.h"
 
 
-namespace Gerenciadores
+namespace Entidades
 {
-    namespace GColisao
+    namespace Colisao
     {
         Colisao::Colisao():frontal(false), superior(false)
         {

@@ -1,6 +1,7 @@
 #pragma once
 #include "../Ente.h"
-#include "../Gerenciadores/Colisao.h"
+
+class Colisao;
 
 namespace Entidades{ 
 class Entidade:public Ente{
@@ -9,7 +10,7 @@ class Entidade:public Ente{
         sf::Vector2f posicao;       
         bool ativo;
         sf::Vector2f vel; 
-        Gerenciadores::GColisao::Colisao c;
+        Entidades::Colisao::Colisao c;
     
     public:
         Entidade();
@@ -18,7 +19,7 @@ class Entidade:public Ente{
         void setPosicao(sf::Vector2f p);
         sf::Vector2f getVelocidade();
         void setVelocidade(sf::Vector2f v);
-        Gerenciadores::GColisao::Colisao getColisao();
+        Entidades::Colisao::Colisao getColisao();
         void executar();
         
 
