@@ -13,6 +13,7 @@ namespace Gerenciadores{
             Listas::Lista_Entidades *listaFixos;
         public:
             Gerenciador_Colisoes();
+            Gerenciador_Colisoes(Listas::Lista_Entidades* l1, Listas::Lista_Entidades* l2);
             ~Gerenciador_Colisoes();
             sf::Vector2f calculaDistancia(Entidades::Entidade *ente1,Entidades::Entidade *ente2 );
             void setListas(Listas::Lista_Entidades *lm,Listas::Lista_Entidades *lf );

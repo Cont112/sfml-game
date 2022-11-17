@@ -3,12 +3,29 @@
 namespace Gerenciadores{
     Gerenciador_Colisoes::Gerenciador_Colisoes()
     {
+        listaFixos = new Listas::Lista_Entidades();
+        listaMoveis = new Listas::Lista_Entidades();
 
+    }
+
+    Gerenciador_Colisoes::Gerenciador_Colisoes(Listas::Lista_Entidades* l1, Listas::Lista_Entidades* l2)
+    {
+        setListas(l1,l2);
     }
 
     Gerenciador_Colisoes::~Gerenciador_Colisoes()
     {
-
+        if(listaFixos)
+        {
+            delete (listaFixos);
+            listaFixos = nullptr;
+        }
+        if(listaMoveis)
+        {
+            delete (listaMoveis);
+            listaMoveis = nullptr;
+        }
+            
     }
 
     sf::Vector2f Gerenciador_Colisoes::calculaDistancia(Entidades::Entidade *ente1,Entidades::Entidade *ente2 )
@@ -24,8 +41,12 @@ namespace Gerenciadores{
     }
     void Gerenciador_Colisoes::setListas(Listas::Lista_Entidades *lm,Listas::Lista_Entidades *lf )
     {
-        listaMoveis = lm;
-        listaFixos = lf;
+        if(listaMoveis || listaFixos)
+        {
+            listaMoveis = lm;
+            listaFixos = lf;
+        }
+
     }
     
     void Gerenciador_Colisoes::executar()
