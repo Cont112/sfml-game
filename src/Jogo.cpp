@@ -3,14 +3,15 @@ using namespace std;
 #define WIDTH 1280
 #define HEIGHT 720
 
-Jogo::Jogo(): pGrafico(Gerenciadores::Gerenciador_Grafico::getInstance())
+Gerenciadores::Gerenciador_Grafico* pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
+Jogo::Jogo(): gamestate(0)
 {
     executar();
 }
 
 Jogo::~Jogo()
 {
-    pGrafico->~Gerenciador_Grafico();
+    pGrafico->deletarPonteiro();
     std::cout << "Jogo fechou!" << std::endl;
 }
 

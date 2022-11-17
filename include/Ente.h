@@ -5,7 +5,7 @@ class Ente{
 
 protected:
     int id;
-    Gerenciadores::Gerenciador_Grafico *pGra;
+    static Gerenciadores::Gerenciador_Grafico *pGrafico;
     sf::RectangleShape shape;
 
 public:

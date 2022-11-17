@@ -1,6 +1,7 @@
 #include "../include/Ente.h"
 
-Ente::Ente(): pGra(Gerenciadores::Gerenciador_Grafico::getInstance()), shape(){
+Gerenciadores::Gerenciador_Grafico* pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
+Ente::Ente(): shape(){
         
 }
 
@@ -21,5 +22,5 @@ void Ente::setTextura(sf::Texture* texture)
 }
 void Ente::imprimir_se()
 {
-    pGra->render(shape);
+    pGrafico->render(shape);
 }
