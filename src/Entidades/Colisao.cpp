@@ -29,11 +29,11 @@ namespace Entidades
         }
         void Colisao::setColisor(Entidades::Entidade *e)
         {
-            C = e;
+            colisor = e;
         }
         Entidades::Entidade* Colisao::getColisor()
         {
-            return C;
+            return colisor;
         }
     }
 }

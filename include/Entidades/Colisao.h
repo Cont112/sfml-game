@@ -10,7 +10,7 @@ namespace Entidades
             private:
                 bool frontal;//tipo 1
                 bool superior;//tipo 2
-                Entidades::Entidade* C;
+                Entidades::Entidade* colisor;
             public:
                 Colisao();
                 ~Colisao();

@@ -45,12 +45,13 @@ namespace Gerenciadores{
                 sf::Vector2f tam2 = listaMoveis->operator[](j)->getShape().getSize();
                 sf::Vector2f ds = calculaDistancia(entidade1, entidade2);
 
-                if (ds.x==(tam1.x+tam2.x) && ds.y<=(tam1.y+tam2.y))//colisao frontal 
+                if (ds.x<=(tam1.x/2+tam2.x/2) && ds.y<=(tam1.y/2+tam2.y/2))//colisao frontal 
                 {
                     entidade1->getColisao().setColisor(entidade2);
                     entidade1->getColisao().SetColisao(1, true);
+                    std::cout<<"entrou"<<std::endl;
                 }
-                else if (ds.y==(tam1.y+tam2.y) && ds.x<=(tam1.x+tam2.x))//colisao superior 
+                else if (ds.y==(tam1.y/2+tam2.y/2) && ds.x<=(tam1.x/2+tam2.x/2))//colisao superior 
                 {
                     entidade1->getColisao().setColisor(entidade2);
                     entidade1->getColisao().SetColisao(2, true);

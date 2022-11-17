@@ -22,6 +22,10 @@ void Jogo::executar()
     {
         pGrafico->executar();
         lista.executar();
+
+        //std::cout<<lista.operator[](0)->getColisao().GetColisaoFrontal()<<std::endl;
+        //std::cout<<lista.operator[](0)->getColisao().GetColisaoSuperior()<<std::endl;
+
         pGrafico->display(); 
         
     }
