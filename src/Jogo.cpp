@@ -3,7 +3,8 @@ using namespace std;
 #define WIDTH 1280
 #define HEIGHT 720
 
-Jogo::Jogo(): pGrafico(Gerenciadores::Gerenciador_Grafico::getInstance())
+Gerenciadores::Gerenciador_Grafico* Jogo::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
+Jogo::Jogo(): gamestate(0)
 {
     pColisao = new Gerenciadores::Gerenciador_Colisoes();
     executar();
