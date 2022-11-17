@@ -16,6 +16,7 @@ namespace Entidades {
             private:
                 void init();
                 bool isJumping;
+                bool jumpCooldown;
             public:
                 Jogador();
                 ~Jogador();

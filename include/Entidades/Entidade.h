@@ -1,6 +1,7 @@
 #pragma once
 #include "../Ente.h"
 
+
 namespace Entidades{
     namespace Colisao{
         class Colisao;
@@ -16,16 +17,17 @@ namespace Entidades{
             sf::Vector2f posicao;       
             bool ativo;
             sf::Vector2f vel; 
-            Entidades::Colisao::Colisao *col;
+            Colisao::Colisao* col;
         
         public:
             Entidade();
+            Entidade(const sf::Vector2f pos,const sf::Vector2f tam);
             ~Entidade();
             sf::Vector2f getPosicao();
             void setPosicao(sf::Vector2f p);
             sf::Vector2f getVelocidade();
             void setVelocidade(sf::Vector2f v);
-            Entidades::Colisao::Colisao getColisao();
+            Colisao::Colisao getColisao();
             void executar();
             
 

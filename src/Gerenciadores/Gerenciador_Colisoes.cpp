@@ -3,12 +3,29 @@
 namespace Gerenciadores{
     Gerenciador_Colisoes::Gerenciador_Colisoes()
     {
+        listaFixos = new Listas::Lista_Entidades();
+        listaMoveis = new Listas::Lista_Entidades();
 
+    }
+
+    Gerenciador_Colisoes::Gerenciador_Colisoes(Listas::Lista_Entidades* l1, Listas::Lista_Entidades* l2)
+    {
+        setListas(l1,l2);
     }
 
     Gerenciador_Colisoes::~Gerenciador_Colisoes()
     {
-
+        if(listaFixos)
+        {
+            delete (listaFixos);
+            listaFixos = nullptr;
+        }
+        if(listaMoveis)
+        {
+            delete (listaMoveis);
+            listaMoveis = nullptr;
+        }
+            
     }
 
     sf::Vector2f Gerenciador_Colisoes::calculaDistancia(Entidades::Entidade *ente1,Entidades::Entidade *ente2 )
@@ -24,8 +41,12 @@ namespace Gerenciadores{
     }
     void Gerenciador_Colisoes::setListas(Listas::Lista_Entidades *lm,Listas::Lista_Entidades *lf )
     {
-        listaMoveis = lm;
-        listaFixos = lf;
+        if(listaMoveis || listaFixos)
+        {
+            listaMoveis = lm;
+            listaFixos = lf;
+        }
+
     }
     
     void Gerenciador_Colisoes::executar()
@@ -45,17 +66,25 @@ namespace Gerenciadores{
                 sf::Vector2f tam2 = listaMoveis->operator[](j)->getShape().getSize();
                 sf::Vector2f ds = calculaDistancia(entidade1, entidade2);
 
-                if (ds.x<=(tam1.x/2+tam2.x/2) && ds.y<=(tam1.y/2+tam2.y/2))//colisao frontal 
-                {
-                    entidade1->getColisao().setColisor(entidade2);
-                    entidade1->getColisao().SetColisao(1, true);
-                    std::cout<<"entrou"<<std::endl;
-                }
-                else if (ds.y==(tam1.y/2+tam2.y/2) && ds.x<=(tam1.x/2+tam2.x/2))//colisao superior 
-                {
-                    entidade1->getColisao().setColisor(entidade2);
-                    entidade1->getColisao().SetColisao(2, true);
-                }       
+                sf::Vector2f instersecao;
+                instersecao.x = fabs(ds.x) - (tam1.x / 2.f + tam2.x / 2.f);
+				instersecao.y = fabs(ds.y) - (tam1.y / 2.f + tam2.y / 2.f);
+
+					//verifica a colisao
+					if (instersecao.x < 0.f && instersecao.y < 0.f ) {
+						entidade1->getColisao().setColisor(entidade2);
+                        entidade2->getColisao().SetColisao(1, true);
+                        
+					}
+                    else 
+                    {
+                        entidade1->getColisao().setColisor(nullptr);
+                        entidade1->getColisao().SetColisao(1, false);
+                        entidade1->getColisao().SetColisao(2, false);
+                        
+                    }
+
+
             }
         }
     }

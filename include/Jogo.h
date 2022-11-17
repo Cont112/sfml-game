@@ -6,9 +6,9 @@ class Jogo
 {
 private:
 
-    Listas::Lista_Entidades lista;
-    Listas::Lista_Entidades listaFixos;
-    Listas::Lista_Entidades listaMoveis;    
+    Listas::Lista_Entidades *lista;
+    Listas::Lista_Entidades *listaFixos;
+    Listas::Lista_Entidades *listaMoveis;    
     Gerenciadores::Gerenciador_Grafico* pGrafico;
     Gerenciadores::Gerenciador_Colisoes* pColisao;
     

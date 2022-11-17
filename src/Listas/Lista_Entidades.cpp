@@ -41,4 +41,9 @@ namespace Listas
             lista.operator[](i)->executar();
         }
     }
+
+    void Lista_Entidades::limparLista()
+    {
+        lista.limpar();
+    }
 }

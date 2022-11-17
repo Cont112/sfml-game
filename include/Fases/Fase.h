@@ -3,6 +3,8 @@
 #include "../Listas/Lista_Entidades.h"
 #include "../Gerenciadores/Gerenciador_Colisoes.h"
 
+//Adaptado do monitor Geovane
+
 namespace Fases{
     class Fase : public Ente{
 
