@@ -18,7 +18,10 @@ Jogo::~Jogo()
 
 void Jogo::executar()
 {
-    criarEntidades();      
+    criarEntidades();  
+    pColisao->setListas(listaMoveis, listaFixos);
+
+
     //loop principal 
     while(pGrafico->isWindowOpen())
     {
@@ -26,9 +29,16 @@ void Jogo::executar()
         lista->executar();
         pColisao->executar();
 
-        //std::cout<<lista->operator[](0)->getColisao().GetColisaoFrontal()<<std::endl;
+        
+
+        if(listaMoveis->operator[](0)->getColisao().bateu())
+        {
+            cout<<"colidiu"<<endl;
+        }
         //std::cout<<lista.operator[](0)->getColisao().GetColisaoSuperior()<<std::endl;
 
+       
+       
         pGrafico->display(); 
         
     }
@@ -88,6 +98,6 @@ void Jogo:: criarEntidades()
     listaMoveis->addEntidade(e2);
     listaFixos->addEntidade(e3);
 
-    pColisao->setListas(listaMoveis, listaFixos);
+    
 }
 

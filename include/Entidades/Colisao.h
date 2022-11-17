@@ -8,16 +8,13 @@ namespace Entidades
        class Colisao{
 
             private:
-                bool frontal;//tipo 1
-                bool superior;//tipo 2
+                bool colidiu;
                 Entidades::Entidade* colisor;
             public:
                 Colisao();
                 ~Colisao();
-                void SetColisao(int tipo, bool estado);
-                bool GetColisaoFrontal();
-                bool GetColisaoSuperior();
-                void setColisor(Entidades::Entidade *e);
+                void SetColisao(bool estado,Entidades::Entidade * c);
+                bool bateu();
                 Entidades::Entidade * getColisor();
         };        
     }
