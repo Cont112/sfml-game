@@ -2,9 +2,13 @@
 
 namespace Fases{
 
-    Fase::Fase() {}
+    Fase::Fase(): Ente(), fundo(),listaPersonagens(), listaObstaculos()
+    {}
 
-    Fase::~Fase() {}
+    Fase::~Fase() 
+    {
+
+    }
 
     void Fase::gerenciar_colisoes() {}
 }

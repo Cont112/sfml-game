@@ -12,6 +12,7 @@ namespace Entidades{
     class Entidade:public Ente{
 
         protected:
+            float g = 1.0f;
             sf::Vector2f posicao;       
             bool ativo;
             sf::Vector2f vel; 

@@ -1,4 +1,5 @@
 #include "../../../include/Entidades/Personagens/Inimigo.h"
+#define HEIGHT 720
 namespace Entidades { 
     namespace Personagens{ 
 
@@ -19,11 +20,17 @@ namespace Entidades {
         }
         void Inimigo::movimentar()
         {
+            float g = 1.0f;
             if (jogador1->getPosicao().x < posicao.x)
                 shape.move(-vel.x, 0);
             if (jogador1->getPosicao().x > posicao.x)
                 shape.move(vel.x, 0);
-            
+
+            if(shape.getPosition().y >= (HEIGHT-shape.getSize().y))
+            {
+                shape.setPosition(sf::Vector2f(shape.getPosition().x, HEIGHT-shape.getSize().y));
+            }
+            shape.move(0,g);
             posicao = shape.getPosition();
         }
         void Inimigo::executar()

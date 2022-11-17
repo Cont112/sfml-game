@@ -39,7 +39,7 @@ void Jogo:: criarEntidades()
     //criando texturas
     const char* jog1 = "assets/jogador.png";
     const char* ini1 = "assets/inimigo.png";
-    const char* ch = "assets/images.jpeg";
+    const char* ch = "assets/ground.jpeg";
     pGrafico->createTexture(jog1);
     pGrafico->createTexture(ini1);
     pGrafico->createTexture(ch);
@@ -51,7 +51,7 @@ void Jogo:: criarEntidades()
 
     //criando obstaculos 
     chao->setTamanho(sf::Vector2f(WIDTH, 20));//altura do chao = 20
-    chao->setPosicao(sf::Vector2f(0, 640));//posicao chao*/   
+    chao->setPosicao(sf::Vector2f(0, 700));//posicao chao*/   
 
     //setando inimigo
     i1->setJog1(j1);
@@ -64,12 +64,10 @@ void Jogo:: criarEntidades()
     lista.addEntidade(e1);
     lista.addEntidade(e2);
     lista.addEntidade(e3);
-    listaMoveis.addEntidade(e1);
-    listaMoveis.addEntidade(e2);
-    listaFixos.addEntidade(e3);
 
     listaMoveis.addEntidade(e1);
     listaMoveis.addEntidade(e2);
     listaFixos.addEntidade(e3);
+
 }
 

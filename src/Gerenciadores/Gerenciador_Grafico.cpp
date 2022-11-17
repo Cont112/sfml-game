@@ -4,7 +4,7 @@
 #include<iostream>
 
 #define W_NAME "Tab"
-#define WIDTH 1200
+#define WIDTH 1280
 #define HEIGHT 720
 #define FRAME_RATE 144
 
@@ -38,9 +38,6 @@ Gerenciador_Grafico::~Gerenciador_Grafico()
     }
     textureMap.clear();
     delete(window);
-    
-    
-
     std::cout << "Gerenciador_Grafico foi destruido!" << std::endl;
 }
 

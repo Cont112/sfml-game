@@ -8,6 +8,7 @@ namespace Entidades{
         Jogador::Jogador()
         {
             init();
+            isJumping = false;
 
         }
 
@@ -24,6 +25,7 @@ namespace Entidades{
 
         void Jogador::movimentar()
         {
+            float g = 1.0f;
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) && shape.getPosition().x != 0)
             {
                 shape.move(-vel.x, 0.0f);
@@ -33,14 +35,26 @@ namespace Entidades{
             {
                 shape.move(vel.x, 0.0f);
             }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)&& shape.getPosition().y != 0)
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)&& !isJumping && shape.getPosition().y != 0)
             {   
-                shape.move(0.0f, -vel.y);   
+                isJumping = true;
+                if(isJumping)
+                {
+                    shape.move(0.0f, -200);
+                    g = 0;
+                }
             }
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)&& shape.getPosition().y != (HEIGHT-shape.getSize().y))
             {
                 shape.move(0.0f, vel.y);
             }
+            if(shape.getPosition().y >= (HEIGHT-shape.getSize().y))
+            {
+                isJumping = false;
+                shape.setPosition(sf::Vector2f(shape.getPosition().x, HEIGHT-shape.getSize().y));
+            }
+            
+            shape.move(0.0f,g);
             
             posicao = shape.getPosition();
         }

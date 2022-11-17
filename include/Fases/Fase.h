@@ -1,19 +1,31 @@
 #pragma once
 
 #include "../Listas/Lista_Entidades.h"
+#include "../Gerenciadores/Gerenciador_Colisoes.h"
 
 namespace Fases{
-    class Fase{
+    class Fase : public Ente{
+
     protected:
-        Listas::Lista_Entidades lista;
+        Listas::Lista_Entidades listaPersonagens;
+        Listas::Lista_Entidades listaObstaculos;
+        Gerenciadores::Gerenciador_Colisoes* pColisao;
+        sf::Sprite fundo;
 
     public:
         Fase();
         ~Fase();
 
+        void criarInimigo(const sf::Vector2f pos);
+        void criarJogador(const sf::Vector2f pos);
+        void criarPlataforma(const sf::Vector2f pos);
+        void criarCaixa(const sf::Vector2f pos);
+        virtual void criarFundo() = 0;
+        virtual void criarMapa() = 0;
+        void criarEntidade(const sf::Vector2f pos);
         void gerenciar_colisoes();
-        virtual void executar() = 0;
-        virtual void inicializar_entidades() =0;
+        void executar();
+        void desenhar();
 
    };
 }
