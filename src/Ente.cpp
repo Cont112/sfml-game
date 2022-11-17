@@ -1,6 +1,6 @@
 #include "../include/Ente.h"
 
-Gerenciadores::Gerenciador_Grafico* pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
+Gerenciadores::Gerenciador_Grafico* Ente::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
 Ente::Ente(): shape(){
         
 }
