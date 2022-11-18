@@ -53,7 +53,6 @@ namespace Entidades
                 shape.move(intersecao.x, 0) ;
             else 
                 shape.move(-intersecao.x, 0);
-            //vel.x = 0.f;
         }
         else 
         {
@@ -61,8 +60,6 @@ namespace Entidades
                 shape.move(0, intersecao.y);
             else 
                 shape.move(0, -intersecao.y);
-
-           // vel.y = 0.f;
         }
         
     }

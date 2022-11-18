@@ -57,7 +57,7 @@ namespace Gerenciadores{
         Entidades::Entidade *entidade1;
         Entidades::Entidade *entidade2;
 
-        for (i=0; i<listaMoveis->getTamanho()-1; i++)
+        for (i=0; i<listaMoveis->getTamanho()-1; i++)//gerencai colisao moveis com moveis
         {
             entidade1 = listaMoveis->operator[](i);
             sf::Vector2f tam1 = listaMoveis->operator[](i)->getShape().getSize();
@@ -79,12 +79,33 @@ namespace Gerenciadores{
                 }
                 entidade1 = nullptr;
                 entidade2 = nullptr;
-
-                
-                    
-
-
-            }
+            }   
         }
+        for (i=0; i<listaMoveis->getTamanho(); i++)//gerencia colisao moveis com fixos
+        {
+            entidade1 = listaMoveis->operator[](i);
+            sf::Vector2f tam1 = listaMoveis->operator[](i)->getShape().getSize();
+            for (int j = 0; j<listaFixos->getTamanho(); j++)
+            {
+                entidade2 = listaFixos->operator[](j);
+                sf::Vector2f tam2 = listaFixos->operator[](j)->getShape().getSize();
+                sf::Vector2f ds = calculaDistancia(entidade1, entidade2);
+
+                sf::Vector2f instersecao;
+                instersecao.x = fabs(ds.x) - (tam1.x / 2.f + tam2.x / 2.f);
+				instersecao.y = fabs(ds.y) - (tam1.y / 2.f + tam2.y / 2.f);
+
+                //verifica a colisao
+                if (instersecao.x < 0.f && instersecao.y < 0.f ) 
+                {
+                    entidade1->Colisao(instersecao, entidade2);                       
+                    //std::cout<<"colidiu"<<std::endl;
+                }
+                entidade1 = nullptr;
+                entidade2 = nullptr;
+            }   
+        }
+
+        
     }
 }
