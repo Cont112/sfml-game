@@ -1,10 +1,12 @@
 #include "../../include/Entidades/Colisao.h"
+#include <iostream>
+using namespace std;
 
 namespace Entidades
 {
     namespace Colisao
     {
-        Colisao::Colisao():frontal(false), superior(false)
+        Colisao::Colisao():colidiu(0)
         {
             
         }
@@ -12,24 +14,14 @@ namespace Entidades
         {
 
         }
-        void Colisao::SetColisao(int tipo, bool estado)
+        void Colisao::SetColisao(bool estado,Entidades::Entidade * c)
         {
-            if (tipo ==1)
-                frontal = estado;
-            if (tipo ==2)
-                superior = estado;
+            colidiu = estado;
+            colisor = c;
         }
-        bool Colisao::GetColisaoFrontal()
+        bool Colisao:: bateu()
         {
-            return frontal;
-        }
-        bool Colisao::GetColisaoSuperior()
-        {
-            return superior;
-        }
-        void Colisao::setColisor(Entidades::Entidade *e)
-        {
-            colisor = e;
+            return colidiu;
         }
         Entidades::Entidade* Colisao::getColisor()
         {

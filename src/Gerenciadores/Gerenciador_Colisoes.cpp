@@ -39,6 +39,7 @@ namespace Gerenciadores{
 
         return ds;
     }
+    
     void Gerenciador_Colisoes::setListas(Listas::Lista_Entidades *lm,Listas::Lista_Entidades *lf )
     {
         if(listaMoveis || listaFixos)
@@ -70,19 +71,17 @@ namespace Gerenciadores{
                 instersecao.x = fabs(ds.x) - (tam1.x / 2.f + tam2.x / 2.f);
 				instersecao.y = fabs(ds.y) - (tam1.y / 2.f + tam2.y / 2.f);
 
-					//verifica a colisao
-					if (instersecao.x < 0.f && instersecao.y < 0.f ) {
-						entidade1->getColisao().setColisor(entidade2);
-                        entidade2->getColisao().SetColisao(1, true);
-                        
-					}
-                    else 
-                    {
-                        entidade1->getColisao().setColisor(nullptr);
-                        entidade1->getColisao().SetColisao(1, false);
-                        entidade1->getColisao().SetColisao(2, false);
-                        
-                    }
+                //verifica a colisao
+                if (instersecao.x < 0.f && instersecao.y < 0.f ) 
+                {
+                    entidade1->Colisao(instersecao, entidade2);                       
+                    //std::cout<<"colidiu"<<std::endl;
+                }
+                entidade1 = nullptr;
+                entidade2 = nullptr;
+
+                
+                    
 
 
             }

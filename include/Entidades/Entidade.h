@@ -27,7 +27,7 @@ namespace Entidades{
             void setPosicao(sf::Vector2f p);
             sf::Vector2f getVelocidade();
             void setVelocidade(sf::Vector2f v);
-            Colisao::Colisao getColisao();
+            void Colisao(sf::Vector2f intersecao,Entidades::Entidade * c);
             void executar();
             
 
