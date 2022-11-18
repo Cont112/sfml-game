@@ -17,7 +17,9 @@ namespace Entidades{
             sf::Vector2f posicao;       
             bool ativo;
             sf::Vector2f vel; 
-            Colisao::Colisao* col;
+            bool inimigo;
+            bool jogador;
+            bool obstaculo;
         
         public:
             Entidade();
@@ -27,6 +29,8 @@ namespace Entidades{
             void setPosicao(sf::Vector2f p);
             sf::Vector2f getVelocidade();
             void setVelocidade(sf::Vector2f v);
+            void setTipo(int tipo);
+            int getTipo();
             void Colisao(sf::Vector2f intersecao,Entidades::Entidade * c);
             void executar();
             

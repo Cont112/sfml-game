@@ -26,16 +26,16 @@ namespace Entidades{
         void Jogador::movimentar()
         {
             float g = 1.0f;
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) && shape.getPosition().x != 0)
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
             {
                 shape.move(-vel.x, 0.0f);
 
             }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)&& shape.getPosition().x != WIDTH)
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
             {
                 shape.move(vel.x, 0.0f);
             }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)&& !isJumping && !jumpCooldown && shape.getPosition().y != 0)
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)&& !isJumping && !jumpCooldown)
             {   
                 isJumping = true;
                 jumpCooldown = true;
@@ -45,7 +45,7 @@ namespace Entidades{
                     g = 0;
                 }
             }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)&& shape.getPosition().y != (HEIGHT-shape.getSize().y))
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
             {
                 shape.move(0.0f, vel.y);
             }

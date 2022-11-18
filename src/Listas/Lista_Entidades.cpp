@@ -37,7 +37,7 @@ namespace Listas
     void Lista_Entidades::executar()
     {
         for (int i = 0; i<lista.getTamanho(); i++)
-        {
+        {            
             lista.operator[](i)->executar();
         }
     }
