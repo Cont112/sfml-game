@@ -74,13 +74,8 @@ namespace Gerenciadores{
                 //verifica a colisao
                 if (instersecao.x < 0.f && instersecao.y < 0.f ) 
                 {
-                    listaMoveis->operator[](i)->getColisao().SetColisao(true, entidade2);                        
+                    entidade1->Colisao(instersecao, entidade2);                       
                     //std::cout<<"colidiu"<<std::endl;
-                }
-                else
-                { 
-                    listaMoveis->operator[](i)->getColisao().SetColisao(false, nullptr);
-                    //std::cout<<"nao colidiu"<<std::endl;
                 }
                 entidade1 = nullptr;
                 entidade2 = nullptr;

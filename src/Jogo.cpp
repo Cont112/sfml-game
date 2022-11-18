@@ -20,25 +20,16 @@ void Jogo::executar()
 {
     criarEntidades();  
     pColisao->setListas(listaMoveis, listaFixos);
-
+    
+    Entidades::Entidade *teste;
+    teste = listaMoveis->operator[](0);
 
     //loop principal 
     while(pGrafico->isWindowOpen())
     {
         pGrafico->executar();
         lista->executar();
-        pColisao->executar();
-
-        
-
-        if(listaMoveis->operator[](0)->getColisao().bateu())
-        {
-            cout<<"colidiu"<<endl;
-        }
-        //std::cout<<lista.operator[](0)->getColisao().GetColisaoSuperior()<<std::endl;
-
-       
-       
+        pColisao->executar();    
         pGrafico->display(); 
         
     }
@@ -82,6 +73,9 @@ void Jogo:: criarEntidades()
 
     //setando inimigo
     i1->setJog1(j1);
+
+    //setando jogador
+    j1->setPosicao(sf::Vector2f(500.f, 0.f));
     
     //listando entidades
     Entidades::Entidade *e0 = static_cast<Entidades::Entidade*>(sky);
