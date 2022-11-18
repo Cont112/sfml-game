@@ -17,7 +17,7 @@ namespace Listas
         int getTamanho();
         void limparLista();
         Entidades::Entidade* operator[](int posicao);
-        void executar();
+        void atualizar();
     };
 
 }

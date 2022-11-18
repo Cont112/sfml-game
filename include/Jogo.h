@@ -13,8 +13,9 @@ private:
 
     static Gerenciadores::Gerenciador_Grafico* pGrafico;
     Gerenciadores::Gerenciador_Colisoes* pColisao;
+    static Gerenciadores::Gerenciador_Eventos* pEventos;
     
-
+    Entidades::Personagens::Jogador* j1;
 
 public:
     Jogo();

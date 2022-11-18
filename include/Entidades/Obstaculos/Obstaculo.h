@@ -15,7 +15,7 @@ namespace Entidades{
                 void setTamanho(sf::Vector2f t);
                 ~Obstaculo();
                 void setDanoso(bool d);
-                void executar();
+                void atualizar();
         };
 
 

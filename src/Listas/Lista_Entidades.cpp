@@ -34,11 +34,11 @@ namespace Listas
         return (lista.operator[](posicao));
     }
 
-    void Lista_Entidades::executar()
+    void Lista_Entidades::atualizar()
     {
         for (int i = 0; i<lista.getTamanho(); i++)
         {
-            lista.operator[](i)->executar();
+            lista.operator[](i)->atualizar();
         }
     }
 

@@ -7,6 +7,7 @@
 #include "include/Entidades/Obstaculos/Obstaculo.h"
 #include "include/Gerenciadores/Gerenciador_Grafico.h"
 #include "include/Gerenciadores/Gerenciador_Colisoes.h"
+#include "include/Gerenciadores/Gerenciador_Eventos.h"
 #include "include/Ente.h"
 #include "include/Listas/Lista.h"
 #include "include/Listas/Lista_Entidades.h"

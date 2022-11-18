@@ -23,7 +23,7 @@ namespace Entidades{
             danoso = d;
             
         }
-        void Obstaculo::executar()
+        void Obstaculo::atualizar()
         {
             imprimir_se();
         }

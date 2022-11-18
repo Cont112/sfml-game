@@ -1,20 +1,40 @@
+#pragma once
 #include "../Entidade.h"
+#define GRAVIDADE 1.0f
 
 namespace Entidades{ 
-namespace Personagens { 
+    namespace Personagens { 
 
-class Personagem:public Entidade{
+    class Personagem: public Entidade{
     protected:
         int vida;
         int dano;
+
+        sf::Vector2f vel;
+        const float velMax;
+        bool podeAndar;
+        bool esquerda;
+        sf::Clock relogio;
+        float dt;
+        
     public:
-        Personagem ();
+        Personagem (const float vel);
+        Personagem (const sf::Vector2f pos, const sf::Vector2f tam, const float vel);
         ~Personagem();
+
         int getVida() const;
         int getDano() const;
         void setDano(int d);
         void setVida(int v);
+
+        void setVel(sf::Vector2f v);
+        sf::Vector2f getVel() const;
+
+        void movimentar(const bool esquerda);
+        void parar();
+        void atualizarPosicao();
+        virtual void atualizar() = 0;
 };
 
-}
-}
+
+}}

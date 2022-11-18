@@ -2,9 +2,11 @@
 #include "Personagem.h"
 #include "Jogador.h"
 
+#define VELOCIDADE_INIMIGO 200.f
+
 namespace Entidades { 
     namespace Personagens{ 
-        class Inimigo : public Entidades::Personagens::Personagem{
+        class Inimigo : public Personagem{
 
             protected:
                 bool atira;
@@ -15,7 +17,7 @@ namespace Entidades {
                 Inimigo();
                 ~Inimigo();
                 void movimentar();
-                void executar();
+                void atualizar();
                 void setJog1(Entidades::Personagens::Jogador *j);
         };
 }

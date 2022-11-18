@@ -38,10 +38,6 @@ Gerenciador_Grafico::~Gerenciador_Grafico()
     }
     textureMap.clear();
     delete(window);
-<<<<<<< HEAD
-
-=======
->>>>>>> Principal
     std::cout << "Gerenciador_Grafico foi destruido!" << std::endl;
 }
 
@@ -100,14 +96,9 @@ sf::RenderWindow* Gerenciador_Grafico::getWindow() const
     exit(1);
 }
 
-void Gerenciador_Grafico::handleEvent()
+float Gerenciador_Grafico::getDt() const
 {
-        while (window->pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                closeWindow();
-        }
-        
+    return dt;
 }
 
 void Gerenciador_Grafico::updateDeltaTime()
@@ -148,21 +139,17 @@ void Gerenciador_Grafico::createTexture(const char* path)
     sf::Texture* texture = new sf::Texture;
     textureMap.insert(std::pair<const char*, sf::Texture*>(path,texture));
     std::cout << "Textura no caminho " << path << " criada com sucesso!" << std::endl;
-<<<<<<< HEAD
-=======
 }
 
-void Gerenciador_Grafico::deletarPonteiro()
+void Gerenciador_Grafico::deletarInstance()
 {
     delete instance;
 }
 
 void Gerenciador_Grafico::executar()
 {
-    handleEvent();
     updateDeltaTime();
     clear();
->>>>>>> Principal
 }
 
 }

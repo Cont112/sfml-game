@@ -3,7 +3,7 @@
 namespace Entidades { 
     namespace Personagens{ 
 
-        Inimigo::Inimigo(): atira(0)
+        Inimigo::Inimigo():Personagem(VELOCIDADE_INIMIGO),atira(0)
         {
             init();
         }
@@ -33,7 +33,7 @@ namespace Entidades {
             shape.move(0,g);
             posicao = shape.getPosition();
         }
-        void Inimigo::executar()
+        void Inimigo::atualizar()
         {
             imprimir_se();
             movimentar();

@@ -39,6 +39,8 @@ namespace Gerenciadores {
 
         sf::RenderWindow* getWindow() const;
 
+        float getDt() const;
+
         void handleEvent();
 
         void updateDeltaTime();
@@ -47,7 +49,7 @@ namespace Gerenciadores {
 
         void createTexture(const char* path);
 
-        void deletarPonteiro();
+        void deletarInstance();
 
         void executar();
     };

@@ -1,27 +1,29 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+
 #include <iostream>
-#include "../../Gerenciadores/Gerenciador_Grafico.h"
 #include "../../Entidades/Colisao.h"
-#include "../../Ente.h"
-#include "../Entidade.h"
+#include "Personagem.h"
+#define VELOCIDADE_JOGADOR 200.f
+#define TAMANHO_PULO 0.1f
 
 class Gerenciador_Colisoes;
 
 namespace Entidades { 
     namespace Personagens{ 
 
-        class Jogador:public Entidade
+        class Jogador:public Personagem
         {
             private:
                 void init();
                 bool isJumping;
  
             public:
+                Jogador(const sf::Vector2f pos, const sf::Vector2f tam);
                 Jogador();
                 ~Jogador();
-                void movimentar();
-                void executar();
+
+                void pular();
+                void atualizar();
                 
 
         };

@@ -13,22 +13,26 @@ namespace Entidades{
     class Entidade:public Ente{
 
         protected:
-            float g = 1.0f;
             sf::Vector2f posicao;       
-            bool ativo;
-            sf::Vector2f vel; 
+            sf::Vector2f tam; 
             Colisao::Colisao* col;
+            bool ativo;
+
         
+
         public:
             Entidade();
             Entidade(const sf::Vector2f pos,const sf::Vector2f tam);
             ~Entidade();
+
+            sf::Vector2f getTam();
             sf::Vector2f getPosicao();
+            void setTam(sf::Vector2f t);
             void setPosicao(sf::Vector2f p);
-            sf::Vector2f getVelocidade();
-            void setVelocidade(sf::Vector2f v);
+            
+            
             void Colisao(sf::Vector2f intersecao,Entidades::Entidade * c);
-            void executar();
+            virtual void atualizar() = 0;
             
 
 

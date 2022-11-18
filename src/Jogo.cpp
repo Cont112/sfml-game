@@ -4,6 +4,8 @@ using namespace std;
 #define HEIGHT 720
 
 Gerenciadores::Gerenciador_Grafico* Jogo::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
+Gerenciadores::Gerenciador_Eventos* Jogo::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
+
 Jogo::Jogo(): gamestate(0)
 {
     pColisao = new Gerenciadores::Gerenciador_Colisoes();
@@ -12,13 +14,20 @@ Jogo::Jogo(): gamestate(0)
 
 Jogo::~Jogo()
 {
-    pGrafico->deletarPonteiro();
+    pGrafico->deletarInstance();
+    pEventos->deleteInstance();
+    
+    delete lista;
+    delete listaFixos;
+    delete listaMoveis;
+    delete j1;
     std::cout << "Jogo fechou!" << std::endl;
 }
 
 void Jogo::executar()
 {
     criarEntidades();  
+    pEventos->setJogador(j1);
     pColisao->setListas(listaMoveis, listaFixos);
     
     Entidades::Entidade *teste;
@@ -28,7 +37,8 @@ void Jogo::executar()
     while(pGrafico->isWindowOpen())
     {
         pGrafico->executar();
-        lista->executar();
+        pEventos->executar();
+        lista->atualizar();
         pColisao->executar();    
         pGrafico->display(); 
         
@@ -39,7 +49,7 @@ void Jogo::executar()
 void Jogo:: criarEntidades()
 {
     //criando entidades
-    Entidades::Personagens::Jogador* j1 = new  Entidades::Personagens::Jogador ();
+    j1 = new  Entidades::Personagens::Jogador ();
     Entidades::Personagens::Inimigo* i1 = new  Entidades::Personagens::Inimigo ();
     Entidades::Obstaculos::Obstaculo* chao = new Entidades::Obstaculos::Obstaculo();
     Entidades::Obstaculos::Obstaculo* sky = new Entidades::Obstaculos::Obstaculo();
@@ -49,8 +59,8 @@ void Jogo:: criarEntidades()
     listaFixos = new Listas::Lista_Entidades();
 
     //criando texturas
-    const char* jog1 = "assets/barreto.jpg";
-    const char* ini1 = "assets/index.jpeg";
+    const char* jog1 = "assets/jogador.png";
+    const char* ini1 = "assets/inimigo.png";
     const char* ch = "assets/ground.jpeg";
     const char* sky1 = "assets/nskybox.jpg";
 

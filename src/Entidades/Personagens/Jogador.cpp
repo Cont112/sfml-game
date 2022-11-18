@@ -7,11 +7,14 @@
 
 namespace Entidades{ 
     namespace Personagens{ 
-        Jogador::Jogador()
+        Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam): Personagem(pos,tam, VELOCIDADE_JOGADOR), isJumping(false)
         {
             init();
-            isJumping = false;
+        }
 
+        Jogador::Jogador(): Personagem(VELOCIDADE_JOGADOR), isJumping(false)
+        {
+            init();
         }
 
         Jogador::~Jogador()
@@ -20,50 +23,24 @@ namespace Entidades{
 
         void Jogador::init()
         {
-            vel = sf::Vector2f(1.f,1.f);
-            shape.setOrigin(0.0f,0.0f);
+            shape.setOrigin(sf::Vector2f(0.0f,0.0f));
             shape.setSize(sf::Vector2f(100.0f,100.0f));
         }
 
-        void Jogador::movimentar()
+        void Jogador::pular()
         {
-            float g = 1.0f;
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::A) && shape.getPosition().x != 0)
-            {
-                shape.move(-vel.x, 0.0f);
-
-            }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)&& shape.getPosition().x != WIDTH)
-            {
-                shape.move(vel.x, 0.0f);
-            }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)&& !isJumping && shape.getPosition().y != 0)
-            {   
+            if(!isJumping){
+                vel.y = -2;
                 isJumping = true;
-                if(isJumping)
-                {
-                    shape.move(0.0f, -200);
-                    g = 0;
-                }
             }
-
-            if(shape.getPosition().y >= (HEIGHT-shape.getSize().y))
-            {
-                isJumping = false;
-                shape.setPosition(sf::Vector2f(shape.getPosition().x, HEIGHT-shape.getSize().y));
-            }
-            
-            shape.move(0.0f,g);
-            
-            posicao = shape.getPosition();
         }
 
-        void Jogador::executar()
+        void Jogador::atualizar()
         {
             if(ativo)
             {
                 imprimir_se();
-                movimentar();
+                atualizarPosicao();
             }
 
         }

@@ -7,11 +7,23 @@ namespace Gerenciadores {
     
     class Gerenciador_Eventos
     {
-        private:
-        Gerenciadores::Gerenciador_Grafico* pGrafico;
-        Entidades::Personagens::Jogador* pJogador;
+    private:
+        static Gerenciadores::Gerenciador_Grafico* pGrafico;
+        Entidades::Personagens::Jogador* pJogador1;
 
-        //Padroes de projeto singleton
+        //padrao de projeto singleton
         static Gerenciador_Eventos* instance;
+        Gerenciador_Eventos();
+
+    public:
+        ~Gerenciador_Eventos();
+
+        static Gerenciador_Eventos* getInstance();
+        void deleteInstance();
+
+        void setJogador(Entidades::Personagens::Jogador* pJogador);
+        void verificaTeclaPressionada(sf::Keyboard::Key tecla);
+        void verificaTeclaSolta(sf::Keyboard::Key tecla);
+        void executar();
     };
 }
