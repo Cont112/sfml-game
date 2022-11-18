@@ -11,11 +11,13 @@ namespace Listas
         Lista<Entidades::Entidade> lista;
 
     public:
-        ListaEntidades();
-        ~ListaEntidades();
-
-        void adicionarEntidade(Entidades::Entidade* pEntidade);
+        Lista_Entidades();
+        ~Lista_Entidades();
+        void addEntidade(Entidades::Entidade* pEntidade);
         int getTamanho();
+        void limparLista();
+        Entidades::Entidade* operator[](int posicao);
+        void executar();
     };
 
 }

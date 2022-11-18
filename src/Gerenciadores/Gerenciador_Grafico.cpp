@@ -4,7 +4,7 @@
 #include<iostream>
 
 #define W_NAME "Tab"
-#define WIDTH 1200
+#define WIDTH 1280
 #define HEIGHT 720
 #define FRAME_RATE 144
 
@@ -38,7 +38,10 @@ Gerenciador_Grafico::~Gerenciador_Grafico()
     }
     textureMap.clear();
     delete(window);
+<<<<<<< HEAD
 
+=======
+>>>>>>> Principal
     std::cout << "Gerenciador_Grafico foi destruido!" << std::endl;
 }
 
@@ -145,6 +148,21 @@ void Gerenciador_Grafico::createTexture(const char* path)
     sf::Texture* texture = new sf::Texture;
     textureMap.insert(std::pair<const char*, sf::Texture*>(path,texture));
     std::cout << "Textura no caminho " << path << " criada com sucesso!" << std::endl;
+<<<<<<< HEAD
+=======
+}
+
+void Gerenciador_Grafico::deletarPonteiro()
+{
+    delete instance;
+}
+
+void Gerenciador_Grafico::executar()
+{
+    handleEvent();
+    updateDeltaTime();
+    clear();
+>>>>>>> Principal
 }
 
 }

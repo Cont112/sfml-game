@@ -1,21 +1,24 @@
 #pragma once
-
-#include "Jogador.h"
-#include "Gerenciadores/Gerenciador_Grafico.h"
-#include <vector>
+#include "../stdafx.h"
 
 
 class Jogo
 {
 private:
+    int gamestate;
 
-    Jogador j1;
-    Gerenciadores::Gerenciador_Grafico* pGrafico;
+    Listas::Lista_Entidades *lista;
+    Listas::Lista_Entidades *listaFixos;
+    Listas::Lista_Entidades *listaMoveis;
+
+    static Gerenciadores::Gerenciador_Grafico* pGrafico;
+    Gerenciadores::Gerenciador_Colisoes* pColisao;
+    
 
 
 public:
     Jogo();
     ~Jogo();
-
+    void criarEntidades();
     void executar();
 };

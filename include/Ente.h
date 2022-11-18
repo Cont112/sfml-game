@@ -1,18 +1,25 @@
-#pragma once
+#pragma once 
+#include"Gerenciadores/Gerenciador_Grafico.h"
+#include "iostream"
 
-#include "Gerenciadores/Gerenciador_Grafico.h"
+class Ente{
 
-class Ente
-{
 protected:
     int id;
-    Gerenciadores::Gerenciador_Grafico* pGrafico;
-    static int idCount;
+    static int num_ente;
+    static Gerenciadores::Gerenciador_Grafico* pGrafico;
+    sf::RectangleShape shape;
 
 public:
     Ente();
     ~Ente();
-    virtual void executar() = 0;
-    virtual void imprimir_se() = 0;
+    void setId(int i);
+    
+    virtual void executar()=0;
+    void imprimir_se();
+    sf::RectangleShape getShape() const;
+    void setTextura(sf::Texture* texture);
+
+
 
 };

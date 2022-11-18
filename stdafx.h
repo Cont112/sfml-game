@@ -2,3 +2,12 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include "include/Entidades/Personagens/Jogador.h"
+#include "include/Entidades/Personagens/Inimigo.h"
+#include "include/Entidades/Obstaculos/Obstaculo.h"
+#include "include/Gerenciadores/Gerenciador_Grafico.h"
+#include "include/Gerenciadores/Gerenciador_Colisoes.h"
+#include "include/Ente.h"
+#include "include/Listas/Lista.h"
+#include "include/Listas/Lista_Entidades.h"
+#include <vector>

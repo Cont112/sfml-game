@@ -17,17 +17,32 @@ namespace Listas{
                 pProximo = NULL;
                 pData = NULL;
             }
+          
             ~Elemento()
             {
                 pProximo = NULL;
                 pData = NULL;
             }
 
-            void setProximo (Elemento<TE>* proximo) {pProximo = proximo;}
-            Elemento<TE>* getProximo () {return pProximo;}
+            void setProximo (Elemento<TL>* proximo) 
+            {
+                pProximo = proximo;
+            }
+            
+            Elemento<TE>* getProximo () 
+            {
+                return pProximo;
+            }
 
-            void setData(TE *d) {pData = d;}
-            TE* getData() {return pData;}
+            void setData(TE *d) 
+            {
+                pData = d;
+            }
+            
+            TE* getData() 
+            {
+                return pData;
+            }
         };
 
         Elemento<TL>* pPrimeiro;
@@ -36,15 +51,12 @@ namespace Listas{
 
     public:
         Lista();
-        ~Lista();
-        
-        void push_back(TL* info);
+        ~Lista(); 
         void limpar();
-        int getTamanho();
-
-    private:
         bool empty();
-        void setElemento(Elemento<TL>* pElemento);
+        void addElemento(TL* pElemento);
+        int getTamanho();
+        TL* operator[](int pos);
         
     };
 
@@ -52,7 +64,7 @@ namespace Listas{
     template <class TL>
     Lista<TL>::Lista() : pPrimeiro(NULL), pUltimo(NULL), tamanho(0) 
     {
-        limpar();
+        
     }
     
     template <class TL>
@@ -86,44 +98,28 @@ namespace Listas{
     }
 
     template <class TL>
-    void Lista<TL>::setElemento(Elemento<TL>* pElemento)
-
+    void Lista<TL>::addElemento(TL* pElemento)
     {
+        Elemento<TL>* novo = new Elemento<TL>();
+        novo->setData(pElemento);
+        
         if(pElemento != NULL)
         {
             if(empty())
             {
-                pPrimeiro = pElemento;
-                pUltimo = pPrimeiro;
+                pPrimeiro=novo;
+                pUltimo=novo;
             }
             else
             {
-                pUltimo->setProximo(pElemento);
-                pUltimo = pElemento;
+                pUltimo->setProximo(novo);
+                pUltimo=novo;
             }
         }
+        tamanho++;
 
-        else
-        {
-            std::cout << "Erro: Nao foi possivel setar o elemento na lista (Lista<TL>::setElemento)." << std::endl;
-        }
-    }
-
-    template <class TL>
-    void Lista<TL>::push_back(TL* info)
-    {
-
-        if(info != NULL)
-        {
-            Elemento<TL>* elemento = new Elemento<TL>;
-            elemento->setData(info);
-            setElemento(elemento);
-        }
-        else
-        {
-            std::cout << "Erro: Nao foi possivel pushar para a lista. Ponteiro eh nulo! (Lista<TL>::push)" << std::endl;
-        }
-
+        //else
+            //std::cout << "Erro: Nao foi possivel setar o elemento na lista (Lista<TL>::setElemento)." << std::endl;
     }
 
     template<class TL>
@@ -132,4 +128,14 @@ namespace Listas{
         return tamanho;
     }
 
+    template<class TL>
+    TL* Lista<TL>::operator[](int pos)
+    {
+        Elemento<TL>* aux = pPrimeiro;
+        for (int i =0 ; i<pos; i++)
+        {
+            aux= aux->getProximo();
+        }
+        return aux->getData();
+    }
 }
