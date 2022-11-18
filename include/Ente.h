@@ -1,10 +1,12 @@
 #pragma once 
 #include"Gerenciadores/Gerenciador_Grafico.h"
+#include "iostream"
 
 class Ente{
 
 protected:
     int id;
+    static int num_ente;
     static Gerenciadores::Gerenciador_Grafico* pGrafico;
     sf::RectangleShape shape;
 

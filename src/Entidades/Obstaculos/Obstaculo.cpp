@@ -2,13 +2,17 @@
 
 namespace Entidades{
     namespace Obstaculos{
-        Obstaculo::Obstaculo():tamanho(sf::Vector2f(0.f, 0.f)), danoso(false)
+        Obstaculo::Obstaculo(): Entidade(), tamanho(sf::Vector2f(0.f, 0.f)), danoso(false)
         {
 
         }
+        Obstaculo::Obstaculo(const sf::Vector2f pos, const sf::Vector2f tam, const char* path): Entidade(pos,tam)
+        {
+            pGrafico->createTexture(path);
+        }
         Obstaculo::~Obstaculo()
         {
-
+            
         }
         void Obstaculo::setTamanho(sf::Vector2f t)
         {

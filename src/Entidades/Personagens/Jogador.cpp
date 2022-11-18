@@ -3,6 +3,8 @@
 #define WIDTH 1280
 #define HEIGHT 720
 
+//MUDAR MOVIMENTO PARA SETAR VELOCIDADES 
+
 namespace Entidades{ 
     namespace Personagens{ 
         Jogador::Jogador()
@@ -35,25 +37,20 @@ namespace Entidades{
             {
                 shape.move(vel.x, 0.0f);
             }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)&& !isJumping && !jumpCooldown && shape.getPosition().y != 0)
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)&& !isJumping && shape.getPosition().y != 0)
             {   
                 isJumping = true;
-                jumpCooldown = true;
                 if(isJumping)
                 {
                     shape.move(0.0f, -200);
                     g = 0;
                 }
             }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)&& shape.getPosition().y != (HEIGHT-shape.getSize().y))
-            {
-                shape.move(0.0f, vel.y);
-            }
+
             if(shape.getPosition().y >= (HEIGHT-shape.getSize().y))
             {
                 isJumping = false;
                 shape.setPosition(sf::Vector2f(shape.getPosition().x, HEIGHT-shape.getSize().y));
-                jumpCooldown = false;
             }
             
             shape.move(0.0f,g);
@@ -63,8 +60,12 @@ namespace Entidades{
 
         void Jogador::executar()
         {
-            imprimir_se();
-            movimentar();
+            if(ativo)
+            {
+                imprimir_se();
+                movimentar();
+            }
+
         }
 
     }

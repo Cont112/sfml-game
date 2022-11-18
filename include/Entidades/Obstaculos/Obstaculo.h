@@ -6,7 +6,7 @@ namespace Entidades{
         class Obstaculo: public Entidade {
 
             protected:
-                sf::Texture textura;
+            
                 sf::Vector2f tamanho;
                 bool danoso;              
             public:
