@@ -15,9 +15,10 @@ namespace Entidades{
         protected:
             sf::Vector2f posicao;       
             sf::Vector2f tam; 
-            Colisao::Colisao* col;
             bool ativo;
-
+            bool inimigo;
+            bool jogador;
+            bool obstaculo;
         
 
         public:
@@ -29,8 +30,8 @@ namespace Entidades{
             sf::Vector2f getPosicao();
             void setTam(sf::Vector2f t);
             void setPosicao(sf::Vector2f p);
-            
-            
+            void setTipo(int tipo);
+            int getTipo();
             void Colisao(sf::Vector2f intersecao,Entidades::Entidade * c);
             virtual void atualizar() = 0;
             

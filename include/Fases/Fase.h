@@ -2,6 +2,7 @@
 
 #include "../Listas/Lista_Entidades.h"
 #include "../Gerenciadores/Gerenciador_Colisoes.h"
+#include "../Entidades/Obstaculos/Obstaculo.h"
 
 //Adaptado do monitor Geovane
 
@@ -9,10 +10,11 @@ namespace Fases{
     class Fase : public Ente{
 
     protected:
-        Listas::Lista_Entidades listaPersonagens;
-        Listas::Lista_Entidades listaObstaculos;
+        Listas::Lista_Entidades* listaPersonagens;
+        Listas::Lista_Entidades* listaObstaculos;
         Gerenciadores::Gerenciador_Colisoes* pColisao;
-        sf::Sprite fundo;
+        Gerenciadores::Gerenciador_Grafico* pGrafico;
+        sf::RectangleShape fundo;
 
     public:
         Fase();

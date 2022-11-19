@@ -31,7 +31,6 @@ void Jogo::executar()
     pColisao->setListas(listaMoveis, listaFixos);
     
     Entidades::Entidade *teste;
-    teste = listaMoveis->operator[](0);
 
     //loop principal 
     while(pGrafico->isWindowOpen())

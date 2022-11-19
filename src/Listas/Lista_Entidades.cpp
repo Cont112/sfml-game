@@ -37,8 +37,13 @@ namespace Listas
     void Lista_Entidades::atualizar()
     {
         for (int i = 0; i<lista.getTamanho(); i++)
+<<<<<<< HEAD
         {
             lista.operator[](i)->atualizar();
+=======
+        {            
+            lista.operator[](i)->executar();
+>>>>>>> Ian
         }
     }
 
