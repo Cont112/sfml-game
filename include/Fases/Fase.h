@@ -10,12 +10,13 @@ namespace Fases{
     class Fase : public Ente{
 
     protected:
-        Listas::Lista_Entidades* listaPersonagens;
-        Listas::Lista_Entidades* listaObstaculos;
+        Listas::Lista_Entidades listaPersonagens;
+        Listas::Lista_Entidades listaObstaculos;
         Gerenciadores::Gerenciador_Colisoes* pColisao;
         Gerenciadores::Gerenciador_Grafico* pGrafico;
-        sf::RectangleShape fundo;
+        sf::RectangleShape fundoTela;
 
+        
     public:
         Fase();
         ~Fase();
@@ -24,12 +25,15 @@ namespace Fases{
         void criarJogador(const sf::Vector2f pos);
         void criarPlataforma(const sf::Vector2f pos);
         void criarCaixa(const sf::Vector2f pos);
-        virtual void criarFundo() = 0;
-        virtual void criarMapa() = 0;
         void criarEntidade(const sf::Vector2f pos);
+        virtual void criarMapa() = 0;
+        virtual void criarFundo() = 0;
         void gerenciar_colisoes();
         void executar();
         void desenhar();
+        void setPColisao(Gerenciadores::Gerenciador_Colisoes* g);
+        Listas::Lista_Entidades* getListaPersonagens();
+        Listas::Lista_Entidades* getListaObstaculos();
 
    };
 }

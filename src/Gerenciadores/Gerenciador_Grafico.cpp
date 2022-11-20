@@ -136,7 +136,6 @@ void Gerenciador_Grafico::createTexture(const char* path)
         if(it->first == path)
         {
             std::cout << "Textura ja existe!" << std::endl;
-            exit(1);
         }
         
     }

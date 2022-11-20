@@ -10,7 +10,13 @@ namespace Gerenciadores{
 
     Gerenciador_Colisoes::Gerenciador_Colisoes(Listas::Lista_Entidades* l1, Listas::Lista_Entidades* l2)
     {
-        setListas(l1,l2);
+        if(l1 != nullptr && l2 !=nullptr)
+            setListas(l1,l2);
+        else 
+        {
+            std::cout<<"ponteiro das listas nulo"<<std::endl;
+            exit(1);
+        }
     }
 
     Gerenciador_Colisoes::~Gerenciador_Colisoes()
@@ -42,11 +48,13 @@ namespace Gerenciadores{
     
     void Gerenciador_Colisoes::setListas(Listas::Lista_Entidades *lm,Listas::Lista_Entidades *lf )
     {
-        if(listaMoveis || listaFixos)
+        if(listaMoveis != nullptr && listaFixos !=nullptr)
         {
             listaMoveis = lm;
             listaFixos = lf;
         }
+        else 
+            std::cout<<"problema setando listas"<<std::endl;
 
     }
     
@@ -56,9 +64,11 @@ namespace Gerenciadores{
         int i =0;
         Entidades::Entidade *entidade1;
         Entidades::Entidade *entidade2;
+        
 
         for (i=0; i<listaMoveis->getTamanho()-1; i++)//gerencai colisao moveis com moveis
         {
+            
             entidade1 = listaMoveis->operator[](i);
             sf::Vector2f tam1 = listaMoveis->operator[](i)->getShape().getSize();
             for (int j = i+1; j<listaMoveis->getTamanho(); j++)
@@ -103,6 +113,7 @@ namespace Gerenciadores{
                 }
                 entidade1 = nullptr;
                 entidade2 = nullptr;
+                
             }   
         }
 

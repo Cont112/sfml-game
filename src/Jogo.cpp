@@ -6,7 +6,7 @@ using namespace std;
 Gerenciadores::Gerenciador_Grafico* Jogo::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
 Jogo::Jogo(): gamestate(0)
 {
-    pColisao = new Gerenciadores::Gerenciador_Colisoes();
+    criarFase();
     executar();
 }
 
@@ -17,25 +17,31 @@ Jogo::~Jogo()
 }
 
 void Jogo::executar()
-{
-    criarEntidades();  
-    pColisao->setListas(listaMoveis, listaFixos);
-    
-    Entidades::Entidade *teste;
-
+{ 
     //loop principal 
     while(pGrafico->isWindowOpen())
     {
         pGrafico->executar();
-        lista->executar();
-        pColisao->executar();    
-        pGrafico->display(); 
+    
+        fase1->executar();
         
+        pGrafico->display();    
     }
 
 
 }
-void Jogo:: criarEntidades()
+void Jogo::criarFase()
+{
+    Fases::Bosque *aux = new Fases::Bosque();
+    fase1 = static_cast<Fases::Fase*>(aux);
+    fase1->criarMapa();
+    fase1->criarFundo();
+
+
+
+}
+
+/*void Jogo:: criarEntidades()
 {
     //criando entidades
     Entidades::Personagens::Jogador* j1 = new  Entidades::Personagens::Jogador ();
@@ -68,7 +74,7 @@ void Jogo:: criarEntidades()
     sky->setTamanho(sf::Vector2f(WIDTH, HEIGHT));
     sky->setPosicao(sf::Vector2f(0,0));
     chao->setTamanho(sf::Vector2f(WIDTH, 20));//altura do chao = 20
-    chao->setPosicao(sf::Vector2f(0, 700));//posicao chao*/   
+    chao->setPosicao(sf::Vector2f(0, 700));//posicao chao   
 
     //setando inimigo
     i1->setJog1(j1);
@@ -92,5 +98,5 @@ void Jogo:: criarEntidades()
     listaFixos->addEntidade(e3);
 
     
-}
+}*/
 

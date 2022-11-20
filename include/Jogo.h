@@ -6,19 +6,14 @@ class Jogo
 {
 private:
     int gamestate;
-
-    Listas::Lista_Entidades *lista;
-    Listas::Lista_Entidades *listaFixos;
-    Listas::Lista_Entidades *listaMoveis;
-
+    Fases::Fase *fase1;
     static Gerenciadores::Gerenciador_Grafico* pGrafico;
-    Gerenciadores::Gerenciador_Colisoes* pColisao;
+    void criarFase();
     
 
 
 public:
     Jogo();
     ~Jogo();
-    void criarEntidades();
     void executar();
 };

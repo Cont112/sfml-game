@@ -9,7 +9,8 @@ namespace Fases{
         public:
             Bosque();
             ~Bosque();
-            void executar();
-            void inicializar_entidades();
-    }
+            void criarMapa();
+            void criarFundo();
+
+    };
 }
