@@ -111,8 +111,8 @@ namespace Fases{
     void Fase::desenhar()
     {
         pGrafico->render(fundo);
-        listaPersonagens->executar();
-        listaObstaculos->executar();
+        listaPersonagens->atualizar();
+        listaObstaculos->atualizar();
     }
 
 

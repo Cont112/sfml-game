@@ -1,20 +1,20 @@
 #include "../include/Ente.h"
 
 Gerenciadores::Gerenciador_Grafico* Ente::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
-int Ente::num_ente = 0;
-Ente::Ente(): shape()
+
+Ente::Ente(const IDs ID): ID(ID), shape()
 {
-    num_ente++;
-    id = num_ente;
     std::cout << "Ente criado!" << std::endl;
 }
 
 Ente::~Ente(){
 }
-void Ente::setId(int i)
+
+const IDs Ente::getID() const 
 {
-    id = i;
+    return ID;
 }
+
 sf::RectangleShape Ente::getShape() const
 {
     return shape;

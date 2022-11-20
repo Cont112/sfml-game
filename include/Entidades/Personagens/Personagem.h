@@ -18,8 +18,7 @@ namespace Entidades{
         float dt;
         
     public:
-        Personagem (const float vel);
-        Personagem (const sf::Vector2f pos, const sf::Vector2f tam, const float vel);
+        Personagem (const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const IDs ID);
         ~Personagem();
 
         int getVida() const;

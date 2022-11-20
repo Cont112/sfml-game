@@ -14,16 +14,12 @@ namespace Entidades{
 
         protected:
             sf::Vector2f posicao;       
-            sf::Vector2f tam; 
+            sf::Vector2f tam;
             bool ativo;
-            bool inimigo;
-            bool jogador;
-            bool obstaculo;
         
 
         public:
-            Entidade();
-            Entidade(const sf::Vector2f pos,const sf::Vector2f tam);
+            Entidade(const sf::Vector2f pos,const sf::Vector2f tam, IDs ID);
             ~Entidade();
 
             sf::Vector2f getTam();

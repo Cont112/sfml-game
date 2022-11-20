@@ -1,7 +1,7 @@
 #include "../include/Jogo.h"
 using namespace std;
-#define WIDTH 1280
-#define HEIGHT 720
+#define WIDTH 1280.0f
+#define HEIGHT 720.0f
 
 Gerenciadores::Gerenciador_Grafico* Jogo::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
 Gerenciadores::Gerenciador_Eventos* Jogo::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
@@ -16,6 +16,7 @@ Jogo::~Jogo()
 {
     pGrafico->deletarInstance();
     pEventos->deleteInstance();
+
     
     delete lista;
     delete listaFixos;
@@ -47,45 +48,35 @@ void Jogo::executar()
 }
 void Jogo:: criarEntidades()
 {
-    //criando entidades
-    j1 = new  Entidades::Personagens::Jogador ();
-    Entidades::Personagens::Inimigo* i1 = new  Entidades::Personagens::Inimigo ();
-    Entidades::Obstaculos::Obstaculo* chao = new Entidades::Obstaculos::Obstaculo();
-    Entidades::Obstaculos::Obstaculo* sky = new Entidades::Obstaculos::Obstaculo();
-    
-    lista = new Listas::Lista_Entidades();
-    listaMoveis = new Listas::Lista_Entidades();
-    listaFixos = new Listas::Lista_Entidades();
-
     //criando texturas
     const char* jog1 = "assets/jogador.png";
     const char* ini1 = "assets/inimigo.png";
     const char* ch = "assets/ground.jpeg";
     const char* sky1 = "assets/nskybox.jpg";
 
-    pGrafico->createTexture(sky1);
+    //criando entidades
+    j1 = new  Entidades::Personagens::Jogador (sf::Vector2f(0.0f,500.f),sf::Vector2f(100.f,100.f),IDs::jogador);
+    Entidades::Personagens::Inimigo* i1 = new  Entidades::Personagens::Inimigo (sf::Vector2f(0.0f,500.f), sf::Vector2f(100.f,100.f), j1 ,IDs::inimigo);
+    Entidades::Obstaculos::Obstaculo* chao = new Entidades::Obstaculos::Obstaculo(sf::Vector2f(0.0f,700.0f), sf::Vector2(WIDTH, 20.0f), ch, IDs::caixa);
+    Entidades::Obstaculos::Obstaculo* sky = new Entidades::Obstaculos::Obstaculo(sf::Vector2f(0.0f,0.0f), sf::Vector2(WIDTH, HEIGHT), sky1, IDs::caixa);
+    
+    lista = new Listas::Lista_Entidades();
+    listaMoveis = new Listas::Lista_Entidades();
+    listaFixos = new Listas::Lista_Entidades();
+
+
+
     pGrafico->createTexture(jog1);
     pGrafico->createTexture(ini1);
-    pGrafico->createTexture(ch);
     pGrafico->loadTextures();
 
-    sky->setTextura(pGrafico->textureMap.at(sky1));
     j1->setTextura(pGrafico->textureMap.at(jog1));
     i1->setTextura(pGrafico->textureMap.at(ini1));
     chao->setTextura(pGrafico->textureMap.at(ch));
+    sky->setTextura(pGrafico->textureMap.at(sky1));
 
-    //criando obstaculos 
-    sky->setTamanho(sf::Vector2f(WIDTH, HEIGHT));
-    sky->setPosicao(sf::Vector2f(0,0));
-    chao->setTamanho(sf::Vector2f(WIDTH, 20));//altura do chao = 20
-    chao->setPosicao(sf::Vector2f(0, 700));//posicao chao*/   
 
-    //setando inimigo
-    i1->setJog1(j1);
 
-    //setando jogador
-    j1->setPosicao(sf::Vector2f(500.f, 0.f));
-    
     //listando entidades
     Entidades::Entidade *e0 = static_cast<Entidades::Entidade*>(sky);
     Entidades::Entidade *e1 = static_cast<Entidades::Entidade*>(j1);

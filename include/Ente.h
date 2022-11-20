@@ -1,22 +1,23 @@
 #pragma once 
 #include"Gerenciadores/Gerenciador_Grafico.h"
+#include "IDs.h"
 #include "iostream"
 
 class Ente{
 
 protected:
-    int id;
-    static int num_ente;
     static Gerenciadores::Gerenciador_Grafico* pGrafico;
     sf::RectangleShape shape;
+    const IDs ID;
 
 public:
-    Ente();
+    Ente(const IDs ID);
     ~Ente();
-    void setId(int i);
-    
+
     virtual void atualizar()=0;
     void imprimir_se();
+
+    const IDs getID() const;
     sf::RectangleShape getShape() const;
     void setTextura(sf::Texture* texture);
 

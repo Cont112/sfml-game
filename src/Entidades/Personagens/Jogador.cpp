@@ -7,12 +7,7 @@
 
 namespace Entidades{ 
     namespace Personagens{ 
-        Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam): Personagem(pos,tam, VELOCIDADE_JOGADOR), isJumping(false)
-        {
-            init();
-        }
-
-        Jogador::Jogador(): Personagem(VELOCIDADE_JOGADOR), isJumping(false)
+        Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const IDs ID): Personagem(pos,tam, VELOCIDADE_JOGADOR, ID), isJumping(false)
         {
             init();
         }
@@ -23,48 +18,15 @@ namespace Entidades{
 
         void Jogador::init()
         {
-            shape.setOrigin(sf::Vector2f(0.0f,0.0f));
-            shape.setSize(sf::Vector2f(100.0f,100.0f));
+            shape.setOrigin(sf::Vector2f(tam.x/2.5f,tam.y/2.0f));
         }
 
         void Jogador::pular()
         {
-<<<<<<< HEAD
             if(!isJumping){
-                vel.y = -2;
-=======
-            float g = 1.0f;
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-            {
-                shape.move(-vel.x, 0.0f);
-
+                vel.y = -sqrt(2.0f * GRAVIDADE * TAMANHO_PULO);
+                //isJumping = true;
             }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-            {
-                shape.move(vel.x, 0.0f);
-            }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)&& !isJumping && !jumpCooldown)
-            {   
->>>>>>> Ian
-                isJumping = true;
-            }
-<<<<<<< HEAD
-=======
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-            {
-                shape.move(0.0f, vel.y);
-            }
-            if(shape.getPosition().y >= (HEIGHT-shape.getSize().y))
-            {
-                isJumping = false;
-                shape.setPosition(sf::Vector2f(shape.getPosition().x, HEIGHT-shape.getSize().y));
-                jumpCooldown = false;
-            }
-            
-            shape.move(0.0f,g);
-            
-            posicao = shape.getPosition();
->>>>>>> Ian
         }
 
         void Jogador::atualizar()

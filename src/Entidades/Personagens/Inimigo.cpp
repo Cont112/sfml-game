@@ -3,44 +3,57 @@
 namespace Entidades { 
     namespace Personagens{ 
 
-        Inimigo::Inimigo():Personagem(VELOCIDADE_INIMIGO),atira(0)
+        Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador *jogador,const IDs ID) :
+        Personagem(pos,tam,VELOCIDADE_INIMIGO,ID),jogador1(jogador),atira(0), dtAux(0.0f)
         {
-            init();
+            moveAleatorio = rand()%3;
+            if(moveAleatorio == 0){
+                parar();
+            } else if (moveAleatorio == 1){
+                movimentar(true);
+            } else {
+                movimentar(false);
+            }
         }
         Inimigo::~Inimigo()
         {
 
         }
-        void Inimigo::init()
-        {
-            vel = sf::Vector2f(0.1f,0.1f);
-            shape.setOrigin(0.0f,0.0f);
-            shape.setSize(sf::Vector2f(100.0f,100.0f));
 
-        }
-        void Inimigo::movimentar()
+        void Inimigo::atualizarMovimentoAleatorio()
         {
-            float g = 1.0f;
-            if (jogador1->getPosicao().x < posicao.x)
-                shape.move(-vel.x, 0);
-            if (jogador1->getPosicao().x > posicao.x)
-                shape.move(vel.x, 0);
-
-            if(shape.getPosition().y >= (HEIGHT-shape.getSize().y))
-            {
-                shape.setPosition(sf::Vector2f(shape.getPosition().x, HEIGHT-shape.getSize().y));
+            if(dtAux > 1.0f){
+                moveAleatorio = rand()%3;
+                if(moveAleatorio == 0){
+                    parar();
+                } else if (moveAleatorio == 1){
+                    movimentar(true);
+                } else {
+                    movimentar(false);
+                }
+                dtAux = 0.0f;          
             }
-            shape.move(0,g);
-            posicao = shape.getPosition();
+        }
+        void Inimigo::moveInimigo()
+        {
+            sf::Vector2f posJogador = jogador1->getPosicao();
+            sf::Vector2f posInimigo = getPosicao();
+            if(fabs(posJogador.x - posInimigo.x) <= RAIO_X && fabs(posJogador.y - posInimigo.y) <= RAIO_Y){
+                if(posJogador.x - posInimigo.x > 0.0f){
+                    movimentar(false);
+                } else {
+                    movimentar(true);
+                }
+            } else {
+                atualizarMovimentoAleatorio();
+            }
         }
         void Inimigo::atualizar()
         {
-            imprimir_se();
-            movimentar();
-        }
-        void Inimigo::setJog1(Entidades::Personagens::Jogador *j)
-        {
-            jogador1 = j;
+            atualizarPosicao();
+            moveInimigo();
+            dtAux += relogio.getElapsedTime().asSeconds() * 100;
+            relogio.restart();
         }
     }
 }

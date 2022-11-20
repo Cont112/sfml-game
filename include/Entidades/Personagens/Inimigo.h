@@ -2,6 +2,11 @@
 #include "Personagem.h"
 #include "Jogador.h"
 
+#include <cmath>
+
+#define RAIO_X 200.0f
+#define RAIO_Y 200.0f
+
 #define VELOCIDADE_INIMIGO 200.f
 
 namespace Entidades { 
@@ -10,15 +15,17 @@ namespace Entidades {
 
             protected:
                 bool atira;
-                void init();
                 Jogador *jogador1;
+                int moveAleatorio;
+                float dtAux;
 
+                void moveInimigo();
+                void atualizarMovimentoAleatorio();
             public:
-                Inimigo();
+                Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogador,const IDs ID);
                 ~Inimigo();
-                void movimentar();
-                void atualizar();
-                void setJog1(Entidades::Personagens::Jogador *j);
+
+                virtual void atualizar();
         };
 }
 }

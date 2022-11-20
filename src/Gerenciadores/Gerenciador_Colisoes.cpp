@@ -53,17 +53,14 @@ namespace Gerenciadores{
     void Gerenciador_Colisoes::executar()
     {
         //colisao entre moveis
-        int i =0;
-        Entidades::Entidade *entidade1;
-        Entidades::Entidade *entidade2;
 
-        for (i=0; i<listaMoveis->getTamanho()-1; i++)//gerencai colisao moveis com moveis
+        for (int i=0; i<listaMoveis->getTamanho()-1; i++)//gerencai colisao moveis com moveis
         {
-            entidade1 = listaMoveis->operator[](i);
+            Entidades::Entidade *entidade1 = listaMoveis->operator[](i);
             sf::Vector2f tam1 = listaMoveis->operator[](i)->getShape().getSize();
             for (int j = i+1; j<listaMoveis->getTamanho(); j++)
             {
-                entidade2 = listaMoveis->operator[](j);
+                Entidades::Entidade *entidade2 = listaMoveis->operator[](j);
                 sf::Vector2f tam2 = listaMoveis->operator[](j)->getShape().getSize();
                 sf::Vector2f ds = calculaDistancia(entidade1, entidade2);
 
@@ -81,13 +78,13 @@ namespace Gerenciadores{
                 entidade2 = nullptr;
             }   
         }
-        for (i=0; i<listaMoveis->getTamanho(); i++)//gerencia colisao moveis com fixos
+        for (int i=0; i<listaMoveis->getTamanho(); i++)//gerencia colisao moveis com fixos
         {
-            entidade1 = listaMoveis->operator[](i);
+            Entidades::Entidade *entidade1 = listaMoveis->operator[](i);
             sf::Vector2f tam1 = listaMoveis->operator[](i)->getShape().getSize();
             for (int j = 0; j<listaFixos->getTamanho(); j++)
             {
-                entidade2 = listaFixos->operator[](j);
+                Entidades::Entidade *entidade2 = listaFixos->operator[](j);
                 sf::Vector2f tam2 = listaFixos->operator[](j)->getShape().getSize();
                 sf::Vector2f ds = calculaDistancia(entidade1, entidade2);
 

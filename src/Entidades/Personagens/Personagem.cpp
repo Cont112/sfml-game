@@ -3,16 +3,12 @@
 namespace Entidades{
     namespace Personagens{
 
-        Personagem::Personagem(const sf::Vector2f pos, const sf::Vector2f tam, const float vel): 
-        Entidade(pos,tam), podeAndar(0), esquerda(0),relogio(), dt(0.0f),
+        Personagem::Personagem(const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const IDs ID): 
+        Entidade(pos,tam, ID), podeAndar(0), esquerda(0),relogio(), dt(0.0f),
         vel(sf::Vector2f(vel,0.0f)), velMax(vel),vida(100), dano(10)
         {
         }
 
-        Personagem::Personagem(const float vel): Entidade(), podeAndar(0), esquerda(0),relogio(), dt(0.0f),
-        vel(sf::Vector2f(vel,0.0f)), velMax(vel),vida(100), dano(10)
-        {
-        }
         Personagem::~Personagem()
         {
         }
@@ -72,6 +68,14 @@ namespace Entidades{
             //sofre o efeito da gravidade
             vel.y += GRAVIDADE * dt;
             ds.y = vel.y * GRAVIDADE;
+
+
+
+            if(posicao.y + tam.y >= 700)
+            {
+                ds.y = 0;
+                setPosicao(sf::Vector2f(posicao.x, 500));
+            }
 
             //atualiza posição
             setPosicao(sf::Vector2f(posicao.x + ds.x, posicao.y + ds.y));

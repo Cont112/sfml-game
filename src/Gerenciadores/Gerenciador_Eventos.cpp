@@ -21,6 +21,7 @@ namespace Gerenciadores
 
     Gerenciador_Eventos::~Gerenciador_Eventos()
     {
+        std::cout << "Gerenciador de Eventos foi destruido!" << std::endl;
     }
 
     void Gerenciador_Eventos::setJogador(Entidades::Personagens::Jogador* pJogador1)
