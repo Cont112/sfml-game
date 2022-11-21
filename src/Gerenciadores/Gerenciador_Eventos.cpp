@@ -46,8 +46,10 @@ namespace Gerenciadores
 
     void Gerenciador_Eventos::verificaTeclaSolta(sf::Keyboard::Key tecla)
     {
-        if(tecla == sf::Keyboard::A || tecla == sf::Keyboard::Key::D){
-            pJogador1->parar();
+        if(tecla == sf::Keyboard::A){
+            pJogador1->pararEsquerda();
+        } else if (tecla == sf::Keyboard::Key::D){
+            pJogador1->pararDireita();
         }
     }
 
