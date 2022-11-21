@@ -65,12 +65,10 @@ void Jogo:: criarEntidades()
 
 
     //listando entidades
-    //Entidades::Entidade *e0 = static_cast<Entidades::Entidade*>(sky);
     Entidades::Entidade *e1 = static_cast<Entidades::Entidade*>(j1);
     Entidades::Entidade *e2 = static_cast<Entidades::Entidade*>(i1);
     Entidades::Entidade *e3 = static_cast<Entidades::Entidade*>(chao);
 
-    //lista->addEntidade(e0);
     lista->addEntidade(e1);
     lista->addEntidade(e2);
     lista->addEntidade(e3);
@@ -78,7 +76,5 @@ void Jogo:: criarEntidades()
     listaMoveis->addEntidade(e1);
     listaMoveis->addEntidade(e2);
     listaFixos->addEntidade(e3);
-
-    
 }
 
