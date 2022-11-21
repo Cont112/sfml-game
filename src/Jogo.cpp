@@ -15,7 +15,8 @@ Jogo::~Jogo()
 {
     pGrafico->deletarInstance();
     pEventos->deletarInstance();
-    delete pColisao;
+    if(pColisao)
+        delete pColisao;
     
     delete lista;
     delete listaFixos;
@@ -49,7 +50,6 @@ void Jogo:: criarEntidades()
 {
     //criando texturas
     const char* ini1 = "assets/inimigo.png";
-    const char* ch = "assets/ground.jpeg";
     const char* sky1 = "assets/nskybox.jpg";
 
     //criando entidades

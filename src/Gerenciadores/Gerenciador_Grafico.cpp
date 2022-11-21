@@ -133,7 +133,11 @@ void Gerenciador_Grafico::createTexture(const char* path)
 
 void Gerenciador_Grafico::deletarInstance()
 {
-    delete instance;
+    if(instance){
+        delete instance;
+    } else {
+        std::cout << "Gerenciador_Grafico: nao foi possivel deletar instancia, nao existe!" << std::endl;
+    }
 }
 
 void Gerenciador_Grafico::executar()

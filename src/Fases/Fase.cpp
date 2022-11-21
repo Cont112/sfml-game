@@ -103,14 +103,12 @@ namespace Fases{
     
     void Fase::executar()
     {
-        pGrafico->loadTextures();
         desenhar();
         pColisao->executar();        
     }
     
     void Fase::desenhar()
     {
-        pGrafico->render(fundo);
         listaPersonagens->atualizar();
         listaObstaculos->atualizar();
     }

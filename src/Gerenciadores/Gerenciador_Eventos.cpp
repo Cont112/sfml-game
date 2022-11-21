@@ -73,6 +73,10 @@ namespace Gerenciadores
 
     void Gerenciador_Eventos::deletarInstance()
     {
-        delete instance;
+        if(instance){
+            delete instance;
+        } else {
+            std::cout << "Gerenciador_Eventos: nao foi possivel deletar instancia, nao existe!" << std::endl;
+        }       
     }
 }
