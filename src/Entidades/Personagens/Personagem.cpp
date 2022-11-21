@@ -59,8 +59,10 @@ namespace Entidades{
 
             //move na horizontal
             if(podeAndar){
+                shape.setScale(1.f,1.f);
                 ds.x = vel.x * dt;
                 if(esquerda){
+                    shape.setScale(-1.f,1.f);
                     ds.x *= -1;
                 }
             }

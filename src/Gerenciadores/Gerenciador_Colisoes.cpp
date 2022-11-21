@@ -24,7 +24,7 @@ sf::Vector2f Gerenciador_Colisoes::calculaDistancia(Entidades::Entidade* ent1, E
     sf::Vector2f tam2 = ent2->getTam();
     
     sf::Vector2f distanciaEntreCentros(
-        fabs((pos1.x + tam1.x/2.0f) - (pos2.x + tam2.x/2.0f)),
+        fabs((pos1.x) - (pos2.x)), // pos1.x + tam.x/2.0f pq agr o centro ja esta no meio
         fabs((pos1.y + tam1.y/2.0f) - (pos2.y + tam2.y/2.0f))
     );
     sf::Vector2f somaMetadeRectangulo(tam1.x/2.0f + tam2.x/2.0f, tam1.y/2.0f + tam2.y/2.0f);

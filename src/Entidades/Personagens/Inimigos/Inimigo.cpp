@@ -1,7 +1,8 @@
-#include "../../../include/Entidades/Personagens/Inimigo.h"
+#include "../../../../include/Entidades/Personagens/Inimigos/Inimigo.h"
 #define HEIGHT 720
 namespace Entidades { 
-    namespace Personagens{ 
+    namespace Personagens{
+        namespace Inimigos{  
 
         Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador *jogador,const IDs ID) :
         Personagem(pos,tam,VELOCIDADE_INIMIGO,ID),jogador1(jogador),atira(0), dtAux(0.0f)
@@ -17,7 +18,6 @@ namespace Entidades {
         }
         Inimigo::~Inimigo()
         {
-
         }
 
         void Inimigo::atualizarMovimentoAleatorio()
@@ -48,13 +48,6 @@ namespace Entidades {
                 atualizarMovimentoAleatorio();
             }
         }
-        void Inimigo::atualizar()
-        {
-            atualizarPosicao();
-            moveInimigo();
-            dtAux += relogio.getElapsedTime().asSeconds() * 100;
-            relogio.restart();
-        }
 
         void Inimigo::colisao(Entidade* other, sf::Vector2f ds)
         {
@@ -70,4 +63,5 @@ namespace Entidades {
             }
         }
     }
+}
 }

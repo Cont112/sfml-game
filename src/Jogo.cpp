@@ -43,25 +43,15 @@ void Jogo::executar()
 }
 void Jogo:: criarEntidades()
 {
-    //criando texturas
-    const char* ini1 = "assets/inimigo.png";
-    const char* sky1 = "assets/nskybox.jpg";
-
     //criando entidades
-    j1 = new  Entidades::Personagens::Jogador (sf::Vector2f(50.0f,500.f),sf::Vector2f(100.f,100.f),IDs::jogador);
-    Entidades::Personagens::Inimigo* i1 = new  Entidades::Personagens::Inimigo (sf::Vector2f(640.0f,500.f), sf::Vector2f(100.f,100.f), j1 ,IDs::esqueleto);
-    Entidades::Obstaculos::Plataforma* chao = new Entidades::Obstaculos::Plataforma(sf::Vector2f(0.0f,700.0f));
-    Entidades::Obstaculos::Caixa* caixa = new Entidades::Obstaculos::Caixa(sf::Vector2f(300.0f,650.0f));
+    j1 = new  Entidades::Personagens::Jogador (sf::Vector2f(50.0f,500.f),sf::Vector2f(48.f,48.f),IDs::jogador);
+    Entidades::Personagens::Inimigos::Esqueleto* i1 = new Entidades::Personagens::Inimigos::Esqueleto(sf::Vector2f(640.0f,500.0f), j1);
+    Entidades::Obstaculos::Plataforma* chao = new Entidades::Obstaculos::Plataforma(sf::Vector2f(640.0f,700.0f));
+    Entidades::Obstaculos::Caixa* caixa = new Entidades::Obstaculos::Caixa(sf::Vector2f(300.0f,200.0f));
     
     lista = new Listas::Lista_Entidades();
     listaMoveis = new Listas::Lista_Entidades();
     listaFixos = new Listas::Lista_Entidades();
-
-
-
-    pGrafico->createTexture(ini1);
-
-    i1->setTextura(pGrafico->textureMap.at(ini1));
 
 
     //listando entidades

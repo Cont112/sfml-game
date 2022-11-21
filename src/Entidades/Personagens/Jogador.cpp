@@ -20,7 +20,7 @@ namespace Entidades{
         {
             pGrafico->createTexture(PATH_JOGADOR);
             setTextura(pGrafico->textureMap.at(PATH_JOGADOR));
-            shape.setOrigin(sf::Vector2f(0.f,0.f));
+            shape.setOrigin(sf::Vector2f(tam.x/2.0f,0.0f));
         }
 
         void Jogador::pular()
@@ -50,8 +50,9 @@ namespace Entidades{
         {
             switch (other->getID())
             {
-            case (IDs::inimigo):
+            case (IDs::esqueleto):
                 /* code */
+                std::cout << "Tomou dano!" << std::endl;
                 break;
             
             case (IDs::caixa):

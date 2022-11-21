@@ -3,7 +3,7 @@
 #include <iostream>
 #include "Personagem.h"
 
-#define PATH_JOGADOR "assets/barreto.jpg"
+#define PATH_JOGADOR "assets/Jogador.png"
 #define VELOCIDADE_JOGADOR 200.f
 #define TAMANHO_PULO 0.1f
 

@@ -3,7 +3,8 @@
 #include <cmath>
 #include <string>
 #include "include/Entidades/Personagens/Jogador.h"
-#include "include/Entidades/Personagens/Inimigo.h"
+#include "include/Entidades/Personagens/Inimigos/Inimigo.h"
+#include "include/Entidades/Personagens/Inimigos/Esqueleto.h"
 #include "include/Entidades/Obstaculos/Obstaculo.h"
 #include "include/Entidades/Obstaculos/Plataforma.h"
 #include "include/Entidades/Obstaculos/Caixa.h"
