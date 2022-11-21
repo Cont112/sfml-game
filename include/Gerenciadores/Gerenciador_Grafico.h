@@ -45,8 +45,6 @@ namespace Gerenciadores {
 
         void updateDeltaTime();
 
-        void loadTextures();
-
         void createTexture(const char* path);
 
         void deletarInstance();

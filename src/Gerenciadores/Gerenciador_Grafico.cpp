@@ -107,20 +107,6 @@ void Gerenciador_Grafico::updateDeltaTime()
     clock.restart();
 }
 
-void Gerenciador_Grafico::loadTextures()
-{
-    std::map<const char*, sf::Texture*>::iterator it;
-    for (it = textureMap.begin(); it != textureMap.end(); it++)
-    {
-        if(!it->second->loadFromFile(it->first))
-        {
-            std::cout << "Nao foi possivel carregar a textura" << std::endl;
-            exit(1);
-        }
-    }
-
-    std::cout << "Texturas carregadas com sucesso!" << std::endl;
-}
 
 void Gerenciador_Grafico::createTexture(const char* path)
 {
@@ -138,7 +124,11 @@ void Gerenciador_Grafico::createTexture(const char* path)
 
     sf::Texture* texture = new sf::Texture;
     textureMap.insert(std::pair<const char*, sf::Texture*>(path,texture));
-    std::cout << "Textura no caminho " << path << " criada com sucesso!" << std::endl;
+    if(!texture->loadFromFile(path)){
+        std::cout << "Nao foi possivel carregar a textura" << std::endl;
+        exit(1);
+    }
+    std::cout << "Textura no caminho " << path << " criada e carregada com sucesso!" << std::endl;
 }
 
 void Gerenciador_Grafico::deletarInstance()

@@ -69,14 +69,6 @@ namespace Entidades{
             vel.y += GRAVIDADE * dt;
             ds.y = vel.y * GRAVIDADE;
 
-
-
-            if(posicao.y + tam.y >= 700)
-            {
-                ds.y = 0;
-                setPosicao(sf::Vector2f(posicao.x, 500));
-            }
-
             //atualiza posição
             setPosicao(sf::Vector2f(posicao.x + ds.x, posicao.y + ds.y));
 

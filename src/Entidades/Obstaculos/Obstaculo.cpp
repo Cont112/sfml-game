@@ -5,6 +5,7 @@ namespace Entidades{
         Obstaculo::Obstaculo(const sf::Vector2f pos, const sf::Vector2f tam, const char* path, const IDs ID): Entidade(pos,tam, ID)
         {
             pGrafico->createTexture(path);
+            setTextura(pGrafico->textureMap.at(path));
         }
         Obstaculo::~Obstaculo()
         {

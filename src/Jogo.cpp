@@ -68,13 +68,9 @@ void Jogo:: criarEntidades()
 
     pGrafico->createTexture(jog1);
     pGrafico->createTexture(ini1);
-    pGrafico->loadTextures();
 
     j1->setTextura(pGrafico->textureMap.at(jog1));
     i1->setTextura(pGrafico->textureMap.at(ini1));
-    chao->setTextura(pGrafico->textureMap.at(ch));
-    sky->setTextura(pGrafico->textureMap.at(sky1));
-
 
 
     //listando entidades
