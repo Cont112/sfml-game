@@ -53,7 +53,7 @@ namespace Entidades{
             if(invulneravel)
             {
                 dtAux += dt;
-                if(dtAux > 1.f)
+                if(dtAux > .7f)
                 {
                     shape.setFillColor(sf::Color(0xFFFFFFFF));
                     invulneravel = false;

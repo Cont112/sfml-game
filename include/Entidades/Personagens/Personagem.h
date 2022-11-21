@@ -12,7 +12,8 @@ namespace Entidades{
 
         sf::Vector2f vel;
         const float velMax;
-        bool podeAndar;
+        bool podeAndarEsquerda;
+        bool podeAndarDireita;
         bool esquerda;
         sf::Clock relogio;
         float dt;
@@ -30,7 +31,11 @@ namespace Entidades{
         sf::Vector2f getVel() const;
 
         void movimentar(const bool esquerda);
+
         void parar();
+        void pararEsquerda();
+        void pararDireita();
+
         void atualizarPosicao();
         virtual void atualizar() = 0;
         virtual void colisao(Entidade* other, sf::Vector2f ds =  sf::Vector2f(0.0f,0.0f)) = 0;
