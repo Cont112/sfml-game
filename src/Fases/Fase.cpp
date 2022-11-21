@@ -5,7 +5,7 @@ using namespace Entidades::Obstaculos;
 
 namespace Fases{
 
-    Fase::Fase(): Ente(), fundo(),listaPersonagens(new Listas::Lista_Entidades), listaObstaculos(new Listas::Lista_Entidades), 
+    Fase::Fase(): Ente(ID), fundo(),listaPersonagens(new Listas::Lista_Entidades), listaObstaculos(new Listas::Lista_Entidades), 
                   pColisao(new Gerenciadores::Gerenciador_Colisoes(listaObstaculos, listaPersonagens)),
                   pGrafico(Gerenciadores::Gerenciador_Grafico::getInstance())
     {
@@ -38,61 +38,87 @@ namespace Fases{
     }
     
     void Fase::criarPlataforma(const sf::Vector2f pos)
-    {
-        Obstaculo *obstaculo = new Obstaculo;
-        const char* obs1 = "assets/index.jpeg";
-        obstaculo->setTamanho(sf::Vector2f (100.f, 20.f));
-        pGrafico->createTexture(obs1);
-        obstaculo->setTextura(pGrafico->textureMap.at(obs1));
-        obstaculo->setTipo(3);
+    {        
+        Entidades::Obstaculos::Plataforma *plataforma = new Entidades::Obstaculos::Plataforma (sf::Vector2f(pos.x*50.f, pos.y*50.f));
         
-        Entidades::Entidade *entidade = static_cast<Entidades::Entidade*> (obstaculo);
-        listaObstaculos->addEntidade(entidade);
-        
+        if (plataforma==nullptr)
+        {
+            std::cout<<"Erro ao criar plataforma"<<std::endl;
+            exit(1);
+        }
+
+        listaPersonagens->addEntidade(static_cast<Entidades::Entidade*>(plataforma));      
     }
     
     void Fase::criarInimigo(const sf::Vector2f pos)
     {
-        Inimigo* inimigo1 = new Inimigo;
-        const char* ini1 = "assets/inimigo.png";
-        pGrafico->createTexture(ini1);
-        inimigo1->setTextura(pGrafico->textureMap.at(ini1));
-        inimigo1->setTipo(2);
+        Entidades::Personagens::Inimigo *inimigo = new Entidades::Personagens::Inimigo (sf::Vector2f(pos.x*50.f, pos.y*50.f), sf::Vector2f(100, 100), getJogador(),IDs::inimigo);
         
-        Entidades::Entidade *entidade = static_cast<Entidades::Entidade*> (inimigo1);
-        listaPersonagens->addEntidade(entidade);
+        if (inimigo==nullptr)
+        {
+            std::cout<<"Erro ao criar inimigo"<<std::endl;
+            exit(1);
+        }
 
+        listaPersonagens->addEntidade(static_cast<Entidades::Entidade*>(inimigo));
 
     }
     
     void Fase::criarJogador(const sf::Vector2f pos)
     {
-        Jogador *jogador1 = new Jogador;
-        const char* jog = "assets/jogador.png";
-        pGrafico->createTexture(jog);
-        jogador1->setTextura(pGrafico->textureMap.at(jog));
-        jogador1->setTipo(1);
+       Entidades::Personagens::Jogador *jogador1 = new Entidades::Personagens::Jogador(sf::Vector2f(pos.x*50.f, pos.y*50.f), sf::Vector2f(100, 100), IDs::jogador);
         
-        Entidades::Entidade *entidade = static_cast<Entidades::Entidade*> (jogador1);
-        listaPersonagens->addEntidade(entidade);
+        if (jogador1==nullptr)
+        {
+            std::cout<<"Erro ao criar jogador"<<std::endl;
+            exit(1);
+        }
+
+        listaPersonagens->addEntidade(static_cast<Entidades::Entidade*>(jogador1));
 
     }
     
     void Fase::criarCaixa(const sf::Vector2f pos)
     {
-        Obstaculo *caixa = new Obstaculo;
-        const char* cai = "assets/index.jpeg";
-        caixa->setTamanho(sf::Vector2f (20.f, 20.f));
-        pGrafico->createTexture(cai);
-        caixa->setTextura(pGrafico->textureMap.at(cai));
-        
-        Entidades::Entidade *entidade = static_cast<Entidades::Entidade*> (caixa);
-        listaObstaculos->addEntidade(entidade);
+       
     }
     
-    void Fase::criarEntidade(const sf::Vector2f pos)
+    void Fase::criarEntidade( char letra,const sf::Vector2f pos)
     {
-        //descobrir se precisa
+        switch (letra)
+        {
+        case ('j'):
+        {
+            criarJogador(pos);
+        }
+            break;
+        case ('i'):
+        {
+            criarInimigo(pos);
+        }
+            break;
+        case('p'):
+        {
+            criarPlataforma(pos);
+        }
+            break;
+        
+        case('c'):
+        {
+            criarCaixa(pos);
+        }
+            break;
+
+        default:
+            break;
+        }
+    }
+
+    Entidades::Personagens::Jogador* Fase::getJogador()
+    {
+        for (int i = 0 ; i<listaPersonagens->getTamanho();i++)
+            if(listaPersonagens->operator[](i)->getID()==IDs::jogador)
+                return (static_cast<Entidades::Personagens::Jogador*>(listaPersonagens->operator[](i)));
     }
     
     void Fase::gerenciar_colisoes()
@@ -112,6 +138,5 @@ namespace Fases{
         listaPersonagens->atualizar();
         listaObstaculos->atualizar();
     }
-
 
 }

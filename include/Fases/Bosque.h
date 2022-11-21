@@ -1,5 +1,8 @@
 #pragma once
+#include <fstream>
 #include "Fase.h"
+
+
 
 namespace Fases{
 
@@ -9,7 +12,7 @@ namespace Fases{
         public:
             Bosque();
             ~Bosque();
-            void executar();
-            void inicializar_entidades();
-    }
+            void criarMapa();
+            void criarFundo();
+    };
 }
