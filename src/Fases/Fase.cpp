@@ -38,26 +38,43 @@ namespace Fases{
             exit(1);
         }
 
-        listaPersonagens.addEntidade(static_cast<Entidades::Entidade*>(plataforma));      
+        listaObstaculos.addEntidade(static_cast<Entidades::Entidade*>(plataforma));      
     }
     
-    void Fase::criarInimigo(const sf::Vector2f pos)
+    void Fase::criarMago(const sf::Vector2f pos)
     {
         Gerenciadores::Gerenciador_Eventos *pEvento = pEvento->getInstance();
         Entidades::Personagens::Jogador* jogador = pEvento->getJogador();
         
-        Entidades::Personagens::Inimigo *inimigo = new Entidades::Personagens::Inimigo (pos, sf::Vector2f(100, 100), jogador,IDs::inimigo);
+        Entidades::Personagens::Inimigos::Mago *mago = new Entidades::Personagens::Inimigos::Mago (pos, jogador);
 
-        if (inimigo==nullptr)
+        if (mago==nullptr)
         {
-            std::cout<<"Erro ao criar inimigo"<<std::endl;
+            std::cout<<"Erro ao criar mago"<<std::endl;
             exit(1);
         }
 
-        listaPersonagens.addEntidade(static_cast<Entidades::Entidade*>(inimigo));
+        listaPersonagens.addEntidade(static_cast<Entidades::Entidade*>(mago));
 
     }
     
+    void Fase::criarEsqueleto(const sf::Vector2f pos)
+    {
+        Gerenciadores::Gerenciador_Eventos *pEvento = pEvento->getInstance();
+        Entidades::Personagens::Jogador* jogador = pEvento->getJogador();
+        
+        Entidades::Personagens::Inimigos::Esqueleto *esqueleto = new Entidades::Personagens::Inimigos::Esqueleto (pos, jogador);
+
+        if (esqueleto==nullptr)
+        {
+            std::cout<<"Erro ao criar esqueleto"<<std::endl;
+            exit(1);
+        }
+
+        listaPersonagens.addEntidade(static_cast<Entidades::Entidade*>(esqueleto));
+
+    }
+ 
     void Fase::criarJogador(const sf::Vector2f pos)
     {
        Entidades::Personagens::Jogador *jogador1 = new Entidades::Personagens::Jogador(pos, sf::Vector2f(100, 100), IDs::jogador);
@@ -75,7 +92,16 @@ namespace Fases{
     
     void Fase::criarCaixa(const sf::Vector2f pos)
     {
-       
+       Entidades::Obstaculos::Caixa *caixa = new Entidades::Obstaculos::Caixa(pos);
+
+       if(caixa == nullptr)
+       {
+        std::cout<<"erro ao criar caixa"<<std::endl;
+        exit(1);
+       }
+
+       listaObstaculos.addEntidade(static_cast<Entidades::Entidade*>(caixa));
+
     }
     
     void Fase::criarEntidade( char letra,const sf::Vector2f pos)
@@ -87,9 +113,14 @@ namespace Fases{
             criarJogador(sf::Vector2f(pos.x *50.f, pos.y *50.f));
         }
             break;
-        case ('i'):
+        case ('m'):
         {
-            criarInimigo(sf::Vector2f(pos.x *50.f, pos.y *50.f));
+            criarMago(sf::Vector2f(pos.x *50.f, pos.y *50.f));
+        }
+            break;
+        case ('e'):
+        {
+            criarEsqueleto(sf::Vector2f(pos.x *50.f, pos.y *50.f));
         }
             break;
         case('p'):

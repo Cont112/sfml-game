@@ -5,6 +5,10 @@
 #include "../Entidades/Obstaculos/Obstaculo.h"
 #include "../Entidades/Obstaculos/Plataforma.h"
 #include "../Gerenciadores/Gerenciador_Eventos.h"
+#include "../Entidades/Personagens/Inimigos/Mago.h"
+#include "../Entidades/Personagens/Inimigos/Esqueleto.h"
+#include "../Entidades/Personagens/Inimigos/Inimigo.h"
+#include "../Entidades/Obstaculos/Caixa.h"
 
 //Adaptado do monitor Geovane
 
@@ -21,8 +25,8 @@ namespace Fases{
     public:
         Fase();
         ~Fase();
-
-        void criarInimigo(const sf::Vector2f pos);
+        void criarMago(const sf::Vector2f pos);
+        void criarEsqueleto(const sf::Vector2f pos);
         void criarJogador(const sf::Vector2f pos);
         void criarPlataforma(const sf::Vector2f pos);
         void criarCaixa(const sf::Vector2f pos);
