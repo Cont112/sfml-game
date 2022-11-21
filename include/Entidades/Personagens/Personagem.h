@@ -12,6 +12,7 @@ namespace Entidades{
 
         sf::Vector2f vel;
         const float velMax;
+        bool podeAndar;
         bool podeAndarEsquerda;
         bool podeAndarDireita;
         bool esquerda;

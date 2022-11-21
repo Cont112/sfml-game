@@ -4,8 +4,7 @@ enum class IDs{
     vazio = 0,
     jogador,
     esqueleto,
-    zumbi,
-    inimigo,
+    mago,
     plataforma,
     caixa
 };

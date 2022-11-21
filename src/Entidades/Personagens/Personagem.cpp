@@ -76,10 +76,13 @@ namespace Entidades{
             sf::Vector2f ds(0.0f, 0.0f);
 
             //move na horizontal
-            if(podeAndarDireita){
+            if(podeAndar){
+                shape.setScale(1.f,1.f);
                 ds.x = vel.x * dt;
-            } else if (podeAndarEsquerda) {
-                ds.x = -1 * vel.x*dt;
+                if(esquerda){
+                    shape.setScale(-1.f,1.f);
+                    ds.x *= -1;
+                }
             }
 
             //sofre o efeito da gravidade

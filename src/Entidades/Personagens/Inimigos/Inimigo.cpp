@@ -1,7 +1,8 @@
-#include "../../../include/Entidades/Personagens/Inimigo.h"
+#include "../../../../include/Entidades/Personagens/Inimigos/Inimigo.h"
 #define HEIGHT 720
 namespace Entidades { 
-    namespace Personagens{ 
+    namespace Personagens{
+        namespace Inimigos{  
 
         Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador *jogador,const IDs ID) :
         Personagem(pos,tam,VELOCIDADE_INIMIGO,ID),jogador1(jogador),atira(0), dtAux(0.0f)
@@ -17,7 +18,6 @@ namespace Entidades {
         }
         Inimigo::~Inimigo()
         {
-
         }
 
         void Inimigo::atualizarMovimentoAleatorio()
@@ -38,7 +38,7 @@ namespace Entidades {
         {
             sf::Vector2f posJogador = jogador1->getPosicao();
             sf::Vector2f posInimigo = getPosicao();
-            if(fabs(posJogador.x - posInimigo.x) <= RAIO_X && fabs(posJogador.y - posInimigo.y) <= RAIO_Y){
+            if(fabs(posJogador.x - posInimigo.x) <= RAIO_X){
                 if(posJogador.x - posInimigo.x > 0.0f){
                     movimentar(false);
                 } else {
@@ -48,8 +48,10 @@ namespace Entidades {
                 atualizarMovimentoAleatorio();
             }
         }
+
         void Inimigo::atualizar()
         {
+            imprimir_se();
             atualizarPosicao();
             moveInimigo();
             dtAux += relogio.getElapsedTime().asSeconds() * 100;
@@ -61,13 +63,15 @@ namespace Entidades {
             switch (other->getID())
             {
             case (IDs::jogador):
-                /* code */
+                parar();
                 break;
             
             case (IDs::caixa):
-                
+                parar();
+                atualizarMovimentoAleatorio();
                 break;
             }
         }
     }
+}
 }

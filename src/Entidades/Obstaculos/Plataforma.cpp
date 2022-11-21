@@ -19,7 +19,7 @@ namespace Entidades{
         void Plataforma::colisao(Entidade* other, sf::Vector2f ds)
         {
 
-            if(other->getID() == IDs::jogador || other->getID() == IDs::esqueleto || other->getID() == IDs::zumbi)
+            if(other->getID() == IDs::jogador || other->getID() == IDs::esqueleto || other->getID() == IDs::mago)
             {
                 colisaoObstaculo(ds, static_cast<Personagens::Personagem*>(other));
             }
