@@ -14,9 +14,10 @@ namespace Entidades{
                 ~Obstaculo();
                 
                 void setDanoso(bool d);
-                void atualizar();
+                virtual void atualizar() =0;
                 virtual void colisao(Entidade* other, sf::Vector2f ds =  sf::Vector2f(0.0f,0.0f)) = 0;
                 virtual void colisaoObstaculo(sf::Vector2f ds, Personagens::Personagem* pPersonagem);
+
         };
 
 

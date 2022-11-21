@@ -16,10 +16,6 @@ namespace Entidades{
             danoso = d;
             
         }
-        void Obstaculo::atualizar()
-        {
-            imprimir_se();
-        }
 
         void Obstaculo::colisaoObstaculo(sf::Vector2f ds, Personagens::Personagem* pPersonagem)
         {
@@ -46,12 +42,13 @@ namespace Entidades{
                     posOutro.y -= ds.y;
                 }
                 vel.y = 0.0f;
+
+                
             }
-        }
-        pPersonagem->setPosicao(posOutro);
-        pPersonagem->setVel(vel);
+            pPersonagem->setPosicao(posOutro);
+            pPersonagem->setVel(vel);
         }
 
 
     }
-}
+}}

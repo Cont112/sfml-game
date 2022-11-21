@@ -20,7 +20,7 @@ namespace Entidades{
         {
             pGrafico->createTexture(PATH_JOGADOR);
             setTextura(pGrafico->textureMap.at(PATH_JOGADOR));
-            shape.setOrigin(sf::Vector2f(tam.x/2.5f,tam.y/2.0f));
+            shape.setOrigin(sf::Vector2f(0.f,0.f));
         }
 
         void Jogador::pular()

@@ -32,11 +32,8 @@ sf::Vector2f Gerenciador_Colisoes::calculaDistancia(Entidades::Entidade* ent1, E
 }
 
 void Gerenciador_Colisoes::executar(){
-    /**
-     * @ return void
-     * 
-     * verifica colisao entre Personagens e Personagens e Obstáculos 
-     */
+
+    //COLISAO PERSONAGEM X PERSONAGEM
     for(int i = 0; i < listaPersonagem->getTamanho() - 1; i++){
         Entidades::Entidade* ent1 = listaPersonagem->operator[](i);
         for(int j = i + 1; j < listaPersonagem->getTamanho(); j++){
@@ -48,6 +45,7 @@ void Gerenciador_Colisoes::executar(){
         }
     }
 
+    //COLISAO PERSONAGEM X OBSTACULO
     for(int i = 0; i < listaPersonagem->getTamanho(); i++){
         Entidades::Entidade* ent1 = listaPersonagem->operator[](i);
         for(int j = 0; j < listaObstaculo->getTamanho(); j++){
@@ -59,6 +57,18 @@ void Gerenciador_Colisoes::executar(){
                 } else {
                     // outro obstáculo 
                 }
+            }
+        }
+    }
+
+    //COLISAO OBSTACULO X OBSTACULO
+    for(int i = 0; i < listaObstaculo->getTamanho() - 1; i++){
+        Entidades::Entidade* ent1 = listaObstaculo->operator[](i);
+        for(int j = i + 1; j < listaObstaculo->getTamanho(); j++){
+            Entidades::Entidade* ent2 = listaObstaculo->operator[](j);
+            sf::Vector2f ds = calculaDistancia(ent1, ent2);
+            if(ds.x < 0.0f && ds.y < 0.0f){
+                ent2->colisao(ent1,ds);
             }
         }
     }

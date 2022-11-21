@@ -4,6 +4,7 @@
 #include "../Listas/Lista_Entidades.h"
 #include <math.h>
 
+//CODIGO ADAPTADO DO MONITOR GEOVANE
 
 namespace Gerenciadores{
     class Gerenciador_Colisoes{
