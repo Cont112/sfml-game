@@ -11,8 +11,6 @@ namespace Gerenciadores {
     class Gerenciador_Grafico{
     private:
         sf::RenderWindow* window;
-        sf::Event event;
-        sf::View view;
         sf::Clock clock;
         static float dt;
         
@@ -40,8 +38,6 @@ namespace Gerenciadores {
         sf::RenderWindow* getWindow() const;
 
         float getDt() const;
-
-        void handleEvent();
 
         void updateDeltaTime();
 

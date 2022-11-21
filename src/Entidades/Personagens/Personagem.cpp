@@ -4,7 +4,7 @@ namespace Entidades{
     namespace Personagens{
 
         Personagem::Personagem(const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const IDs ID): 
-        Entidade(pos,tam, ID), podeAndarEsquerda(0),podeAndarDireita(0), esquerda(0),relogio(), dt(0.0f),
+        Entidade(pos,tam, ID), podeAndarEsquerda(0),podeAndarDireita(0), esquerda(0), dt(0.0f),
         vel(sf::Vector2f(vel,0.0f)), velMax(vel),vida(100), dano(10)
         {
         }

@@ -5,7 +5,7 @@ namespace Entidades {
         namespace Inimigos{  
 
         Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, float vel ,Jogador *jogador,const IDs ID) :
-        Personagem(pos,tam,vel,ID),jogador1(jogador),atira(0), dtAux(0.0f)
+        Personagem(pos,tam,vel,ID),jogador1(jogador),atira(0)
         {
             moveAleatorio = rand()%3;
             if(moveAleatorio == 0){

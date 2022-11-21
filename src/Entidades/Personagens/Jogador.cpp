@@ -7,7 +7,7 @@
 
 namespace Entidades{ 
     namespace Personagens{ 
-        Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const IDs ID): Personagem(pos,tam, VELOCIDADE_JOGADOR, ID), isJumping(false), invulneravel(false), dtAux(0.0f)
+        Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const IDs ID): Personagem(pos,tam, VELOCIDADE_JOGADOR, ID), isJumping(false), invulneravel(false)
         {
             init();
         }
@@ -52,7 +52,7 @@ namespace Entidades{
 
             if(invulneravel)
             {
-                dtAux += dt;
+                dtAux += pGrafico->getDt();
                 if(dtAux > .7f)
                 {
                     shape.setFillColor(sf::Color(0xFFFFFFFF));
@@ -67,7 +67,7 @@ namespace Entidades{
 
         void Jogador::receberDano(int dano)
         {
-            dtAux += dt;
+            dtAux += pGrafico->getDt();
             if(!invulneravel)
             {
                 vida -= dano;

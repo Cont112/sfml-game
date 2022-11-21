@@ -17,6 +17,7 @@ namespace Entidades{
         bool esquerda;
         sf::Clock relogio;
         float dt;
+        float dtAux;
         
     public:
         Personagem (const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const IDs ID);

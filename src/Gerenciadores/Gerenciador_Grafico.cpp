@@ -25,7 +25,6 @@ Gerenciador_Grafico* Gerenciador_Grafico::getInstance()
 float Gerenciador_Grafico::dt = 0;
 
 Gerenciador_Grafico::Gerenciador_Grafico(): window(new sf::RenderWindow(sf::VideoMode(WIDTH,HEIGHT), W_NAME)),
-                      view(sf::Vector2f(WIDTH/2, HEIGHT/2), sf::Vector2f(WIDTH,HEIGHT)),
                       clock(),
                       textureMap() {}
 
@@ -145,7 +144,7 @@ void Gerenciador_Grafico::deletarInstance()
 
 void Gerenciador_Grafico::executar()
 {
-    updateDeltaTime();
+
     clear();
 }
 
