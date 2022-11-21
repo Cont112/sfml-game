@@ -7,7 +7,7 @@
 #define RAIO_X 200.0f
 #define RAIO_Y 200.0f
 
-#define VELOCIDADE_INIMIGO 200.f
+#define VELOCIDADE_INIMIGO 100.f
 
 namespace Entidades { 
     namespace Personagens{ 
