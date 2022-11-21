@@ -13,8 +13,7 @@ namespace Fases{
         Listas::Lista_Entidades* listaPersonagens;
         Listas::Lista_Entidades* listaObstaculos;
         Gerenciadores::Gerenciador_Colisoes* pColisao;
-        Gerenciadores::Gerenciador_Grafico* pGrafico;
-        sf::RectangleShape fundo;
+        sf::Sprite fundo;
 
     public:
         Fase();

@@ -19,7 +19,7 @@ namespace Gerenciadores {
         ~Gerenciador_Eventos();
 
         static Gerenciador_Eventos* getInstance();
-        void deleteInstance();
+        void deletarInstance();
 
         void setJogador(Entidades::Personagens::Jogador* pJogador);
         void verificaTeclaPressionada(sf::Keyboard::Key tecla);

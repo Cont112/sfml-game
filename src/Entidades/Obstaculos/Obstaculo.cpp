@@ -47,9 +47,9 @@ namespace Entidades{
                 }
                 vel.y = 0.0f;
             }
-    }
-    pPersonagem->setPosicao(posOutro);
-    pPersonagem->setVel(vel);
+        }
+        pPersonagem->setPosicao(posOutro);
+        pPersonagem->setVel(vel);
         }
 
 

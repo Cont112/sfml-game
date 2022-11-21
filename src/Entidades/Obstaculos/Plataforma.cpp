@@ -12,8 +12,6 @@ namespace Entidades{
 
         void Plataforma::colisao(Entidade* other, sf::Vector2f ds)
         {
-            sf::Vector2f posOutro = other->getPosicao();
-            sf::Vector2f tamOutro = other->getTam();
 
             if(other->getID() == IDs::jogador || other->getID() == IDs::esqueleto || other->getID() == IDs::zumbi)
             {

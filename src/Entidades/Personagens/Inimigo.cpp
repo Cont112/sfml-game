@@ -22,7 +22,7 @@ namespace Entidades {
 
         void Inimigo::atualizarMovimentoAleatorio()
         {
-            if(dtAux > 1.0f){
+            if(dtAux > .3f){
                 moveAleatorio = rand()%3;
                 if(moveAleatorio == 0){
                     parar();

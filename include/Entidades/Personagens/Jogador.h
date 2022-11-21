@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include "Personagem.h"
+
+#define PATH_JOGADOR "assets/jogador.png"
 #define VELOCIDADE_JOGADOR 200.f
 #define TAMANHO_PULO 0.1f
 

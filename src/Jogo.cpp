@@ -14,8 +14,8 @@ Jogo::Jogo(): gamestate(0)
 Jogo::~Jogo()
 {
     pGrafico->deletarInstance();
-    pEventos->deleteInstance();
-
+    pEventos->deletarInstance();
+    delete pColisao;
     
     delete lista;
     delete listaFixos;
@@ -48,15 +48,14 @@ void Jogo::executar()
 void Jogo:: criarEntidades()
 {
     //criando texturas
-    const char* jog1 = "assets/jogador.png";
     const char* ini1 = "assets/inimigo.png";
     const char* ch = "assets/ground.jpeg";
     const char* sky1 = "assets/nskybox.jpg";
 
     //criando entidades
-    j1 = new  Entidades::Personagens::Jogador (sf::Vector2f(0.0f,500.f),sf::Vector2f(100.f,100.f),IDs::jogador);
-    Entidades::Personagens::Inimigo* i1 = new  Entidades::Personagens::Inimigo (sf::Vector2f(0.0f,500.f), sf::Vector2f(100.f,100.f), j1 ,IDs::inimigo);
-    Entidades::Obstaculos::Plataforma* chao = new Entidades::Obstaculos::Plataforma(sf::Vector2f(0.0f,670.0f));
+    j1 = new  Entidades::Personagens::Jogador (sf::Vector2f(50.0f,500.f),sf::Vector2f(100.f,100.f),IDs::jogador);
+    Entidades::Personagens::Inimigo* i1 = new  Entidades::Personagens::Inimigo (sf::Vector2f(640.0f,500.f), sf::Vector2f(100.f,100.f), j1 ,IDs::esqueleto);
+    Entidades::Obstaculos::Plataforma* chao = new Entidades::Obstaculos::Plataforma(sf::Vector2f(0.0f,700.0f));
    //Entidades::Obstaculos::Obstaculo* sky = new Entidades::Obstaculos::Obstaculo(sf::Vector2f(0.0f,0.0f), sf::Vector2(WIDTH, HEIGHT), sky1, IDs::caixa);
     
     lista = new Listas::Lista_Entidades();
@@ -65,10 +64,8 @@ void Jogo:: criarEntidades()
 
 
 
-    pGrafico->createTexture(jog1);
     pGrafico->createTexture(ini1);
 
-    j1->setTextura(pGrafico->textureMap.at(jog1));
     i1->setTextura(pGrafico->textureMap.at(ini1));
 
 

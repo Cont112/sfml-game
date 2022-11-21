@@ -71,7 +71,7 @@ namespace Gerenciadores
         }
     }
 
-    void Gerenciador_Eventos::deleteInstance()
+    void Gerenciador_Eventos::deletarInstance()
     {
         delete instance;
     }
