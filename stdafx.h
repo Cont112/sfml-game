@@ -13,3 +13,6 @@
 #include "include/Listas/Lista.h"
 #include "include/Listas/Lista_Entidades.h"
 #include <vector>
+
+#define WIDTH 1280.0f
+#define HEIGHT 720.0f

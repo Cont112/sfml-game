@@ -1,7 +1,6 @@
 #include "../include/Jogo.h"
 using namespace std;
-#define WIDTH 1280.0f
-#define HEIGHT 720.0f
+
 
 Gerenciadores::Gerenciador_Grafico* Jogo::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
 Gerenciadores::Gerenciador_Eventos* Jogo::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
@@ -19,8 +18,6 @@ Jogo::~Jogo()
         delete pColisao;
     
     delete lista;
-    delete listaFixos;
-    delete listaMoveis;
     delete j1;
     std::cout << "Jogo fechou!" << std::endl;
 }
@@ -30,8 +27,6 @@ void Jogo::executar()
     criarEntidades();
     pColisao = new Gerenciadores::Gerenciador_Colisoes(listaMoveis, listaFixos);
     pEventos->setJogador(j1);
-    
-    Entidades::Entidade *teste;
 
     //loop principal 
     while(pGrafico->isWindowOpen())
