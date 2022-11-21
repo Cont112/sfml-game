@@ -15,14 +15,6 @@ namespace Entidades {
             {
             }
 
-            void Esqueleto::atualizar()
-            {
-                imprimir_se();
-                atualizarPosicao();
-                moveInimigo();
-                dtAux += relogio.getElapsedTime().asSeconds() * 100;
-                relogio.restart();
-            }
         }
     }
 }

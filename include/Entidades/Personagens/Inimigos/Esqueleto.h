@@ -16,8 +16,6 @@ namespace Entidades{
             public:
                 Esqueleto(const sf::Vector2f pos,Jogador *jogador);
                 ~Esqueleto();
-
-                void atualizar();
             };
         }
     }

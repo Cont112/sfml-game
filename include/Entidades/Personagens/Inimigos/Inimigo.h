@@ -5,7 +5,6 @@
 #include <cmath>
 
 #define RAIO_X 200.0f
-#define RAIO_Y 200.0f
 
 #define VELOCIDADE_INIMIGO 200.f
 
@@ -26,7 +25,7 @@ namespace Entidades {
                     Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, Jogador* jogador,const IDs ID);
                     ~Inimigo();
 
-                    virtual void atualizar() = 0;
+                    virtual void atualizar();
                     void colisao(Entidade* other, sf::Vector2f ds =  sf::Vector2f(0.0f,0.0f));
             };
 }

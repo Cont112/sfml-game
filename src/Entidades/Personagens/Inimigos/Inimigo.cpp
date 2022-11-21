@@ -38,7 +38,7 @@ namespace Entidades {
         {
             sf::Vector2f posJogador = jogador1->getPosicao();
             sf::Vector2f posInimigo = getPosicao();
-            if(fabs(posJogador.x - posInimigo.x) <= RAIO_X && fabs(posJogador.y - posInimigo.y) <= RAIO_Y){
+            if(fabs(posJogador.x - posInimigo.x) <= RAIO_X){
                 if(posJogador.x - posInimigo.x > 0.0f){
                     movimentar(false);
                 } else {
@@ -49,16 +49,26 @@ namespace Entidades {
             }
         }
 
+        void Inimigo::atualizar()
+        {
+            imprimir_se();
+            atualizarPosicao();
+            moveInimigo();
+            dtAux += relogio.getElapsedTime().asSeconds() * 100;
+            relogio.restart();
+        }
+
         void Inimigo::colisao(Entidade* other, sf::Vector2f ds)
         {
             switch (other->getID())
             {
             case (IDs::jogador):
-                /* code */
+                parar();
                 break;
             
             case (IDs::caixa):
-                
+                parar();
+                atualizarMovimentoAleatorio();
                 break;
             }
         }

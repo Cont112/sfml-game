@@ -7,7 +7,7 @@
 
 namespace Entidades{ 
     namespace Personagens{ 
-        Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const IDs ID): Personagem(pos,tam, VELOCIDADE_JOGADOR, ID), isJumping(false)
+        Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const IDs ID): Personagem(pos,tam, VELOCIDADE_JOGADOR, ID), isJumping(false), invulneravel(false), dtAux(0.0f)
         {
             init();
         }
@@ -38,12 +38,42 @@ namespace Entidades{
 
         void Jogador::atualizar()
         {
+            if(vida <= 0)
+            {
+                ativo = false;
+            }
+
             if(ativo)
             {
+                
                 imprimir_se();
                 atualizarPosicao();
             }
 
+            if(invulneravel)
+            {
+                dtAux += dt;
+                if(dtAux > 1.f)
+                {
+                    shape.setFillColor(sf::Color(0xFFFFFFFF));
+                    invulneravel = false;
+                    dtAux = 0.0f;
+                }
+            }
+
+
+
+        }
+
+        void Jogador::receberDano(int dano)
+        {
+            dtAux += dt;
+            if(!invulneravel)
+            {
+                vida -= dano;
+                shape.setFillColor(sf::Color(0xFF0000FF));
+                invulneravel = true;
+            }
         }
 
         void Jogador::colisao(Entidade* other, sf::Vector2f ds)
@@ -51,8 +81,7 @@ namespace Entidades{
             switch (other->getID())
             {
             case (IDs::esqueleto):
-                /* code */
-                std::cout << "Tomou dano!" << std::endl;
+                receberDano(25);
                 break;
             
             case (IDs::caixa):
