@@ -8,7 +8,6 @@ Gerenciadores::Gerenciador_Eventos* Jogo::pEventos = Gerenciadores::Gerenciador_
 
 Jogo::Jogo(): gamestate(0)
 {
-    pColisao = new Gerenciadores::Gerenciador_Colisoes();
     executar();
 }
 
@@ -27,9 +26,9 @@ Jogo::~Jogo()
 
 void Jogo::executar()
 {
-    criarEntidades();  
+    criarEntidades();
+    pColisao = new Gerenciadores::Gerenciador_Colisoes(listaMoveis, listaFixos);
     pEventos->setJogador(j1);
-    pColisao->setListas(listaMoveis, listaFixos);
     
     Entidades::Entidade *teste;
 
@@ -57,8 +56,8 @@ void Jogo:: criarEntidades()
     //criando entidades
     j1 = new  Entidades::Personagens::Jogador (sf::Vector2f(0.0f,500.f),sf::Vector2f(100.f,100.f),IDs::jogador);
     Entidades::Personagens::Inimigo* i1 = new  Entidades::Personagens::Inimigo (sf::Vector2f(0.0f,500.f), sf::Vector2f(100.f,100.f), j1 ,IDs::inimigo);
-    Entidades::Obstaculos::Obstaculo* chao = new Entidades::Obstaculos::Obstaculo(sf::Vector2f(0.0f,700.0f), sf::Vector2(WIDTH, 20.0f), ch, IDs::caixa);
-    Entidades::Obstaculos::Obstaculo* sky = new Entidades::Obstaculos::Obstaculo(sf::Vector2f(0.0f,0.0f), sf::Vector2(WIDTH, HEIGHT), sky1, IDs::caixa);
+    Entidades::Obstaculos::Plataforma* chao = new Entidades::Obstaculos::Plataforma(sf::Vector2f(0.0f,670.0f));
+   //Entidades::Obstaculos::Obstaculo* sky = new Entidades::Obstaculos::Obstaculo(sf::Vector2f(0.0f,0.0f), sf::Vector2(WIDTH, HEIGHT), sky1, IDs::caixa);
     
     lista = new Listas::Lista_Entidades();
     listaMoveis = new Listas::Lista_Entidades();
@@ -74,12 +73,12 @@ void Jogo:: criarEntidades()
 
 
     //listando entidades
-    Entidades::Entidade *e0 = static_cast<Entidades::Entidade*>(sky);
+    //Entidades::Entidade *e0 = static_cast<Entidades::Entidade*>(sky);
     Entidades::Entidade *e1 = static_cast<Entidades::Entidade*>(j1);
     Entidades::Entidade *e2 = static_cast<Entidades::Entidade*>(i1);
     Entidades::Entidade *e3 = static_cast<Entidades::Entidade*>(chao);
 
-    lista->addEntidade(e0);
+    //lista->addEntidade(e0);
     lista->addEntidade(e1);
     lista->addEntidade(e2);
     lista->addEntidade(e3);

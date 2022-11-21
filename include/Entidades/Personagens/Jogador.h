@@ -21,7 +21,10 @@ namespace Entidades {
                 ~Jogador();
 
                 void pular();
+                void podePular();
                 void atualizar();
+
+                void colisao(Entidade* other, sf::Vector2f ds =  sf::Vector2f(0.0f,0.0f));
                 
 
         };

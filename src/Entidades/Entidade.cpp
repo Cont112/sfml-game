@@ -37,27 +37,4 @@ namespace Entidades
         shape.setSize(tam);
     }
 
-    
-    void Entidade::Colisao(sf::Vector2f intersecao,Entidades::Entidade * c)
-    {
-        sf::Vector2f posColisor = c->getPosicao();
-        
-        if (intersecao.x > intersecao.y)
-        {
-            if(posicao.x < posColisor.x)
-                shape.move(intersecao.x, 0) ;
-            else 
-                shape.move(-intersecao.x, 0);
-        }
-        else 
-        {
-            if (posicao.y < posColisor.y)
-                shape.move(0, intersecao.y);
-            else 
-                shape.move(0, -intersecao.y);
-        }
-        
-    }
-
-
 }

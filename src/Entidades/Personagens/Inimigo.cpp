@@ -55,5 +55,19 @@ namespace Entidades {
             dtAux += relogio.getElapsedTime().asSeconds() * 100;
             relogio.restart();
         }
+
+        void Inimigo::colisao(Entidade* other, sf::Vector2f ds)
+        {
+            switch (other->getID())
+            {
+            case (IDs::jogador):
+                /* code */
+                break;
+            
+            case (IDs::caixa):
+                
+                break;
+            }
+        }
     }
 }

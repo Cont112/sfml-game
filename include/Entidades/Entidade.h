@@ -28,10 +28,8 @@ namespace Entidades{
             void setPosicao(sf::Vector2f p);
             void setTipo(int tipo);
             int getTipo();
-            void Colisao(sf::Vector2f intersecao,Entidades::Entidade * c);
+            virtual void colisao(Entidade* other, sf::Vector2f ds =  sf::Vector2f(0.0f,0.0f)) = 0;
             virtual void atualizar() = 0;
             
-
-
     };
 }

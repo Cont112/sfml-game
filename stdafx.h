@@ -5,6 +5,7 @@
 #include "include/Entidades/Personagens/Jogador.h"
 #include "include/Entidades/Personagens/Inimigo.h"
 #include "include/Entidades/Obstaculos/Obstaculo.h"
+#include "include/Entidades/Obstaculos/Plataforma.h"
 #include "include/Gerenciadores/Gerenciador_Grafico.h"
 #include "include/Gerenciadores/Gerenciador_Colisoes.h"
 #include "include/Gerenciadores/Gerenciador_Eventos.h"

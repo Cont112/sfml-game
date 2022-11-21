@@ -33,6 +33,7 @@ namespace Entidades{
         void parar();
         void atualizarPosicao();
         virtual void atualizar() = 0;
+        virtual void colisao(Entidade* other, sf::Vector2f ds =  sf::Vector2f(0.0f,0.0f)) = 0;
 };
 
 

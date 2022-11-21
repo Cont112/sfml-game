@@ -25,8 +25,13 @@ namespace Entidades{
         {
             if(!isJumping){
                 vel.y = -sqrt(2.0f * GRAVIDADE * TAMANHO_PULO);
-                //isJumping = true;
+                isJumping = true;
             }
+        }
+
+        void Jogador::podePular()
+        {
+            isJumping = false;
         }
 
         void Jogador::atualizar()
@@ -37,6 +42,20 @@ namespace Entidades{
                 atualizarPosicao();
             }
 
+        }
+
+        void Jogador::colisao(Entidade* other, sf::Vector2f ds)
+        {
+            switch (other->getID())
+            {
+            case (IDs::inimigo):
+                /* code */
+                break;
+            
+            case (IDs::caixa):
+
+                break;
+            }
         }
 
     }
