@@ -1,3 +1,4 @@
+#pragma once
 #include "../Entidades/Personagens/Jogador.h"
 #include "../Entidades/Personagens/Inimigo.h"
 

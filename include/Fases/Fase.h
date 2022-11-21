@@ -4,6 +4,7 @@
 #include "../Gerenciadores/Gerenciador_Colisoes.h"
 #include "../Entidades/Obstaculos/Obstaculo.h"
 #include "../Entidades/Obstaculos/Plataforma.h"
+#include "../Gerenciadores/Gerenciador_Eventos.h"
 
 //Adaptado do monitor Geovane
 
@@ -11,11 +12,11 @@ namespace Fases{
     class Fase : public Ente{
 
     protected:
-        Listas::Lista_Entidades* listaPersonagens;
-        Listas::Lista_Entidades* listaObstaculos;
+        Listas::Lista_Entidades listaPersonagens;
+        Listas::Lista_Entidades listaObstaculos;
         Gerenciadores::Gerenciador_Colisoes* pColisao;
         Gerenciadores::Gerenciador_Grafico* pGrafico;
-        sf::Sprite fundo;
+        sf::RectangleShape fundo;
 
     public:
         Fase();
@@ -28,10 +29,9 @@ namespace Fases{
         virtual void criarFundo() = 0;
         virtual void criarMapa() = 0;
         void criarEntidade(char letra ,const sf::Vector2f pos);
-        Entidades::Personagens::Jogador* getJogador();
-        void gerenciar_colisoes();
         void executar();
         void desenhar();
+        void atualizar();
 
    };
 }

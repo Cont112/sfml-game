@@ -24,6 +24,7 @@ namespace Gerenciadores {
         void setJogador(Entidades::Personagens::Jogador* pJogador);
         void verificaTeclaPressionada(sf::Keyboard::Key tecla);
         void verificaTeclaSolta(sf::Keyboard::Key tecla);
+        Entidades::Personagens::Jogador* getJogador();
         void executar();
     };
 }
