@@ -10,7 +10,7 @@ private:
     static Gerenciadores::Gerenciador_Grafico* pGrafico;
     static Gerenciadores::Gerenciador_Eventos* pEventos;
 
-    void criarFase();
+    void criarFase(int tipoFase, bool player2);
     Fases::Fase *fase;
     
 

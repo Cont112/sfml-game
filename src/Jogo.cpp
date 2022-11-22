@@ -18,7 +18,7 @@ Jogo::Jogo(): gamestate(0), fase(nullptr)
         exit(1);
     }
     
-    criarFase();
+    criarFase(1, 1);
     executar();
 }
 
@@ -45,10 +45,18 @@ void Jogo::executar()
 
 
 }
-void Jogo::criarFase()
+void Jogo::criarFase(int tipoFase, bool player2)
 {
-    Fases::Bosque *aux = new Fases::Bosque; 
-
+    Fases::Bosque *aux = nullptr;
+    if (tipoFase == 1)
+    {
+        aux = new Fases::Bosque; 
+    }
+    else 
+    {
+        //seta com outra fase
+    }
+    
     if (aux == nullptr)
     {
         std::cout<<"erro ao criar fase"<<std::endl;
@@ -57,7 +65,12 @@ void Jogo::criarFase()
     cout<<"passei"<<endl;
 
     fase = static_cast<Fases::Fase*>(aux);
-    //fase->doisJogadores();
+
+    if (player2)
+        fase->doisJogadores();
+    
     fase->criarFundo();
     fase->criarMapa();
 }
+
+

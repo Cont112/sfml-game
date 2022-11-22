@@ -171,6 +171,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     {
         player2 = true;
     }
+    
     bool Fase::getDoisJogadores()
     {
         return player2;
