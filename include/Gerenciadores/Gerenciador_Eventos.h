@@ -11,6 +11,7 @@ namespace Gerenciadores {
         static Gerenciadores::Gerenciador_Grafico* pGrafico;
         Entidades::Personagens::Jogador* pJogador1;
         Entidades::Personagens::Jogador* pJogador2;
+        bool player2;
 
         //padrao de projeto singleton
         static Gerenciador_Eventos* instance;

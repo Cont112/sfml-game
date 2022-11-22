@@ -57,7 +57,7 @@ void Jogo::criarFase()
     cout<<"passei"<<endl;
 
     fase = static_cast<Fases::Fase*>(aux);
-    fase->doisJogadores();
+    //fase->doisJogadores();
     fase->criarFundo();
     fase->criarMapa();
 }
