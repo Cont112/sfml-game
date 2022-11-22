@@ -3,10 +3,11 @@
 #include "Inimigo.h"
 
 #define PATH_ESQUELETO "assets/Esqueleto.png"
+
 #define DANO_ESQUELETO 20.f
-#define TAM_ESQUELETO_X 60.0f
-#define TAM_ESQUELETO_Y 64.0f
-#define VELOCIDADE_ESQUELETO 200.f
+#define TAM_ESQUELETO_X 56.0f
+#define TAM_ESQUELETO_Y 58.0f
+#define VELOCIDADE_ESQUELETO 150.0f
 
 namespace Entidades{
     namespace Personagens {
