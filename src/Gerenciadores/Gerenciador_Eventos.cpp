@@ -81,4 +81,9 @@ namespace Gerenciadores
             std::cout << "Gerenciador_Eventos: nao foi possivel deletar instancia, nao existe!" << std::endl;
         }       
     }
+
+    Entidades::Personagens::Jogador* Gerenciador_Eventos:: getJogador()
+    {
+        return pJogador1;
+    }
 }

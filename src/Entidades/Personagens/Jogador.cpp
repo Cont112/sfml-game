@@ -52,8 +52,8 @@ namespace Entidades{
 
             if(invulneravel)
             {
-                dtAux += pGrafico->getDt();
-                if(dtAux > .7f)
+                dtAux += dt;
+                if(dtAux > 1.f)
                 {
                     shape.setFillColor(sf::Color(0xFFFFFFFF));
                     invulneravel = false;
@@ -67,7 +67,7 @@ namespace Entidades{
 
         void Jogador::receberDano(int dano)
         {
-            dtAux += pGrafico->getDt();
+            dtAux += dt;
             if(!invulneravel)
             {
                 vida -= dano;

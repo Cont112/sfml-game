@@ -4,7 +4,7 @@ namespace Entidades{
     namespace Personagens{
 
         Personagem::Personagem(const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const IDs ID): 
-        Entidade(pos,tam, ID), podeAndarEsquerda(0),podeAndarDireita(0), esquerda(0), dt(0.0f),
+        Entidade(pos,tam, ID), podeAndarEsquerda(0),podeAndarDireita(0), esquerda(0), dtAux(0.0f),
         vel(sf::Vector2f(vel,0.0f)), velMax(vel),vida(100), dano(10)
         {
         }
@@ -77,12 +77,13 @@ namespace Entidades{
 
             //move na horizontal
             if(podeAndarDireita){
-                shape.setScale(sf::Vector2f(1.0f,1.0f));
+                shape.setScale(1.f,1.f);
                 ds.x = vel.x * dt;
-            } else if (podeAndarEsquerda) {
-                shape.setScale(sf::Vector2f(-1.0f,1.0f));
-                ds.x = -1 * vel.x*dt;
+            } else if(podeAndarEsquerda){
+                shape.setScale(-1.f,1.f);
+                 ds.x = -1*vel.x * dt;
             }
+            
 
             //sofre o efeito da gravidade
             vel.y += GRAVIDADE * dt;

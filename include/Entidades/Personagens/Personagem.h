@@ -14,8 +14,6 @@ namespace Entidades{
         bool podeAndarEsquerda;
         bool podeAndarDireita;
         bool esquerda;
-        sf::Clock relogio;
-        float dt;
         float dtAux;
         
     public:
@@ -29,7 +27,6 @@ namespace Entidades{
 
         void setVel(sf::Vector2f v);
         sf::Vector2f getVel() const;
-
         void movimentar(const bool esquerda);
 
         void parar();
