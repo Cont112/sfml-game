@@ -38,7 +38,7 @@ namespace Entidades {
         {
             sf::Vector2f posJogador = jogador1->getPosicao();
             sf::Vector2f posInimigo = getPosicao();
-            if(fabs(posJogador.x - posInimigo.x) <= RAIO_X){
+            if(fabs(posJogador.y - posInimigo.y) <= 20.f && fabs(posJogador.x - posInimigo.x) <= RAIO_X){
                 if(posJogador.x - posInimigo.x > 0.0f){
                     movimentar(false);
                 } else {
