@@ -34,8 +34,9 @@ void Fases::Bosque::criarMapa()
 
 void Fases::Bosque::criarFundo()
 {
-    sf::Texture *texturaFundo;
-    texturaFundo->loadFromFile("assets/nskybox.jpg");
+    sf::Texture *texturaFundo = new sf::Texture();
+    texturaFundo->loadFromFile("assets/skybox.jpg");
+    fundo.setSize(sf::Vector2f(1366, 768));
     fundo.setTexture(texturaFundo);
     pGrafico->render(fundo);
 
