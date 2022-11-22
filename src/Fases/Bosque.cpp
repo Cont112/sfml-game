@@ -14,7 +14,7 @@ void Fases::Bosque::criarMapa()
 {
     std::ifstream arquivo;
     std::string linha;
-    arquivo.open("Mapa_Fase.txt");
+    arquivo.open("src/Fases/Mapa_Fase.txt");
     if(!arquivo.is_open()){
         std::cout << "Não foi possivel abrir o arquivo da fase Bosque" << std::endl;
         exit(1);
@@ -34,7 +34,11 @@ void Fases::Bosque::criarMapa()
 
 void Fases::Bosque::criarFundo()
 {
-    
+    sf::Texture *texturaFundo = new sf::Texture();
+    texturaFundo->loadFromFile("assets/skybox.jpg");
+    fundo.setSize(sf::Vector2f(1366, 768));
+    fundo.setTexture(texturaFundo);
+    pGrafico->render(fundo);
 
 
 }

@@ -16,7 +16,8 @@ namespace Entidades{
             sf::Vector2f posicao;       
             sf::Vector2f tam;
             bool ativo;
-        
+            sf::Clock relogio;
+            float dt;
 
         public:
             Entidade(const sf::Vector2f pos,const sf::Vector2f tam, IDs ID);

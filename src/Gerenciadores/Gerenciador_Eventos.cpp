@@ -46,8 +46,10 @@ namespace Gerenciadores
 
     void Gerenciador_Eventos::verificaTeclaSolta(sf::Keyboard::Key tecla)
     {
-        if(tecla == sf::Keyboard::A || tecla == sf::Keyboard::Key::D){
-            pJogador1->parar();
+        if(tecla == sf::Keyboard::A){
+            pJogador1->pararEsquerda();
+        } else if (tecla == sf::Keyboard::Key::D){
+            pJogador1->pararDireita();
         }
     }
 
@@ -78,5 +80,10 @@ namespace Gerenciadores
         } else {
             std::cout << "Gerenciador_Eventos: nao foi possivel deletar instancia, nao existe!" << std::endl;
         }       
+    }
+
+    Entidades::Personagens::Jogador* Gerenciador_Eventos:: getJogador()
+    {
+        return pJogador1;
     }
 }
