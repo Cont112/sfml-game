@@ -5,7 +5,7 @@
 
 #define PATH_JOGADOR "assets/Jogador.png"
 #define VELOCIDADE_JOGADOR 250.f
-#define TAMANHO_PULO 0.1f
+#define TAMANHO_PULO 0.12f
 
 class Gerenciador_Colisoes;
 
