@@ -29,6 +29,11 @@ namespace Gerenciadores
         this->pJogador1 = pJogador1;
     }
 
+    void Gerenciador_Eventos::setJogador2(Entidades::Personagens::Jogador* pJogador2)
+    {
+        this->pJogador2 = pJogador2;
+    }
+
 
     void Gerenciador_Eventos::verificaTeclaPressionada(sf::Keyboard::Key tecla)
     {
@@ -38,19 +43,37 @@ namespace Gerenciadores
             pJogador1->movimentar(false);
         } else if (tecla == sf::Keyboard::W){
             pJogador1->pular();
-        }  else if (tecla == sf::Keyboard::Escape){
+        } else if (tecla == sf::Keyboard::Escape){
             pGrafico->closeWindow();
+        }
+
+        if (tecla == sf::Keyboard::Left){
+            pJogador2->movimentar(true);
+        } else if (tecla == sf::Keyboard::Right){
+            pJogador2->movimentar(false);
+        } else if (tecla == sf::Keyboard::Up){
+            pJogador2->pular();
         }
 
     }
 
     void Gerenciador_Eventos::verificaTeclaSolta(sf::Keyboard::Key tecla)
     {
+        if(tecla == sf::Keyboard::Left){
+            pJogador2->pararEsquerda();
+        } 
+        else if (tecla == sf::Keyboard::Key::Right){
+            pJogador2->pararDireita();
+        }
+
         if(tecla == sf::Keyboard::A){
             pJogador1->pararEsquerda();
-        } else if (tecla == sf::Keyboard::Key::D){
+        } 
+        else if (tecla == sf::Keyboard::Key::D){
             pJogador1->pararDireita();
         }
+
+        
     }
 
     void Gerenciador_Eventos::executar()

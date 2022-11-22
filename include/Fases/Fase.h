@@ -22,6 +22,7 @@ namespace Fases{
         static Gerenciadores::Gerenciador_Grafico* pGrafico;
         static Gerenciadores::Gerenciador_Eventos* pEventos;
 
+        bool player2;
         sf::RectangleShape fundo;
 
     public:
@@ -30,6 +31,7 @@ namespace Fases{
         void criarMago(const sf::Vector2f pos);
         void criarEsqueleto(const sf::Vector2f pos);
         void criarJogador(const sf::Vector2f pos);
+        void criarJogador2(const sf::Vector2f pos);
         void criarPlataforma(const sf::Vector2f pos);
         void criarCaixa(const sf::Vector2f pos);
         virtual void criarFundo() = 0;
@@ -37,6 +39,8 @@ namespace Fases{
         void criarEntidade(char letra ,const sf::Vector2f pos);
         void executar();
         void atualizar();
+        void doisJogadores();
+        bool getDoisJogadores();
 
    };
 }

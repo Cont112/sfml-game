@@ -10,6 +10,7 @@ namespace Gerenciadores {
     private:
         static Gerenciadores::Gerenciador_Grafico* pGrafico;
         Entidades::Personagens::Jogador* pJogador1;
+        Entidades::Personagens::Jogador* pJogador2;
 
         //padrao de projeto singleton
         static Gerenciador_Eventos* instance;
@@ -22,6 +23,7 @@ namespace Gerenciadores {
         void deletarInstance();
 
         void setJogador(Entidades::Personagens::Jogador* pJogador);
+        void setJogador2(Entidades::Personagens::Jogador* pJogador2);
         void verificaTeclaPressionada(sf::Keyboard::Key tecla);
         void verificaTeclaSolta(sf::Keyboard::Key tecla);
         Entidades::Personagens::Jogador* getJogador();

@@ -8,7 +8,7 @@ namespace Fases{
 Gerenciadores::Gerenciador_Grafico* Fase::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
 Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
 
-    Fase::Fase(): Ente(ID), fundo(),listaPersonagens(), listaObstaculos(), 
+    Fase::Fase(): Ente(ID), fundo(),listaPersonagens(), listaObstaculos(), player2(false),
                   pColisao(new Gerenciadores::Gerenciador_Colisoes(&listaPersonagens, &listaObstaculos))
     {
         if (pColisao == NULL)
@@ -89,6 +89,25 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
         pEventos->setJogador(jogador1);
     }
     
+    void Fase::criarJogador2(const sf::Vector2f pos)
+    {
+        Entidades::Personagens::Jogador *jogador2 = new Entidades::Personagens::Jogador(pos, sf::Vector2f(48.f, 48.f), IDs::jogador);
+        
+        const char* jog2 = "assets/barreto.jpg";
+        pGrafico->createTexture(jog2);
+        jogador2->setTextura(pGrafico->textureMap.at(jog2));
+
+
+        if (jogador2==nullptr)
+        {
+            std::cout<<"Erro ao criar jogador2"<<std::endl;
+            exit(1);
+        }
+
+        listaPersonagens.addEntidade(static_cast<Entidades::Entidade*>(jogador2));
+        pEventos->setJogador2(jogador2);
+    }
+
     void Fase::criarCaixa(const sf::Vector2f pos)
     {
        Entidades::Obstaculos::Caixa *caixa = new Entidades::Obstaculos::Caixa(pos);
@@ -110,6 +129,15 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
         case ('j'):
         {
             criarJogador(sf::Vector2f(pos.x *50.f, pos.y *50.f));
+        }
+            break;
+        case ('s'):
+        {
+            if (player2)
+            {
+                criarJogador2(sf::Vector2f(pos.x *50.f, pos.y *50.f));
+            }    
+                
         }
             break;
         case ('m'):
@@ -137,6 +165,15 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
         default:
             break;
         }
+    }
+
+    void Fase::doisJogadores()
+    {
+        player2 = true;
+    }
+    bool Fase::getDoisJogadores()
+    {
+        return player2;
     }
     
     void Fase::executar()
