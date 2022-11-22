@@ -12,12 +12,10 @@ namespace Entidades{
 
         sf::Vector2f vel;
         const float velMax;
-        bool podeAndar;
         bool podeAndarEsquerda;
         bool podeAndarDireita;
         bool esquerda;
-        sf::Clock relogio;
-        float dt;
+        float dtAux;
         
     public:
         Personagem (const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const IDs ID);

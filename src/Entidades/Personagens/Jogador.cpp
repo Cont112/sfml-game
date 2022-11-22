@@ -7,7 +7,7 @@
 
 namespace Entidades{ 
     namespace Personagens{ 
-        Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const IDs ID): Personagem(pos,tam, VELOCIDADE_JOGADOR, ID), isJumping(false), invulneravel(false), dtAux(0.0f)
+        Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const IDs ID): Personagem(pos,tam, VELOCIDADE_JOGADOR, ID), isJumping(false), invulneravel(false)
         {
             init();
         }

@@ -17,7 +17,6 @@ namespace Entidades {
                     bool atira;
                     Jogador *jogador1;
                     int moveAleatorio;
-                    float dtAux;
 
                     void moveInimigo();
                     void atualizarMovimentoAleatorio();

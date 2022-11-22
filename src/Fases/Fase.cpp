@@ -5,9 +5,11 @@ using namespace Entidades::Obstaculos;
 
 namespace Fases{
 
+Gerenciadores::Gerenciador_Grafico* Fase::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
+Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
+
     Fase::Fase(): Ente(ID), fundo(),listaPersonagens(), listaObstaculos(), 
-                  pColisao(new Gerenciadores::Gerenciador_Colisoes(&listaObstaculos, &listaPersonagens)),
-                  pGrafico(Gerenciadores::Gerenciador_Grafico::getInstance())
+                  pColisao(new Gerenciadores::Gerenciador_Colisoes(&listaPersonagens, &listaObstaculos))
     {
         if (pColisao == NULL)
         {
@@ -43,8 +45,7 @@ namespace Fases{
     
     void Fase::criarMago(const sf::Vector2f pos)
     {
-        Gerenciadores::Gerenciador_Eventos *pEvento = pEvento->getInstance();
-        Entidades::Personagens::Jogador* jogador = pEvento->getJogador();
+        Entidades::Personagens::Jogador* jogador = pEventos->getJogador();
         
         Entidades::Personagens::Inimigos::Mago *mago = new Entidades::Personagens::Inimigos::Mago (pos, jogador);
 
@@ -60,8 +61,7 @@ namespace Fases{
     
     void Fase::criarEsqueleto(const sf::Vector2f pos)
     {
-        Gerenciadores::Gerenciador_Eventos *pEvento = pEvento->getInstance();
-        Entidades::Personagens::Jogador* jogador = pEvento->getJogador();
+        Entidades::Personagens::Jogador* jogador = pEventos->getJogador();
         
         Entidades::Personagens::Inimigos::Esqueleto *esqueleto = new Entidades::Personagens::Inimigos::Esqueleto (pos, jogador);
 
@@ -77,7 +77,7 @@ namespace Fases{
  
     void Fase::criarJogador(const sf::Vector2f pos)
     {
-       Entidades::Personagens::Jogador *jogador1 = new Entidades::Personagens::Jogador(pos, sf::Vector2f(100, 100), IDs::jogador);
+       Entidades::Personagens::Jogador *jogador1 = new Entidades::Personagens::Jogador(pos, sf::Vector2f(48.f, 48.f), IDs::jogador);
         
         if (jogador1==nullptr)
         {
@@ -86,8 +86,7 @@ namespace Fases{
         }
 
         listaPersonagens.addEntidade(static_cast<Entidades::Entidade*>(jogador1));
-        Gerenciadores::Gerenciador_Eventos *pEvento = pEvento->getInstance();
-        pEvento->setJogador(jogador1);
+        pEventos->setJogador(jogador1);
     }
     
     void Fase::criarCaixa(const sf::Vector2f pos)
@@ -143,19 +142,14 @@ namespace Fases{
     void Fase::executar()
     {
         pGrafico->render(fundo);
-        desenhar();
+        atualizar();
         pColisao->executar();        
     }
     
-    void Fase::desenhar()
+    void Fase::atualizar()
     {
         listaPersonagens.atualizar();
         listaObstaculos.atualizar();
-    }
-
-    void Fase::atualizar()
-    {
-
     }
 
 }

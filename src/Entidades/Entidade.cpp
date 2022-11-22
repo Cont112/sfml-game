@@ -4,7 +4,7 @@
 namespace Entidades
 {
 
-    Entidade::Entidade(const sf::Vector2f pos, const sf::Vector2f tam, const IDs ID) : Ente(ID), posicao(pos), tam(tam), ativo(1)
+    Entidade::Entidade(const sf::Vector2f pos, const sf::Vector2f tam, const IDs ID) : Ente(ID), posicao(pos), tam(tam), ativo(1),relogio(), dt(0.0f)
     {
         shape.setOrigin(sf::Vector2f(tam.x/2.0f, 0.0f));
         shape.setPosition(posicao);

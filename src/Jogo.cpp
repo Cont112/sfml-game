@@ -32,9 +32,6 @@ Jogo::~Jogo()
 
 void Jogo::executar()
 {
-    
-    
-    //pEventos->setJogador(j1);
 
     //loop principal 
     while(pGrafico->isWindowOpen())

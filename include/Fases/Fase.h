@@ -19,7 +19,9 @@ namespace Fases{
         Listas::Lista_Entidades listaPersonagens;
         Listas::Lista_Entidades listaObstaculos;
         Gerenciadores::Gerenciador_Colisoes* pColisao;
-        Gerenciadores::Gerenciador_Grafico* pGrafico;
+        static Gerenciadores::Gerenciador_Grafico* pGrafico;
+        static Gerenciadores::Gerenciador_Eventos* pEventos;
+
         sf::RectangleShape fundo;
 
     public:
@@ -34,7 +36,6 @@ namespace Fases{
         virtual void criarMapa() = 0;
         void criarEntidade(char letra ,const sf::Vector2f pos);
         void executar();
-        void desenhar();
         void atualizar();
 
    };

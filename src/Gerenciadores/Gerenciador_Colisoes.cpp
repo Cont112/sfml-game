@@ -71,7 +71,7 @@ namespace Gerenciadores {
             Entidades::Entidade* ent2 = listaObstaculo->operator[](j);
             sf::Vector2f ds = calculaDistancia(ent1, ent2);
             if(ds.x < 0.0f && ds.y < 0.0f){
-                ent2->colisao(ent1,ds);
+                ent1->colisao(ent2,ds);
             }
         }
     }

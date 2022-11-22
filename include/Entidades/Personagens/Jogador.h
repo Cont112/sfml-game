@@ -18,7 +18,6 @@ namespace Entidades {
                 void init();
                 bool isJumping;
                 bool invulneravel;
-                float dtAux;
  
             public:
                 Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const IDs ID);

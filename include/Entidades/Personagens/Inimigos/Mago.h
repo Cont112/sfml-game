@@ -3,8 +3,8 @@
 #include "Inimigo.h"
 
 #define PATH_MAGO "assets/Wizard.png"
-#define TAM_MAGO_X 64.f
-#define TAM_MAGO_Y 64.f
+#define TAM_MAGO_X 48.f
+#define TAM_MAGO_Y 48.f
 
 namespace Entidades {
     namespace Personagens{
