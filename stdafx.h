@@ -17,6 +17,7 @@
 #include "include/Listas/Lista_Entidades.h"
 #include "include/Fases/Fase.h"
 #include "include/Fases/Bosque.h"
+#include "include/Fases/Castelo.h"
 #include <vector>
 
 #define WIDTH 1280.0f
