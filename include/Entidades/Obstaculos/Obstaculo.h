@@ -19,6 +19,7 @@ namespace Entidades{
                 virtual void colisao(Entidade* other, sf::Vector2f ds =  sf::Vector2f(0.0f,0.0f)) = 0;
                 virtual void colisaoObstaculo(sf::Vector2f ds, Personagens::Personagem* pPersonagem);
                 int getDano();
+                void setDano(int d);
 
         };
 

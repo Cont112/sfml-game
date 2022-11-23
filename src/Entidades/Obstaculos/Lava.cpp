@@ -8,6 +8,7 @@ namespace Entidades{
         {
             pGrafico->createTexture(PATH_LAVA);
             setTextura(pGrafico->textureMap.at(PATH_LAVA));
+            setDano(DANO_LAVA);
             setDanoso(true);
         }
 

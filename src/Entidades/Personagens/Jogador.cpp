@@ -72,12 +72,12 @@ namespace Entidades{
 
         void Jogador::receberDano(int dano)
         {
-            dtAux += dt;
-            if(!invulneravel)
+            this->dtAux += dt;
+            if(!this->invulneravel)
             {
-                vida -= dano;
-                shape.setFillColor(sf::Color(0xFF0000FF));
-                invulneravel = true;
+                this->vida -= dano;
+                this->shape.setFillColor(sf::Color(0xFF0000FF));
+                this->invulneravel = true;
             }
         }
 
@@ -110,7 +110,6 @@ namespace Entidades{
             case(IDs::lava):
             {
                 colisaoPersonagem(ds, other);
-                receberDano(50);
             }
                 break;
 

@@ -2,7 +2,7 @@
 
 namespace Entidades{
     namespace Obstaculos{
-        Obstaculo::Obstaculo(const sf::Vector2f pos, const sf::Vector2f tam, const char* path, const IDs ID): Entidade(pos,tam, sf::Vector2f(0.0f,0.0f),ID),danoso(false),dano(0)
+        Obstaculo::Obstaculo(const sf::Vector2f pos, const sf::Vector2f tam, const char* path, const IDs ID): Entidade(pos,tam, sf::Vector2f(0.0f,0.0f),ID),danoso(false),dano()
         {
             pGrafico->createTexture(path);
             setTextura(pGrafico->textureMap.at(path));
@@ -17,6 +17,11 @@ namespace Entidades{
         {
             danoso = d;
             
+        }
+
+        void Obstaculo::setDano(int d)
+        {
+            dano = d;
         }
 
         int Obstaculo::getDano()

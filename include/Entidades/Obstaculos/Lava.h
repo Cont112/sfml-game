@@ -6,6 +6,7 @@
 #define PATH_LAVA "assets/lava.png"
 #define TAMANHO_LAVA_X 32.f
 #define TAMANHO_LAVA_Y 32.0f
+#define DANO_LAVA 50.0f
 
 namespace Entidades {
     namespace Obstaculos{
