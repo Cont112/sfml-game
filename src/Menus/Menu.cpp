@@ -2,7 +2,7 @@
 
 namespace Menus{
 
-    Menu::Menu(const IDs ID): Ente(ID), listaBotao(), it(), textura()
+    Menu::Menu(const IDs ID): Ente(ID), listaBotao(), it()
     {
         shape.setSize((sf::Vector2f)pGrafico->getWindow()->getSize());
         shape.setPosition(sf::Vector2f(0.0f,0.0f));

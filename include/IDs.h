@@ -8,7 +8,7 @@ enum class IDs{
     projetil,
     plataforma,
     caixa,
+    lava,
     botao,
-    menu,
-    lava
+    menu_principal
 };

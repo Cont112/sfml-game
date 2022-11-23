@@ -6,8 +6,7 @@
 
 namespace Menus{
     class Menu: public Ente{
-    private:
-        sf::Texture textura;
+    protected:
         std::list<Botao::Botao*> listaBotao;
         std::list<Botao::Botao*>::iterator it;
     public:
