@@ -9,5 +9,6 @@ enum class IDs{
     plataforma,
     caixa,
     botao,
-    menu
+    menu,
+    lava
 };
