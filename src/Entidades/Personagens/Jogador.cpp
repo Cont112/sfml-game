@@ -7,19 +7,24 @@
 
 namespace Entidades{ 
     namespace Personagens{ 
-        Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const IDs ID): Personagem(pos,tam, VELOCIDADE_JOGADOR, ID), isJumping(false), invulneravel(false)
+        Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const bool multiplayer,const IDs ID): Personagem(pos,tam, VELOCIDADE_JOGADOR, ID), isJumping(false),invulneravel(false)
         {
-            init();
+            init(multiplayer);
         }
 
         Jogador::~Jogador()
         {
         }
 
-        void Jogador::init()
+        void Jogador::init(const bool multiplayer)
         {
-            pGrafico->createTexture(PATH_JOGADOR);
-            setTextura(pGrafico->textureMap.at(PATH_JOGADOR));
+            if(!multiplayer){ 
+                pGrafico->createTexture(PATH_JOGADOR_1);
+                setTextura(pGrafico->textureMap.at(PATH_JOGADOR_1));
+            }else {
+                pGrafico->createTexture(PATH_JOGADOR_2);
+                setTextura(pGrafico->textureMap.at(PATH_JOGADOR_2));
+            }
             shape.setOrigin(sf::Vector2f(tam.x/2.0f,0.0f));
         }
 

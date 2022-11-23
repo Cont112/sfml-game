@@ -77,7 +77,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
  
     void Fase::criarJogador(const sf::Vector2f pos)
     {
-       Entidades::Personagens::Jogador *jogador1 = new Entidades::Personagens::Jogador(pos, sf::Vector2f(48.f, 48.f), IDs::jogador);
+       Entidades::Personagens::Jogador *jogador1 = new Entidades::Personagens::Jogador(pos, sf::Vector2f(48.f, 48.f), false,IDs::jogador);
         
         if (jogador1==nullptr)
         {
@@ -91,12 +91,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     
     void Fase::criarJogador2(const sf::Vector2f pos)
     {
-        Entidades::Personagens::Jogador *jogador2 = new Entidades::Personagens::Jogador(pos, sf::Vector2f(48.f, 48.f), IDs::jogador);
-        
-        const char* jog2 = "assets/barreto.jpg";
-        pGrafico->createTexture(jog2);
-        jogador2->setTextura(pGrafico->textureMap.at(jog2));
-
+        Entidades::Personagens::Jogador *jogador2 = new Entidades::Personagens::Jogador(pos, sf::Vector2f(48.f, 48.f), true,IDs::jogador);
 
         if (jogador2==nullptr)
         {

@@ -9,7 +9,6 @@ namespace Entidades{
     protected:
         int vida;
         int dano;
-        sf::Vector2f vel;
         const float velMax;
         bool podeAndarEsquerda;
         bool podeAndarDireita;
