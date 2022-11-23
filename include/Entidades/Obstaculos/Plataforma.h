@@ -4,7 +4,7 @@
 #include "../Personagens/Personagem.h"
 
 #define PATH_PLATAFORMA "assets/ground.jpeg"
-#define TAMANHO_PLATAFORMA_X 1280.0f
+#define TAMANHO_PLATAFORMA_X 100.f
 #define TAMANHO_PLATAFORMA_Y 20.0f
 
 namespace Entidades {
