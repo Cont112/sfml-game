@@ -86,7 +86,24 @@ namespace Entidades{
             switch (other->getID())
             {
             case (IDs::esqueleto):
-                receberDano(25);
+            {
+                if (other->getAtividade())
+                {
+                    if (ds.y < ds.x)
+                    {
+                        receberDano(25);
+                    }
+                    colisaoPersonagem(ds, other);
+                }
+            }
+                break;
+            case (IDs::mago):
+            {
+                if (other->getAtividade())
+                {
+                    colisaoPersonagem(ds, other);
+                }
+            }
                 break;
             
             case (IDs::caixa):

@@ -59,6 +59,7 @@ namespace Entidades{
             podeAndarEsquerda = false;
             podeAndarDireita = false;
         }
+       
         void Personagem::pararEsquerda()
         {
             podeAndarEsquerda = false;
@@ -99,7 +100,44 @@ namespace Entidades{
             imprimir_se();
 }
    
-   
+        void Personagem::colisaoPersonagem(sf::Vector2f ds, Entidades::Entidade* pPersonagem)
+        {
+            sf::Vector2f posOutro = pPersonagem->getPosicao();
+            sf::Vector2f tamOutro = pPersonagem->getTam();
+            sf::Vector2f vel = pPersonagem->getVel();
+            sf::Vector2f velPersonagem = getVel();
+
+            if(ds.x < 0.0f && ds.y < 0.0f){ //houve colisao
+            if(ds.x > ds.y){
+                if(posOutro.x < posicao.x){ //colisão em x
+                    posOutro.x += ds.x;
+                } 
+                else {
+                    posOutro.x -= ds.x;
+                }
+                vel.x = 0.0f;
+                pararDireita();
+                pararEsquerda();
+            } 
+            else {
+                if(posOutro.y < posicao.y){ //colisão em y
+                    posOutro.y += ds.y;
+                    
+                } 
+                else {
+                    pPersonagem->setAtividade(false);
+                    posOutro.y -= ds.y;
+                }
+                vel.y = 0.0f;
+                parar();
+                
+
+                
+            }
+            pPersonagem->setPosicao(posOutro);
+            pPersonagem->setVel(vel);
+            }
+        }
    
    
     }
