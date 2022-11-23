@@ -117,6 +117,19 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
 
     }
     
+    void Fase::criarLava(const sf::Vector2f pos)
+    {
+        Entidades::Obstaculos::Lava *lava = new Entidades::Obstaculos::Lava(pos);
+
+       if(lava == nullptr)
+       {
+        std::cout<<"erro ao criar caixa"<<std::endl;
+        exit(1);
+       }
+
+       listaObstaculos.addEntidade(static_cast<Entidades::Entidade*>(lava));
+    }
+
     void Fase::criarEntidade( char letra,const sf::Vector2f pos)
     {
         switch (letra)
@@ -154,6 +167,12 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
         case('c'):
         {
             criarCaixa(sf::Vector2f(pos.x *50.f, pos.y *50.f));
+        }
+            break;
+
+        case ('l'):
+        {
+            criarLava(sf::Vector2f(pos.x *50.f, pos.y *50.f));
         }
             break;
 

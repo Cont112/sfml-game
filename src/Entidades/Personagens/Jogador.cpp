@@ -106,6 +106,14 @@ namespace Entidades{
                 }
             }
                 break;
+
+            case(IDs::lava):
+            {
+                colisaoPersonagem(ds, other);
+                receberDano(50);
+            }
+                break;
+
             case (IDs::mago):
             {
                 if (other->getAtividade())
@@ -115,9 +123,7 @@ namespace Entidades{
             }
                 break;
             
-            case (IDs::caixa):
-
-                break;
+            
             }
         }
 
