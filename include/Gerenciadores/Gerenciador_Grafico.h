@@ -27,6 +27,10 @@ namespace Gerenciadores {
 
         void render(sf::RectangleShape shape);
 
+        void render(sf::Text text);
+
+        sf::Font loadFont(const char* path);
+
         void display();
 
         void clear();

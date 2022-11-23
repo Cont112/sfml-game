@@ -13,9 +13,6 @@ private:
     void criarFase(int tipoFase, bool player2);
     Fases::Fase *fase;
     
-
-    
-
 public:
     Jogo();
     ~Jogo();

@@ -7,5 +7,7 @@ enum class IDs{
     mago,
     projetil,
     plataforma,
-    caixa
+    caixa,
+    botao,
+    menu
 };

@@ -45,6 +45,21 @@ void Gerenciador_Grafico::render(sf::RectangleShape shape)
     window->draw(shape);
 }
 
+void Gerenciador_Grafico::render(sf::Text text)
+{
+    window->draw(text);
+}
+
+sf::Font loadFont(const char* path)
+{
+    sf::Font fonte;
+    if(!fonte.loadFromFile(path)){
+        std::cout << "nao foi possivel encontrar o caminho da fonte" << std::endl;
+        exit(1);
+    }
+    return fonte;
+}
+
 void Gerenciador_Grafico::display()
 {
     if(window != NULL)
