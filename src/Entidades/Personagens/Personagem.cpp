@@ -125,11 +125,14 @@ namespace Entidades{
                     
                 } 
                 else {
-                    pPersonagem->setAtividade(false);
                     posOutro.y -= ds.y;
+                    if (ID == IDs::jogador && pPersonagem->getID()!=IDs::jogador){
+
+                        pPersonagem->setAtividade(false);
+                    }
                 }
                 vel.y = 0.0f;
-                parar();
+                
                 
 
                 

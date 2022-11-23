@@ -85,15 +85,24 @@ namespace Entidades{
         {
             switch (other->getID())
             {
+            case(IDs::jogador):
+            {
+                if (other->getAtividade())
+                {
+                    colisaoPersonagem(ds, other);
+                }
+            }
+            break;
+
             case (IDs::esqueleto):
             {
                 if (other->getAtividade())
                 {
+                    colisaoPersonagem(ds, other);
                     if (ds.y < ds.x)
                     {
                         receberDano(25);
                     }
-                    colisaoPersonagem(ds, other);
                 }
             }
                 break;

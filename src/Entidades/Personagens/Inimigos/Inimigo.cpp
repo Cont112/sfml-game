@@ -74,7 +74,24 @@ namespace Entidades {
                 parar();
                 atualizarMovimentoAleatorio();
                 break;
+            
+            case (IDs::esqueleto):
+            {
+                if (other->getAtividade())
+                {
+                    colisaoPersonagem(ds, other);
+                }
             }
+            case(IDs::mago):
+            {
+                 if (other->getAtividade())
+                {
+                    colisaoPersonagem(ds, other);
+                }
+            }
+                break;
+            }
+
         }
     
         

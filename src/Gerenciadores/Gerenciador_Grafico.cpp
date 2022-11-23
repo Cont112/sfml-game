@@ -132,7 +132,7 @@ void Gerenciador_Grafico::createTexture(const char* path)
         if(it->first == path)
         {
             jaCriada = true;
-            std::cout << "Textura ja existe!" << std::endl;
+            //std::cout << "Textura ja existe!" << std::endl;
         }
         
     }
@@ -144,7 +144,7 @@ void Gerenciador_Grafico::createTexture(const char* path)
             std::cout << "Nao foi possivel carregar a textura" << std::endl;
             exit(1);
         }
-        std::cout << "Textura no caminho " << path << " criada e carregada com sucesso!" << std::endl;
+        //std::cout << "Textura no caminho " << path << " criada e carregada com sucesso!" << std::endl;
     }
 }
 
