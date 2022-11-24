@@ -5,11 +5,11 @@ c                           c
 c                           c
 c                           c
 c                           c
-c p p p p p p p p p p p p p c
+c p p p                     c
 c                           c
-c                           c
-c j   s   l l           p   c
-c p p p p p p p p p         c
+c            p p            c
+c j   s                 p   c
+c p p p                     c
 c          p p              c
-c  p   p                    c
+c  p   p            lll     c
 p p p p p p p p p p p p p p p
