@@ -14,6 +14,17 @@ void Fases::Castelo::criarMapa()
 {
     std::ifstream arquivo;
     std::string linha;
+
+    int nCaixas = (rand()%9)+3;
+    int nMagos = (rand()%4)+3;
+    int nCaveiras = (rand()%4)+3;
+
+    for (int i=0; i<nCaixas;i++)//criando caixas aleatorias 
+    {
+        criarEntidade('c', sf::Vector2f( (rand()%25)+2 ,0));
+    }
+
+
     arquivo.open("src/Fases/Mapa_Castelo.txt");
     if(!arquivo.is_open()){
         std::cout << "Não foi possivel abrir o arquivo da fase Castelo" << std::endl;
@@ -29,6 +40,16 @@ void Fases::Castelo::criarMapa()
         j++;
     }
     arquivo.close();
+
+    for (int i=0; i<nMagos;i++)//criando magos aleatorios
+    {
+        criarEntidade('m', sf::Vector2f( (rand()%25)+5 ,0));
+    }    
+
+    for (int i=0; i<nMagos;i++)//criando esqueleto aleatorios
+    {
+        criarEntidade('e', sf::Vector2f( (rand()%25)+5 ,0));
+    }   
 
 }
 

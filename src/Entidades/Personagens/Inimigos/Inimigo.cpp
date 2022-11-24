@@ -34,6 +34,7 @@ namespace Entidades {
                 dtAux = 0.0f;          
             }
         }
+        
         void Inimigo::moveInimigo()
         {
             sf::Vector2f posJogador = jogador1->getPosicao();
@@ -51,11 +52,14 @@ namespace Entidades {
 
         void Inimigo::atualizar()
         {
-            imprimir_se();
-            atualizarPosicao();
-            moveInimigo();
-            dtAux += relogio.getElapsedTime().asSeconds() * 100;
-            relogio.restart();
+            if (ativo)
+            {
+                imprimir_se();
+                atualizarPosicao();
+                moveInimigo();
+                dtAux += relogio.getElapsedTime().asSeconds() * 100;
+                relogio.restart();
+            }
         }
 
         void Inimigo::colisao(Entidade* other, sf::Vector2f ds)
@@ -70,8 +74,27 @@ namespace Entidades {
                 parar();
                 atualizarMovimentoAleatorio();
                 break;
+            
+            case (IDs::esqueleto):
+            {
+                if (other->getAtividade())
+                {
+                    colisaoPersonagem(ds, other);
+                }
             }
+            case(IDs::mago):
+            {
+                 if (other->getAtividade())
+                {
+                    colisaoPersonagem(ds, other);
+                }
+            }
+                break;
+            }
+
         }
+    
+        
     }
 }
 }

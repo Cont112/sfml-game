@@ -9,6 +9,7 @@
 #include "../Entidades/Personagens/Inimigos/Esqueleto.h"
 #include "../Entidades/Personagens/Inimigos/Inimigo.h"
 #include "../Entidades/Obstaculos/Caixa.h"
+#include "../Entidades/Obstaculos/Lava.h"
 
 //Adaptado do monitor Geovane
 
@@ -34,6 +35,7 @@ namespace Fases{
         void criarJogador2(const sf::Vector2f pos);
         void criarPlataforma(const sf::Vector2f pos);
         void criarCaixa(const sf::Vector2f pos);
+        void criarLava(const sf::Vector2f pos);
         virtual void criarFundo() = 0;
         virtual void criarMapa() = 0;
         void criarEntidade(char letra ,const sf::Vector2f pos);

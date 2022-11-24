@@ -2,19 +2,31 @@
 
 namespace Entidades{
     namespace Obstaculos{
-        Obstaculo::Obstaculo(const sf::Vector2f pos, const sf::Vector2f tam, const char* path, const IDs ID): Entidade(pos,tam, sf::Vector2f(0.0f,0.0f),ID)
+        Obstaculo::Obstaculo(const sf::Vector2f pos, const sf::Vector2f tam, const char* path, const IDs ID): Entidade(pos,tam, sf::Vector2f(0.0f,0.0f),ID),danoso(false),dano()
         {
             pGrafico->createTexture(path);
             setTextura(pGrafico->textureMap.at(path));
         }
+       
         Obstaculo::~Obstaculo()
         {
             
         }
+       
         void Obstaculo::setDanoso(bool d)
         {
             danoso = d;
             
+        }
+
+        void Obstaculo::setDano(int d)
+        {
+            dano = d;
+        }
+
+        int Obstaculo::getDano()
+        {
+            return dano;
         }
 
         void Obstaculo::colisaoObstaculo(sf::Vector2f ds, Personagens::Personagem* pPersonagem)
@@ -37,6 +49,10 @@ namespace Entidades{
                     if(pPersonagem->getID() == IDs::jogador){
                         Personagens::Jogador* pJogador = static_cast<Personagens::Jogador*>(pPersonagem);
                         pJogador->podePular();
+                        if(danoso)
+                        {
+                            pJogador->receberDano(getDano());
+                        }
                     }
                 } else {
                     posOutro.y -= ds.y;

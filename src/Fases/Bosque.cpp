@@ -43,12 +43,12 @@ void Fases::Bosque::criarMapa()
 
     for (int i=0; i<nMagos;i++)//criando magos aleatorios
     {
-        criarEntidade('m', sf::Vector2f( (rand()%25)+2 ,0));
+        criarEntidade('m', sf::Vector2f( (rand()%25)+5 ,0));
     }    
 
     for (int i=0; i<nMagos;i++)//criando esqueleto aleatorios
     {
-        criarEntidade('e', sf::Vector2f( (rand()%25)+2 ,0));
+        criarEntidade('e', sf::Vector2f( (rand()%25)+5 ,0));
     }    
 
     

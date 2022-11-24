@@ -25,6 +25,14 @@ namespace Entidades
     {
         return tam;
     }
+    sf::Vector2f Entidade::getVel()
+    {
+        return vel;
+    }
+    void Entidade::setVel(sf::Vector2f v)
+    {
+        vel = v;
+    }
     
     void Entidade::setPosicao(sf::Vector2f p)
     {
@@ -37,6 +45,14 @@ namespace Entidades
     {
         tam = t;
         shape.setSize(tam);
+    }
+    void Entidade::setAtividade(bool a)
+    {
+        ativo = a;
+    }
+    bool Entidade::getAtividade()
+    {
+        return ativo;
     }
 
 }

@@ -26,7 +26,7 @@ float Gerenciador_Grafico::dt = 0;
 
 Gerenciador_Grafico::Gerenciador_Grafico(): window(new sf::RenderWindow(sf::VideoMode(WIDTH,HEIGHT), W_NAME)),
                       clock(),
-                      textureMap() {}
+                      textureMap(), font(){}
 
 Gerenciador_Grafico::~Gerenciador_Grafico()
 {
@@ -36,7 +36,11 @@ Gerenciador_Grafico::~Gerenciador_Grafico()
         delete it->second;
     }
     textureMap.clear();
-    delete(window);
+    if(font)
+        delete(font);
+
+    if (window)
+        delete(window);
     std::cout << "Gerenciador_Grafico foi destruido!" << std::endl;
 }
 
@@ -48,16 +52,6 @@ void Gerenciador_Grafico::render(sf::RectangleShape shape)
 void Gerenciador_Grafico::render(sf::Text text)
 {
     window->draw(text);
-}
-
-sf::Font loadFont(const char* path)
-{
-    sf::Font fonte;
-    if(!fonte.loadFromFile(path)){
-        std::cout << "nao foi possivel encontrar o caminho da fonte" << std::endl;
-        exit(1);
-    }
-    return fonte;
 }
 
 void Gerenciador_Grafico::display()
@@ -132,7 +126,7 @@ void Gerenciador_Grafico::createTexture(const char* path)
         if(it->first == path)
         {
             jaCriada = true;
-            std::cout << "Textura ja existe!" << std::endl;
+            //std::cout << "Textura ja existe!" << std::endl;
         }
         
     }
@@ -144,7 +138,7 @@ void Gerenciador_Grafico::createTexture(const char* path)
             std::cout << "Nao foi possivel carregar a textura" << std::endl;
             exit(1);
         }
-        std::cout << "Textura no caminho " << path << " criada e carregada com sucesso!" << std::endl;
+        //std::cout << "Textura no caminho " << path << " criada e carregada com sucesso!" << std::endl;
     }
 }
 

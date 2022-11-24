@@ -72,12 +72,12 @@ namespace Entidades{
 
         void Jogador::receberDano(int dano)
         {
-            dtAux += dt;
-            if(!invulneravel)
+            this->dtAux += dt;
+            if(!this->invulneravel)
             {
-                vida -= dano;
-                shape.setFillColor(sf::Color(0xFF0000FF));
-                invulneravel = true;
+                this->vida -= dano;
+                this->shape.setFillColor(sf::Color(0xFF0000FF));
+                this->invulneravel = true;
             }
         }
 
@@ -85,13 +85,44 @@ namespace Entidades{
         {
             switch (other->getID())
             {
+            case(IDs::jogador):
+            {
+                if (other->getAtividade())
+                {
+                    colisaoPersonagem(ds, other);
+                }
+            }
+            break;
+
             case (IDs::esqueleto):
-                receberDano(25);
+            {
+                if (other->getAtividade())
+                {
+                    colisaoPersonagem(ds, other);
+                    if (ds.y < ds.x)
+                    {
+                        receberDano(25);
+                    }
+                }
+            }
+                break;
+
+            case(IDs::lava):
+            {
+                colisaoPersonagem(ds, other);
+            }
+                break;
+
+            case (IDs::mago):
+            {
+                if (other->getAtividade())
+                {
+                    colisaoPersonagem(ds, other);
+                }
+            }
                 break;
             
-            case (IDs::caixa):
-
-                break;
+            
             }
         }
 

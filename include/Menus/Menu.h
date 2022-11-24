@@ -1,20 +1,24 @@
 #pragma once
 
 #include "../Ente.h"
+#include "../Gerenciadores/Gerenciador_Eventos.h"
 #include "Botao/Botao.h"
-#include <list>
 
+
+class Jogo;
 namespace Menus{
     class Menu: public Ente{
     protected:
-        std::list<Botao::Botao*> listaBotao;
-        std::list<Botao::Botao*>::iterator it;
+        static Gerenciadores::Gerenciador_Eventos* pEventos;
+        Jogo* jogo;
+
     public:
-        Menu(const IDs ID);
+        Menu(const IDs ID,Jogo* jogo);
         ~Menu();
 
-        void addBotao(std::string text);
-        void imprimir_se();
+        bool botaoClicado(Botao::Botao* b);
+
         virtual void executar() = 0;
+        virtual void atualizar() =0;
     };
 }

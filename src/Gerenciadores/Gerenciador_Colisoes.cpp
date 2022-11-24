@@ -41,11 +41,12 @@ namespace Gerenciadores {
             Entidades::Entidade* ent2 = listaPersonagem->operator[](j);
             sf::Vector2f ds = calculaDistancia(ent1, ent2);
             if(ds.x < 0.0f && ds.y < 0.0f){
-                ent1->colisao(ent2);
-                ent2->colisao(ent1);
+                ent1->colisao(ent2, ds);
+                ent2->colisao(ent1, ds);
+            }
             }
         }
-    }
+    
 
     //COLISAO PERSONAGEM X OBSTACULO
     for(int i = 0; i < listaPersonagem->getTamanho(); i++){
@@ -54,7 +55,7 @@ namespace Gerenciadores {
             Entidades::Entidade* ent2 = listaObstaculo->operator[](j);
             sf::Vector2f ds = calculaDistancia(ent1, ent2);
             if(ds.x < 0.0f && ds.y < 0.0f){
-                if(ent2->getID() == IDs::plataforma || ent2->getID() == IDs::caixa){
+                if(ent2->getID() == IDs::plataforma || ent2->getID() == IDs::caixa || ent2->getID() == IDs::lava){
                     ent2->colisao(ent1, ds);
                 } 
                 else {

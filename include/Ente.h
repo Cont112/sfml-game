@@ -15,7 +15,7 @@ public:
     ~Ente();
 
     virtual void atualizar()=0;
-    void imprimir_se();
+    virtual void imprimir_se();
 
     const IDs getID() const;
     sf::RectangleShape getShape() const;
