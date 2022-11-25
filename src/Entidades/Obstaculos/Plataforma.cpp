@@ -3,7 +3,7 @@
 namespace Entidades{
     namespace Obstaculos{
         Plataforma::Plataforma(sf::Vector2f pos): 
-        Obstaculo(pos, sf::Vector2f(TAMANHO_PLATAFORMA_X, TAMANHO_PLATAFORMA_Y), PATH_PLATAFORMA, IDs::plataforma), 
+        Obstaculo(pos, sf::Vector2f(TAMANHO_PLATAFORMA_X, TAMANHO_PLATAFORMA_Y), PATH_PLATAFORMA, IDs::plataforma, 0), 
         flutuando(false)
         {
         }

@@ -63,7 +63,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     {
         Entidades::Personagens::Jogador* jogador = pEventos->getJogador();
         
-        Entidades::Personagens::Inimigos::Esqueleto *esqueleto = new Entidades::Personagens::Inimigos::Esqueleto (pos, jogador);
+        Entidades::Personagens::Inimigos::Esqueleto *esqueleto = new Entidades::Personagens::Inimigos::Esqueleto (pos, jogador, DANO_ESQUELETO);
 
         if (esqueleto==nullptr)
         {
