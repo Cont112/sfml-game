@@ -18,6 +18,8 @@ namespace Gerenciadores
 
     Gerenciador_Eventos::Gerenciador_Eventos()
     {
+        ultimoClick = false;
+        mouseClick = false;
         player2 = false;
     }
 
@@ -87,6 +89,26 @@ namespace Gerenciadores
         
     }
 
+    void Gerenciador_Eventos::verificaMousePressionado(sf::Mouse::Button click)
+    {
+        if(click == sf::Mouse::Button::Left)
+        {
+            if (!ultimoClick)
+            {
+                mouseClick = true;
+                ultimoClick = true;
+            }
+        }
+
+    }
+    void Gerenciador_Eventos::verificaMouseSolto (sf::Mouse::Button click)
+    {
+        if(click == sf::Mouse::Button::Left)
+        {
+            ultimoClick = false;
+        }
+    }
+
     void Gerenciador_Eventos::executar()
     {
         if(pJogador1){
@@ -99,6 +121,10 @@ namespace Gerenciadores
                     verificaTeclaSolta(evento.key.code);
                 } else if (evento.type == sf::Event::Closed){
                     pGrafico->closeWindow();
+                } else if (evento.type == sf::Event::MouseButtonPressed){
+                    verificaMousePressionado(evento.mouseButton.button);
+                } else if (evento.type == sf::Event::MouseButtonReleased){
+                    verificaMouseSolto(evento.mouseButton.button);
                 }
             }
         } else
@@ -119,5 +145,15 @@ namespace Gerenciadores
     Entidades::Personagens::Jogador* Gerenciador_Eventos:: getJogador()
     {
         return pJogador1;
+    }
+
+    sf::Vector2f Gerenciador_Eventos::getMousePosition()
+    {
+        return (sf::Vector2f)sf::Mouse::getPosition();
+    }
+
+    bool Gerenciador_Eventos::getMouseClick()
+    {
+        return mouseClick;
     }
 }

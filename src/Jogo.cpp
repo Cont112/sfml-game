@@ -18,7 +18,8 @@ Jogo::Jogo(): gamestate(0), fase(nullptr)
         exit(1);
     }
     
-    criarFase(1, 0);//ESCOLHE AQUI A FASE E NUMERO DE PLAYERS
+    
+    criarFase(1, 1);//ESCOLHE AQUI A FASE E NUMERO DE PLAYERS
     executar();
 }
 

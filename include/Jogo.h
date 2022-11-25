@@ -1,6 +1,8 @@
 #pragma once
 #include "../stdafx.h"
 
+#include "Menus/Botao/Botao.h"
+
 
 class Jogo
 {
@@ -12,9 +14,14 @@ private:
 
     void criarFase(int tipoFase, bool player2);
     Fases::Fase *fase;
+
     
 public:
     Jogo();
     ~Jogo();
+
+    void setGameState(int g) {gamestate = g;}
+    int getGameState() {return gamestate;}
+
     void executar();
 };

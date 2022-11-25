@@ -12,6 +12,7 @@ namespace Gerenciadores {
     private:
         sf::RenderWindow* window;
         sf::Clock clock;
+        sf::Font* font;
         static float dt;
         
         //Singleton
@@ -28,8 +29,6 @@ namespace Gerenciadores {
         void render(sf::RectangleShape shape);
 
         void render(sf::Text text);
-
-        sf::Font loadFont(const char* path);
 
         void display();
 

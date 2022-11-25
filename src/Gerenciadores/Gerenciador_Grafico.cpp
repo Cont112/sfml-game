@@ -26,7 +26,7 @@ float Gerenciador_Grafico::dt = 0;
 
 Gerenciador_Grafico::Gerenciador_Grafico(): window(new sf::RenderWindow(sf::VideoMode(WIDTH,HEIGHT), W_NAME)),
                       clock(),
-                      textureMap() {}
+                      textureMap(), font(){}
 
 Gerenciador_Grafico::~Gerenciador_Grafico()
 {
@@ -36,7 +36,11 @@ Gerenciador_Grafico::~Gerenciador_Grafico()
         delete it->second;
     }
     textureMap.clear();
-    delete(window);
+    if(font)
+        delete(font);
+
+    if (window)
+        delete(window);
     std::cout << "Gerenciador_Grafico foi destruido!" << std::endl;
 }
 
@@ -48,16 +52,6 @@ void Gerenciador_Grafico::render(sf::RectangleShape shape)
 void Gerenciador_Grafico::render(sf::Text text)
 {
     window->draw(text);
-}
-
-sf::Font loadFont(const char* path)
-{
-    sf::Font fonte;
-    if(!fonte.loadFromFile(path)){
-        std::cout << "nao foi possivel encontrar o caminho da fonte" << std::endl;
-        exit(1);
-    }
-    return fonte;
 }
 
 void Gerenciador_Grafico::display()

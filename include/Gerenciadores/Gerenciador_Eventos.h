@@ -12,6 +12,8 @@ namespace Gerenciadores {
         Entidades::Personagens::Jogador* pJogador1;
         Entidades::Personagens::Jogador* pJogador2;
         bool player2;
+        bool mouseClick;
+        bool ultimoClick;
 
         //padrao de projeto singleton
         static Gerenciador_Eventos* instance;
@@ -27,6 +29,10 @@ namespace Gerenciadores {
         void setJogador2(Entidades::Personagens::Jogador* pJogador2);
         void verificaTeclaPressionada(sf::Keyboard::Key tecla);
         void verificaTeclaSolta(sf::Keyboard::Key tecla);
+        void verificaMousePressionado(sf::Mouse::Button click);
+        void verificaMouseSolto (sf::Mouse::Button click);
+        sf::Vector2f getMousePosition();
+        bool getMouseClick();
         Entidades::Personagens::Jogador* getJogador();
         void executar();
     };
