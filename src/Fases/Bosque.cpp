@@ -25,6 +25,10 @@ void Fases::Bosque::criarMapa()
     }
 
     //criando mapa
+    
+    
+    
+    
     arquivo.open("src/Fases/Mapa_Fase.txt");
     if(!arquivo.is_open()){
         std::cout << "Não foi possivel abrir o arquivo da fase Bosque" << std::endl;
