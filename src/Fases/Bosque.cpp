@@ -24,15 +24,21 @@ void Fases::Bosque::criarMapa()
         criarEntidade('c', sf::Vector2f( (rand()%25)+2 ,0));
     }
 
-    //criando mapa
-    
-    
-    
+    //criando mapa 
     
     arquivo.open("src/Fases/Mapa_Fase.txt");
-    if(!arquivo.is_open()){
-        std::cout << "Não foi possivel abrir o arquivo da fase Bosque" << std::endl;
-        exit(1);
+    try
+    {
+        if (!arquivo.is_open())
+        {
+            std::cout<<"erro ao abrir o arquivo da fase bosque"<<std::endl;
+            throw 1;
+        }
+
+    }
+    catch(const int erro)
+    {
+        std::cout<<"erro:"<<erro<<std::endl;
     }
     int j = 0;
     while(std::getline(arquivo, linha)){

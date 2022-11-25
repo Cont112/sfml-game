@@ -4,7 +4,7 @@ Gerenciadores::Gerenciador_Grafico* Ente::pGrafico = Gerenciadores::Gerenciador_
 
 Ente::Ente(const IDs ID): ID(ID), shape()
 {
-    std::cout << "Ente criado!" << std::endl;
+    //std::cout << "Ente criado!" << std::endl;
 }
 
 Ente::~Ente(){
