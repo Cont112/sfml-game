@@ -58,6 +58,7 @@ namespace Entidades {
                 imprimir_se();
                 atualizarPosicao();
                 moveInimigo();
+                atacar();
                 dtAux += relogio.getElapsedTime().asSeconds() * 100;
                 relogio.restart();
             }
@@ -92,6 +93,11 @@ namespace Entidades {
             }
                 break;
             }
+
+        }
+
+        void Inimigo::atacar()
+        {
 
         }
     

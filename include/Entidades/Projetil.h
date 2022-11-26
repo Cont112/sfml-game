@@ -4,19 +4,24 @@
 #include "Personagens/Personagem.h"
 #include "Personagens/Jogador.h"
 #include "Personagens/Inimigos/Esqueleto.h"
-#include "Personagens/Inimigos/Mago.h"
 
-#define VEL_PROJETIL
+
+
 #define PATH_PROJETIL "assets/fogo.png"
+#define DANO_PROJETIL 25
+#define TAM_X_PROJETIL 10.f
+#define TAM_Y_PROJETIL 10.f
+#define VEL_X_PROJETIL 50.f
 
 namespace Entidades{
     class Projetil: public Entidade{
     private:
         int dano;
-        Entidades::Entidade * donoProjetil;
     public:
-        Projetil(const sf::Vector2f pos, const sf::Vector2f tam, const char* path, const IDs id, int dano, Entidades::Entidade* dono, sf::Vector2f vel);
+        Projetil(const sf::Vector2f pos, const sf::Vector2f tam, const char* path, const IDs id, sf::Vector2f vel);
         ~Projetil();
-        void atualizar();        
+        void atualizar();   
+        void colisao(Entidade* other, sf::Vector2f ds);
+        void colisaoProjetil(sf::Vector2f ds, Entidades::Personagens::Personagem* pPersonagem);     
     };
 }

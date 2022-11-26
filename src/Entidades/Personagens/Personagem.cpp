@@ -38,7 +38,6 @@ namespace Entidades{
         {
             return vel;
         }
-   
         
         void Personagem::movimentar(const bool esquerda)
         {
