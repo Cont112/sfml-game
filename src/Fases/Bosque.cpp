@@ -15,6 +15,7 @@ void Fases::Bosque::criarMapa()
     std::ifstream arquivo;
     std::string linha;
 
+    int nLavas = (rand()%3)+3;
     int nCaixas = (rand()%9)+3;
     int nMagos = (rand()%4)+3;
     int nCaveiras = (rand()%4)+3;
@@ -23,6 +24,12 @@ void Fases::Bosque::criarMapa()
     {
         criarEntidade('c', sf::Vector2f( (rand()%25)+2 ,0));
     }
+
+    for (int i=0; i<nLavas;i++)//criando caixas aleatorias 
+    {
+        criarEntidade('l', sf::Vector2f( (rand()%25)+2 ,0));
+    }
+
 
     //criando mapa 
     
@@ -56,7 +63,7 @@ void Fases::Bosque::criarMapa()
         criarEntidade('m', sf::Vector2f( (rand()%25)+5 ,0));
     }    
 
-    for (int i=0; i<nMagos;i++)//criando esqueleto aleatorios
+    for (int i=0; i<nCaveiras;i++)//criando esqueleto aleatorios
     {
         criarEntidade('e', sf::Vector2f( (rand()%25)+5 ,0));
     }    
