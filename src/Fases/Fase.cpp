@@ -9,7 +9,7 @@ Gerenciadores::Gerenciador_Grafico* Fase::pGrafico = Gerenciadores::Gerenciador_
 Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
 
     Fase::Fase(): Ente(ID),listaPersonagens(), listaObstaculos(), player2(false),
-                  pColisao(new Gerenciadores::Gerenciador_Colisoes(&listaPersonagens, &listaObstaculos))
+                  pColisao(new Gerenciadores::Gerenciador_Colisoes(&listaPersonagens, &listaObstaculos)), ativo(0)
     {
         if (pColisao == NULL)
         {
@@ -193,6 +193,33 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     {
         return player2;
     }
+    void Fase::setAtivo(bool a)
+    {
+        ativo = a;
+        pGrafico->updateDeltaTime();
+        if(ativo)
+        {
+            for(int i =0; i < listaObstaculos.getTamanho(); i++)
+            {
+                listaObstaculos[i]->setAtividade(true);
+            }
+            for(int i =0; i < listaPersonagens.getTamanho(); i++)
+            {
+                listaPersonagens[i]->setAtividade(true);
+            }
+        }
+
+        else{
+            for(int i =0; i < listaObstaculos.getTamanho(); i++)
+            {
+                listaObstaculos[i]->setAtividade(false);
+            }
+            for(int i =0; i < listaPersonagens.getTamanho(); i++)
+            {
+                listaPersonagens[i]->setAtividade(false);
+            }
+        }
+    }
     
     void Fase::executar()
     {
@@ -202,7 +229,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     }
     
     void Fase::atualizar()
-    {
+    { 
         listaPersonagens.atualizar();
         listaObstaculos.atualizar();
     }

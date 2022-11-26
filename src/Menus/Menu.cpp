@@ -2,6 +2,9 @@
 
 namespace Menus{
 
+
+    bool Menu::cooldown = false;
+
     Gerenciadores::Gerenciador_Eventos* Menu::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
 
     Menu::Menu(const IDs ID, Jogo* jogo): Ente(ID), jogo(jogo)

@@ -24,7 +24,7 @@ namespace Fases{
         static Gerenciadores::Gerenciador_Eventos* pEventos;
 
         bool player2;
-
+        bool ativo;
     public:
         Fase();
         ~Fase();
@@ -41,6 +41,6 @@ namespace Fases{
         void atualizar();
         void doisJogadores();
         bool getDoisJogadores();
-
+        void setAtivo(bool a);
    };
 }

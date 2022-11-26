@@ -20,16 +20,16 @@ namespace Menus{
 
     void Menu_Principal::atualizar()
     {
-        if(botaoClicado(jogar))
+        if(!cooldown && botaoClicado(jogar))
         {
-            std::cout << "clicou jogar" << std::endl;
+            cooldown = true;
             jogo->setGameState(1);
         }
 
-        if(botaoClicado(sair))
+        if(!cooldown && botaoClicado(sair))
         {
-            std::cout << "clicou sair" << std::endl;
-            jogo->setGameState(3);
+            cooldown = true;
+            jogo->setGameState(7);
         }
 
     }

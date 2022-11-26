@@ -3,9 +3,10 @@
 
 namespace Entidades
 {
+    float Entidade::dt = 0.0f;
 
     Entidade::Entidade(const sf::Vector2f pos, const sf::Vector2f tam, const sf::Vector2f vel, const IDs ID) : 
-    Ente(ID), posicao(pos), tam(tam), vel(vel),ativo(1),relogio(), dt(0.0f)
+    Ente(ID), posicao(pos), tam(tam), vel(vel),ativo(1),relogio()
     {
         shape.setOrigin(sf::Vector2f(tam.x/2.0f, 0.0f));
         shape.setPosition(posicao);

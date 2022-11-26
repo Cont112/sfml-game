@@ -3,7 +3,7 @@
 #include "Obstaculo.h"
 #include "../Personagens/Personagem.h"
 
-#define PATH_PLATAFORMA "assets/ground.jpeg"
+#define PATH_PLATAFORMA "assets/Objetos/ground.jpeg"
 #define TAMANHO_PLATAFORMA_X 100.f
 #define TAMANHO_PLATAFORMA_Y 20.0f
 

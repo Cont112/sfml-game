@@ -1,7 +1,7 @@
 #pragma once
 #include "Obstaculo.h"
 
-#define PATH_CAIXA "assets/Caixa.png"
+#define PATH_CAIXA "assets/Objetos/caixa.png"
 #define TAMANHO_CAIXA_X 32.f
 #define TAMANHO_CAIXA_Y 32.f
 

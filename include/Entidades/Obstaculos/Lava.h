@@ -3,7 +3,7 @@
 #include "Obstaculo.h"
 #include "../Personagens/Personagem.h"
 
-#define PATH_LAVA "assets/lava.png"
+#define PATH_LAVA "assets/Objetos/lava.png"
 #define TAMANHO_LAVA_X 32.f
 #define TAMANHO_LAVA_Y 32.0f
 #define DANO_LAVA 50.0f

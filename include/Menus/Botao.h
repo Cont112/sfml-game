@@ -2,9 +2,8 @@
 
 #include "../Ente.h"
 
-#define FONT_PATH "assets/Fonts/font.ttf"
-#define BUTTON_SIZE_X 400
-#define BUTTON_SIZE_Y 100
+#define BUTTON_SIZE_X 200
+#define BUTTON_SIZE_Y 50
 
 namespace Menus{
         class Botao: public Ente{

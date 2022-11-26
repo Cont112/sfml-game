@@ -1,4 +1,5 @@
  #include "../../include/Gerenciadores/Gerenciador_Eventos.h"
+ #include "../../include/Jogo.h"
 
 namespace Gerenciadores
 {
@@ -18,6 +19,9 @@ namespace Gerenciadores
 
     Gerenciador_Eventos::Gerenciador_Eventos()
     {
+        pJogador1 = nullptr;
+        pJogador2 = nullptr;
+        pJogo = nullptr;
         ultimoClick = false;
         mouseClick = false;
         player2 = false;
@@ -49,7 +53,19 @@ namespace Gerenciadores
         } else if (tecla == sf::Keyboard::W){
             pJogador1->pular();
         } else if (tecla == sf::Keyboard::Escape){
-            pGrafico->closeWindow();
+            switch (pJogo->getGameState())
+            {
+            case 0:
+                pGrafico->closeWindow();
+                break;
+            case 1:
+                pJogo->setGameState(0);
+                break;
+            case 4:
+                pJogo->setGameState(1);
+                break;    
+
+            }
         }
 
         if (player2)
@@ -156,5 +172,10 @@ namespace Gerenciadores
     bool Gerenciador_Eventos::getMouseClick()
     {
         return mouseClick;
+    }
+
+    void Gerenciador_Eventos::setJogo(Jogo* jogo)
+    {
+        pJogo = jogo;
     }
 }

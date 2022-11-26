@@ -1,9 +1,9 @@
 #pragma once
 #include "Menu.h"
 
-#define PATH_MENU_PRINCIPAL "assets/bosque.jpg"
-#define PATH_JOGAR "assets/lava.png"
-#define PATH_SAIR "assets/barreto.jpg"
+#define PATH_MENU_PRINCIPAL "assets/Fundos/menu_principal.jpg"
+#define PATH_JOGAR "assets/Buttons/Menu_Principal/jogar.png"
+#define PATH_SAIR "assets/Buttons/Menu_Principal/sair.png"
 
 class Jogo;
 

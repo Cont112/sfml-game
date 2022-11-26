@@ -10,5 +10,8 @@ enum class IDs{
     caixa,
     lava,
     botao,
-    menu_principal
+    bosque,
+    castelo,
+    menu_principal,
+    menu_fases
 };

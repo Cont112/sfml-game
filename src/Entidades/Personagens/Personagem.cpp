@@ -90,6 +90,8 @@ namespace Entidades{
             vel.y += GRAVIDADE * dt;
             ds.y = vel.y * GRAVIDADE;
 
+            if(ID == IDs::jogador)
+                std::cout << vel.y << std::endl;
             //atualiza posição
             setPosicao(sf::Vector2f(posicao.x + ds.x, posicao.y + ds.y));
 

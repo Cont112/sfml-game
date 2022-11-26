@@ -18,6 +18,8 @@
 #include "include/Fases/Fase.h"
 #include "include/Fases/Bosque.h"
 #include "include/Fases/Castelo.h"
+#include "include/Menus/Menu_Principal.h"
+#include "include/Menus/Menu_Fases.h"
 #include <vector>
 
 #define WIDTH 1280.0f

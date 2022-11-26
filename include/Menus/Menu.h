@@ -9,6 +9,7 @@ class Jogo;
 namespace Menus{
     class Menu: public Ente{
     protected:
+        static bool cooldown;
         static Gerenciadores::Gerenciador_Eventos* pEventos;
         Jogo* jogo;
 
@@ -18,6 +19,8 @@ namespace Menus{
 
         bool botaoClicado(Botao &b);
 
+        static void setCooldown(bool c) {cooldown = c;}
+        bool getCooldown() {return cooldown;}
         virtual void executar() = 0;
         virtual void atualizar() =0;
     };

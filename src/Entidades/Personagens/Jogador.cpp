@@ -41,17 +41,17 @@ namespace Entidades{
 
         void Jogador::atualizar()
         {
+            if(ativo){ 
             if(vida <= 0)
             {
                 ativo = false;
             }
-
-            if(ativo)
-            {
-                isJumping = true;
-                imprimir_se();
-                atualizarPosicao();
-            }
+            
+            isJumping = true;
+            imprimir_se();
+            atualizarPosicao();
+            relogio.restart();
+            
 
             if(invulneravel)
             {
@@ -62,6 +62,7 @@ namespace Entidades{
                     invulneravel = false;
                     dtAux = 0.0f;
                 }
+            }
             }
 
 

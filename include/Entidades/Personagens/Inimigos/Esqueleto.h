@@ -2,7 +2,7 @@
 
 #include "Inimigo.h"
 
-#define PATH_ESQUELETO "assets/Esqueleto.png"
+#define PATH_ESQUELETO "assets/Inimigos/esqueleto.png"
 
 #define DANO_ESQUELETO 20.f
 #define TAM_ESQUELETO_X 56.0f
