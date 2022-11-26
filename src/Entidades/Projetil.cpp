@@ -7,7 +7,7 @@ namespace Entidades{
     {
         pGrafico->createTexture(PATH_PROJETIL);
         setTextura(pGrafico->textureMap.at(PATH_PROJETIL));
-        setAtividade(false);
+        setAtividade(true);
     }
     
     Projetil::~Projetil()
@@ -18,20 +18,25 @@ namespace Entidades{
     void Projetil:: atualizar()
     {
        
-            
+        if (ativo){
             float dt = relogio.getElapsedTime().asSeconds();
             relogio.restart();
             sf::Vector2f ds(0.0f, 0.0f);
             
             //desenha na janela
             imprimir_se();
+            
 
             //sofre o efeito da gravidade
             vel.y += GRAVIDADE * dt;
             ds.y = vel.y * GRAVIDADE;
 
+            float efeitoMagnus = ds.y;
+
             //atualiza posição
-            setPosicao(sf::Vector2f(posicao.x + VEL_X_PROJETIL, posicao.y + ds.y));
+            setPosicao(sf::Vector2f(posicao.x + VEL_X_PROJETIL, posicao.y + ds.y - efeitoMagnus));
+        }
+            
 
         
           
@@ -39,7 +44,6 @@ namespace Entidades{
     
     void Projetil::colisao(Entidade* other, sf::Vector2f ds)
     {
-        std::cout<<"colidiu projetil"<<std::endl;
         colisaoProjetil(ds, static_cast<Personagens::Personagem*>(other));
     }
     
@@ -59,7 +63,8 @@ namespace Entidades{
                     }
                    
                     vel.x = 0.0f;
-                    ativo = 0;
+                    if (pPersonagem->getID()== IDs::jogador || pPersonagem->getID()== IDs::esqueleto || pPersonagem->getID() == IDs::plataforma )
+                        ativo = 0;
                 } 
                 else {
                     if(posOutro.y < posicao.y){ //colisão em y
@@ -71,7 +76,10 @@ namespace Entidades{
                     }
                     
                     vel.y = 0.0f;
-                    ativo = 0;
+
+                    if (pPersonagem->getID()== IDs::jogador || pPersonagem->getID()== IDs::esqueleto || pPersonagem->getID()== IDs::plataforma)
+                        ativo = 0;
+                    
 
                     
                 }

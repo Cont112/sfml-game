@@ -59,6 +59,7 @@ namespace Entidades {
                 atualizarPosicao();
                 moveInimigo();
                 atacar();
+                
                 dtAux += relogio.getElapsedTime().asSeconds() * 100;
                 relogio.restart();
             }

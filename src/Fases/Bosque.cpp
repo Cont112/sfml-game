@@ -58,10 +58,10 @@ void Fases::Bosque::criarMapa()
     }
     arquivo.close();
 
-    for (int i=0; i<nMagos;i++)//criando magos aleatorios
+    /*for (int i=0; i<nMagos;i++)//criando magos aleatorios
     {
         criarEntidade('m', sf::Vector2f( (rand()%25)+5 ,0));
-    }    
+    } */   
 
     for (int i=0; i<nCaveiras;i++)//criando esqueleto aleatorios
     {

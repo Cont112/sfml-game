@@ -5,13 +5,11 @@ namespace Entidades {
         namespace Inimigos {
 
             Mago::Mago(sf::Vector2f pos, Jogador* jogador, Listas::Lista_Entidades *lista): Inimigo(pos, sf::Vector2f(TAM_MAGO_X,TAM_MAGO_Y), VELOCIDADE_MAGO,jogador, IDs::mago, 0), range(400.f),
-                  listaObst(lista)
+                  listaObst(lista), projetilCriado(false)
             {
-                atira = false;
+                
                 pGrafico->createTexture(PATH_MAGO);
-                setTextura(pGrafico->textureMap.at(PATH_MAGO));
-                
-                
+                setTextura(pGrafico->textureMap.at(PATH_MAGO));                
             }
 
             Mago::~Mago()
@@ -19,21 +17,34 @@ namespace Entidades {
             }
             
             void Mago::atacar()
-            {
-                
-                if (!atira)
+            {          
+                //projetil->setAtividade(true);
+                if (!projetilCriado)
                 {
-                    projetil = new Entidades::Projetil(posicao, sf::Vector2f(TAM_X_PROJETIL, TAM_Y_PROJETIL), PATH_PROJETIL, IDs::projetil,sf::Vector2f(VEL_X_PROJETIL, 0));
-                    listaObst->addEntidade(projetil);
-                    std::cout<<"criei projetil"<<std::endl;
-                    atira = 1;
+                    criarProjetil();
                 }
                 
-                projetil->setAtividade(true);
-                projetil->atualizar();
+                if (projetil != nullptr)
+                {
+                    projetil->atualizar();
                     
+                }
+                else 
+                    std::cout<<"nao foi possivel acessar o projetil"<<std::endl;
+                    
+                std::cout<<projetil->getPosicao().x<<std::endl;
+                std::cout<<posicao.x<<std::endl;
                 
                  
+            }
+            void Mago::criarProjetil()
+            {
+                Entidades::Projetil *p = new Entidades::Projetil(posicao, sf::Vector2f(TAM_X_PROJETIL, TAM_Y_PROJETIL), PATH_PROJETIL, IDs::projetil,sf::Vector2f(VEL_X_PROJETIL, 0));
+                listaObst->addEntidade(p);
+                projetil = p;                                   
+                projetilCriado = true;
+                std::cout<<"criou projetil"<<std::endl;
+            
             }
             
         }

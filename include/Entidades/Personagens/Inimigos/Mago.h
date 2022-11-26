@@ -16,11 +16,13 @@ namespace Entidades {
                 float range;
                 Projetil *projetil;
                 Listas::Lista_Entidades *listaObst;
+                bool projetilCriado;
 
                 
             public:
                 Mago(sf::Vector2f pos, Jogador* jogador,Listas::Lista_Entidades *listaObst);
                 ~Mago();
+                void criarProjetil();
                 void atacar();
                 
             };
