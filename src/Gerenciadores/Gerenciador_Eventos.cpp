@@ -105,6 +105,7 @@ namespace Gerenciadores
     {
         if(click == sf::Mouse::Button::Left)
         {
+            mouseClick = false;
             ultimoClick = false;
         }
     }
@@ -149,7 +150,7 @@ namespace Gerenciadores
 
     sf::Vector2f Gerenciador_Eventos::getMousePosition()
     {
-        return (sf::Vector2f)sf::Mouse::getPosition();
+        return (sf::Vector2f)sf::Mouse::getPosition(*pGrafico->getWindow());
     }
 
     bool Gerenciador_Eventos::getMouseClick()

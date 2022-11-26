@@ -2,7 +2,8 @@
 
 Fases::Castelo::Castelo():Fase()
 {
-
+    setTextura(PATH_CASTELO);
+    criarMapa();
 }
 
 Fases::Castelo::~Castelo()
@@ -50,16 +51,5 @@ void Fases::Castelo::criarMapa()
     {
         criarEntidade('e', sf::Vector2f( (rand()%25)+5 ,0));
     }   
-
-}
-
-void Fases::Castelo::criarFundo()
-{
-    sf::Texture *texturaFundo = new sf::Texture();
-    texturaFundo->loadFromFile("assets/skybox.jpg");
-    fundo.setSize(sf::Vector2f(1366, 768));
-    fundo.setTexture(texturaFundo);
-    pGrafico->render(fundo);
-
 
 }

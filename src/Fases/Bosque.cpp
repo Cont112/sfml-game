@@ -2,12 +2,13 @@
 
 Fases::Bosque::Bosque():Fase()
 {
-
+    setTextura(PATH_BOSQUE);
+    criarMapa();
 }
 
 Fases::Bosque::~Bosque()
 {
-
+    
 }
 
 void Fases::Bosque::criarMapa()
@@ -52,16 +53,5 @@ void Fases::Bosque::criarMapa()
     }    
 
     
-
-}
-
-void Fases::Bosque::criarFundo()
-{
-    sf::Texture *texturaFundo = new sf::Texture();
-    texturaFundo->loadFromFile("assets/skybox.jpg");
-    fundo.setSize(sf::Vector2f(1366, 768));
-    fundo.setTexture(texturaFundo);
-    pGrafico->render(fundo);
-
 
 }

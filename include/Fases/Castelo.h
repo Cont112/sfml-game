@@ -2,7 +2,7 @@
 #include <fstream>
 #include "Fase.h"
 
-
+#define PATH_CASTELO "assets/bosque.jpg"
 
 namespace Fases{
 
@@ -13,6 +13,5 @@ namespace Fases{
             Castelo();
             ~Castelo();
             void criarMapa();
-            void criarFundo();
     };
 }

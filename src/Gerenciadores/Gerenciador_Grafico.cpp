@@ -6,7 +6,7 @@
 #define W_NAME "Tab"
 #define WIDTH 1280
 #define HEIGHT 720
-#define FRAME_RATE 144
+
 
 namespace Gerenciadores {
 
@@ -24,9 +24,11 @@ Gerenciador_Grafico* Gerenciador_Grafico::getInstance()
 
 float Gerenciador_Grafico::dt = 0;
 
-Gerenciador_Grafico::Gerenciador_Grafico(): window(new sf::RenderWindow(sf::VideoMode(WIDTH,HEIGHT), W_NAME)),
-                      clock(),
-                      textureMap(), font(){}
+Gerenciador_Grafico::Gerenciador_Grafico(): window(new sf::RenderWindow(sf::VideoMode(WIDTH,HEIGHT), W_NAME)),clock(),textureMap()
+{
+    window->setPosition(sf::Vector2i(0,0));
+    
+}
 
 Gerenciador_Grafico::~Gerenciador_Grafico()
 {
@@ -36,8 +38,6 @@ Gerenciador_Grafico::~Gerenciador_Grafico()
         delete it->second;
     }
     textureMap.clear();
-    if(font)
-        delete(font);
 
     if (window)
         delete(window);
@@ -47,11 +47,6 @@ Gerenciador_Grafico::~Gerenciador_Grafico()
 void Gerenciador_Grafico::render(sf::RectangleShape shape)
 {
     window->draw(shape);
-}
-
-void Gerenciador_Grafico::render(sf::Text text)
-{
-    window->draw(text);
 }
 
 void Gerenciador_Grafico::display()

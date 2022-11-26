@@ -2,7 +2,7 @@
 
 #include "../Ente.h"
 #include "../Gerenciadores/Gerenciador_Eventos.h"
-#include "Botao/Botao.h"
+#include "Botao.h"
 
 
 class Jogo;
@@ -16,7 +16,7 @@ namespace Menus{
         Menu(const IDs ID,Jogo* jogo);
         ~Menu();
 
-        bool botaoClicado(Botao::Botao* b);
+        bool botaoClicado(Botao &b);
 
         virtual void executar() = 0;
         virtual void atualizar() =0;

@@ -19,11 +19,9 @@ namespace Entidades{
         void Jogador::init(const bool multiplayer)
         {
             if(!multiplayer){ 
-                pGrafico->createTexture(PATH_JOGADOR_1);
-                setTextura(pGrafico->textureMap.at(PATH_JOGADOR_1));
+                setTextura(PATH_JOGADOR_1);
             }else {
-                pGrafico->createTexture(PATH_JOGADOR_2);
-                setTextura(pGrafico->textureMap.at(PATH_JOGADOR_2));
+                setTextura(PATH_JOGADOR_2);
             }
             shape.setOrigin(sf::Vector2f(tam.x/2.0f,0.0f));
         }
@@ -50,7 +48,7 @@ namespace Entidades{
 
             if(ativo)
             {
-                
+                isJumping = true;
                 imprimir_se();
                 atualizarPosicao();
             }

@@ -12,7 +12,6 @@ namespace Gerenciadores {
     private:
         sf::RenderWindow* window;
         sf::Clock clock;
-        sf::Font* font;
         static float dt;
         
         //Singleton
@@ -27,8 +26,6 @@ namespace Gerenciadores {
         std::map<const char*, sf::Texture*> textureMap;
 
         void render(sf::RectangleShape shape);
-
-        void render(sf::Text text);
 
         void display();
 

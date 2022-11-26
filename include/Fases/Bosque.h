@@ -2,6 +2,7 @@
 #include <fstream>
 #include "Fase.h"
 
+#define PATH_BOSQUE "assets/bosque.jpg"
 
 
 namespace Fases{
@@ -13,6 +14,5 @@ namespace Fases{
             Bosque();
             ~Bosque();
             void criarMapa();
-            void criarFundo();
     };
 }

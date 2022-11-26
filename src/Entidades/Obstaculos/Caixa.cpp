@@ -5,8 +5,6 @@ namespace Entidades{
         
         Caixa::Caixa(sf::Vector2f pos): Obstaculo(pos, sf::Vector2f(TAMANHO_CAIXA_X,TAMANHO_CAIXA_Y), PATH_CAIXA, IDs::caixa)
         {
-            pGrafico->createTexture(PATH_CAIXA);
-            setTextura(pGrafico->textureMap.at(PATH_CAIXA));
         }
 
         Caixa::~Caixa()

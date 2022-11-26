@@ -6,8 +6,6 @@ namespace Entidades{
         Obstaculo(pos, sf::Vector2f(TAMANHO_LAVA_X, TAMANHO_LAVA_Y), PATH_LAVA, IDs::lava), 
         dano(50)
         {
-            pGrafico->createTexture(PATH_LAVA);
-            setTextura(pGrafico->textureMap.at(PATH_LAVA));
             setDano(DANO_LAVA);
             setDanoso(true);
         }

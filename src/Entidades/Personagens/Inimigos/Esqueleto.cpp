@@ -7,8 +7,7 @@ namespace Entidades {
             Inimigo(pos, sf::Vector2f(TAM_ESQUELETO_X,TAM_ESQUELETO_Y),VELOCIDADE_ESQUELETO,jogador, IDs::esqueleto)
             {
                 atira = false;
-                pGrafico->createTexture(PATH_ESQUELETO);
-                setTextura(pGrafico->textureMap.at(PATH_ESQUELETO));
+                setTextura(PATH_ESQUELETO);
             }
 
             Esqueleto::~Esqueleto()

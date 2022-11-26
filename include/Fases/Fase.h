@@ -24,7 +24,6 @@ namespace Fases{
         static Gerenciadores::Gerenciador_Eventos* pEventos;
 
         bool player2;
-        sf::RectangleShape fundo;
 
     public:
         Fase();
@@ -36,7 +35,6 @@ namespace Fases{
         void criarPlataforma(const sf::Vector2f pos);
         void criarCaixa(const sf::Vector2f pos);
         void criarLava(const sf::Vector2f pos);
-        virtual void criarFundo() = 0;
         virtual void criarMapa() = 0;
         void criarEntidade(char letra ,const sf::Vector2f pos);
         void executar();

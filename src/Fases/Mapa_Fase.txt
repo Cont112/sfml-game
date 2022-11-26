@@ -8,7 +8,7 @@ c                         c
 c p p p p p p p p p p p   c
 c                         c
 c                         c
-c j   s   l l           pc
+c j   s   l l           p c
 c p p p p p p p p p       c
 c          p p            c
 c  p   p                  c

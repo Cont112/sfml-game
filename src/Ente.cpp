@@ -4,7 +4,6 @@ Gerenciadores::Gerenciador_Grafico* Ente::pGrafico = Gerenciadores::Gerenciador_
 
 Ente::Ente(const IDs ID): ID(ID), shape()
 {
-    std::cout << "Ente criado!" << std::endl;
 }
 
 Ente::~Ente(){
@@ -20,9 +19,10 @@ sf::RectangleShape Ente::getShape() const
     return shape;
 }
 
-void Ente::setTextura(sf::Texture* texture)
+void Ente::setTextura(const char* path)
 {
-    shape.setTexture(texture);
+    pGrafico->createTexture(path);
+    shape.setTexture(pGrafico->textureMap.at(path));
 }
 void Ente::imprimir_se()
 {

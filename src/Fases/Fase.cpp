@@ -8,7 +8,7 @@ namespace Fases{
 Gerenciadores::Gerenciador_Grafico* Fase::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
 Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
 
-    Fase::Fase(): Ente(ID), fundo(),listaPersonagens(), listaObstaculos(), player2(false),
+    Fase::Fase(): Ente(ID),listaPersonagens(), listaObstaculos(), player2(false),
                   pColisao(new Gerenciadores::Gerenciador_Colisoes(&listaPersonagens, &listaObstaculos))
     {
         if (pColisao == NULL)
@@ -16,6 +16,9 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
             std::cout << "Fase: Nao foi possivel criar o gerenciador de colisoes" << std::endl;
             exit(1);
         }
+        shape.setOrigin(sf::Vector2f(0.0f,0.0f));
+        shape.setPosition(sf::Vector2f(0.0f,0.0f));
+        shape.setSize((sf::Vector2f)pGrafico->getWindow()->getSize());
         
     }
 
@@ -193,7 +196,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     
     void Fase::executar()
     {
-        pGrafico->render(fundo);
+        imprimir_se();
         atualizar();
         pColisao->executar();        
     }

@@ -19,7 +19,7 @@ public:
 
     const IDs getID() const;
     sf::RectangleShape getShape() const;
-    void setTextura(sf::Texture* texture);
+    void setTextura(const char* path);
 
 
 
