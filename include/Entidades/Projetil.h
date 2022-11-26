@@ -9,8 +9,8 @@
 
 #define PATH_PROJETIL "assets/fogo.png"
 #define DANO_PROJETIL 25
-#define TAM_X_PROJETIL 10.f
-#define TAM_Y_PROJETIL 10.f
+#define TAM_X_PROJETIL 50.f
+#define TAM_Y_PROJETIL 50.f
 #define VEL_X_PROJETIL 50.f
 
 namespace Entidades{
