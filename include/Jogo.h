@@ -31,6 +31,7 @@ public:
     ~Jogo();
 
     void setGameState(int g);
+    void setGameState();
     int getGameState();
     int getLastGameState();
     Fases::Fase* getFase(const IDs ID);

@@ -112,6 +112,11 @@ void Jogo::setGameState(int g)
     lastGamestate = gamestate;
     gamestate = g;
 }
+void Jogo:: setGameState()
+{
+    lastGamestate = gamestate;
+    gamestate = 0;
+}
 
 Fases::Fase* Jogo::getFase(IDs ID)
 {
