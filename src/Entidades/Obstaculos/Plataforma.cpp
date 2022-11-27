@@ -13,6 +13,20 @@ namespace Entidades{
         }
         void Plataforma::atualizar()
         {
+            float dt = relogio.getElapsedTime().asSeconds();
+            relogio.restart();
+            sf::Vector2f ds(0.0f, 0.0f);
+
+            //sofre o efeito da gravidade
+            vel.y += GRAVIDADE * dt;
+            ds.y = vel.y * GRAVIDADE;
+
+            float flutuabilidade = ds.y;
+
+            //atualiza posição
+            setPosicao(sf::Vector2f(posicao.x, posicao.y + ds.y - flutuabilidade));
+
+            //desenha na janela
             imprimir_se();
         }
 

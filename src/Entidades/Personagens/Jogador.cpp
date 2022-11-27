@@ -54,7 +54,7 @@ namespace Entidades{
                 
                 imprimir_se();
                 atualizarPosicao();
-                std::cout<<vida<<std::endl;
+                
             }
 
             if(invulneravel)
