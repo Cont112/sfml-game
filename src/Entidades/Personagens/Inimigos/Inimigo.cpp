@@ -4,8 +4,8 @@ namespace Entidades {
     namespace Personagens{
         namespace Inimigos{  
 
-        Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, const float vel,Jogador *jogador,const IDs ID) :
-        Personagem(pos,tam,vel,ID),jogador1(jogador),atira(0)
+        Inimigo::Inimigo(const sf::Vector2f pos, const sf::Vector2f tam, const float vel,Jogador *jogador,const IDs ID, int dano) :
+        Personagem(pos,tam,vel,ID,dano),jogador1(jogador),atira(0)
         {
             moveAleatorio = rand()%3;
             if(moveAleatorio == 0){
@@ -16,6 +16,7 @@ namespace Entidades {
                 movimentar(false);
             }
         }
+        
         Inimigo::~Inimigo()
         {
         }
@@ -57,6 +58,8 @@ namespace Entidades {
                 imprimir_se();
                 atualizarPosicao();
                 moveInimigo();
+                atacar();
+                
                 dtAux += relogio.getElapsedTime().asSeconds() * 100;
                 relogio.restart();
             }
@@ -91,6 +94,11 @@ namespace Entidades {
             }
                 break;
             }
+
+        }
+
+        void Inimigo::atacar()
+        {
 
         }
     

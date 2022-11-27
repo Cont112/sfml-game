@@ -3,9 +3,9 @@
 namespace Entidades{
     namespace Personagens{
 
-        Personagem::Personagem(const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const IDs ID): 
-        Entidade(pos,tam, sf::Vector2f(vel,0.0f),ID), podeAndarEsquerda(0),podeAndarDireita(0), esquerda(0), dtAux(0.0f),
-        velMax(vel),vida(100), dano(10)
+        Personagem::Personagem(const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const IDs ID, int dano): 
+        Entidade(pos,tam, sf::Vector2f(vel,0.0f),ID, dano), podeAndarEsquerda(0),podeAndarDireita(0), esquerda(0), dtAux(0.0f),
+        velMax(vel),vida(100)
         {
         }
 
@@ -38,7 +38,6 @@ namespace Entidades{
         {
             return vel;
         }
-   
         
         void Personagem::movimentar(const bool esquerda)
         {
@@ -111,6 +110,8 @@ namespace Entidades{
             if(ds.x > ds.y){
                 if(posOutro.x < posicao.x){ //colisão em x
                     posOutro.x += ds.x;
+                    if (ID == IDs::jogador && pPersonagem->getID() == IDs::projetil)
+                        vida -=pPersonagem->getDano();
                 } 
                 else {
                     posOutro.x -= ds.x;

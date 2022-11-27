@@ -11,7 +11,7 @@ namespace Entidades{
                 bool danoso;
                 int dano;              
             public:
-                Obstaculo(const sf::Vector2f pos, const sf::Vector2f tam, const char* path, const IDs id);
+                Obstaculo(const sf::Vector2f pos, const sf::Vector2f tam, const char* path, const IDs id, int dano);
                 ~Obstaculo();
                 
                 void setDanoso(bool d);
