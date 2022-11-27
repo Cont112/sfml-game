@@ -55,6 +55,7 @@ namespace Listas{
         void limpar();
         bool empty();
         void addElemento(TL* pElemento);
+        void removerElemento(TL* pElemento);
         int getTamanho();
         TL* operator[](int pos);
         void operator=(TL* pElemento);
@@ -121,6 +122,34 @@ namespace Listas{
 
         //else
             //std::cout << "Erro: Nao foi possivel setar o elemento na lista (Lista<TL>::setElemento)." << std::endl;
+    }
+
+    template<class TL>
+    void Lista<TL>::removerElemento(TL* pElemento)
+    {
+            if(pElemento == nullptr){
+                std::cout << "ERROR::Lista elemento eh nullptr" << std::endl;
+                exit(1);
+            }
+            Elemento<TL>* aux = pPrimeiro;
+            Elemento<TL>* aux2 = nullptr;
+            while (aux != nullptr && aux->getData() != pElemento){
+                aux2 = aux;
+                aux = aux->getProximo();
+            }
+            if(aux->getData() == pElemento){
+                if(aux == pPrimeiro){
+                    pPrimeiro = aux->getProximo();
+                } else if(aux == pUltimo){
+                    pUltimo = aux2;
+                } else {
+                    aux2->setProximo(aux->getProximo());
+                }
+                tamanho--;
+                delete(aux);
+                aux = nullptr;
+                aux2 = nullptr;
+            }
     }
 
     template<class TL>

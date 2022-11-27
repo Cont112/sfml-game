@@ -5,7 +5,7 @@ using namespace std;
 Gerenciadores::Gerenciador_Grafico* Jogo::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
 Gerenciadores::Gerenciador_Eventos* Jogo::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
 
-Jogo::Jogo(): gamestate(0), rodando(true),j1(false),j2(true) ,
+Jogo::Jogo(): gamestate(0), rodando(true),j1(false),j2(true),
 menu_principal(this), menu_fases(this), menu_pause(this), menu_jogadores(this), menu_gameover(this),dtAux(0.0f)
 {
     if (pGrafico ==  nullptr)
@@ -37,6 +37,8 @@ Jogo::~Jogo()
 {
     pGrafico->deletarInstance();
     pEventos->deletarInstance(); 
+    delete lv1;
+    delete lv2;
 }
 
 /* Gamestates:
@@ -115,6 +117,11 @@ void Jogo::setGameState(int g)
 {
     lastGamestate = gamestate;
     gamestate = g;
+}
+void Jogo:: setGameState()
+{
+    lastGamestate = gamestate;
+    gamestate = 0;
 }
 
 Fases::Fase* Jogo::getFase(IDs ID)

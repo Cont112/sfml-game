@@ -46,4 +46,9 @@ namespace Listas
     {
         lista.limpar();
     }
+
+    void Lista_Entidades::removerEntidade(Entidades::Entidade* pEntidade)
+    {
+        lista.removerElemento(pEntidade);
+    }
 }

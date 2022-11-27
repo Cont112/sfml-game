@@ -114,7 +114,7 @@ namespace Entidades{
                     posOutro.x += ds.x;
                     if (ID == IDs::jogador && pPersonagem->getID() == IDs::projetil)
                         vida -=pPersonagem->getDano();
-                } 
+                }
                 else {
                     posOutro.x -= ds.x;
                 }
