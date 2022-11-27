@@ -22,6 +22,9 @@ namespace Fases{
         Gerenciadores::Gerenciador_Colisoes* pColisao;
         static Gerenciadores::Gerenciador_Grafico* pGrafico;
         static Gerenciadores::Gerenciador_Eventos* pEventos;
+        Entidades::Personagens::Jogador* j1;
+        Entidades::Personagens::Jogador* j2;
+
 
         bool player2;
         bool ativo;
@@ -30,8 +33,8 @@ namespace Fases{
         ~Fase();
         void criarMago(const sf::Vector2f pos);
         void criarEsqueleto(const sf::Vector2f pos);
-        void criarJogador(const sf::Vector2f pos);
-        void criarJogador2(const sf::Vector2f pos);
+        void setJogador1(Entidades::Personagens::Jogador* j);
+        void setJogador2(Entidades::Personagens::Jogador* j);
         void criarPlataforma(const sf::Vector2f pos);
         void criarCaixa(const sf::Vector2f pos);
         void criarLava(const sf::Vector2f pos);
@@ -40,7 +43,6 @@ namespace Fases{
         void atualizar();
         void doisJogadores(bool j);
         bool getDoisJogadores();
-        void setAtivo(bool a);
         virtual void resetar() = 0;
         virtual void criarMapa() = 0;
    };

@@ -20,6 +20,9 @@ private:
     Fases::Bosque lv1;
     Fases::Castelo lv2;
 
+    Entidades::Personagens::Jogador j1;
+    Entidades::Personagens::Jogador j2;
+
     float dtAux;
 
     

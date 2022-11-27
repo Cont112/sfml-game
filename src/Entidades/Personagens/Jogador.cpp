@@ -1,13 +1,9 @@
 #include "../../../include/Entidades/Personagens/Jogador.h"
 #include "../../../include/Gerenciadores/Gerenciador_Colisoes.h"
-#define WIDTH 1280
-#define HEIGHT 720
-
-//MUDAR MOVIMENTO PARA SETAR VELOCIDADES 
 
 namespace Entidades{ 
     namespace Personagens{ 
-        Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const bool multiplayer,const IDs ID): Personagem(pos,tam, VELOCIDADE_JOGADOR, ID, 0), isJumping(false),invulneravel(false)
+        Jogador::Jogador(const bool multiplayer): Personagem(sf::Vector2f(50.f,600.f),sf::Vector2f(48.f, 48.f), VELOCIDADE_JOGADOR, IDs::jogador, 0), isJumping(false),invulneravel(false)
         {
             init(multiplayer);
             
@@ -67,6 +63,14 @@ namespace Entidades{
             }
         }
 
+        void Jogador::resetar()
+        {
+            setAtividade(true);
+            setVida(100);
+            shape.setFillColor(sf::Color(0xFFFFFFFF));
+            setPosicao(sf::Vector2f(50.f,600.f));
+        }
+
         void Jogador::receberDano(int dano)
         {
             this->dtAux += pGrafico->getDt();
@@ -117,7 +121,6 @@ namespace Entidades{
             case(IDs::projetil):
             {
                 receberDano(other->getDano());
-                std::cout<<"colidiu"<<std::endl;
             }
                 break;
             

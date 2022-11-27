@@ -5,7 +5,8 @@ using namespace std;
 Gerenciadores::Gerenciador_Grafico* Jogo::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
 Gerenciadores::Gerenciador_Eventos* Jogo::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
 
-Jogo::Jogo(): gamestate(0), rodando(true), menu_principal(this), menu_fases(this), menu_pause(this), menu_jogadores(this), menu_gameover(this),lv1(), lv2(),dtAux(0.0f)
+Jogo::Jogo(): gamestate(0), rodando(true),j1(false),j2(true) ,
+menu_principal(this), menu_fases(this), menu_pause(this), menu_jogadores(this), menu_gameover(this),lv1(), lv2(),dtAux(0.0f)
 {
     if (pGrafico ==  nullptr)
     {
@@ -19,6 +20,8 @@ Jogo::Jogo(): gamestate(0), rodando(true), menu_principal(this), menu_fases(this
     }
 
     pEventos->setJogo(this);
+    pEventos->setJogador2(&j2);
+    pEventos->setJogador(&j1);
     while(rodando)
     {
         executar();
@@ -50,8 +53,6 @@ void Jogo::executar()
     pGrafico->executar();
     pEventos->executar();
 
-    checarGameover();
-
     switch (gamestate)
         {
         case 0:
@@ -67,9 +68,11 @@ void Jogo::executar()
             menu_pause.executar();
             break;
         case 4:
+            checarGameover();
             lv1.executar();
             break;
         case 5:
+            checarGameover();
             lv2.executar();
             break;
         case 6:
@@ -92,9 +95,8 @@ void Jogo::executar()
 
 void Jogo::checarGameover()
 {
-    if(!pEventos->getJogador(true)->getAtividade() && !pEventos->getJogador(false)->getAtividade())
+    if(!(j1.getAtividade()) && !(j2.getAtividade()))
     {
-        std::cout << "morreu" << std::endl;
         setGameState(6);
     }
 }
@@ -128,7 +130,3 @@ int Jogo::getLastGameState()
 {
     return lastGamestate;
 }
-
-
-
-

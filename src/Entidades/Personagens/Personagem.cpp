@@ -95,7 +95,7 @@ namespace Entidades{
 
             if(posicao.y >= 720)
             {
-                setPosicao(sf::Vector2f(posicao.x, 700));
+                setPosicao(sf::Vector2f(posicao.x, 680));
             }
             //desenha na janela
             imprimir_se();

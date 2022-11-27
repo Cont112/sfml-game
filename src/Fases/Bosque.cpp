@@ -75,6 +75,13 @@ void Fases::Bosque::resetar()
     listaObstaculos.limparLista();
     listaPersonagens.limparLista();
 
+    if(player2)
+    {
+        setJogador2(pEventos->getJogador(false));
+        j2->resetar();
+    }
+    setJogador1(pEventos->getJogador(true));
+    j1->resetar();
     criarMapa();
 }
 

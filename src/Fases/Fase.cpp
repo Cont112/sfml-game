@@ -19,7 +19,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
         shape.setOrigin(sf::Vector2f(0.0f,0.0f));
         shape.setPosition(sf::Vector2f(0.0f,0.0f));
         shape.setSize((sf::Vector2f)pGrafico->getWindow()->getSize());
-        
+
     }
 
     Fase::~Fase() 
@@ -76,36 +76,17 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
 
     }
  
-    void Fase::criarJogador(const sf::Vector2f pos)
+    void Fase::setJogador1(Entidades::Personagens::Jogador* j)
     {
-       Entidades::Personagens::Jogador *jogador1 = new Entidades::Personagens::Jogador(pos, sf::Vector2f(48.f, 48.f), false,IDs::jogador);
-       jogador1->setAtividade(true);
-        
-        if (jogador1==nullptr)
-        {
-            std::cout<<"Erro ao criar jogador"<<std::endl;
-            exit(1);
-        }
-
-        listaPersonagens.addEntidade(static_cast<Entidades::Entidade*>(jogador1));
-        pEventos->setJogador(jogador1);
+        j1 = j;
+        listaPersonagens.addEntidade(static_cast<Entidades::Entidade*>(j1));
+    }
+    void Fase::setJogador2(Entidades::Personagens::Jogador* j)
+    {
+        j2 = j;
+        listaPersonagens.addEntidade(static_cast<Entidades::Entidade*>(j2));
     }
     
-    void Fase::criarJogador2(const sf::Vector2f pos)
-    {
-        Entidades::Personagens::Jogador *jogador2 = new Entidades::Personagens::Jogador(pos, sf::Vector2f(48.f, 48.f), true,IDs::jogador);
-        jogador2->setAtividade(true);
-
-        if (jogador2==nullptr)
-        {
-            std::cout<<"Erro ao criar jogador2"<<std::endl;
-            exit(1);
-        }
-
-        listaPersonagens.addEntidade(static_cast<Entidades::Entidade*>(jogador2));
-        pEventos->setJogador2(jogador2);
-    }
-
     void Fase::criarCaixa(const sf::Vector2f pos)
     {
        Entidades::Obstaculos::Caixa *caixa = new Entidades::Obstaculos::Caixa(pos);
@@ -137,20 +118,6 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     {
         switch (letra)
         {
-        case ('j'):
-        {
-            criarJogador(sf::Vector2f(pos.x *50.f, pos.y *50.f));
-        }
-            break;
-        case ('s'):
-        {
-            if (player2)
-            {
-                criarJogador2(sf::Vector2f(pos.x *50.f, pos.y *50.f));
-            }    
-                
-        }
-            break;
         case ('m'):
         {
             criarMago(sf::Vector2f(pos.x *50.f, pos.y *50.f));
@@ -193,32 +160,6 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     {
         return player2;
     }
-    void Fase::setAtivo(bool a)
-    {
-        ativo = a;
-        if(ativo)
-        {
-            for(int i =0; i < listaObstaculos.getTamanho(); i++)
-            {
-                listaObstaculos[i]->setAtividade(true);
-            }
-            for(int i =0; i < listaPersonagens.getTamanho(); i++)
-            {
-                listaPersonagens[i]->setAtividade(true);
-            }
-        }
-
-        else{
-            for(int i =0; i < listaObstaculos.getTamanho(); i++)
-            {
-                listaObstaculos[i]->setAtividade(false);
-            }
-            for(int i =0; i < listaPersonagens.getTamanho(); i++)
-            {
-                listaPersonagens[i]->setAtividade(false);
-            }
-        }
-    }
     
     void Fase::executar()
     {
@@ -232,5 +173,6 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
         listaPersonagens.atualizar();
         listaObstaculos.atualizar();
     }
+
 
 }

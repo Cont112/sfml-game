@@ -21,7 +21,7 @@ namespace Entidades {
                 bool invulneravel;
  
             public:
-                Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const bool multiplayer,const IDs ID);
+                Jogador(const bool multiplayey);
                 ~Jogador();
 
                 void pular();
@@ -29,7 +29,7 @@ namespace Entidades {
                 void receberDano(int dano);
 
                 void atualizar();
-
+                void resetar();
                 void colisao(Entidade* other, sf::Vector2f ds =  sf::Vector2f(0.0f,0.0f));
                 
 

@@ -36,6 +36,7 @@ namespace Gerenciadores {
         void verificaMousePressionado(sf::Mouse::Button click);
         void verificaMouseSolto (sf::Mouse::Button click);
         sf::Vector2f getMousePosition();
+        bool getJogadorAtividade(bool j);
         bool getMouseClick();
         Entidades::Personagens::Jogador* getJogador(bool j);
         void executar();
