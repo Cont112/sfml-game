@@ -61,9 +61,17 @@ namespace Gerenciadores
             case 1:
                 pJogo->setGameState(0);
                 break;
+            case 3:
+                pJogo->setGameState(0);
+                break;
             case 4:
-                pJogo->setGameState(1);
-                break;    
+                pJogo->getFase(IDs::bosque)->setAtivo(false);
+                pJogo->setGameState(3);
+                break;  
+            case 5:
+                pJogo->getFase(IDs::castelo)->setAtivo(false);
+                pJogo->setGameState(3);
+                break;
 
             }
         }

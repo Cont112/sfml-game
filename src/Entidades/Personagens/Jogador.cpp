@@ -41,10 +41,10 @@ namespace Entidades{
 
         void Jogador::atualizar()
         {
-            if(ativo){ 
+            if(vivo && ativo){ 
             if(vida <= 0)
             {
-                ativo = false;
+                vivo = false;
             }
             
             isJumping = true;

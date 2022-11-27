@@ -13,6 +13,7 @@ namespace Entidades{
 
         void Caixa::atualizar()
         {
+            if(ativo){ 
             float dt = relogio.getElapsedTime().asSeconds();
             relogio.restart();
             sf::Vector2f ds(0.0f, 0.0f);
@@ -26,14 +27,13 @@ namespace Entidades{
 
             //desenha na janela
             imprimir_se();
+            }
         }
 
         void Caixa::colisao(Entidade* other, sf::Vector2f ds)
         {
             if(other->getID() == IDs::jogador || other->getID() == IDs::esqueleto || other->getID() == IDs::mago){ 
-                colisaoObstaculo(ds, static_cast<Personagens::Personagem*>(other));
-                
-                    
+                colisaoObstaculo(ds, static_cast<Personagens::Personagem*>(other));    
             }
             else if(other->getID() == IDs::plataforma || other->getID() == IDs::caixa){
                 posicao.y = other->getPosicao().y - tam.y;

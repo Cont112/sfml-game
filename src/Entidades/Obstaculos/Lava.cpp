@@ -15,6 +15,7 @@ namespace Entidades{
         }
         void Lava::atualizar()
         {
+            if (ativo){ 
             float dt = relogio.getElapsedTime().asSeconds();
             relogio.restart();
             sf::Vector2f ds(0.0f, 0.0f);
@@ -28,6 +29,7 @@ namespace Entidades{
 
             //desenha na janela
             imprimir_se();
+            }
         }
 
         void Lava::colisao(Entidade* other, sf::Vector2f ds)

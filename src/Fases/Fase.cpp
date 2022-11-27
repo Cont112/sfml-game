@@ -196,7 +196,6 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     void Fase::setAtivo(bool a)
     {
         ativo = a;
-        pGrafico->updateDeltaTime();
         if(ativo)
         {
             for(int i =0; i < listaObstaculos.getTamanho(); i++)
@@ -223,6 +222,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     
     void Fase::executar()
     {
+        setAtivo(true);
         imprimir_se();
         atualizar();
         pColisao->executar();        

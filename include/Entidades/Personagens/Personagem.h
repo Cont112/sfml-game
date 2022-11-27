@@ -13,6 +13,7 @@ namespace Entidades{
         bool podeAndarEsquerda;
         bool podeAndarDireita;
         bool esquerda;
+        bool vivo;
         float dtAux;
         
     public:
@@ -21,6 +22,8 @@ namespace Entidades{
 
         int getVida() const;
         int getDano() const;
+        bool getVivo() const; 
+        void setVivo(bool v);
         void setDano(int d);
         void setVida(int v);
 

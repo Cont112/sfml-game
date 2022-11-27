@@ -5,7 +5,7 @@ namespace Entidades{
 
         Personagem::Personagem(const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const IDs ID): 
         Entidade(pos,tam, sf::Vector2f(vel,0.0f),ID), podeAndarEsquerda(0),podeAndarDireita(0), esquerda(0), dtAux(0.0f),
-        velMax(vel),vida(100), dano(10)
+        velMax(vel),vida(100), dano(10), vivo(1)
         {
         }
 
@@ -21,6 +21,13 @@ namespace Entidades{
             return vida;
         }
 
+        void Personagem::setVivo(bool v) {
+            vivo = v;
+        }
+
+        bool Personagem::getVivo() const {
+            return vivo;
+        }
         void Personagem::setDano(int d){
             dano = d;
         }
@@ -90,14 +97,16 @@ namespace Entidades{
             vel.y += GRAVIDADE * dt;
             ds.y = vel.y * GRAVIDADE;
 
-            if(ID == IDs::jogador)
-                std::cout << vel.y << std::endl;
             //atualiza posição
             setPosicao(sf::Vector2f(posicao.x + ds.x, posicao.y + ds.y));
 
             //atualiza velocidade na horizontal
             vel.x = velMax;
 
+            if(posicao.y >= 720)
+            {
+                setPosicao(sf::Vector2f(posicao.x, 700));
+            }
             //desenha na janela
             imprimir_se();
 }
