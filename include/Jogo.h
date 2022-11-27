@@ -15,6 +15,7 @@ private:
     Menus::Menu_Principal menu_principal;
     Menus::Menu_Fases menu_fases;
     Menus::Menu_Pause menu_pause;
+    Menus::Menu_Jogadores menu_jogadores;
     Fases::Bosque lv1;
     Fases::Castelo lv2;
 
@@ -29,6 +30,7 @@ public:
     int getGameState();
     int getLastGameState();
     Fases::Fase* getFase(const IDs ID);
+    void checarGameover();
 
     void executar();
 };

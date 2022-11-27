@@ -5,8 +5,8 @@
 namespace Menus{
 
     Menu_Fases::Menu_Fases(Jogo* jogo): Menu(IDs::menu_fases, jogo),
-    fase1(sf::Vector2f(340.f,360.f)),
-    fase2(sf::Vector2f(940.f, 360.f))
+    fase1(sf::Vector2f(640.f,360.f)),
+    fase2(sf::Vector2f(640.f, 500.f))
     {
         setTextura(PATH_MENU_FASES);
         fase1.setTextura(PATH_FASE1);

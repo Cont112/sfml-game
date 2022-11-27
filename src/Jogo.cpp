@@ -5,7 +5,7 @@ using namespace std;
 Gerenciadores::Gerenciador_Grafico* Jogo::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
 Gerenciadores::Gerenciador_Eventos* Jogo::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
 
-Jogo::Jogo(): gamestate(0), rodando(true), menu_principal(this), menu_fases(this), menu_pause(this),lv1(), lv2(),dtAux(0.0f)
+Jogo::Jogo(): gamestate(0), rodando(true), menu_principal(this), menu_fases(this), menu_pause(this), menu_jogadores(this),lv1(), lv2(),dtAux(0.0f)
 {
     if (pGrafico ==  nullptr)
     {
@@ -21,7 +21,6 @@ Jogo::Jogo(): gamestate(0), rodando(true), menu_principal(this), menu_fases(this
     pEventos->setJogo(this);
     while(rodando)
     {
-        std::cout << pGrafico->getDt() << std::endl;
         executar();
     }
     
@@ -36,8 +35,8 @@ Jogo::~Jogo()
 
 /* Gamestates:
 0: Menu Principal
-1: Menu Fases
-2: Menu Jogadores
+1: Menu Jogadores
+2: Menu Fases
 3: Menu Pausa
 4: Fase 1
 5: Fase 2
@@ -52,6 +51,7 @@ void Jogo::executar()
 
     pGrafico->executar();
     pEventos->executar();
+    checarGameover();
         
     switch (gamestate)
         {
@@ -59,6 +59,9 @@ void Jogo::executar()
             menu_principal.executar();
             break;
         case 1:
+            menu_jogadores.executar();
+            break;
+        case 2:
             menu_fases.executar();
             break;
         case 3:
@@ -70,6 +73,9 @@ void Jogo::executar()
         case 5:
             lv2.executar();
             break;
+        case 6:
+            //gameover.executar();
+            break;
         case 7:
             rodando = false;
             break;
@@ -77,42 +83,50 @@ void Jogo::executar()
 
     pGrafico->display(); 
     dtAux += pGrafico->getDt();
-    if(dtAux >= 1.f)
+    if(dtAux >= 1.5f)
     {
         Menus::Menu::setCooldown(false);
         dtAux = 0.0f;
     }
-    }
+}
 
-    int Jogo::getGameState()
+void Jogo::checarGameover()
+{
+    if(!pEventos->getJogador(true)->getAtividade() && !pEventos->getJogador(false)->getAtividade())
     {
-        return gamestate;
+        setGameState(6);
     }
+}
 
-    void Jogo::setGameState(int g)
+int Jogo::getGameState()
+{
+    return gamestate;
+}
+
+void Jogo::setGameState(int g)
+{
+    lastGamestate = gamestate;
+    gamestate = g;
+}
+
+Fases::Fase* Jogo::getFase(IDs ID)
+{
+    if (ID == IDs::bosque)
     {
-        lastGamestate = gamestate;
-        gamestate = g;
-    }
-
-    Fases::Fase* Jogo::getFase(IDs ID)
+        return dynamic_cast<Fases::Fase*>(&lv1);
+    } else if (ID == IDs::castelo)
     {
-        if (ID == IDs::bosque)
-        {
-            return dynamic_cast<Fases::Fase*>(&lv1);
-        } else if (ID == IDs::castelo)
-        {
-            return dynamic_cast<Fases::Fase*>(&lv2);
-        }
-
-        else
-            return nullptr;
+        return dynamic_cast<Fases::Fase*>(&lv2);
     }
 
-    int Jogo::getLastGameState()
-    {
-        return lastGamestate;
-    }
+    else
+        return nullptr;
+}
+
+int Jogo::getLastGameState()
+{
+    return lastGamestate;
+}
 
 
 

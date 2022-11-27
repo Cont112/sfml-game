@@ -16,9 +16,9 @@ void Fases::Bosque::criarMapa()
     std::ifstream arquivo;
     std::string linha;
 
-    int nCaixas = (rand()%9)+3;
-    int nMagos = (rand()%4)+3;
-    int nCaveiras = (rand()%4)+3;
+    int nCaixas = (rand()%9)+5;
+    int nMagos = (rand()%4)+5;
+    int nCaveiras = (rand()%4)+5;
 
     for (int i=0; i<nCaixas;i++)//criando caixas aleatorias 
     {
@@ -26,7 +26,7 @@ void Fases::Bosque::criarMapa()
     }
 
     //criando mapa
-    arquivo.open("src/Fases/Mapa_Fase.txt");
+    arquivo.open("src/Fases/Mapa_Bosque.txt");
     if(!arquivo.is_open()){
         std::cout << "Não foi possivel abrir o arquivo da fase Bosque" << std::endl;
         exit(1);

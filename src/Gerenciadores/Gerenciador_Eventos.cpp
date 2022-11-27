@@ -61,6 +61,9 @@ namespace Gerenciadores
             case 1:
                 pJogo->setGameState(0);
                 break;
+            case 2:
+                pJogo->setGameState(1);
+                break;
             case 3:
                 pJogo->setGameState(0);
                 break;
@@ -165,9 +168,11 @@ namespace Gerenciadores
         }       
     }
 
-    Entidades::Personagens::Jogador* Gerenciador_Eventos:: getJogador()
+    Entidades::Personagens::Jogador* Gerenciador_Eventos:: getJogador(bool j)
     {
-        return pJogador1;
+        if(j)
+            return pJogador1;
+        return pJogador2;
     }
 
     sf::Vector2f Gerenciador_Eventos::getMousePosition()

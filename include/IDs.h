@@ -13,5 +13,7 @@ enum class IDs{
     bosque,
     castelo,
     menu_principal,
-    menu_fases
+    menu_fases,
+    menu_pause,
+    menu_jogadores
 };

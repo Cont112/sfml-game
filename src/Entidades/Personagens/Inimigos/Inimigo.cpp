@@ -52,7 +52,7 @@ namespace Entidades {
 
         void Inimigo::atualizar()
         {
-            if (vivo && ativo)
+            if (ativo)
             {
                 imprimir_se();
                 atualizarPosicao();

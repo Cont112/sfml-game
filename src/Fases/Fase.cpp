@@ -48,7 +48,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     
     void Fase::criarMago(const sf::Vector2f pos)
     {
-        Entidades::Personagens::Jogador* jogador = pEventos->getJogador();
+        Entidades::Personagens::Jogador* jogador = pEventos->getJogador(true);
         
         Entidades::Personagens::Inimigos::Mago *mago = new Entidades::Personagens::Inimigos::Mago (pos, jogador);
 
@@ -64,7 +64,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     
     void Fase::criarEsqueleto(const sf::Vector2f pos)
     {
-        Entidades::Personagens::Jogador* jogador = pEventos->getJogador();
+        Entidades::Personagens::Jogador* jogador = pEventos->getJogador(true);
         
         Entidades::Personagens::Inimigos::Esqueleto *esqueleto = new Entidades::Personagens::Inimigos::Esqueleto (pos, jogador);
 
@@ -81,6 +81,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     void Fase::criarJogador(const sf::Vector2f pos)
     {
        Entidades::Personagens::Jogador *jogador1 = new Entidades::Personagens::Jogador(pos, sf::Vector2f(48.f, 48.f), false,IDs::jogador);
+       jogador1->setAtividade(true);
         
         if (jogador1==nullptr)
         {
@@ -95,6 +96,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     void Fase::criarJogador2(const sf::Vector2f pos)
     {
         Entidades::Personagens::Jogador *jogador2 = new Entidades::Personagens::Jogador(pos, sf::Vector2f(48.f, 48.f), true,IDs::jogador);
+        jogador2->setAtividade(true);
 
         if (jogador2==nullptr)
         {
@@ -184,9 +186,9 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
         }
     }
 
-    void Fase::doisJogadores()
+    void Fase::doisJogadores(bool j)
     {
-        player2 = true;
+        player2 = j;
     }
     
     bool Fase::getDoisJogadores()

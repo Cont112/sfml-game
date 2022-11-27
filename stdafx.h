@@ -21,6 +21,7 @@
 #include "include/Menus/Menu_Principal.h"
 #include "include/Menus/Menu_Fases.h"
 #include "include/Menus/Menu_Pause.h"
+#include "include/Menus/Menu_Jogadores.h"
 #include <vector>
 
 #define WIDTH 1280.0f

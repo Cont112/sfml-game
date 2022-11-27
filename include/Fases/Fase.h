@@ -38,7 +38,7 @@ namespace Fases{
         void criarEntidade(char letra ,const sf::Vector2f pos);
         void executar();
         void atualizar();
-        void doisJogadores();
+        void doisJogadores(bool j);
         bool getDoisJogadores();
         void setAtivo(bool a);
         virtual void resetar() = 0;

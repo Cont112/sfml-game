@@ -5,7 +5,7 @@ namespace Entidades{
 
         Personagem::Personagem(const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const IDs ID): 
         Entidade(pos,tam, sf::Vector2f(vel,0.0f),ID), podeAndarEsquerda(0),podeAndarDireita(0), esquerda(0), dtAux(0.0f),
-        velMax(vel),vida(100), dano(10), vivo(1)
+        velMax(vel),vida(100), dano(10)
         {
         }
 
@@ -19,14 +19,6 @@ namespace Entidades{
 
         int Personagem::getVida() const {
             return vida;
-        }
-
-        void Personagem::setVivo(bool v) {
-            vivo = v;
-        }
-
-        bool Personagem::getVivo() const {
-            return vivo;
         }
         void Personagem::setDano(int d){
             dano = d;

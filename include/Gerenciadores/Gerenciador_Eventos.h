@@ -37,7 +37,7 @@ namespace Gerenciadores {
         void verificaMouseSolto (sf::Mouse::Button click);
         sf::Vector2f getMousePosition();
         bool getMouseClick();
-        Entidades::Personagens::Jogador* getJogador();
+        Entidades::Personagens::Jogador* getJogador(bool j);
         void executar();
     };
 }

@@ -13,7 +13,6 @@ namespace Entidades{
         bool podeAndarEsquerda;
         bool podeAndarDireita;
         bool esquerda;
-        bool vivo;
         float dtAux;
         
     public:

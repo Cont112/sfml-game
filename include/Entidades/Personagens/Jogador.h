@@ -4,7 +4,7 @@
 #include "Personagem.h"
 
 #define PATH_JOGADOR_1 "assets/Jogadores/jogador1.png"
-#define PATH_JOGADOR_2 "assets/Jogadores/jogador2.jpg"
+#define PATH_JOGADOR_2 "assets/Jogadores/jogador2.png"
 #define VELOCIDADE_JOGADOR 250.f
 #define TAMANHO_PULO .2f
 

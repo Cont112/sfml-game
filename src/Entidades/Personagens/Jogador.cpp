@@ -9,6 +9,7 @@ namespace Entidades{
     namespace Personagens{ 
         Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const bool multiplayer,const IDs ID): Personagem(pos,tam, VELOCIDADE_JOGADOR, ID), isJumping(false),invulneravel(false)
         {
+            setAtividade(false);
             init(multiplayer);
         }
 
@@ -41,10 +42,10 @@ namespace Entidades{
 
         void Jogador::atualizar()
         {
-            if(vivo && ativo){ 
+            if(ativo){ 
             if(vida <= 0)
             {
-                vivo = false;
+                ativo = false;
             }
             
             isJumping = true;
@@ -63,7 +64,6 @@ namespace Entidades{
                 }
             }
             }
-
 
 
         }
@@ -85,10 +85,6 @@ namespace Entidades{
             {
             case(IDs::jogador):
             {
-                if (other->getAtividade())
-                {
-                    colisaoPersonagem(ds, other);
-                }
             }
             break;
 

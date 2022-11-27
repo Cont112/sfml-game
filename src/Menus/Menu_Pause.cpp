@@ -4,7 +4,7 @@
 
 namespace Menus{
 
-    Menu_Pause::Menu_Pause(Jogo* jogo): Menu(IDs::menu_principal, jogo),
+    Menu_Pause::Menu_Pause(Jogo* jogo): Menu(IDs::menu_pause, jogo),
     voltar(sf::Vector2f(640.f,360.f)),
     menu_principal(sf::Vector2f(640.f, 500.f))
     {
@@ -29,6 +29,8 @@ namespace Menus{
         if(!cooldown && botaoClicado(menu_principal))
         {
             cooldown = true;
+            jogo->getFase(IDs::bosque)->resetar();
+            jogo->getFase(IDs::castelo)->resetar();
             jogo->setGameState(0);
         }
 
