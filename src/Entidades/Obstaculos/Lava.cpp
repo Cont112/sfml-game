@@ -3,8 +3,7 @@
 namespace Entidades{
     namespace Obstaculos{
         Lava::Lava(sf::Vector2f pos): 
-        Obstaculo(pos, sf::Vector2f(TAMANHO_LAVA_X, TAMANHO_LAVA_Y), PATH_LAVA, IDs::lava), 
-        dano(50)
+        Obstaculo(pos, sf::Vector2f(TAMANHO_LAVA_X, TAMANHO_LAVA_Y), PATH_LAVA, IDs::lava, DANO_LAVA)
         {
             setDano(DANO_LAVA);
             setDanoso(true);

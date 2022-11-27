@@ -16,7 +16,7 @@ namespace Entidades{
             private:
                 
             public:
-                Esqueleto(const sf::Vector2f pos,Jogador *jogador);
+                Esqueleto(const sf::Vector2f pos,Jogador *jogador, int dano);
                 ~Esqueleto();
             };
         }

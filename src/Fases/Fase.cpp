@@ -50,7 +50,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     {
         Entidades::Personagens::Jogador* jogador = pEventos->getJogador(true);
         
-        Entidades::Personagens::Inimigos::Mago *mago = new Entidades::Personagens::Inimigos::Mago (pos, jogador);
+        Entidades::Personagens::Inimigos::Mago *mago = new Entidades::Personagens::Inimigos::Mago (pos, jogador, &listaObstaculos);
 
         if (mago==nullptr)
         {
@@ -66,7 +66,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     {
         Entidades::Personagens::Jogador* jogador = pEventos->getJogador(true);
         
-        Entidades::Personagens::Inimigos::Esqueleto *esqueleto = new Entidades::Personagens::Inimigos::Esqueleto (pos, jogador);
+        Entidades::Personagens::Inimigos::Esqueleto *esqueleto = new Entidades::Personagens::Inimigos::Esqueleto (pos, jogador, DANO_ESQUELETO);
 
         if (esqueleto==nullptr)
         {

@@ -7,10 +7,11 @@
 
 namespace Entidades{ 
     namespace Personagens{ 
-        Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const bool multiplayer,const IDs ID): Personagem(pos,tam, VELOCIDADE_JOGADOR, ID), isJumping(false),invulneravel(false)
+        Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const bool multiplayer,const IDs ID): Personagem(pos,tam, VELOCIDADE_JOGADOR, ID, 0), isJumping(false),invulneravel(false)
         {
             setAtividade(false);
             init(multiplayer);
+            
         }
 
         Jogador::~Jogador()
@@ -113,6 +114,12 @@ namespace Entidades{
                 {
                     colisaoPersonagem(ds, other);
                 }
+            }
+                break;
+            case(IDs::projetil):
+            {
+                receberDano(other->getDano());
+                std::cout<<"colidiu"<<std::endl;
             }
                 break;
             

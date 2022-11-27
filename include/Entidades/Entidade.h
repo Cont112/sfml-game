@@ -8,11 +8,12 @@ namespace Entidades{
             sf::Vector2f posicao;       
             sf::Vector2f tam;
             sf::Vector2f vel;
+            int dano;
             
             bool ativo;
 
         public:
-            Entidade(const sf::Vector2f pos,const sf::Vector2f tam, const sf::Vector2f vel,IDs ID);
+            Entidade(const sf::Vector2f pos,const sf::Vector2f tam, const sf::Vector2f vel,IDs ID, int d);
             ~Entidade();
 
             sf::Vector2f getVel();
@@ -25,6 +26,8 @@ namespace Entidades{
             virtual void atualizar() = 0;
             void setAtividade(bool a);
             bool getAtividade();
+            void setDano(int d);
+            int getDano();
             
     };
 }

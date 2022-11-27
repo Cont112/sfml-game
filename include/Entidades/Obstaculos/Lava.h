@@ -12,7 +12,6 @@ namespace Entidades {
     namespace Obstaculos{
         class Lava: public Obstaculo{
         private:
-            int dano;
             float vely =0.0f;
         public:
             Lava(sf::Vector2f pos);

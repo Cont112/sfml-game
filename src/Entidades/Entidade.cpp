@@ -4,8 +4,8 @@
 namespace Entidades
 {
 
-    Entidade::Entidade(const sf::Vector2f pos, const sf::Vector2f tam, const sf::Vector2f vel, const IDs ID) : 
-    Ente(ID), posicao(pos), tam(tam), vel(vel),ativo(1)
+    Entidade::Entidade(const sf::Vector2f pos, const sf::Vector2f tam, const sf::Vector2f vel, const IDs ID, int d) : 
+    Ente(ID), posicao(pos), tam(tam), vel(vel),ativo(1), dano(d)
     {
         shape.setOrigin(sf::Vector2f(tam.x/2.0f, 0.0f));
         shape.setPosition(posicao);
@@ -53,6 +53,14 @@ namespace Entidades
     bool Entidade::getAtividade()
     {
         return ativo;
+    }
+    int Entidade::getDano()
+    {
+        return dano;
+    }
+    void Entidade::setDano(int d)
+    {
+        dano = d;
     }
 
 }

@@ -8,7 +8,6 @@ namespace Entidades{
     class Personagem: public Entidade{
     protected:
         int vida;
-        int dano;
         const float velMax;
         bool podeAndarEsquerda;
         bool podeAndarDireita;
@@ -16,7 +15,7 @@ namespace Entidades{
         float dtAux;
         
     public:
-        Personagem (const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const IDs ID);
+        Personagem (const sf::Vector2f pos, const sf::Vector2f tam, const float vel, const IDs ID, int dano);
         ~Personagem();
 
         int getVida() const;

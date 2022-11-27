@@ -16,20 +16,37 @@ void Fases::Bosque::criarMapa()
     std::ifstream arquivo;
     std::string linha;
 
-    int nCaixas = (rand()%9)+5;
-    int nMagos = (rand()%4)+5;
-    int nCaveiras = (rand()%4)+5;
+    int nLavas = (rand()%3)+3;
+    int nCaixas = (rand()%9)+3;
+    int nMagos = (rand()%4)+3;
+    int nCaveiras = (rand()%4)+3;
 
     for (int i=0; i<nCaixas;i++)//criando caixas aleatorias 
     {
         criarEntidade('c', sf::Vector2f( (rand()%25)+2 ,0));
     }
 
-    //criando mapa
+    for (int i=0; i<nLavas;i++)//criando caixas aleatorias 
+    {
+        criarEntidade('l', sf::Vector2f( (rand()%25)+2 ,0));
+    }
+
+
+    //criando mapa 
+    
     arquivo.open("src/Fases/Mapa_Bosque.txt");
-    if(!arquivo.is_open()){
-        std::cout << "Não foi possivel abrir o arquivo da fase Bosque" << std::endl;
-        exit(1);
+    try
+    {
+        if (!arquivo.is_open())
+        {
+            std::cout<<"erro ao abrir o arquivo da fase bosque"<<std::endl;
+            throw 1;
+        }
+
+    }
+    catch(const int erro)
+    {
+        std::cout<<"erro:"<<erro<<std::endl;
     }
     int j = 0;
     while(std::getline(arquivo, linha)){
@@ -45,9 +62,9 @@ void Fases::Bosque::criarMapa()
     for (int i=0; i<nMagos;i++)//criando magos aleatorios
     {
         criarEntidade('m', sf::Vector2f( (rand()%25)+5 ,0));
-    }    
+    } 
 
-    for (int i=0; i<nMagos;i++)//criando esqueleto aleatorios
+    for (int i=0; i<nCaveiras;i++)//criando esqueleto aleatorios
     {
         criarEntidade('e', sf::Vector2f( (rand()%25)+5 ,0));
     }  
