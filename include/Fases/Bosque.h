@@ -14,5 +14,6 @@ namespace Fases{
             Bosque();
             ~Bosque();
             void criarMapa();
+            void resetar();
     };
 }

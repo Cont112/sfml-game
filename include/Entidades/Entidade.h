@@ -10,8 +10,6 @@ namespace Entidades{
             sf::Vector2f vel;
             
             bool ativo;
-            sf::Clock relogio;
-            static float dt;
 
         public:
             Entidade(const sf::Vector2f pos,const sf::Vector2f tam, const sf::Vector2f vel,IDs ID);

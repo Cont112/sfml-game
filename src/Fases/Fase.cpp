@@ -222,7 +222,6 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     
     void Fase::executar()
     {
-        setAtivo(true);
         imprimir_se();
         atualizar();
         pColisao->executar();        

@@ -13,5 +13,6 @@ namespace Fases{
             Castelo();
             ~Castelo();
             void criarMapa();
+            void resetar();
     };
 }

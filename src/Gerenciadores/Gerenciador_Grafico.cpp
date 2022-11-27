@@ -148,7 +148,7 @@ void Gerenciador_Grafico::deletarInstance()
 
 void Gerenciador_Grafico::executar()
 {
-
+    updateDeltaTime();
     clear();
 }
 

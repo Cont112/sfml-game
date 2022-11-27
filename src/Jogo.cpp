@@ -21,6 +21,7 @@ Jogo::Jogo(): gamestate(0), rodando(true), menu_principal(this), menu_fases(this
     pEventos->setJogo(this);
     while(rodando)
     {
+        std::cout << pGrafico->getDt() << std::endl;
         executar();
     }
     
@@ -31,7 +32,6 @@ Jogo::~Jogo()
     pGrafico->deletarInstance();
     pEventos->deletarInstance();
     
-    std::cout << "Jogo fechou!" << std::endl;
 }
 
 /* Gamestates:
@@ -76,8 +76,6 @@ void Jogo::executar()
     }
 
     pGrafico->display(); 
-        
-    pGrafico->updateDeltaTime();
     dtAux += pGrafico->getDt();
     if(dtAux >= 1.f)
     {

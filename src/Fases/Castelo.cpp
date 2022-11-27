@@ -51,5 +51,12 @@ void Fases::Castelo::criarMapa()
     {
         criarEntidade('e', sf::Vector2f( (rand()%25)+5 ,0));
     }   
+}
 
+void Fases::Castelo::resetar()
+{
+    listaObstaculos.limparLista();
+    listaPersonagens.limparLista();
+
+    criarMapa();
 }

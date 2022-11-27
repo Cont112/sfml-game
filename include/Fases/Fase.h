@@ -35,12 +35,13 @@ namespace Fases{
         void criarPlataforma(const sf::Vector2f pos);
         void criarCaixa(const sf::Vector2f pos);
         void criarLava(const sf::Vector2f pos);
-        virtual void criarMapa() = 0;
         void criarEntidade(char letra ,const sf::Vector2f pos);
         void executar();
         void atualizar();
         void doisJogadores();
         bool getDoisJogadores();
         void setAtivo(bool a);
+        virtual void resetar() = 0;
+        virtual void criarMapa() = 0;
    };
 }

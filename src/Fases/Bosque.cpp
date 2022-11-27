@@ -50,8 +50,14 @@ void Fases::Bosque::criarMapa()
     for (int i=0; i<nMagos;i++)//criando esqueleto aleatorios
     {
         criarEntidade('e', sf::Vector2f( (rand()%25)+5 ,0));
-    }    
-
-    
-
+    }  
 }
+
+void Fases::Bosque::resetar()
+{
+    listaObstaculos.limparLista();
+    listaPersonagens.limparLista();
+
+    criarMapa();
+}
+

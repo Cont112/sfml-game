@@ -14,8 +14,7 @@ namespace Entidades{
         void Caixa::atualizar()
         {
             if(ativo){ 
-            float dt = relogio.getElapsedTime().asSeconds();
-            relogio.restart();
+            float dt = pGrafico->getDt();
             sf::Vector2f ds(0.0f, 0.0f);
 
             //sofre o efeito da gravidade

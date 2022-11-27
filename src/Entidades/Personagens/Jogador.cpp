@@ -50,12 +50,11 @@ namespace Entidades{
             isJumping = true;
             imprimir_se();
             atualizarPosicao();
-            relogio.restart();
             
 
             if(invulneravel)
             {
-                dtAux += dt;
+                dtAux += pGrafico->getDt();
                 if(dtAux > 1.f)
                 {
                     shape.setFillColor(sf::Color(0xFFFFFFFF));
@@ -71,7 +70,7 @@ namespace Entidades{
 
         void Jogador::receberDano(int dano)
         {
-            this->dtAux += dt;
+            this->dtAux += pGrafico->getDt();
             if(!this->invulneravel)
             {
                 this->vida -= dano;

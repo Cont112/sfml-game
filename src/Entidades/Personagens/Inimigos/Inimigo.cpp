@@ -22,7 +22,7 @@ namespace Entidades {
 
         void Inimigo::atualizarMovimentoAleatorio()
         {
-            if(dtAux > .3f){
+            if(dtAux > 1.0f){
                 moveAleatorio = rand()%3;
                 if(moveAleatorio == 0){
                     parar();
@@ -57,8 +57,7 @@ namespace Entidades {
                 imprimir_se();
                 atualizarPosicao();
                 moveInimigo();
-                dtAux += relogio.getElapsedTime().asSeconds() * 100;
-                relogio.restart();
+                dtAux += pGrafico->getDt();
             }
         }
 

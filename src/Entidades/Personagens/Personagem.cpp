@@ -79,8 +79,7 @@ namespace Entidades{
 
         void Personagem::atualizarPosicao()
         {
-            dt = relogio.getElapsedTime().asSeconds();
-            relogio.restart();
+            float dt = pGrafico->getDt();
             sf::Vector2f ds(0.0f, 0.0f);
 
             //move na horizontal
