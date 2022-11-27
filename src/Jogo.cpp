@@ -43,7 +43,8 @@ Jogo::~Jogo()
 4: Fase 1
 5: Fase 2
 6: Gameover
-7: Fechar */
+7: Fechar 
+*/
 void Jogo::executar()
 {
     if(!pGrafico->isWindowOpen())

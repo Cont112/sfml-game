@@ -77,6 +77,9 @@ namespace Gerenciadores
                 break;
 
             }
+        } else if (tecla == sf::Keyboard::R){
+            pJogo->getFase(IDs::bosque)->resetar();
+            pJogo->getFase(IDs::castelo)->resetar();
         }
 
         if (player2)

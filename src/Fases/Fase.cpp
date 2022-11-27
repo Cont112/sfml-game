@@ -8,7 +8,7 @@ namespace Fases{
 Gerenciadores::Gerenciador_Grafico* Fase::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
 Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
 
-    Fase::Fase(): Ente(ID),listaPersonagens(), listaObstaculos(), player2(false),
+    Fase::Fase(const IDs ID): Ente(ID),listaPersonagens(), listaObstaculos(), player2(false),
                   pColisao(new Gerenciadores::Gerenciador_Colisoes(&listaPersonagens, &listaObstaculos)), ativo(0)
     {
         if (pColisao == NULL)
@@ -31,9 +31,9 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
 
     }
     
-    void Fase::criarPlataforma(const sf::Vector2f pos)
+    void Fase::criarPlataforma(const sf::Vector2f pos, bool v)
     {        
-        Entidades::Obstaculos::Plataforma *plataforma = new Entidades::Obstaculos::Plataforma (pos);
+        Entidades::Obstaculos::Plataforma *plataforma = new Entidades::Obstaculos::Plataforma (pos,v);
         
         if (plataforma==nullptr)
         {
@@ -73,6 +73,21 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
         }
 
         listaPersonagens.addEntidade(static_cast<Entidades::Entidade*>(esqueleto));
+
+    }
+
+    void Fase::criarCavaleiro(const sf::Vector2f pos)
+    {
+        Entidades::Personagens::Jogador* jogador = pEventos->getJogador(true);
+
+        Entidades::Personagens::Inimigos::Cavaleiro *cavaleiro = new Entidades::Personagens::Inimigos::Cavaleiro (pos, jogador, DANO_CAVALEIRO);
+        if (cavaleiro==nullptr)
+        {
+            std::cout<<"Erro ao criar esqueleto"<<std::endl;
+            exit(1);
+        }
+
+        listaPersonagens.addEntidade(static_cast<Entidades::Entidade*>(cavaleiro));
 
     }
  
@@ -116,6 +131,10 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
 
     void Fase::criarEntidade( char letra,const sf::Vector2f pos)
     {
+        bool v = true;
+        if(ID == IDs::bosque)
+            v = false;
+        
         switch (letra)
         {
         case ('m'):
@@ -130,7 +149,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
             break;
         case('p'):
         {
-            criarPlataforma(sf::Vector2f(pos.x *50.f, pos.y *50.f));
+            criarPlataforma(sf::Vector2f(pos.x *50.f, pos.y *50.f), v);
         }
             break;
         
@@ -139,6 +158,10 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
             criarCaixa(sf::Vector2f(pos.x *50.f, pos.y *50.f));
         }
             break;
+        case('k'):
+        {
+            criarCavaleiro(sf::Vector2f(pos.x*50.f, pos.y*50.f));
+        }
 
         case ('l'):
         {

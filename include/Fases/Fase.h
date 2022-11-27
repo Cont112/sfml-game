@@ -7,6 +7,7 @@
 #include "../Gerenciadores/Gerenciador_Eventos.h"
 #include "../Entidades/Personagens/Inimigos/Mago.h"
 #include "../Entidades/Personagens/Inimigos/Esqueleto.h"
+#include "../Entidades/Personagens/Inimigos/Cavaleiro.h"
 #include "../Entidades/Personagens/Inimigos/Inimigo.h"
 #include "../Entidades/Obstaculos/Caixa.h"
 #include "../Entidades/Obstaculos/Lava.h"
@@ -29,13 +30,14 @@ namespace Fases{
         bool player2;
         bool ativo;
     public:
-        Fase();
+        Fase(const IDs ID);
         ~Fase();
         void criarMago(const sf::Vector2f pos);
         void criarEsqueleto(const sf::Vector2f pos);
+        void criarCavaleiro(const sf::Vector2f pos);
         void setJogador1(Entidades::Personagens::Jogador* j);
         void setJogador2(Entidades::Personagens::Jogador* j);
-        void criarPlataforma(const sf::Vector2f pos);
+        void criarPlataforma(const sf::Vector2f pos, bool v);
         void criarCaixa(const sf::Vector2f pos);
         void criarLava(const sf::Vector2f pos);
         void criarEntidade(char letra ,const sf::Vector2f pos);

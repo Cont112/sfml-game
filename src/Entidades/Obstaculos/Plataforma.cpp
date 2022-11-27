@@ -2,10 +2,14 @@
 
 namespace Entidades{
     namespace Obstaculos{
-        Plataforma::Plataforma(sf::Vector2f pos): 
-        Obstaculo(pos, sf::Vector2f(TAMANHO_PLATAFORMA_X, TAMANHO_PLATAFORMA_Y), PATH_PLATAFORMA, IDs::plataforma, 0), 
+        Plataforma::Plataforma(sf::Vector2f pos, bool v): 
+        Obstaculo(pos, sf::Vector2f(TAMANHO_PLATAFORMA_X, TAMANHO_PLATAFORMA_Y), PATH_PLATAFORMA_1, IDs::plataforma, 0), 
         flutuando(false)
         {
+            if(v)
+            {
+                setTextura(PATH_PLATAFORMA_2);
+            }
         }
 
         Plataforma::~Plataforma()

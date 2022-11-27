@@ -1,6 +1,6 @@
 #include "../../include/Fases/Bosque.h"
 
-Fases::Bosque::Bosque():Fase()
+Fases::Bosque::Bosque():Fase(IDs::bosque)
 {
     setTextura(PATH_BOSQUE);
     criarMapa();

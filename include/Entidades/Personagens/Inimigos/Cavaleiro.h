@@ -2,11 +2,11 @@
 
 #include "Inimigo.h"
 
-#define PATH_CAVALEIRO "assets/Inimigos/caveliro.png"
+#define PATH_CAVALEIRO "assets/Inimigos/cavaleiro.png"
 
 #define DANO_CAVALEIRO 20.f
 #define TAM_CAVALEIRO_X 56.0f
-#define TAM_CAVALEIRO_Y 58.0f
+#define TAM_CAVALEIRO_Y 84.0f
 #define VELOCIDADE_CAVALEIRO 150.0f
 
 namespace Entidades{
