@@ -3,7 +3,7 @@
 namespace Entidades{
 
     Projetil::Projetil(const sf::Vector2f pos, const sf::Vector2f tam, const char* path, const IDs id, sf::Vector2f vel):
-              Entidade(pos, tam, vel, id, DANO_PROJETIL)
+              Entidade(pos, tam, sf::Vector2f(VEL_X_PROJETIL, 0), IDs::projetil, DANO_PROJETIL)
     {
         pGrafico->createTexture(PATH_PROJETIL);
         setTextura(pGrafico->textureMap.at(PATH_PROJETIL));
@@ -34,8 +34,11 @@ namespace Entidades{
             float efeitoMagnus = ds.y;
 
             //atualiza posição
-            setPosicao(sf::Vector2f(posicao.x + VEL_X_PROJETIL, posicao.y + ds.y - efeitoMagnus));
+            setPosicao(sf::Vector2f(posicao.x + vel.x, posicao.y + ds.y - efeitoMagnus));
+
         }
+
+        
             
 
         
@@ -44,10 +47,44 @@ namespace Entidades{
     
     void Projetil::colisao(Entidade* other, sf::Vector2f ds)
     {
-        colisaoProjetil(ds, static_cast<Personagens::Personagem*>(other));
+        if (ativo)
+        {
+
+            switch (other->getID())
+            {
+            case (IDs::caixa):
+                setAtividade(false);
+                break;
+            case (IDs::jogador):
+            {
+                setAtividade(false);
+                Entidades::Personagens::Jogador * j = static_cast<Personagens::Jogador*>(other);
+                j->receberDano(getDano());
+            }
+                break;
+            case (IDs::esqueleto):
+                setAtividade(false);
+                break;
+            case (IDs::lava):
+                setAtividade(false);
+                break;
+                setAtividade(false);
+            case (IDs::plataforma):
+            {
+                setAtividade(false);
+                std::cout<<"colidiu plataforma"<<std::endl;
+            }
+                break;
+            default:
+                break;
+            }
+            
+            
+            colisaoProjetil(ds, other);
+        }
     }
     
-    void Projetil::colisaoProjetil(sf::Vector2f ds, Entidades::Personagens::Personagem* pPersonagem)
+    void Projetil::colisaoProjetil(sf::Vector2f ds, Entidades::Entidade* pPersonagem)
     {
         
             sf::Vector2f posOutro = pPersonagem->getPosicao();
@@ -63,8 +100,7 @@ namespace Entidades{
                     }
                    
                     vel.x = 0.0f;
-                    if (pPersonagem->getID()== IDs::jogador || pPersonagem->getID()== IDs::esqueleto || pPersonagem->getID() == IDs::plataforma )
-                        ativo = 0;
+                   
                 } 
                 else {
                     if(posOutro.y < posicao.y){ //colisão em y
@@ -77,8 +113,7 @@ namespace Entidades{
                     
                     vel.y = 0.0f;
 
-                    if (pPersonagem->getID()== IDs::jogador || pPersonagem->getID()== IDs::esqueleto || pPersonagem->getID()== IDs::plataforma)
-                        ativo = 0;
+                    
                     
 
                     

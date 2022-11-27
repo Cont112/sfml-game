@@ -6,10 +6,10 @@ c     p                p
 c                p p          
 c         p                
 c p p                   p
-c p p p p p p p p p p p p p            
-c                     p    
+c            
+c p p p p p p p p p p p p p p                  p    
 c j s           p         
 c p p p     l m       p
 c          p p p        p 
-c                       
+c                 m   m   m
 p p p p p p p p p p p p p p

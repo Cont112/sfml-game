@@ -22,6 +22,6 @@ namespace Entidades{
         ~Projetil();
         void atualizar();   
         void colisao(Entidade* other, sf::Vector2f ds);
-        void colisaoProjetil(sf::Vector2f ds, Entidades::Personagens::Personagem* pPersonagem);     
+        void colisaoProjetil(sf::Vector2f ds, Entidades::Entidade* pPersonagem);     
     };
 }
