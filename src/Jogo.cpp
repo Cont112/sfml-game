@@ -5,7 +5,7 @@ using namespace std;
 Gerenciadores::Gerenciador_Grafico* Jogo::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
 Gerenciadores::Gerenciador_Eventos* Jogo::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
 
-Jogo::Jogo(): gamestate(0), rodando(true), menu_principal(this), menu_fases(this), menu_pause(this), menu_jogadores(this),lv1(), lv2(),dtAux(0.0f)
+Jogo::Jogo(): gamestate(0), rodando(true), menu_principal(this), menu_fases(this), menu_pause(this), menu_jogadores(this), menu_gameover(this),lv1(), lv2(),dtAux(0.0f)
 {
     if (pGrafico ==  nullptr)
     {
@@ -51,6 +51,7 @@ void Jogo::executar()
 
     pGrafico->executar();
     pEventos->executar();
+
     checarGameover();
         
     switch (gamestate)
@@ -74,7 +75,7 @@ void Jogo::executar()
             lv2.executar();
             break;
         case 6:
-            //gameover.executar();
+            menu_gameover.executar();
             break;
         case 7:
             rodando = false;
@@ -94,6 +95,7 @@ void Jogo::checarGameover()
 {
     if(!pEventos->getJogador(true)->getAtividade() && !pEventos->getJogador(false)->getAtividade())
     {
+        std::cout << "morreu" << std::endl;
         setGameState(6);
     }
 }

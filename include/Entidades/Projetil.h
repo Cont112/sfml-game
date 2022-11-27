@@ -7,7 +7,7 @@
 
 
 
-#define PATH_PROJETIL "assets/fogo.png"
+#define PATH_PROJETIL "assets/Inimigos/fireball.png"
 #define DANO_PROJETIL 25
 #define TAM_X_PROJETIL 20.f
 #define TAM_Y_PROJETIL 20.f

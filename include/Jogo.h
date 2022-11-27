@@ -16,6 +16,7 @@ private:
     Menus::Menu_Fases menu_fases;
     Menus::Menu_Pause menu_pause;
     Menus::Menu_Jogadores menu_jogadores;
+    Menus::Menu_Gameover menu_gameover;
     Fases::Bosque lv1;
     Fases::Castelo lv2;
 

@@ -9,7 +9,6 @@ namespace Entidades{
     namespace Personagens{ 
         Jogador::Jogador(const sf::Vector2f pos, const sf::Vector2f tam, const bool multiplayer,const IDs ID): Personagem(pos,tam, VELOCIDADE_JOGADOR, ID, 0), isJumping(false),invulneravel(false)
         {
-            setAtividade(false);
             init(multiplayer);
             
         }
@@ -20,6 +19,7 @@ namespace Entidades{
 
         void Jogador::init(const bool multiplayer)
         {
+            setAtividade(false);
             if(!multiplayer){ 
                 setTextura(PATH_JOGADOR_1);
             }else {
@@ -43,11 +43,11 @@ namespace Entidades{
 
         void Jogador::atualizar()
         {
-            if(ativo){ 
             if(vida <= 0)
             {
                 ativo = false;
             }
+            if(ativo){ 
             
             isJumping = true;
             imprimir_se();
@@ -65,8 +65,6 @@ namespace Entidades{
                 }
             }
             }
-
-
         }
 
         void Jogador::receberDano(int dano)
