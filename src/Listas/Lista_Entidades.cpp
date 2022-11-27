@@ -15,7 +15,7 @@ namespace Listas
     {
         if(pEntidade != NULL)
         {
-            lista.addElemento(pEntidade);
+            lista=(pEntidade);
         }
 
         else

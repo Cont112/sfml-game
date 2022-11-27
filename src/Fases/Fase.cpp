@@ -28,7 +28,6 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
             delete(pColisao);
             pColisao = nullptr;
         }
-
     }
     
     void Fase::criarPlataforma(const sf::Vector2f pos, bool v)

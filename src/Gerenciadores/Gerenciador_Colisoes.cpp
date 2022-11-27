@@ -9,9 +9,11 @@ namespace Gerenciadores {
 
     Gerenciador_Colisoes::~Gerenciador_Colisoes(){
         if(listaPersonagem){
+            listaPersonagem->limparLista();
             delete(listaPersonagem);
         }
         if(listaObstaculo){
+            listaObstaculo->limparLista();
             delete(listaObstaculo);
         }
     }
@@ -75,6 +77,7 @@ namespace Gerenciadores {
                 ent1->colisao(ent2,ds);
                 if (ent2->getID()==IDs::projetil)
                     ent2->colisao(ent1, ds);
+                    ent1->colisao(ent2, ds);
             }
         }
     }

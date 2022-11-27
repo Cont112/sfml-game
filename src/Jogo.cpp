@@ -6,7 +6,7 @@ Gerenciadores::Gerenciador_Grafico* Jogo::pGrafico = Gerenciadores::Gerenciador_
 Gerenciadores::Gerenciador_Eventos* Jogo::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
 
 Jogo::Jogo(): gamestate(0), rodando(true),j1(false),j2(true) ,
-menu_principal(this), menu_fases(this), menu_pause(this), menu_jogadores(this), menu_gameover(this),lv1(), lv2(),dtAux(0.0f)
+menu_principal(this), menu_fases(this), menu_pause(this), menu_jogadores(this), menu_gameover(this),dtAux(0.0f)
 {
     if (pGrafico ==  nullptr)
     {
@@ -22,6 +22,10 @@ menu_principal(this), menu_fases(this), menu_pause(this), menu_jogadores(this), 
     pEventos->setJogo(this);
     pEventos->setJogador2(&j2);
     pEventos->setJogador(&j1);
+
+    lv1 = new Fases::Bosque();
+    lv2 = new Fases::Castelo();
+
     while(rodando)
     {
         executar();
@@ -70,11 +74,11 @@ void Jogo::executar()
             break;
         case 4:
             checarGameover();
-            lv1.executar();
+            lv1->executar();
             break;
         case 5:
             checarGameover();
-            lv2.executar();
+            lv2->executar();
             break;
         case 6:
             menu_gameover.executar();
@@ -117,10 +121,10 @@ Fases::Fase* Jogo::getFase(IDs ID)
 {
     if (ID == IDs::bosque)
     {
-        return dynamic_cast<Fases::Fase*>(&lv1);
+        return dynamic_cast<Fases::Fase*>(lv1);
     } else if (ID == IDs::castelo)
     {
-        return dynamic_cast<Fases::Fase*>(&lv2);
+        return dynamic_cast<Fases::Fase*>(lv2);
     }
 
     else

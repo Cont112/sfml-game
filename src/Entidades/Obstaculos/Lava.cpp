@@ -36,7 +36,7 @@ namespace Entidades{
             if(other->getID() == IDs::jogador || other->getID() == IDs::esqueleto || other->getID() == IDs::mago){ 
                 colisaoObstaculo(ds, static_cast<Personagens::Personagem*>(other));
             }
-            else if(other->getID() == IDs::plataforma || other->getID() == IDs::caixa){
+            else if(other->getID() == IDs::plataforma || other->getID() == IDs::caixa || other->getID() == IDs::lava){
                 posicao.y = other->getPosicao().y - tam.y;
                 vely = 0.0f;
             }

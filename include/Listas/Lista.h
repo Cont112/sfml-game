@@ -57,7 +57,7 @@ namespace Listas{
         void addElemento(TL* pElemento);
         int getTamanho();
         TL* operator[](int pos);
-        
+        void operator=(TL* pElemento);
     };
 
 
@@ -138,5 +138,11 @@ namespace Listas{
             aux= aux->getProximo();
         }
         return aux->getData();
+    }
+
+    template<class TL>
+    void Lista<TL>::operator=(TL* pElemento)
+    {
+        addElemento(pElemento);
     }
 }

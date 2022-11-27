@@ -34,12 +34,12 @@ void Fases::Castelo::criarMapa()
 
     //criando mapa 
     
-    arquivo.open("src/Fases/Mapa_Bosque.txt");
+    arquivo.open("src/Fases/Mapa_Castelo.txt");
     try
     {
         if (!arquivo.is_open())
         {
-            std::cout<<"erro ao abrir o arquivo da fase bosque"<<std::endl;
+            std::cout<<"erro ao abrir o arquivo da fase castelo"<<std::endl;
             throw 1;
         }
 
@@ -64,7 +64,7 @@ void Fases::Castelo::criarMapa()
         criarEntidade('m', sf::Vector2f( (rand()%25)+5 ,0));
     } 
 
-    for (int i=0; i<nCavaleiros;i++)//criando cavaleiros aleatorios
+    for (int i=0; i<nCavaleiros;i++)//criando esqueleto aleatorios
     {
         criarEntidade('k', sf::Vector2f( (rand()%25)+5 ,0));
     }  
