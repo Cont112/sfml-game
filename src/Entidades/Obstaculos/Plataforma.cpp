@@ -21,6 +21,8 @@ namespace Entidades{
             ds.y = vel.y * GRAVIDADE;
 
             float flutuabilidade = ds.y;
+            if(flutuando)
+                flutuabilidade = 0.0f;
 
             //atualiza posição
             setPosicao(sf::Vector2f(posicao.x, posicao.y + ds.y - flutuabilidade));

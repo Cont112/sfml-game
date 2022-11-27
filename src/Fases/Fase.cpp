@@ -29,8 +29,6 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
             pColisao = nullptr;
         }
 
-        listaObstaculos.limparLista();
-        listaPersonagens.limparLista();
     }
     
     void Fase::criarPlataforma(const sf::Vector2f pos)

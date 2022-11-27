@@ -82,7 +82,8 @@ namespace Listas{
         while(pPrimeiro != NULL)
         {
             pPrimeiro = pPrimeiro->getProximo();
-            delete paux;
+            if(paux)
+                delete paux;
             paux = pPrimeiro;
             tamanho--;
         }

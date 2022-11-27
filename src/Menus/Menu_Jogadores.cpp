@@ -25,6 +25,8 @@ namespace Menus{
             cooldown = true;
             jogo->getFase(IDs::bosque)->doisJogadores(false);
             jogo->getFase(IDs::castelo)->doisJogadores(false);
+            jogo->getFase(IDs::bosque)->resetar();
+            jogo->getFase(IDs::castelo)->resetar();
             jogo->setGameState(2);
             
         }

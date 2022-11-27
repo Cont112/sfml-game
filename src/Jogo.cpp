@@ -29,8 +29,7 @@ Jogo::Jogo(): gamestate(0), rodando(true), menu_principal(this), menu_fases(this
 Jogo::~Jogo()
 {
     pGrafico->deletarInstance();
-    pEventos->deletarInstance();
-    
+    pEventos->deletarInstance(); 
 }
 
 /* Gamestates:
@@ -41,19 +40,18 @@ Jogo::~Jogo()
 4: Fase 1
 5: Fase 2
 6: Gameover
-7: Fechar
-    
-*/
+7: Fechar */
 void Jogo::executar()
 {
     if(!pGrafico->isWindowOpen())
         rodando = false;
+   
 
     pGrafico->executar();
     pEventos->executar();
 
     checarGameover();
-        
+
     switch (gamestate)
         {
         case 0:
@@ -83,6 +81,7 @@ void Jogo::executar()
     }
 
     pGrafico->display(); 
+
     dtAux += pGrafico->getDt();
     if(dtAux >= 1.5f)
     {
