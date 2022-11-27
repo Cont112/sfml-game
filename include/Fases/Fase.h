@@ -37,7 +37,7 @@ namespace Fases{
         void criarCavaleiro(const sf::Vector2f pos);
         void setJogador1(Entidades::Personagens::Jogador* j);
         void setJogador2(Entidades::Personagens::Jogador* j);
-        void criarPlataforma(const sf::Vector2f pos, bool v);
+        void criarPlataforma(const sf::Vector2f pos, bool f,bool v);
         void criarCaixa(const sf::Vector2f pos);
         void criarLava(const sf::Vector2f pos);
         void criarEntidade(char letra ,const sf::Vector2f pos);
@@ -45,6 +45,7 @@ namespace Fases{
         void atualizar();
         void doisJogadores(bool j);
         bool getDoisJogadores();
+        bool getAtividadeInimigos();
         virtual void resetar() = 0;
         virtual void criarMapa() = 0;
    };

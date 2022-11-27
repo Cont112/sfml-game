@@ -1,5 +1,5 @@
 #include "../../../../include/Entidades/Personagens/Inimigos/Inimigo.h"
-#define HEIGHT 720
+
 namespace Entidades { 
     namespace Personagens{
         namespace Inimigos{  
@@ -76,22 +76,10 @@ namespace Entidades {
                 parar();
                 atualizarMovimentoAleatorio();
                 break;
-            
-            case (IDs::esqueleto):
-            {
-                if (other->getAtividade())
-                {
-                    colisaoPersonagem(ds, other);
-                }
-            }
-            case(IDs::mago):
-            {
-                 if (other->getAtividade())
-                {
-                    colisaoPersonagem(ds, other);
-                }
-            }
+            case (IDs::lava):
+                atualizarMovimentoAleatorio();
                 break;
+
             }
 
         }

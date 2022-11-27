@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <cstring>
 #include "Personagem.h"
 
 #define PATH_JOGADOR_1 "assets/Jogadores/jogador1.png"
@@ -16,6 +17,7 @@ namespace Entidades {
         class Jogador:public Personagem
         {
             private:
+                sf::Text textoVida;
                 void init(const bool multiplayer);
                 bool isJumping;
                 bool invulneravel;
@@ -31,7 +33,6 @@ namespace Entidades {
                 void atualizar();
                 void resetar();
                 void colisao(Entidade* other, sf::Vector2f ds =  sf::Vector2f(0.0f,0.0f));
-                
 
         };
     }

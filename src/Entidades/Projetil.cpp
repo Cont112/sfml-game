@@ -32,7 +32,7 @@ namespace Entidades{
             float efeitoMagnus = ds.y;
 
             //atualiza posição
-            setPosicao(sf::Vector2f(posicao.x + vel.x, posicao.y + ds.y - efeitoMagnus));
+            setPosicao(sf::Vector2f(posicao.x + vel.x*dt, posicao.y + ds.y - efeitoMagnus));
 
         }
 
@@ -61,7 +61,7 @@ namespace Entidades{
             }
                 break;
             case (IDs::esqueleto):
-                setAtividade(false);
+                //setAtividade(false);
                 break;
             case (IDs::lava):
                 setAtividade(false);

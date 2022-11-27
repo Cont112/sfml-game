@@ -11,7 +11,7 @@
 #define DANO_PROJETIL 25
 #define TAM_X_PROJETIL 20.f
 #define TAM_Y_PROJETIL 20.f
-#define VEL_X_PROJETIL 0.1f
+#define VEL_X_PROJETIL 100.f
 
 namespace Entidades{
     class Projetil: public Entidade{

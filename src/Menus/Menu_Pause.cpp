@@ -15,7 +15,6 @@ namespace Menus{
 
     Menu_Pause::~Menu_Pause()
     {
-   
     }
 
     void Menu_Pause::atualizar()

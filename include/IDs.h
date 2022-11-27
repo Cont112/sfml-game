@@ -5,6 +5,7 @@ enum class IDs{
     jogador,
     esqueleto,
     mago,
+    cavaleiro,
     projetil,
     plataforma,
     caixa,

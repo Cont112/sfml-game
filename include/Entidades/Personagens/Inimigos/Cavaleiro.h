@@ -4,9 +4,9 @@
 
 #define PATH_CAVALEIRO "assets/Inimigos/cavaleiro.png"
 
-#define DANO_CAVALEIRO 20.f
+#define DANO_CAVALEIRO 50.f
 #define TAM_CAVALEIRO_X 56.0f
-#define TAM_CAVALEIRO_Y 84.0f
+#define TAM_CAVALEIRO_Y 78.0f
 #define VELOCIDADE_CAVALEIRO 150.0f
 
 namespace Entidades{

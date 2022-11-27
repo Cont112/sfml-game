@@ -11,6 +11,7 @@ namespace Gerenciadores {
     class Gerenciador_Grafico{
     private:
         sf::RenderWindow* window;
+        sf::Font font;
         sf::Clock clock;
         static float dt;
         
@@ -27,6 +28,8 @@ namespace Gerenciadores {
 
         void render(sf::RectangleShape shape);
 
+        void render(sf::Text text);
+
         void display();
 
         void clear();
@@ -34,6 +37,8 @@ namespace Gerenciadores {
         bool isWindowOpen() const;
 
         void closeWindow();
+
+        sf::Font loadFont();
 
         sf::RenderWindow* getWindow() const;
 

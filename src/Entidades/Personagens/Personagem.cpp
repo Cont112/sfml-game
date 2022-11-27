@@ -87,15 +87,21 @@ namespace Entidades{
             vel.y += GRAVIDADE * dt;
             ds.y = vel.y * GRAVIDADE;
 
+            if(vel.y > 15.f)
+                vel.y = 15.f;
+            
+            if(posicao.y >= 1300)
+                setAtividade(false);
+
             //atualiza posição
             setPosicao(sf::Vector2f(posicao.x + ds.x, posicao.y + ds.y));
 
             //atualiza velocidade na horizontal
             vel.x = velMax;
 
-            if(posicao.y >= 720)
+            if(posicao.y >= 720 || posicao.x > 1280.f || posicao.x < 0.0f)
             {
-                setPosicao(sf::Vector2f(posicao.x, 680));
+                setAtividade(0);
             }
             //desenha na janela
             imprimir_se();

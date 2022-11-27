@@ -23,16 +23,20 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     }
 
     Fase::~Fase() 
-    {
+    { 
+
         if(pColisao){
             delete(pColisao);
             pColisao = nullptr;
         }
+
+        listaObstaculos.limparLista();
+        listaPersonagens.limparLista();
     }
     
-    void Fase::criarPlataforma(const sf::Vector2f pos, bool v)
+    void Fase::criarPlataforma(const sf::Vector2f pos, bool f,bool v)
     {        
-        Entidades::Obstaculos::Plataforma *plataforma = new Entidades::Obstaculos::Plataforma (pos,v);
+        Entidades::Obstaculos::Plataforma *plataforma = new Entidades::Obstaculos::Plataforma (pos,f,v);
         
         if (plataforma==nullptr)
         {
@@ -121,7 +125,7 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
 
        if(lava == nullptr)
        {
-        std::cout<<"erro ao criar caixa"<<std::endl;
+        std::cout<<"erro ao criar lava"<<std::endl;
         exit(1);
        }
 
@@ -148,10 +152,13 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
             break;
         case('p'):
         {
-            criarPlataforma(sf::Vector2f(pos.x *50.f, pos.y *50.f), v);
+            criarPlataforma(sf::Vector2f(pos.x *50.f, pos.y *50.f), false,v);
         }
             break;
-        
+        case('f'):
+        {
+            criarPlataforma(sf::Vector2f(pos.x*50.f, pos.y*50.f), true, v);
+        }
         case('c'):
         {
             criarCaixa(sf::Vector2f(pos.x *50.f, pos.y *50.f));
@@ -196,5 +203,17 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
         listaObstaculos.atualizar();
     }
 
+    bool Fase::getAtividadeInimigos()
+    {
+        int sum = 0;
+        for(int i = 0; i < listaPersonagens.getTamanho(); i++)
+        {
+            if(listaPersonagens[i]->getID() != IDs::jogador)
+            {
+                sum += listaPersonagens[i]->getAtividade();
+            }
+        }
+        return sum;
+    }
 
 }

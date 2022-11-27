@@ -19,8 +19,12 @@ namespace Entidades{
             sf::Vector2f ds(0.0f, 0.0f);
 
             //sofre o efeito da gravidade
-            vely += GRAVIDADE * dt;
-            ds.y = vely * GRAVIDADE;
+            vel.y += GRAVIDADE * dt;
+            ds.y = vel.y * GRAVIDADE;
+            if(vel.y >15.f)
+            {
+                vel.y = 15.f;
+            }
 
             //atualiza posição
             setPosicao(sf::Vector2f(posicao.x, posicao.y + ds.y));
@@ -33,12 +37,12 @@ namespace Entidades{
         void Lava::colisao(Entidade* other, sf::Vector2f ds)
         {
 
-            if(other->getID() == IDs::jogador || other->getID() == IDs::esqueleto || other->getID() == IDs::mago){ 
+            if(other->getID() == IDs::jogador || other->getID() == IDs::esqueleto || other->getID() == IDs::mago || other->getID() == IDs::cavaleiro){ 
                 colisaoObstaculo(ds, static_cast<Personagens::Personagem*>(other));
             }
-            else if(other->getID() == IDs::plataforma || other->getID() == IDs::caixa || other->getID() == IDs::lava){
+            else if(other->getID() == IDs::plataforma || other->getID() == IDs::caixa ){
                 posicao.y = other->getPosicao().y - tam.y;
-                vely = 0.0f;
+                vel.y = 0.0f;
             }
         }
 

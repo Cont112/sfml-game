@@ -19,16 +19,16 @@ void Fases::Bosque::criarMapa()
     int nLavas = (rand()%3)+3;
     int nCaixas = (rand()%9)+3;
     int nMagos = (rand()%4)+3;
-    int nCaveiras = (rand()%4)+3;
+    int nCavaleiros = (rand()%4)+3;
 
     for (int i=0; i<nCaixas;i++)//criando caixas aleatorias 
     {
-        criarEntidade('c', sf::Vector2f( (rand()%25)+2 ,0));
+        criarEntidade('c', sf::Vector2f( (rand()%23)+2 ,0));
     }
 
     for (int i=0; i<nLavas;i++)//criando caixas aleatorias 
     {
-        criarEntidade('l', sf::Vector2f( (rand()%25)+2 ,0));
+        criarEntidade('l', sf::Vector2f( (rand()%23)+2 ,0));
     }
 
 
@@ -61,12 +61,12 @@ void Fases::Bosque::criarMapa()
 
     for (int i=0; i<nMagos;i++)//criando magos aleatorios
     {
-        criarEntidade('m', sf::Vector2f( (rand()%25)+5 ,0));
+        criarEntidade('m', sf::Vector2f( (rand()%20)+5 ,0));
     } 
 
-    for (int i=0; i<nCaveiras;i++)//criando esqueleto aleatorios
+    for (int i=0; i<nCavaleiros;i++)//criando esqueleto aleatorios
     {
-        criarEntidade('e', sf::Vector2f( (rand()%25)+5 ,0));
+        criarEntidade('k', sf::Vector2f( (rand()%20)+5 ,0));
     }  
 }
 

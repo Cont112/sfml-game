@@ -14,7 +14,7 @@ namespace Entidades {
         private:
             bool flutuando;
         public:
-            Plataforma(sf::Vector2f pos, bool f);
+            Plataforma(sf::Vector2f pos, bool f,bool v);
             ~Plataforma();
 
             void atualizar();

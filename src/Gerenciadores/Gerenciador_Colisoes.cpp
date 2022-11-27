@@ -10,11 +10,9 @@ namespace Gerenciadores {
     Gerenciador_Colisoes::~Gerenciador_Colisoes(){
         if(listaPersonagem){
             listaPersonagem->limparLista();
-            delete(listaPersonagem);
         }
         if(listaObstaculo){
             listaObstaculo->limparLista();
-            delete(listaObstaculo);
         }
     }
    
@@ -57,10 +55,12 @@ namespace Gerenciadores {
             Entidades::Entidade* ent2 = listaObstaculo->operator[](j);
             sf::Vector2f ds = calculaDistancia(ent1, ent2);
             if(ds.x < 0.0f && ds.y < 0.0f){
-                if(ent2->getID() == IDs::plataforma || ent2->getID() == IDs::caixa || ent2->getID() == IDs::lava || ent2->getID() == IDs::projetil){
+                if(ent2->getID() == IDs::plataforma || ent2->getID() == IDs::caixa || ent2->getID() == IDs::lava){
                     ent2->colisao(ent1, ds);
                 } 
                 else {
+                    if(ent2->getID() == IDs::projetil)
+                        ent2->colisao(ent1,ds);
                     // outro obstáculo 
                 }
             }
@@ -74,10 +74,15 @@ namespace Gerenciadores {
             Entidades::Entidade* ent2 = listaObstaculo->operator[](j);
             sf::Vector2f ds = calculaDistancia(ent1, ent2);
             if(ds.x < 0.0f && ds.y < 0.0f){
-                ent1->colisao(ent2,ds);
                 if (ent2->getID()==IDs::projetil)
                     ent2->colisao(ent1, ds);
+                if (ent2->getID() == IDs::plataforma)
                     ent1->colisao(ent2, ds);
+                if (ent2->getID() == IDs::caixa)
+                    ent1->colisao(ent2,ds);
+                if (ent2->getID() == IDs::lava)
+                    ent2->colisao(ent1, ds);
+                
             }
         }
     }

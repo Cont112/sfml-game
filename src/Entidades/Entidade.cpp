@@ -13,8 +13,7 @@ namespace Entidades
     } 
 
     Entidade::~Entidade()
-    {
-        
+    {        
     }
 
     sf::Vector2f Entidade::getPosicao()

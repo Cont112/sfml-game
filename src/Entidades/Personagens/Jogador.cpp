@@ -1,9 +1,10 @@
 #include "../../../include/Entidades/Personagens/Jogador.h"
 #include "../../../include/Gerenciadores/Gerenciador_Colisoes.h"
 
+
 namespace Entidades{ 
     namespace Personagens{ 
-        Jogador::Jogador(const bool multiplayer): Personagem(sf::Vector2f(50.f,600.f),sf::Vector2f(48.f, 48.f), VELOCIDADE_JOGADOR, IDs::jogador, 0), isJumping(false),invulneravel(false)
+        Jogador::Jogador(const bool multiplayer): Personagem(sf::Vector2f(50.f,600.f),sf::Vector2f(48.f, 48.f), VELOCIDADE_JOGADOR, IDs::jogador, 0), isJumping(false),invulneravel(false), textoVida()
         {
             init(multiplayer);
             
@@ -14,13 +15,23 @@ namespace Entidades{
         }
 
         void Jogador::init(const bool multiplayer)
-        {
+        {   
             setAtividade(false);
             if(!multiplayer){ 
                 setTextura(PATH_JOGADOR_1);
             }else {
                 setTextura(PATH_JOGADOR_2);
             }
+            textoVida.setFont(pGrafico->loadFont());
+            textoVida.setString(std::to_string(vida));
+            textoVida.setCharacterSize(18);
+            textoVida.setFillColor(sf::Color::White);
+
+            if(multiplayer)
+                textoVida.setPosition(sf::Vector2f(1030.f, 150.f));
+            else
+                textoVida.setPosition(sf::Vector2f(150.f, 150.f));
+
             shape.setOrigin(sf::Vector2f(tam.x/2.0f,0.0f));
         }
 
@@ -39,6 +50,7 @@ namespace Entidades{
 
         void Jogador::atualizar()
         {
+            std::cout << vida << std::endl;
             if(vida <= 0)
             {
                 ativo = false;
@@ -47,6 +59,7 @@ namespace Entidades{
             
             isJumping = true;
             imprimir_se();
+            pGrafico->render(textoVida);
             atualizarPosicao();
             
 
@@ -87,41 +100,41 @@ namespace Entidades{
             switch (other->getID())
             {
             case(IDs::jogador):
-            {
-            }
-            break;
+                break;
 
             case (IDs::esqueleto):
-            {
                 if (other->getAtividade())
                 {
                     colisaoPersonagem(ds, other);
                     if (ds.y < ds.x)
                     {
-                        receberDano(25);
+                        receberDano(other->getDano());
                     }
                 }
-            }
+                break;
+            case (IDs::cavaleiro):
+                if(other->getAtividade())
+                {
+                    colisaoPersonagem(ds,other);
+                    if (ds.y < ds.x)
+                    {
+                        receberDano(other->getDano());
+                    }
+                }
                 break;
 
             case(IDs::lava):
-            {
                 colisaoPersonagem(ds, other);
-            }
                 break;
 
             case (IDs::mago):
-            {
                 if (other->getAtividade())
                 {
                     colisaoPersonagem(ds, other);
                 }
-            }
                 break;
             case(IDs::projetil):
-            {
                 receberDano(other->getDano());
-            }
                 break;
             
             

@@ -3,7 +3,8 @@
 #include<cstring>
 #include<iostream>
 
-#define W_NAME "Tab"
+#define W_NAME "Hero++"
+#define FONT_PATH "assets/Fonts/Adventuro.ttf"
 #define WIDTH 1280
 #define HEIGHT 720
 
@@ -47,6 +48,21 @@ Gerenciador_Grafico::~Gerenciador_Grafico()
 void Gerenciador_Grafico::render(sf::RectangleShape shape)
 {
     window->draw(shape);
+}
+
+void Gerenciador_Grafico::render(sf::Text text)
+{
+    window->draw(text);
+}
+
+sf::Font Gerenciador_Grafico::loadFont()
+{
+    if(!font.loadFromFile(FONT_PATH))
+    {
+        std::cout << "Erro ao carregar a fonte" << std::endl;
+        exit(1);
+    }
+    return font;
 }
 
 void Gerenciador_Grafico::display()

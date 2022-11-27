@@ -51,6 +51,7 @@ Jogo::~Jogo()
 6: Gameover
 7: Fechar 
 */
+
 void Jogo::executar()
 {
     if(!pGrafico->isWindowOpen())
@@ -77,9 +78,17 @@ void Jogo::executar()
         case 4:
             checarGameover();
             lv1->executar();
+            if(!lv1->getAtividadeInimigos())
+            {
+                j1.resetar();
+                j2.resetar();
+                setGameState(5);
+            }
             break;
         case 5:
             checarGameover();
+            if(!lv2->getAtividadeInimigos())
+                setGameState(0);
             lv2->executar();
             break;
         case 6:

@@ -146,7 +146,6 @@ namespace Listas{
                     aux2->setProximo(aux->getProximo());
                 }
                 tamanho--;
-                delete(aux);
                 aux = nullptr;
                 aux2 = nullptr;
             }
