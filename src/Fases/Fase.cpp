@@ -5,11 +5,12 @@ using namespace Entidades::Obstaculos;
 
 namespace Fases{
 
+int Fase::points = 0;
 Gerenciadores::Gerenciador_Grafico* Fase::pGrafico = Gerenciadores::Gerenciador_Grafico::getInstance();
 Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
 
     Fase::Fase(const IDs ID): Ente(ID),listaPersonagens(), listaObstaculos(), player2(false),
-                  pColisao(new Gerenciadores::Gerenciador_Colisoes(&listaPersonagens, &listaObstaculos)), ativo(0)
+                  pColisao(new Gerenciadores::Gerenciador_Colisoes(&listaPersonagens, &listaObstaculos)), ativo(0), dtAux(0.0f), pontos()
     {
         if (pColisao == NULL)
         {
@@ -19,6 +20,12 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
         shape.setOrigin(sf::Vector2f(0.0f,0.0f));
         shape.setPosition(sf::Vector2f(0.0f,0.0f));
         shape.setSize((sf::Vector2f)pGrafico->getWindow()->getSize());
+
+        pontos.setFont(*pGrafico->loadFont());
+        pontos.setString(std::to_string(points));
+        pontos.setCharacterSize(18);
+        pontos.setPosition(sf::Vector2f(640.f,50.f));
+        pontos.setFillColor(sf::Color::White);
 
     }
 
@@ -193,12 +200,20 @@ Gerenciadores::Gerenciador_Eventos* Fase::pEventos = Gerenciadores::Gerenciador_
     void Fase::executar()
     {
         imprimir_se();
+        pGrafico->render(pontos);
+        pontos.setString(std::to_string(points));
         atualizar();
         pColisao->executar();        
     }
     
     void Fase::atualizar()
     { 
+        dtAux += pGrafico->getDt();
+        if(dtAux >= 1.0f)
+        {
+            points++;
+            dtAux = 0.0f;
+        }
         listaPersonagens.atualizar();
         listaObstaculos.atualizar();
     }

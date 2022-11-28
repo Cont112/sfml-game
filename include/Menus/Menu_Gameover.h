@@ -2,7 +2,7 @@
 #include "Menu.h"
 
 #define PATH_MENU_GAMEOVER "assets/Fundos/menu_gameover.jpg"
-#define PATH_SALVAR "assets/Buttons/Menu_Gameover/salvar.png"
+#define PATH_LEADERBOARD "assets/Buttons/Menu_Gameover/leaderboard.png"
 
 class Jogo;
 
@@ -10,7 +10,8 @@ namespace Menus{
     
     class Menu_Gameover: public Menu{
     private:
-        Botao salvar;
+        Botao leaderboard;
+        Botao menu_principal;
 
     public:
         Menu_Gameover(Jogo* jogo);

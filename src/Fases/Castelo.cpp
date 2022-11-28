@@ -72,6 +72,7 @@ void Fases::Castelo::criarMapa()
 
 void Fases::Castelo::resetar()
 {
+    points = 0;
     listaObstaculos.limparLista();
     listaPersonagens.limparLista();
 

@@ -6,7 +6,7 @@ Gerenciadores::Gerenciador_Grafico* Jogo::pGrafico = Gerenciadores::Gerenciador_
 Gerenciadores::Gerenciador_Eventos* Jogo::pEventos = Gerenciadores::Gerenciador_Eventos::getInstance();
 
 Jogo::Jogo(): gamestate(0), rodando(true),j1(false),j2(true),
-menu_principal(this), menu_fases(this), menu_pause(this), menu_jogadores(this), menu_gameover(this),dtAux(0.0f)
+menu_principal(this), menu_fases(this), menu_pause(this), menu_jogadores(this), menu_gameover(this),menu_leaderboard(this),dtAux(0.0f)
 {
     if (pGrafico ==  nullptr)
     {
@@ -49,7 +49,8 @@ Jogo::~Jogo()
 4: Fase 1
 5: Fase 2
 6: Gameover
-7: Fechar 
+7: Leaderboard
+8: Fechar 
 */
 
 void Jogo::executar()
@@ -88,13 +89,19 @@ void Jogo::executar()
         case 5:
             checarGameover();
             if(!lv2->getAtividadeInimigos())
-                setGameState(0);
+            {
+                setGameState(7);
+                menu_leaderboard.registrarPontuacao(Fases::Fase::getPontos());
+            }
             lv2->executar();
             break;
         case 6:
             menu_gameover.executar();
             break;
-        case 7:
+        case 7:                
+            menu_leaderboard.executar();
+            break;
+        case 8:
             rodando = false;
             break;
     }
@@ -113,6 +120,7 @@ void Jogo::checarGameover()
 {
     if(!(j1.getAtividade()) && !(j2.getAtividade()))
     {
+        menu_leaderboard.registrarPontuacao(Fases::Fase::getPontos());
         setGameState(6);
     }
 }

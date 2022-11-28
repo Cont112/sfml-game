@@ -17,5 +17,6 @@ enum class IDs{
     menu_fases,
     menu_pause,
     menu_jogadores,
-    menu_gameover
+    menu_gameover,
+    menu_leaderboard
 };

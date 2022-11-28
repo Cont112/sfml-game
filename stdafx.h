@@ -23,6 +23,7 @@
 #include "include/Menus/Menu_Pause.h"
 #include "include/Menus/Menu_Jogadores.h"
 #include "include/Menus/Menu_Gameover.h"
+#include "include/Menus/Menu_Leaderboard.h"
 #include <vector>
 
 #define WIDTH 1280.0f

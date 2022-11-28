@@ -13,6 +13,7 @@ namespace Menus{
     private:
         Botao jogar;
         Botao sair;
+        Botao leaderboard;
 
     public:
         Menu_Principal(Jogo* jogo);

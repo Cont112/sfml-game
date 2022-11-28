@@ -72,6 +72,7 @@ void Fases::Bosque::criarMapa()
 
 void Fases::Bosque::resetar()
 {
+    points = 0;
     listaObstaculos.limparLista();
     listaPersonagens.limparLista();
 

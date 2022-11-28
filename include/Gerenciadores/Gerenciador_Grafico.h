@@ -38,7 +38,7 @@ namespace Gerenciadores {
 
         void closeWindow();
 
-        sf::Font loadFont();
+        sf::Font* loadFont();
 
         sf::RenderWindow* getWindow() const;
 

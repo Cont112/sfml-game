@@ -55,14 +55,14 @@ void Gerenciador_Grafico::render(sf::Text text)
     window->draw(text);
 }
 
-sf::Font Gerenciador_Grafico::loadFont()
+sf::Font* Gerenciador_Grafico::loadFont()
 {
     if(!font.loadFromFile(FONT_PATH))
     {
         std::cout << "Erro ao carregar a fonte" << std::endl;
         exit(1);
     }
-    return font;
+    return &font;
 }
 
 void Gerenciador_Grafico::display()

@@ -23,9 +23,11 @@ namespace Fases{
         Gerenciadores::Gerenciador_Colisoes* pColisao;
         static Gerenciadores::Gerenciador_Grafico* pGrafico;
         static Gerenciadores::Gerenciador_Eventos* pEventos;
+        static int points;
         Entidades::Personagens::Jogador* j1;
         Entidades::Personagens::Jogador* j2;
-
+        float dtAux;
+        sf::Text pontos;
 
         bool player2;
         bool ativo;
@@ -46,6 +48,7 @@ namespace Fases{
         void doisJogadores(bool j);
         bool getDoisJogadores();
         bool getAtividadeInimigos();
+        static int getPontos() {return points;}
         virtual void resetar() = 0;
         virtual void criarMapa() = 0;
    };

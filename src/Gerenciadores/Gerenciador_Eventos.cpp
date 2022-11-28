@@ -75,12 +75,21 @@ namespace Gerenciadores
             case 5:
                 pJogo->setGameState(3);
                 break;
+            case 6:
+                pJogo->getFase(IDs::bosque)->resetar();
+                pJogo->getFase(IDs::castelo)->resetar();
+                pJogo->setGameState(0);
+                break;
+            case 7:
+                pJogo->setGameState(pJogo->getLastGameState());
+                break;
 
             }
-        } else if (tecla == sf::Keyboard::R){
+        }   if (tecla == sf::Keyboard::R){
             pJogo->getFase(IDs::bosque)->resetar();
             pJogo->getFase(IDs::castelo)->resetar();
         }
+
 
         if (player2)
         {

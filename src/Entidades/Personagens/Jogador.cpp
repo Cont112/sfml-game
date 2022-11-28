@@ -22,15 +22,16 @@ namespace Entidades{
             }else {
                 setTextura(PATH_JOGADOR_2);
             }
-            textoVida.setFont(pGrafico->loadFont());
+            textoVida.setFont(*pGrafico->loadFont());
             textoVida.setString(std::to_string(vida));
             textoVida.setCharacterSize(18);
-            textoVida.setFillColor(sf::Color::White);
+            textoVida.setFillColor(sf::Color::Red);
+            textoVida.setOrigin(sf::Vector2f(0.0f,0.0f));
 
             if(multiplayer)
-                textoVida.setPosition(sf::Vector2f(1030.f, 150.f));
+                textoVida.setPosition(sf::Vector2f(1030.f, 50.f));
             else
-                textoVida.setPosition(sf::Vector2f(150.f, 150.f));
+                textoVida.setPosition(sf::Vector2f(150.f, 50.f));
 
             shape.setOrigin(sf::Vector2f(tam.x/2.0f,0.0f));
         }
@@ -50,7 +51,6 @@ namespace Entidades{
 
         void Jogador::atualizar()
         {
-            std::cout << vida << std::endl;
             if(vida <= 0)
             {
                 ativo = false;
@@ -60,6 +60,7 @@ namespace Entidades{
             isJumping = true;
             imprimir_se();
             pGrafico->render(textoVida);
+            textoVida.setString(std::to_string(vida));
             atualizarPosicao();
             
 
